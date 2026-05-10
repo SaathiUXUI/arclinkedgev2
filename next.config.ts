@@ -1,3 +1,4 @@
+// Triggering fresh deployment for new repository connection
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
