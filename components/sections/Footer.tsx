@@ -19,7 +19,6 @@ const footerLinks = {
   ],
   company: [
     { label: "Blog", href: "/blog" },
-    { label: "Careers", href: "/careers" },
     { label: "Terms & Conditions", href: "/terms" },
     { label: "Privacy Policy", href: "/privacy" },
   ],
