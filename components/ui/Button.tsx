@@ -13,7 +13,18 @@ type CommonProps = {
   rel?: string;
 };
 
-export function PrimaryButton({ href, children, className = "", onClick, icon: Icon = ArrowRight, target, rel }: CommonProps) {
+export function PrimaryButton({ 
+  href, 
+  children, 
+  className = "", 
+  onClick, 
+  icon: Icon = ArrowRight, 
+  iconPosition = "right",
+  target, 
+  rel 
+}: CommonProps & { iconPosition?: "left" | "right" }) {
+  const isLeft = iconPosition === "left";
+  
   return (
     <a
       href={href}
@@ -28,20 +39,30 @@ export function PrimaryButton({ href, children, className = "", onClick, icon: I
         className="flex w-full items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-full group-focus:-translate-y-full group-active:-translate-y-full"
         style={{ padding: "0.85rem 1.9rem" }}
       >
+        {isLeft && Icon && <Icon size={15} aria-hidden="true" />}
         {children}
-        <Icon size={15} aria-hidden="true" />
+        {!isLeft && Icon && <Icon size={15} aria-hidden="true" />}
       </span>
-      {/* Hover layer — enters from bottom-left diagonally */}
+      {/* Hover layer */}
       <span
         className="absolute inset-0 flex w-full translate-y-full items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0 group-active:translate-y-0"
         style={{ padding: "0.85rem 1.9rem" }}
       >
+        {isLeft && Icon && (
+          <Icon
+            size={15}
+            aria-hidden="true"
+            className="translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0"
+          />
+        )}
         {children}
-        <Icon
-          size={15}
-          aria-hidden="true"
-          className="-translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0"
-        />
+        {!isLeft && Icon && (
+          <Icon
+            size={15}
+            aria-hidden="true"
+            className="-translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0"
+          />
+        )}
       </span>
     </a>
   );
@@ -53,11 +74,14 @@ export function SecondaryButton({
   className = "", 
   onClick, 
   icon: Icon = ArrowRight,
+  iconPosition = "right",
   imgSrc,
   imgAlt = "",
   target,
   rel
-}: CommonProps) {
+}: CommonProps & { iconPosition?: "left" | "right" }) {
+  const isLeft = iconPosition === "left";
+
   return (
     <a
       href={href}
@@ -72,33 +96,25 @@ export function SecondaryButton({
         className="flex w-full items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-full group-focus:-translate-y-full group-active:-translate-y-full"
         style={{ padding: "0.85rem 1.9rem" }}
       >
+        {isLeft && (imgSrc ? <img src={imgSrc} alt={imgAlt} style={{ width: "16px", height: "16px" }} aria-hidden="true" /> : (Icon && <Icon size={15} aria-hidden="true" />))}
         {children}
-        {imgSrc ? (
-          <img src={imgSrc} alt={imgAlt} style={{ width: "16px", height: "16px" }} aria-hidden="true" />
-        ) : (
-          <Icon size={15} aria-hidden="true" />
-        )}
+        {!isLeft && (imgSrc ? <img src={imgSrc} alt={imgAlt} style={{ width: "16px", height: "16px" }} aria-hidden="true" /> : (Icon && <Icon size={15} aria-hidden="true" />))}
       </span>
       {/* Hover layer */}
       <span
         className="absolute inset-0 flex w-full translate-y-full items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0 group-active:translate-y-0"
         style={{ padding: "0.85rem 1.9rem" }}
       >
+        {isLeft && (
+          imgSrc ? (
+            <img src={imgSrc} alt={imgAlt} style={{ width: "16px", height: "16px" }} className="translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0" aria-hidden="true" />
+          ) : (Icon && <Icon size={15} aria-hidden="true" className="translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0" />)
+        )}
         {children}
-        {imgSrc ? (
-          <img 
-            src={imgSrc} 
-            alt={imgAlt} 
-            style={{ width: "16px", height: "16px" }} 
-            className="-translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0" 
-            aria-hidden="true" 
-          />
-        ) : (
-          <Icon
-            size={15}
-            aria-hidden="true"
-            className="-translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0"
-          />
+        {!isLeft && (
+          imgSrc ? (
+            <img src={imgSrc} alt={imgAlt} style={{ width: "16px", height: "16px" }} className="-translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0" aria-hidden="true" />
+          ) : (Icon && <Icon size={15} aria-hidden="true" className="-translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0" />)
         )}
       </span>
     </a>
