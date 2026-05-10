@@ -379,8 +379,8 @@ export default function Navbar() {
                 </div>
               </div>
 
-              {/* Promo banner */}
-              <div
+              {/* Promo banner - Commented out as requested */}
+              {/* <div
                 style={{
                   backgroundColor: "#ffffff",
                   height: "160px",
@@ -390,7 +390,7 @@ export default function Navbar() {
                 }}
               >
                 {/* Banner content yahan aayega */}
-              </div>
+              {/* </div> */}
             </div>
           </motion.div>
         )}
