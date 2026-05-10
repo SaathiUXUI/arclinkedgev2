@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
+import Navbar from "../../components/sections/Navbar";
+import Footer from "../../components/sections/Footer";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Arclink Edge",

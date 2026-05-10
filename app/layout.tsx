@@ -129,7 +129,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${interTight.variable} ${fraunces.variable} scroll-smooth`}>
       <head>
-        <link rel="preconnect" href="https://cdn.sanity.io" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {jsonLdSchemas.map((schema, i) => (
           <script
