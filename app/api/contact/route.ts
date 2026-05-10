@@ -31,68 +31,68 @@ export async function POST(req: Request) {
       to: process.env.EMAIL_TO || "hello@arclinkedge.com",
       subject: `New Project Inquiry from ${name} (${company})`,
       replyTo: email,
-      html: `
+        html: `
         <!DOCTYPE html>
         <html>
         <head>
           <style>
-            body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; margin: 0; padding: 0; }
-            .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; background-color: #ffffff; }
-            .header { background-color: #0052FF; padding: 40px; text-align: left; border-radius: 12px 12px 0 0; }
-            .header h1 { color: #ffffff; margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
-            .content { padding: 40px; border: 1px solid #f0f0f0; border-top: none; border-radius: 0 0 12px 12px; }
-            .section { margin-bottom: 30px; }
-            .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #888888; margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
-            .field { margin-bottom: 16px; }
-            .label { font-size: 14px; color: #666666; margin-bottom: 4px; }
-            .value { font-size: 16px; font-weight: 600; color: #1a1a1a; }
-            .message-box { background-color: #f9f9f9; padding: 24px; border-radius: 8px; border: 1px solid #eeeeee; white-space: pre-wrap; font-size: 15px; color: #333333; }
-            .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #999999; }
+            body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; color: #1a1a1a; margin: 0; padding: 0; }
+            .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e0e0e0; }
+            .header { background-color: #0052FF; padding: 24px 30px; text-align: left; }
+            .header h1 { color: #ffffff; margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; text-transform: uppercase; }
+            .content { padding: 30px; }
+            .section { margin-bottom: 32px; }
+            .section-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #0052FF; margin-bottom: 16px; border-bottom: 2px solid #0052FF; padding-bottom: 6px; display: inline-block; }
+            .field { margin-bottom: 20px; }
+            .label { font-size: 12px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+            .value { font-size: 16px; font-weight: 500; color: #000000; }
+            .message-text { font-size: 15px; color: #333333; line-height: 1.7; white-space: pre-wrap; margin-top: 10px; }
+            .footer { padding: 20px 30px; background-color: #f8f8f8; border-top: 1px solid #eeeeee; text-align: left; font-size: 11px; color: #999999; }
+            .footer p { margin: 4px 0; }
           </style>
         </head>
         <body>
           <div class="container">
             <div class="header">
-              <h1>New Project Inquiry</h1>
+              <h1>Project Inquiry</h1>
             </div>
             <div class="content">
               <div class="section">
-                <div class="section-title">Client Information</div>
+                <div class="section-title">Client Details</div>
                 <div class="field">
-                  <div class="label">Name</div>
+                  <div class="label">Full Name</div>
                   <div class="value">${name}</div>
                 </div>
                 <div class="field">
-                  <div class="label">Email</div>
-                  <div class="value"><a href="mailto:${email}" style="color: #0052FF; text-decoration: none;">${email}</a></div>
+                  <div class="label">Email Address</div>
+                  <div class="value"><a href="mailto:${email}" style="color: #0052FF; text-decoration: none; font-weight: 600;">${email}</a></div>
                 </div>
                 <div class="field">
-                  <div class="label">Company</div>
+                  <div class="label">Company / Brand</div>
                   <div class="value">${company || "Not specified"}</div>
                 </div>
               </div>
 
               <div class="section">
-                <div class="section-title">Project Details</div>
+                <div class="section-title">Project Scope</div>
                 <div class="field">
-                  <div class="label">Project Type</div>
+                  <div class="label">Service Required</div>
                   <div class="value">${projectType}</div>
                 </div>
                 <div class="field">
-                  <div class="label">Budget Range</div>
+                  <div class="label">Estimated Budget</div>
                   <div class="value">${budget}</div>
                 </div>
               </div>
 
-              <div class="section">
-                <div class="section-title">Message</div>
-                <div class="message-box">${message}</div>
+              <div class="section" style="margin-bottom: 0;">
+                <div class="section-title">Message / Requirements</div>
+                <div class="message-text">${message}</div>
               </div>
-
-              <div class="footer">
-                <p>This inquiry was sent via the Arclink Edge contact form.</p>
-                <p>&copy; ${new Date().getFullYear()} Arclink Edge. All rights reserved.</p>
-              </div>
+            </div>
+            <div class="footer">
+              <p>Sent via Arclink Edge Portfolio • ${new Date().toLocaleDateString()}</p>
+              <p>&copy; Arclink Edge. All rights reserved.</p>
             </div>
           </div>
         </body>
