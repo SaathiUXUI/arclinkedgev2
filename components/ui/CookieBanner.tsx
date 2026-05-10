@@ -51,7 +51,7 @@ export default function CookieBanner() {
               </p>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(245,245,247,0.55)", fontFamily: "var(--font-inter)", letterSpacing: "-0.01em" }}>
                 We use cookies to enhance your experience. By continuing, you agree to our{" "}
-                <a href="/cookies" className="underline font-medium" style={{ color: "#0052FF" }}>
+                <a href="/cookies" className="underline font-medium" style={{ color: "#FFFFFF" }}>
                   Cookie Policy
                 </a>
                 .

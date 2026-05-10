@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useForm, useController } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, CheckCircle, ChevronDown } from "lucide-react";
@@ -209,18 +209,28 @@ function StyledDropdown({
 
 export default function Contact({ isInternalPage = false }: { isInternalPage?: boolean }) {
   const [submitted, setSubmitted] = useState(false);
+  const contactRef = useRef<HTMLElement>(null);
+  const isInView = useInView(contactRef, { once: true, margin: "200px" });
 
   useEffect(() => {
+    if (!isInView) return;
+    
     (async function () {
-      const cal = await getCalApi();
-      cal("ui", {
-        theme: "dark",
-        styles: { branding: { brandColor: "#0052FF" } },
-        hideEventTypeDetails: false,
-        layout: "month_view"
-      });
+      try {
+        const cal = await getCalApi();
+        if (cal) {
+          cal("ui", {
+            theme: "dark",
+            styles: { branding: { brandColor: "#0052FF" } },
+            hideEventTypeDetails: false,
+            layout: "month_view"
+          });
+        }
+      } catch (error) {
+        console.error("Cal.com initialization failed:", error);
+      }
     })();
-  }, []);
+  }, [isInView]);
 
   const {
     register,
@@ -241,6 +251,7 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
 
   return (
     <section
+      ref={contactRef}
       id="contact"
       className={`${isInternalPage ? "py-0 bg-transparent" : "py-24 lg:py-40 bg-[#000000]"} relative overflow-hidden`}
       aria-labelledby="contact-heading"
@@ -289,14 +300,20 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
       )}
 
       <div className={`${isInternalPage ? "px-0" : "mx-auto max-w-[1600px]"} relative z-10`} style={!isInternalPage ? { paddingLeft: "clamp(16px, 5vw, 80px)", paddingRight: "clamp(16px, 5vw, 80px)" } : {}}>
-        {/* Cal.com Embed */}
+        {/* Cal.com Embed - Lazy loaded */}
         {!isInternalPage && (
           <div className="w-full min-h-[600px] overflow-hidden mb-24 lg:mb-32">
-            <Cal
-              calLink="arclinkedge/project-scope-call"
-              style={{ width: "100%", height: "100%", overflow: "scroll" }}
-              config={{ layout: "month_view", theme: "dark" }}
-            />
+            {isInView ? (
+              <Cal
+                calLink="arclinkedge/project-scope-call"
+                style={{ width: "100%", height: "100%", overflow: "scroll" }}
+                config={{ layout: "month_view", theme: "dark" }}
+              />
+            ) : (
+              <div className="w-full h-full bg-white/[0.02] animate-pulse flex items-center justify-center">
+                <p className="text-white/20 text-sm font-medium">Loading scheduler...</p>
+              </div>
+            )}
           </div>
         )}
 

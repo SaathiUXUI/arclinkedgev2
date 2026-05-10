@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 function TeamImage({
   src,
@@ -23,13 +24,13 @@ function TeamImage({
       <div className="absolute inset-0 flex items-center justify-center text-white/18 font-semibold text-4xl">
         {initials}
       </div>
-      <img
+      <Image
         src={src}
         alt={alt}
-        className="relative z-10 h-full w-full object-cover"
-        onError={(event) => {
-          event.currentTarget.style.display = "none";
-        }}
+        fill
+        className="relative z-10 object-cover"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        quality={80}
       />
     </div>
   );
