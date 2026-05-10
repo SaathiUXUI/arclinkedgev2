@@ -400,7 +400,7 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, delay: 0.35, ease: "easeOut" }}
+                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
                 className="text-base"
                 style={{
                   color: "rgba(200,210,230,0.7)",

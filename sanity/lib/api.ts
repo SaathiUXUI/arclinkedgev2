@@ -43,7 +43,7 @@ export async function getProjectImagesByCategory(category?: string): Promise<str
     
     projects.forEach((p: any) => {
       if (p.images && Array.isArray(p.images) && p.images.length > 0) {
-        const url = urlForImage(p.images[0])?.url()
+        const url = urlForImage(p.images[0])?.width(1200).url()
         if (url) allImages.push(url)
       }
     })
@@ -69,7 +69,7 @@ export async function getBrandLogos(): Promise<SanityBrandLogo[]> {
     
     return logos.map((l: any) => ({
       name: l.name || "Brand Logo",
-      src: l.logo ? urlForImage(l.logo)?.url() : null
+      src: l.logo ? urlForImage(l.logo)?.width(200).url() : null
     }))
   } catch (error) {
     console.error("Error fetching brand logos from Sanity:", error)
@@ -88,7 +88,7 @@ export async function getFirstImagesPerCategory(): Promise<Record<string, string
     if (projects) {
       projects.forEach((p: any) => {
         if (p.categories && Array.isArray(p.categories) && p.image) {
-          const url = urlForImage(p.image)?.url()
+          const url = urlForImage(p.image)?.width(400).url()
           if (url) {
             p.categories.forEach((cat: string) => {
               if (!map[cat]) {
@@ -117,7 +117,7 @@ export async function getSanityTestimonials() {
       name: t.name,
       role: t.role,
       company: t.company,
-      avatar: t.avatar ? urlForImage(t.avatar)?.url() : null,
+      avatar: t.avatar ? urlForImage(t.avatar)?.width(100).url() : null,
       rating: 5, // Default rating as design uses 5 stars
     }))
   } catch (error) {
@@ -138,7 +138,7 @@ export async function getSanityBlogs() {
       category: b.category,
       date: b.date,
       readTime: b.readTime,
-      image: b.image ? urlForImage(b.image)?.url() : null,
+      image: b.image ? urlForImage(b.image)?.width(600).url() : null,
       href: `/blog/${b.slug?.current}`,
     }))
   } catch (error) {
@@ -159,7 +159,7 @@ export async function getTeamMembers() {
       initials: m.initials,
       bio: m.bio,
       category: m.category,
-      image: m.image ? urlForImage(m.image)?.url() : null,
+      image: m.image ? urlForImage(m.image)?.width(500).url() : null,
     }))
   } catch (error) {
     console.error("Error fetching team members:", error)
