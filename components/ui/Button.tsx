@@ -4,7 +4,7 @@ type CommonProps = {
   href: string;
   children: React.ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   icon?: React.ComponentType<LucideProps>;
   iconPosition?: "left" | "right";
   imgSrc?: string;

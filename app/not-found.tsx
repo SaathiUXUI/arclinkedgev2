@@ -74,7 +74,7 @@ export default function NotFound() {
               </PrimaryButton>
               <SecondaryButton 
                 href="#" 
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault();
                   router.back();
                 }}
