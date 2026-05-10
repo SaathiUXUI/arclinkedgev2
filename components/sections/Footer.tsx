@@ -133,8 +133,14 @@ export default function Footer() {
                 <ul className="space-y-4">
                   {footerLinks.navigation.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="text-md text-white/70 hover:text-white transition-colors duration-200 font-regular">
-                        {link.label}
+                      <Link 
+                        href={link.href} 
+                        className="group relative block overflow-hidden text-md text-white/70 hover:text-white transition-colors duration-300 font-regular"
+                      >
+                        <span className="relative flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+                          <span className="h-full flex items-center py-0.5">{link.label}</span>
+                          <span className="absolute top-full left-0 h-full flex items-center py-0.5">{link.label}</span>
+                        </span>
                       </Link>
                     </li>
                   ))}
@@ -147,8 +153,14 @@ export default function Footer() {
                 <ul className="space-y-4">
                   {footerLinks.company.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="text-md text-white/70 hover:text-white transition-colors duration-200 font-regular">
-                        {link.label}
+                      <Link 
+                        href={link.href} 
+                        className="group relative block overflow-hidden text-md text-white/70 hover:text-white transition-colors duration-300 font-regular"
+                      >
+                        <span className="relative flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+                          <span className="h-full flex items-center py-0.5">{link.label}</span>
+                          <span className="absolute top-full left-0 h-full flex items-center py-0.5">{link.label}</span>
+                        </span>
                       </Link>
                     </li>
                   ))}
