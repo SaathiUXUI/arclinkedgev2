@@ -216,7 +216,7 @@ export function TextButton({
       target={target}
       rel={rel}
       className={`group relative inline-flex overflow-hidden text-sm font-medium transition-colors duration-200 ${className}`}
-      style={{ color: "rgba(245,245,247,0.46)", fontFamily: "var(--font-inter-tight)" }}
+      style={{ color: "rgba(245,245,247,0.72)", fontFamily: "var(--font-inter-tight)" }}
     >
       <span className="flex items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-full group-focus:-translate-y-full group-active:-translate-y-full">
         {isLeft && <Icon size={14} aria-hidden="true" />}

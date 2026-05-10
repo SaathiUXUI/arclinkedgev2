@@ -41,11 +41,11 @@ export default function Testimonials({ sanityTestimonials }: { sanityTestimonial
           style={{ clipPath }}
         >
 
-          {/* Background Giant Text (Infinite Marquee) */}
-          <div className="absolute inset-0 flex flex-col justify-center pointer-events-none select-none z-0 overflow-hidden">
+          {/* Background Giant Text (Infinite Marquee) - Decorative only */}
+          <div className="absolute inset-0 flex flex-col justify-center pointer-events-none select-none z-0 overflow-hidden" aria-hidden="true">
             <div className="flex w-max animate-marquee-text whitespace-nowrap items-center h-full">
               {[0, 1, 2, 3].map((set) => (
-                <h1 key={`bg-text-${set}`} className="text-[14vw] font-black text-[#F5F5F7]/[0.54] uppercase tracking-tighter shrink-0 pr-16 leading-none">
+                <h1 key={`bg-text-${set}`} className="text-[14vw] font-black text-[#F5F5F7]/[0.12] uppercase tracking-tighter shrink-0 pr-16 leading-none">
                   REVIEW TESTIMONIALS
                 </h1>
               ))}

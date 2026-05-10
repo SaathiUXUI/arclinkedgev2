@@ -130,7 +130,7 @@ export default function Footer() {
             <div className="grid grid-cols-2 md:grid-cols-2 gap-12 lg:gap-24">
               {/* Navigation */}
               <div>
-                <p className="text-[12px] uppercase tracking-[0.2em] text-white/30 font-bold mb-6 md:mb-8" style={{ fontFamily: "var(--font-inter-tight)" }}>Navigation</p>
+                <p className="text-[12px] uppercase tracking-[0.2em] text-white/60 font-bold mb-6 md:mb-8" style={{ fontFamily: "var(--font-inter-tight)" }}>Navigation</p>
                 <ul className="space-y-4">
                   {footerLinks.navigation.map((link) => (
                     <li key={link.label}>
@@ -144,7 +144,7 @@ export default function Footer() {
 
               {/* Company */}
               <div>
-                <p className="text-[12px] uppercase tracking-[0.2em] text-white/30 font-bold mb-6 md:mb-8" style={{ fontFamily: "var(--font-inter-tight)" }}>Company</p>
+                <p className="text-[12px] uppercase tracking-[0.2em] text-white/60 font-bold mb-6 md:mb-8" style={{ fontFamily: "var(--font-inter-tight)" }}>Company</p>
                 <ul className="space-y-4">
                   {footerLinks.company.map((link) => (
                     <li key={link.label}>
@@ -158,7 +158,7 @@ export default function Footer() {
             </div>
 
             <div className="mt-10 lg:mt-auto">
-              <p className="text-white/20 text-sm italic font-medium" style={{ fontFamily: "var(--font-inter-tight)" }}>
+              <p className="text-white/60 text-sm italic font-medium" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Building digital excellence across borders.
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function Footer() {
         {/* Unified Services Block at the bottom */}
         <div className="mx-0 lg:mx-0 mt-0 bg-[#141416] border-t border-white/5">
           <div className="px-4 lg:px-12 py-12 border-b border-white/5">
-            <h3 className="text-[12px] uppercase tracking-[0.2em] font-bold text-white/30" style={{ fontFamily: "var(--font-inter-tight)" }}>Services</h3>
+            <h3 className="text-[12px] uppercase tracking-[0.2em] font-bold text-white/60" style={{ fontFamily: "var(--font-inter-tight)" }}>Services</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {servicesData.map((service) => (
@@ -233,7 +233,7 @@ export default function Footer() {
                     <MoveUpRight size={18} />
                   </span>
                 </div>
-                <p className="text-sm text-white/40 leading-relaxed group-hover:text-white/60 transition-colors duration-300 relative z-10">{service.description}</p>
+                <p className="text-sm text-white/60 leading-relaxed group-hover:text-white/80 transition-colors duration-300 relative z-10">{service.description}</p>
               </Link>
             ))}
           </div>
@@ -241,7 +241,7 @@ export default function Footer() {
 
         {/* Bottom Bar & Watermark */}
         <div className="pt-12 pb-12 relative px-4 lg:px-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-white/30 text-sm font-medium mb-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-white/60 text-sm font-medium mb-12">
             <p>© 2026 Arclink Edge. All rights reserved.</p>
             <div className="flex flex-wrap items-center gap-4">
               <SecondaryNavButton
@@ -270,7 +270,7 @@ export default function Footer() {
         {/* Intense Bottom White Glow transferred from CTA Section */}
         <div className="absolute -bottom-2 left-[-10%] right-[-10%] w-[120%] h-[25%] bg-gradient-to-t from-white to-transparent mix-blend-screen filter blur-[32px] opacity-100 z-0" />
 
-        <span className="text-[19vw] font-medium leading-none whitespace-nowrap tracking-tighter relative z-10 opacity-[0.08]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+        <span className="text-[19vw] font-medium leading-none whitespace-nowrap tracking-tighter relative z-10 opacity-[0.08]" style={{ fontFamily: "var(--font-inter-tight)" }} aria-hidden="true">
           Arclink Edge
         </span>
       </div>

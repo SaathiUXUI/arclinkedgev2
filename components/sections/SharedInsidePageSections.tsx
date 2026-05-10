@@ -141,7 +141,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
                 </h2>
 
                 <div className="mt-auto pt-20">
-                  <p className="mb-6 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/20" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                  <p className="mb-6 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Expertise across industries
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -157,7 +157,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
 
             <div className="p-8 lg:p-16">
               <div className="relative z-10">
-                <p className="mb-12 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/20" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                <p className="mb-12 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
                   How we drive results
                 </p>
                 <div className="space-y-16 lg:space-y-24">
@@ -227,7 +227,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
 
                   <div className="flex-1 space-y-10">
                     <div>
-                      <p className="mb-3 text-[0.68rem] font-bold uppercase tracking-[0.15em] text-white/28" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                      <p className="mb-3 text-[0.68rem] font-bold uppercase tracking-[0.15em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
                         Best for
                       </p>
                       <p className="text-xl font-medium leading-snug text-white/88" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.015em" }}>
@@ -237,14 +237,14 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
 
                     <div className="grid grid-cols-2 gap-8 border-t border-white/[0.05] pt-10">
                       <div className="space-y-2">
-                        <p className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white/28" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                        <p className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
                           <Clock size={12} className="text-[#D0F504]/70" />
                           Timeline
                         </p>
                         <p className="text-sm font-semibold text-white/72">{model.timeline}</p>
                       </div>
                       <div className="space-y-2">
-                        <p className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white/28" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                        <p className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
                           <Zap size={12} className="text-[#D0F504]/70" />
                           Output
                         </p>
@@ -254,11 +254,11 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
                   </div>
 
                   <div className="mt-12 flex items-center justify-between border-t border-white/[0.05] pt-8">
-                    <span className="text-5xl font-semibold leading-none text-white/30" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.07em" }}>
+                    <span className="text-5xl font-semibold leading-none text-white/60" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.07em" }} aria-hidden="true">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span
-                      className="inline-flex items-center gap-2 text-sm font-medium text-white/46 transition-colors duration-200 group-hover:text-[#F5F5F7]"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-white/60 transition-colors duration-200 group-hover:text-[#F5F5F7]"
                       style={{ fontFamily: "var(--font-inter-tight)" }}
                     >
                       Discuss this model
