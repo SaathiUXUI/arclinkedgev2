@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import gsap from "gsap";
 import { ArrowUpRight } from "lucide-react";
-import { PrimaryButton } from "@/components/ui/Button";
+import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import LogoMarquee from "@/components/sections/LogoMarquee";
 
 const services = ["UI/UX Design", "Web Development", "SaaS Products", "Fintech", "E-Commerce"];
@@ -134,7 +134,6 @@ function ServiceChip({ service, index }: { service: string; index: number }) {
                         alt={tool.name}
                         width={24}
                         height={24}
-                        unoptimized
                         style={{ objectFit: "contain" }}
                       />
                     </motion.div>
@@ -397,30 +396,23 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
 
             {/* Subtext + CTA */}
             <div className="flex flex-col items-start" style={{ maxWidth: "420px" }}>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-                className="text-base"
+              <p
+                className="text-base hero-fade-in"
                 style={{
                   color: "rgba(200,210,230,0.7)",
                   lineHeight: 1.7,
                   marginBottom: "1.75rem",
                 }}
               >
-                Top-rated software development agency in Ahmedabad, India —
+                Top-rated software development agency in New York, Bangalore, Delhi & Mumbai —
                 delivering custom web apps, mobile apps (iOS &amp; Android), SaaS
-                platforms &amp; UI/UX design for B2B brands across India, USA, UK
-                &amp; UAE.
-              </motion.p>
+                platforms &amp; UI/UX design for ambitious B2B brands globally.
+              </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-              >
-                <PrimaryButton href="/contact" icon={ArrowUpRight}>Book Now</PrimaryButton>
-              </motion.div>
+              <div className="hero-fade-in flex flex-col sm:flex-row flex-wrap gap-4 w-full" style={{ animationDelay: "0.4s" }}>
+                <SecondaryButton href="/hire" icon={ArrowUpRight} className="w-full sm:w-auto">Hire a Dedicated Developer</SecondaryButton>
+                <PrimaryButton href="/contact" icon={ArrowUpRight} className="w-full sm:w-auto">Book Now</PrimaryButton>
+              </div>
             </div>
           </div>
         </div>
@@ -448,8 +440,17 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
           animation: glowDrift 10s ease-in-out infinite;
         }
 
+        @keyframes heroFadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .hero-fade-in {
+          animation: heroFadeIn 0.5s ease-out 0.1s both;
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .hero-glow { animation: none; }
+          .hero-fade-in { animation: none; }
         }
 
       `}</style>

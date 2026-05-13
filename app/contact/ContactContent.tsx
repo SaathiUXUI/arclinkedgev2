@@ -96,6 +96,15 @@ export default function ContactContent() {
                   <p className="text-lg font-medium">+91 98248 38067</p>
                 </div>
               </a>
+              <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all">
+                  <MapPin size={18} />
+                </div>
+                <div>
+                  <p className="text-xs text-white/40 uppercase tracking-widest mb-1 font-bold">Office Address</p>
+                  <p className="text-lg font-medium">Ahmedabad, Gujarat, India</p>
+                </div>
+              </div>
             </div>
           </div>
           <div className="bg-white/[0.02] border border-white/5 p-8 md:p-12">

@@ -67,15 +67,14 @@ export default function LogoMarquee({ variant = "landing", sanityLogos }: LogoMa
                 <Image
                   src={item.src}
                   alt={item.name}
-                  width={20}
-                  height={20}
-                  className="md:w-auto md:h-8"
+                  width={160}
+                  height={60}
+                  className="w-auto h-10 md:h-12"
                   style={{ 
                     objectFit: "contain", 
                     opacity: isService ? 0.4 : 0.5,
                     filter: isService ? "brightness(0) invert(1)" : "none" 
                   }}
-                  unoptimized
                 />
               ) : (
                 <span

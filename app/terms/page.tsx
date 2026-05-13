@@ -3,8 +3,23 @@ import Navbar from "../../components/sections/Navbar";
 import Footer from "../../components/sections/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Arclink Edge",
-  description: "Read the terms and conditions of using Arclink Edge services.",
+  title: "Terms & Conditions",
+  description: "Read the terms and conditions for using Arclink Edge services, including project scope, payments, intellectual property, liability and governing law.",
+  alternates: { canonical: "https://www.arclinkedge.com/terms" },
+  openGraph: {
+    type: "website",
+    url: "https://www.arclinkedge.com/terms",
+    title: "Arclink Edge Terms & Conditions",
+    description: "Terms covering Arclink Edge services, project agreements, payments, deliverables and legal responsibilities.",
+    siteName: "Arclink Edge",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arclink Edge Terms & Conditions",
+    description: "Terms covering Arclink Edge services, payments, deliverables and legal responsibilities.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function TermsPage() {
@@ -64,7 +79,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold text-white mb-4" style={{ fontFamily: "var(--font-inter-tight)" }}>6. Governing Law</h2>
               <p>
-                These terms are governed by and construed in accordance with the laws of India. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts in Ahmedabad, Gujarat.
+                These terms are governed by and construed in accordance with the laws of India. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts in New York.
               </p>
             </section>
           </div>

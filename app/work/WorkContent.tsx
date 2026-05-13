@@ -113,6 +113,25 @@ function HeroStatsBand() {
   );
 }
 
+const faqs = [
+  {
+    question: "Do you have case studies for specific industries?",
+    answer: "Yes, our portfolio spans multiple industries including SaaS, E-commerce, Fintech, and Healthcare. You can filter our case studies above by category to see relevant projects."
+  },
+  {
+    question: "What metrics do you use to measure project success?",
+    answer: "We focus on tangible business outcomes such as increased conversion rates, faster load times (Core Web Vitals), higher user retention, and reduced infrastructure costs."
+  },
+  {
+    question: "Can I speak with one of your past clients?",
+    answer: "Absolutely. During our discovery phase, we are happy to provide references from past clients who can speak to our process, communication, and delivery quality."
+  },
+  {
+    question: "Are all your projects built from scratch?",
+    answer: "While we specialize in custom, from-scratch builds, we also frequently take over legacy codebases to refactor, modernize, and scale them without downtime."
+  }
+];
+
 export default function WorkContent({ 
   sanityLogos, 
   sanityTestimonials,
@@ -155,6 +174,23 @@ export default function WorkContent({
 
   return (
     <main className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
       <Navbar />
 
       {/* 1. Hero Section matching Web Development */}
@@ -224,7 +260,7 @@ export default function WorkContent({
         </div>
       </section>
 
-      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} />
+      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs} />
 
       <Footer />
       <BackToTop />

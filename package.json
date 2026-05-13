@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "dev:network": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
     "@hookform/resolvers": "^5.2.2",
+    "@portabletext/react": "^6.2.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "@sanity/image-url": "^2.1.1",
@@ -43,5 +44,8 @@
     "eslint-config-next": "16.2.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "browserslist": [
+    "defaults and fully supports es6-module"
+  ]
 }

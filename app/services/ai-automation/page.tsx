@@ -13,16 +13,16 @@ import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { getProjectImagesByCategory, getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const SITE_URL = "https://arclinkedge.com";
+const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/ai-automation`;
 
 export const metadata: Metadata = {
-  title: "AI & Automation Services in Ahmedabad | LLMs & Chatbots",
+  title: "AI & Automation Services in New York, Bangalore, Delhi & Mumbai | LLMs & Chatbots",
   description:
-    "Expert AI & Automation services in Ahmedabad. We build custom LLM applications, AI chatbots, and process automations that save your team thousands of hours.",
+    "Expert AI & Automation services in New York, Bangalore, Delhi & Mumbai. We build custom LLM applications, AI chatbots, and process automations that save your team thousands of hours.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "AI development company Ahmedabad",
+    "AI development company New York, Bangalore, Delhi & Mumbai",
     "custom LLM development",
     "AI chatbots India",
     "business process automation",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "AI & Automation Services in Ahmedabad | Arclink Edge",
+    title: "AI & Automation Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
       "Stop doing repetitive tasks. We build AI agents, custom chatbots, and automate business processes using modern LLMs to increase your operational efficiency.",
     siteName: "Arclink Edge",
     images: [
       {
-        url: `${SITE_URL}/og-ai-automation.png`,
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Arclink Edge AI and Automation services",
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI & Automation Services in Ahmedabad | Arclink Edge",
+    title: "AI & Automation Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
-      "Expert AI & Automation services in Ahmedabad. We build custom LLM applications and AI chatbots.",
-    images: [`${SITE_URL}/og-ai-automation.png`],
+      "Expert AI & Automation services in New York, Bangalore, Delhi & Mumbai. We build custom LLM applications and AI chatbots.",
+    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 
@@ -395,10 +395,10 @@ function JsonLd() {
     serviceType: "AI Development",
     url: PAGE_URL,
     description:
-      "Expert AI & Automation services in Ahmedabad. We build custom LLM applications, AI chatbots, and process automations that save your team thousands of hours.",
+      "Expert AI & Automation services in New York, Bangalore, Delhi & Mumbai. We build custom LLM applications, AI chatbots, and process automations that save your team thousands of hours.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "Ahmedabad" },
+      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -466,18 +466,10 @@ export default async function AIAutomationPage() {
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
                 We design and integrate custom AI agents, LLM features, and smart automations that slash operational costs, boost productivity, and give your business an unfair advantage.
               </p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <PrimaryButton href="/contact" icon={ArrowUpRight}>Build an AI Tool</PrimaryButton>
-                <SecondaryButton
-                  href="https://wa.me/919824838067?text=Hello!%20I%20want%20to%20discuss%20an%20AI%20automation%20project."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  imgSrc="/logo/whatsapp.svg"
-                  imgAlt="WhatsApp"
-                >
-                  Talk on WhatsApp
-                </SecondaryButton>
-              </div>
+                <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                  <PrimaryButton href="/contact" icon={ArrowUpRight}>Start an AI Project</PrimaryButton>
+                  <SecondaryButton href="/hire/ai-specialist" icon={ArrowUpRight}>Hire Dedicated AI Specialist</SecondaryButton>
+                </div>
             </div>
 
             <HeroProjectColumn sanityImages={sanityImages} />
@@ -661,7 +653,7 @@ export default async function AIAutomationPage() {
           </div>
         </section>
 
-        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials}
+        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs}
           beforeOutcomes={
             <section className="px-6 py-20 lg:px-12 lg:py-28">
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
@@ -693,15 +685,15 @@ export default async function AIAutomationPage() {
         >
           <section className="px-6 py-20 lg:px-12 lg:py-28">
             <div className="mx-auto max-w-[1600px]">
-              <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                <div>
+              <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
+                <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
                   <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
-                    Scan the AI build scope in seconds.
+                    Scan the AI scope in seconds.
                   </h2>
                 </div>
-                <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/52">
-                  Clear deliverables across data engineering, prompt design, custom AI agents, and workflow automations.
+                <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
+                  Clear deliverables across LLM integration, workflow automation, custom AI models, and deployment.
                 </p>
               </div>
               <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

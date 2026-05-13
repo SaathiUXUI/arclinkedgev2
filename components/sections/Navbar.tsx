@@ -2,19 +2,24 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { MoveUpRight, ChevronDown } from "lucide-react";
 import { NavButton, SecondaryNavButton } from "@/components/ui/Button";
-import { navLinks, services } from "@/lib/data";
+import { navLinks, services, hireLinks } from "@/lib/data";
 
 export default function Navbar() {
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [hireMegaOpen, setHireMegaOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileHireOpen, setMobileHireOpen] = useState(false);
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hireLeaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -35,6 +40,43 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    const routes = Array.from(
+      new Set([
+        "/",
+        "/hire",
+        "/careers",
+        ...navLinks.map((link) => link.href),
+        ...services.map((service) => service.href),
+      ])
+    ).filter((href) => href.startsWith("/"));
+
+    const prefetchRoutes = () => {
+      routes.forEach((href) => router.prefetch(href));
+    };
+
+    const idleApi = window as unknown as {
+      requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+    const idleCallback = idleApi.requestIdleCallback?.(prefetchRoutes, { timeout: 2500 });
+    const fallbackTimer = idleApi.requestIdleCallback
+      ? null
+      : window.setTimeout(prefetchRoutes, 1200);
+
+    return () => {
+      if (idleCallback !== undefined) idleApi.cancelIdleCallback?.(idleCallback);
+      if (fallbackTimer) window.clearTimeout(fallbackTimer);
+    };
+  }, [router]);
+
+  const prefetchRoute = useCallback(
+    (href: string) => {
+      if (href.startsWith("/")) router.prefetch(href);
+    },
+    [router]
+  );
+
   const handleMegaEnter = useCallback(() => {
     if (leaveTimer.current) {
       clearTimeout(leaveTimer.current);
@@ -50,12 +92,27 @@ export default function Navbar() {
     }, 150);
   }, []);
 
+  const handleHireEnter = useCallback(() => {
+    if (hireLeaveTimer.current) {
+      clearTimeout(hireLeaveTimer.current);
+      hireLeaveTimer.current = null;
+    }
+    setHireMegaOpen(true);
+  }, []);
+
+  const handleHireLeave = useCallback(() => {
+    hireLeaveTimer.current = setTimeout(() => {
+      setHireMegaOpen(false);
+      hireLeaveTimer.current = null;
+    }, 150);
+  }, []);
+
   return (
     <>
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          backdropFilter: scrolled ? "blur(24px)" : "none",
+          backdropFilter: scrolled ? "blur(16px)" : "none",
           backgroundColor: scrolled ? "rgba(10,10,11,0.8)" : "transparent",
           borderBottom: scrolled ? "1px solid rgba(31,31,35,0.8)" : "1px solid transparent",
         }}
@@ -108,36 +165,44 @@ export default function Navbar() {
                     onMouseLeave: handleMegaLeave,
                     style: { position: "relative" as const },
                   }
-                  : {})}
+                  : link.label === "Hire"
+                    ? {
+                      onMouseEnter: handleHireEnter,
+                      onMouseLeave: handleHireLeave,
+                      style: { position: "relative" as const },
+                    }
+                    : {})}
               >
                 <Link
                   href={link.href}
                   onClick={() => setMegaOpen(false)}
+                  onMouseEnter={() => prefetchRoute(link.href)}
+                  onFocus={() => prefetchRoute(link.href)}
                   className="group relative inline-flex items-center gap-1 text-sm font-medium"
                   style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.1px", height: "64px" }}
                 >
                   <span className="relative overflow-hidden inline-flex">
                     <span
-                      className={`transition-transform duration-300 ease-out ${link.label === "Services" && megaOpen ? "-translate-y-full" : "group-hover:-translate-y-full"}`}
+                      className={`transition-transform duration-300 ease-out ${(link.label === "Services" && megaOpen) || (link.label === "Hire" && hireMegaOpen) ? "-translate-y-full" : "group-hover:-translate-y-full"}`}
                       style={{ color: "#8E8E93" }}
                     >
                       {link.label}
                     </span>
                     <span
-                      className={`absolute inset-0 flex items-center transition-transform duration-300 ease-out ${link.label === "Services" && megaOpen ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"}`}
+                      className={`absolute inset-0 flex items-center transition-transform duration-300 ease-out ${(link.label === "Services" && megaOpen) || (link.label === "Hire" && hireMegaOpen) ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"}`}
                       style={{ color: "#F5F5F7" }}
                     >
                       {link.label}
                     </span>
                   </span>
 
-                  {link.label === "Services" && (
+                  {(link.label === "Services" || link.label === "Hire") && (
                     <ChevronDown
                       size={16}
                       aria-hidden="true"
                       style={{
-                        color: megaOpen ? "#F5F5F7" : "#8E8E93",
-                        transform: megaOpen ? "rotate(180deg)" : "rotate(0deg)",
+                        color: (link.label === "Services" && megaOpen) || (link.label === "Hire" && hireMegaOpen) ? "#F5F5F7" : "#8E8E93",
+                        transform: (link.label === "Services" && megaOpen) || (link.label === "Hire" && hireMegaOpen) ? "rotate(180deg)" : "rotate(0deg)",
                         transition: "transform 0.3s ease, color 0.2s ease",
                         flexShrink: 0,
                       }}
@@ -241,6 +306,7 @@ export default function Navbar() {
                       key={service.id}
                       href={service.href}
                       onClick={() => setMegaOpen(false)}
+                      onFocus={() => prefetchRoute(service.href)}
                       className="mega-service-item"
                       style={{
                         display: "block",
@@ -251,6 +317,7 @@ export default function Navbar() {
                         overflow: "hidden",
                       }}
                       onMouseEnter={(e) => {
+                        prefetchRoute(service.href);
                         const el = e.currentTarget;
                         el.style.backgroundColor = "rgba(255,255,255,0.04)";
                         const glow = el.querySelector<HTMLElement>(".corner-glow");
@@ -396,6 +463,196 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
+      {/* ── Hire Mega Dropdown ── */}
+      <AnimatePresence>
+        {hireMegaOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+            className="fixed left-0 right-0 z-40 hidden lg:block"
+            style={{ top: "64px" }}
+            onMouseEnter={handleHireEnter}
+            onMouseLeave={handleHireLeave}
+          >
+            <div
+              style={{
+                backgroundColor: "rgba(8,8,10,0.92)",
+                backdropFilter: "blur(32px)",
+                WebkitBackdropFilter: "blur(32px)",
+              }}
+            >
+              <div
+                className="max-w-6xl mx-auto"
+                style={{ padding: "2.5rem 4rem 3rem" }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-inter-tight)",
+                    fontSize: "0.65rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "rgba(142,142,147,0.6)",
+                    marginBottom: "1.25rem",
+                    textAlign: "left",
+                    paddingLeft: "1.25rem",
+                  }}
+                >
+                  Hire Experts
+                </p>
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr 1fr",
+                    gap: "4px",
+                  }}
+                >
+                  {hireLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setHireMegaOpen(false)}
+                      onFocus={() => prefetchRoute(item.href)}
+                      className="mega-service-item"
+                      style={{
+                        display: "block",
+                        position: "relative",
+                        padding: "1.1rem 1.25rem",
+                        textDecoration: "none",
+                        transition: "all 0.25s ease",
+                        overflow: "hidden",
+                      }}
+                      onMouseEnter={(e) => {
+                        prefetchRoute(item.href);
+                        const el = e.currentTarget;
+                        el.style.backgroundColor = "rgba(255,255,255,0.04)";
+                        const glow = el.querySelector<HTMLElement>(".corner-glow");
+                        if (glow) glow.style.opacity = "1";
+                        const arrow = el.querySelector<HTMLElement>(".mega-arrow");
+                        if (arrow) {
+                          arrow.style.opacity = "1";
+                          arrow.style.transform = "translateX(0)";
+                        }
+                        const title = el.querySelector<HTMLElement>(".mega-title");
+                        if (title) title.style.color = "#F5F5F7";
+                      }}
+                      onMouseLeave={(e) => {
+                        const el = e.currentTarget;
+                        el.style.backgroundColor = "transparent";
+                        const glow = el.querySelector<HTMLElement>(".corner-glow");
+                        if (glow) glow.style.opacity = "0";
+                        const arrow = el.querySelector<HTMLElement>(".mega-arrow");
+                        if (arrow) {
+                          arrow.style.opacity = "0";
+                          arrow.style.transform = "translateX(-4px)";
+                        }
+                        const title = el.querySelector<HTMLElement>(".mega-title");
+                        if (title) title.style.color = "rgba(245,245,247,0.85)";
+                      }}
+                    >
+                      <span
+                        className="corner-glow"
+                        aria-hidden="true"
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "100%",
+                          pointerEvents: "none",
+                          opacity: 0,
+                          transition: "opacity 0.25s ease",
+                        }}
+                      >
+                        <span
+                          style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "50%",
+                            height: "1px",
+                            background: "linear-gradient(to right, #FFFFFF, transparent)",
+                          }}
+                        />
+                        <span
+                          style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "1px",
+                            height: "50%",
+                            background: "linear-gradient(to bottom, #FFFFFF, transparent)",
+                          }}
+                        />
+                        <span
+                          style={{
+                            position: "absolute",
+                            top: "-4px",
+                            left: "-4px",
+                            width: "8px",
+                            height: "8px",
+                            borderRadius: "50%",
+                            backgroundColor: "#FFFFFF",
+                            filter: "blur(4px)",
+                          }}
+                        />
+                      </span>
+
+                      <div className="flex items-start justify-between gap-3">
+                        <div style={{ flex: 1 }}>
+                          <span
+                            className="mega-title"
+                            style={{
+                              display: "block",
+                              fontFamily: "var(--font-inter-tight)",
+                              fontSize: "0.9rem",
+                              fontWeight: 500,
+                              color: "rgba(245,245,247,0.85)",
+                              letterSpacing: "-0.01em",
+                              marginBottom: "0.3rem",
+                              transition: "color 0.2s ease",
+                            }}
+                          >
+                            {item.title}
+                          </span>
+                          <span
+                            style={{
+                              display: "block",
+                              fontSize: "0.78rem",
+                              lineHeight: 1.5,
+                              color: "rgba(142,142,147,0.7)",
+                            }}
+                          >
+                            {item.description}
+                          </span>
+                        </div>
+                        <span
+                          className="mega-arrow"
+                          aria-hidden="true"
+                          style={{
+                            marginTop: "2px",
+                            opacity: 0,
+                            transform: "translateX(-4px)",
+                            transition: "all 0.25s ease",
+                            color: "#FFFFFF",
+                            flexShrink: 0,
+                          }}
+                        >
+                          <MoveUpRight size={16} />
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
@@ -422,6 +679,7 @@ export default function Navbar() {
                   onClick={(e) => {
                     setMobileOpen(false);
                     setMobileServicesOpen(false);
+                    setMobileHireOpen(false);
                     if (window.location.pathname === "/") {
                       e.preventDefault();
                       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -438,7 +696,7 @@ export default function Navbar() {
                   Arclink Edge
                 </Link>
                 <button
-                  onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); }}
+                  onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); setMobileHireOpen(false); }}
                   aria-label="Close menu"
                   style={{ background: "none", border: "none", cursor: "pointer", width: "36px", height: "36px", padding: "8px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "6px" }}
                 >
@@ -461,7 +719,7 @@ export default function Navbar() {
                       {link.label === "Services" ? (
                         <>
                           <button
-                            onClick={() => setMobileServicesOpen((v) => !v)}
+                            onClick={() => { setMobileServicesOpen((v) => !v); setMobileHireOpen(false); }}
                             className="w-full flex items-center justify-between py-5"
                             style={{ background: "none", border: "none", cursor: "pointer", padding: "1.25rem 0", textAlign: "left" }}
                           >
@@ -507,6 +765,7 @@ export default function Navbar() {
                                       key={service.id}
                                       href={service.href}
                                       onClick={() => setMobileOpen(false)}
+                                      onTouchStart={() => prefetchRoute(service.href)}
                                       style={{
                                         display: "block",
                                         padding: "0.6rem 0",
@@ -544,12 +803,100 @@ export default function Navbar() {
                             )}
                           </AnimatePresence>
                         </>
+                      ) : link.label === "Hire" ? (
+                        <>
+                          <button
+                            onClick={() => { setMobileHireOpen((v) => !v); setMobileServicesOpen(false); }}
+                            className="w-full flex items-center justify-between py-5"
+                            style={{ background: "none", border: "none", cursor: "pointer", padding: "1.25rem 0", textAlign: "left" }}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "var(--font-inter-tight)",
+                                fontSize: "clamp(2rem, 8vw, 2.75rem)",
+                                fontWeight: 500,
+                                letterSpacing: "-0.03em",
+                                lineHeight: 1,
+                                color: "#F5F5F7",
+                              }}
+                            >
+                              {link.label}
+                            </span>
+                            <ChevronDown
+                              size={24}
+                              aria-hidden="true"
+                              style={{
+                                color: "#F5F5F7",
+                                flexShrink: 0,
+                                marginLeft: "1rem",
+                                transform: mobileHireOpen ? "rotate(180deg)" : "rotate(0deg)",
+                                transition: "transform 0.3s ease",
+                              }}
+                            />
+                          </button>
+
+                          {/* Hire accordion */}
+                          <AnimatePresence initial={false}>
+                            {mobileHireOpen && (
+                              <motion.div
+                                key="mobile-hire"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
+                                style={{ overflow: "hidden" }}
+                              >
+                                <div style={{ paddingBottom: "0.5rem" }}>
+                                  {hireLinks.map((item) => (
+                                    <Link
+                                      key={item.href}
+                                      href={item.href}
+                                      onClick={() => setMobileOpen(false)}
+                                      onTouchStart={() => prefetchRoute(item.href)}
+                                      style={{
+                                        display: "block",
+                                        padding: "0.6rem 0",
+                                        textDecoration: "none",
+                                        transition: "border-color 0.2s ease",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          display: "block",
+                                          fontFamily: "var(--font-inter-tight)",
+                                          fontSize: "0.95rem",
+                                          fontWeight: 400,
+                                          letterSpacing: "-0.01em",
+                                          color: "#F5F5F7",
+                                          marginBottom: "0.2rem",
+                                        }}
+                                      >
+                                        {item.title}
+                                      </span>
+                                      <span
+                                        style={{
+                                          display: "block",
+                                          fontSize: "0.875rem",
+                                          lineHeight: 1.5,
+                                          color: "#8E8E93",
+                                        }}
+                                      >
+                                        {item.description}
+                                      </span>
+                                    </Link>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </>
                       ) : (
                         <Link
                           href={link.href}
                           className="flex items-center py-5"
                           style={{ color: "#F5F5F7", textDecoration: "none" }}
                           onClick={() => setMobileOpen(false)}
+                          onTouchStart={() => prefetchRoute(link.href)}
                         >
                           <span
                             style={{

@@ -10,17 +10,28 @@ import Image from "next/image";
 import { NavButton, SecondaryNavButton } from "@/components/ui/Button";
 
 const footerLinks = {
-  navigation: [
+  explore: [
     { label: "Home", href: "/" },
     { label: "Work", href: "/work" },
     { label: "About", href: "/about" },
     { label: "Process", href: "/process" },
-    { label: "Contact", href: "/contact" },
-  ],
-  company: [
     { label: "Blog", href: "/blog" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" },
     { label: "Terms & Conditions", href: "/terms" },
     { label: "Privacy Policy", href: "/privacy" },
+    { label: "Cookie Policy", href: "/cookies" },
+  ],
+  hire: [
+    { label: "Web Developers", href: "/hire/web-developer" },
+    { label: "Mobile App Developers", href: "/hire/mobile-app-developer" },
+    { label: "UI/UX Designers", href: "/hire/ui-ux-designer" },
+    { label: "SaaS Developers", href: "/hire/saas-developer" },
+    { label: "E-commerce Developers", href: "/hire/ecommerce-developer" },
+    { label: "DevOps Engineers", href: "/hire/devops-engineer" },
+    { label: "API Developers", href: "/hire/api-developer" },
+    { label: "AI Specialists", href: "/hire/ai-specialist" },
+    { label: "SEO Specialists", href: "/hire/seo-specialist" },
   ],
 };
 
@@ -60,7 +71,7 @@ export default function Footer() {
 
           {/* Left Block - Brand Card */}
           <div
-            className="lg:w-[38%] px-4 py-10 lg:p-12 flex flex-col justify-between min-h-[480px] relative overflow-hidden"
+            className="lg:w-[32%] px-4 py-10 lg:p-12 flex flex-col justify-between min-h-[480px] relative overflow-hidden"
             style={{
               background: "linear-gradient(135deg, #0052FF 0%, #1A73FF 100%)",
               borderRadius: 0
@@ -125,16 +136,16 @@ export default function Footer() {
           </div>
 
           {/* Right Block - Navigation & Newsletter */}
-          <div className="lg:w-[62%] bg-[#141416] px-4 py-10 lg:p-12 flex flex-col justify-between border border-white/5" style={{ borderRadius: 0 }}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-              {/* Navigation */}
+          <div className="lg:w-[68%] bg-[#141416] px-4 py-10 lg:p-12 flex flex-col justify-between border border-white/5" style={{ borderRadius: 0 }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 xl:gap-12">
+              {/* Explore */}
               <div>
-                <p className="text-[12px] uppercase tracking-[0.2em] text-white/60 font-bold mb-6 md:mb-8" style={{ fontFamily: "var(--font-inter-tight)" }}>Navigation</p>
+                <p className="text-[12px] uppercase tracking-[0.2em] text-white/60 font-bold mb-6 md:mb-8" style={{ fontFamily: "var(--font-inter-tight)" }}>Explore</p>
                 <ul className="space-y-4">
-                  {footerLinks.navigation.map((link) => (
+                  {footerLinks.explore.map((link) => (
                     <li key={link.label}>
-                      <Link 
-                        href={link.href} 
+                      <Link
+                        href={link.href}
                         className="group relative block overflow-hidden text-md text-white/70 hover:text-white transition-colors duration-300 font-regular"
                       >
                         <span className="relative flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-full">
@@ -147,14 +158,14 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Company */}
+              {/* Hire */}
               <div>
-                <p className="text-[12px] uppercase tracking-[0.2em] text-white/60 font-bold mb-6 md:mb-8" style={{ fontFamily: "var(--font-inter-tight)" }}>Company</p>
+                <p className="text-[12px] uppercase tracking-[0.2em] text-white/60 font-bold mb-6 md:mb-8" style={{ fontFamily: "var(--font-inter-tight)" }}>Hire</p>
                 <ul className="space-y-4">
-                  {footerLinks.company.map((link) => (
+                  {footerLinks.hire.map((link) => (
                     <li key={link.label}>
-                      <Link 
-                        href={link.href} 
+                      <Link
+                        href={link.href}
                         className="group relative block overflow-hidden text-md text-white/70 hover:text-white transition-colors duration-300 font-regular"
                       >
                         <span className="relative flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-full">
@@ -175,7 +186,7 @@ export default function Footer() {
                     {/* Email */}
                     <div className="flex items-center gap-4 group">
                       <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-white/5 transition-colors duration-300 group-hover:bg-white group-hover:border-white">
-                        <svg className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <svg className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
                       </div>
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.1em] text-white/40 font-bold mb-0.5">Email Us</p>
@@ -186,7 +197,7 @@ export default function Footer() {
                     {/* Phone */}
                     <div className="flex items-center gap-4 group">
                       <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-white/5 transition-colors duration-300 group-hover:bg-white group-hover:border-white">
-                        <svg className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <svg className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                       </div>
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.1em] text-white/40 font-bold mb-0.5">Call Us</p>
@@ -197,7 +208,7 @@ export default function Footer() {
                     {/* Address */}
                     <div className="flex items-center gap-4 group">
                       <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-white/5 transition-colors duration-300 group-hover:bg-white group-hover:border-white">
-                        <svg className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <svg className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
                       </div>
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.1em] text-white/40 font-bold mb-0.5">Address</p>
@@ -209,11 +220,6 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-10 lg:mt-auto">
-              <p className="text-white/60 text-sm italic font-medium" style={{ fontFamily: "var(--font-inter-tight)" }}>
-                Building digital excellence across borders.
-              </p>
-            </div>
           </div>
         </div>
 

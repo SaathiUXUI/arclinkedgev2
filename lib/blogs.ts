@@ -10,13 +10,14 @@ export interface FullBlogPost {
   date: string;
   readTime: string;
   image: string;
-  content: string;
+  content: string | { heading: string; description: string }[];
   author: {
     name: string;
     role: string;
     avatar: string;
   };
   tags: string[];
+  ctaType?: string;
 }
 
 const detailedBlogs: Record<string, Partial<FullBlogPost>> = {
@@ -92,18 +93,60 @@ const detailedBlogs: Record<string, Partial<FullBlogPost>> = {
   }
 };
 
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
+
 export async function getBlogBySlug(slug: string): Promise<FullBlogPost | null> {
+  // Check hardcoded first
   const basePost = blogPosts.find(bp => bp.href === `/blog/${slug}`);
   const details = detailedBlogs[slug];
 
-  if (!basePost || !details) return null;
+  if (basePost && details) {
+    return {
+      ...basePost,
+      ...details
+    } as FullBlogPost;
+  }
 
-  return {
-    ...basePost,
-    ...details
-  } as FullBlogPost;
+  // Check Sanity
+  try {
+    const query = `*[_type == "blog" && slug.current == $slug][0]`;
+    const sanityBlog = await client.fetch(query, { slug }, { next: { revalidate: 10 } });
+
+    if (sanityBlog) {
+      return {
+        id: sanityBlog._id,
+        slug: sanityBlog.slug.current,
+        title: sanityBlog.title,
+        description: sanityBlog.description,
+        category: sanityBlog.category,
+        date: sanityBlog.date,
+        readTime: sanityBlog.readTime || "5 min read",
+        image: sanityBlog.image ? urlForImage(sanityBlog.image)?.width(1200).url() || "" : "",
+        content: sanityBlog.content, // Array of { heading, description }
+        author: {
+          name: sanityBlog.authorName || team.founder.name,
+          role: sanityBlog.authorRole || team.founder.role,
+          avatar: sanityBlog.authorImage ? urlForImage(sanityBlog.authorImage)?.width(200).url() || team.founder.avatar : team.founder.avatar,
+        },
+        tags: [sanityBlog.category],
+        ctaType: sanityBlog.ctaType,
+      } as FullBlogPost;
+    }
+  } catch (error) {
+    console.error("Error fetching blog from sanity:", error);
+  }
+
+  return null;
 }
 
 export async function getAllBlogSlugs() {
-  return blogPosts.map(bp => bp.href.replace("/blog/", ""));
+  const hardcoded = blogPosts.map(bp => bp.href.replace("/blog/", ""));
+  try {
+    const query = `*[_type == "blog" && defined(slug.current)].slug.current`;
+    const sanitySlugs: string[] = await client.fetch(query);
+    return [...hardcoded, ...sanitySlugs];
+  } catch {
+    return hardcoded;
+  }
 }

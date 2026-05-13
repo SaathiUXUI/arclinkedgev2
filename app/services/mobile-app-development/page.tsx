@@ -13,16 +13,16 @@ import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { getProjectImagesByCategory, getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const SITE_URL = "https://arclinkedge.com";
+const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/mobile-app-development`;
 
 export const metadata: Metadata = {
-  title: "Mobile App Development Services in Ahmedabad | iOS & Android Apps",
+  title: "Mobile App Development Services in New York, Bangalore, Delhi & Mumbai | iOS & Android Apps",
   description:
-    "Custom iOS and Android app development services in Ahmedabad. We build fast, scalable, and native-feeling mobile apps using Flutter and React Native.",
+    "Custom iOS and Android app development services in New York, Bangalore, Delhi & Mumbai. We build fast, scalable, and native-feeling mobile apps using Flutter and React Native.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "mobile app development Ahmedabad",
+    "mobile app development New York, Bangalore, Delhi & Mumbai",
     "iOS app development India",
     "Android app development agency",
     "Flutter app development",
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Mobile App Development Services in Ahmedabad | Arclink Edge",
+    title: "Mobile App Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
       "Native-feeling iOS and Android apps built for performance and user engagement. From MVP to scalable enterprise mobile solutions.",
     siteName: "Arclink Edge",
     images: [
       {
-        url: `${SITE_URL}/og-mobile-app-development.png`,
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Arclink Edge mobile app development services",
@@ -48,10 +48,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mobile App Development Services in Ahmedabad | Arclink Edge",
+    title: "Mobile App Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
-      "Custom iOS and Android app development services in Ahmedabad. We build fast, scalable, and native-feeling mobile apps.",
-    images: [`${SITE_URL}/og-mobile-app-development.png`],
+      "Custom iOS and Android app development services in New York, Bangalore, Delhi & Mumbai. We build fast, scalable, and native-feeling mobile apps.",
+    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 
@@ -402,7 +402,7 @@ function JsonLd() {
       "Custom iOS and Android app development services using Flutter and React Native. We build fast, scalable mobile applications.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "Ahmedabad" },
+      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -469,18 +469,10 @@ export default async function MobileAppDevelopmentPage() {
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
                 We build native and cross-platform iOS and Android apps that don't just look good, but perform flawlessly. From startup MVPs to enterprise mobile solutions, we engineer apps that scale, retain users, and drive growth.
               </p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <PrimaryButton href="/contact" icon={ArrowUpRight}>Start an App Project</PrimaryButton>
-                <SecondaryButton
-                  href="https://wa.me/919824838067?text=Hello!%20I%20want%20to%20discuss%20a%20mobile%20app%20development%20project."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  imgSrc="/logo/whatsapp.svg"
-                  imgAlt="WhatsApp"
-                >
-                  Talk on WhatsApp
-                </SecondaryButton>
-              </div>
+                <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                  <PrimaryButton href="/contact" icon={ArrowUpRight}>Start an App Project</PrimaryButton>
+                  <SecondaryButton href="/hire/mobile-app-developer" icon={ArrowUpRight}>Hire Dedicated Mobile App Developer</SecondaryButton>
+                </div>
             </div>
 
             <HeroProjectColumn sanityImages={sanityImages} />
@@ -664,7 +656,7 @@ export default async function MobileAppDevelopmentPage() {
           </div>
         </section>
 
-        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials}
+        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs}
           beforeOutcomes={
             <section className="px-6 py-20 lg:px-12 lg:py-28">
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
@@ -696,14 +688,14 @@ export default async function MobileAppDevelopmentPage() {
         >
           <section className="px-6 py-20 lg:px-12 lg:py-28">
             <div className="mx-auto max-w-[1600px]">
-              <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                <div>
+              <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
+                <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
                   <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
                     Scan the build scope in seconds.
                   </h2>
                 </div>
-                <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/52">
+                <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
                   Clear deliverables across app design, mobile development, backend APIs, testing, and store launch.
                 </p>
               </div>

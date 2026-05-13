@@ -34,9 +34,45 @@ interface ProjectContentProps {
   sanityTestimonials?: any[];
 }
 
+const faqs = [
+  {
+    question: "Do you offer the same level of service for startups as you do for enterprise clients?",
+    answer: "Absolutely. We apply the same 'Rapid Precision' methodology to every project, whether it's an MVP for a funded startup or a complex system overhaul for an enterprise client."
+  },
+  {
+    question: "How do you measure the success of a project?",
+    answer: "We define clear KPIs during the Discovery phase—ranging from improved conversion rates and faster load times to higher user engagement and reduced technical debt."
+  },
+  {
+    question: "Can you take over an existing project mid-development?",
+    answer: "Yes, we often help clients audit, rescue, and scale existing products that are suffering from technical debt, poor UX, or performance issues."
+  },
+  {
+    question: "What is your tech stack for these types of projects?",
+    answer: "While we are stack-agnostic, we specialize in Next.js, React, Node.js, and Flutter for robust, high-performance applications."
+  }
+];
+
 export default function ProjectContent({ project, sanityLogos, sanityTestimonials }: ProjectContentProps) {
   return (
     <main className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
       <Navbar />
 
       {/* 1. Hero Section */}
@@ -186,7 +222,7 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
       </section>
 
       {/* 6. Contact & Related (Shared Bottom Stack) */}
-      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} />
+      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs} />
 
       <Footer />
       <BackToTop />

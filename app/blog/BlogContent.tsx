@@ -68,7 +68,7 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute top-3 left-3">
-            <span className="text-[10px] uppercase tracking-wider px-2.5 py-1 font-semibold backdrop-blur-md bg-black/50 text-white" style={{ borderRadius: 0 }}>
+            <span className="text-[10px] uppercase tracking-wider px-2.5 py-1 font-semibold backdrop-blur-md bg-black/50 text-white hover:text-white/80 transition-all cursor-default" style={{ borderRadius: 0 }}>
               {post.category}
             </span>
           </div>
@@ -89,7 +89,7 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
           <h2 className="text-xl md:text-2xl font-medium mb-3 leading-snug" style={{ fontFamily: "var(--font-inter-tight)", color: "#F5F5F7" }}>
             {post.title}
           </h2>
-          <p className="text-sm leading-relaxed text-[#8E8E93] max-w-3xl line-clamp-2">
+          <p className="text-sm leading-relaxed text-[#8E8E93] max-w-3xl line-clamp-2" style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.015em" }}>
             {post.description}
           </p>
         </div>
@@ -98,11 +98,43 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
   );
 }
 
+const faqs = [
+  {
+    question: "How often do you publish new articles?",
+    answer: "We aim to publish 2-3 high-quality, deep-dive articles per month focusing on software engineering, product design, and digital growth strategies."
+  },
+  {
+    question: "Can I request a specific topic to be covered?",
+    answer: "Yes, we welcome suggestions from our readers and clients. If there is a specific technical or strategic topic you want us to cover, feel free to reach out."
+  },
+  {
+    question: "Do you accept guest posts?",
+    answer: "Currently, all content on the Arclink Edge blog is authored by our in-house engineering and design experts to maintain our high standard of technical accuracy."
+  }
+];
+
 export default function BlogContent({ sanityLogos, sanityBlogs, sanityTestimonials }: { sanityLogos?: any[]; sanityBlogs?: any[]; sanityTestimonials?: any[] }) {
   const displayBlogs = sanityBlogs && sanityBlogs.length > 0 ? sanityBlogs : blogPosts;
 
   return (
     <main className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
       <Navbar />
 
       <section className="relative px-6 pt-32 pb-20 lg:px-12 lg:pt-48 lg:pb-32">
@@ -120,7 +152,7 @@ export default function BlogContent({ sanityLogos, sanityBlogs, sanityTestimonia
               </h1>
             </div>
             <div className="pb-4">
-              <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-md">
+              <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-md" style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.02em" }}>
                 Thought leadership, technical deep-dives, and product strategy from the Arclink Edge team.
               </p>
             </div>
@@ -138,7 +170,7 @@ export default function BlogContent({ sanityLogos, sanityBlogs, sanityTestimonia
         </div>
       </section>
 
-      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} />
+      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs} />
       <Footer />
       <BackToTop />
       <CookieBanner />

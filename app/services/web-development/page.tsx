@@ -14,33 +14,33 @@ import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { getProjectImagesByCategory, getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const SITE_URL = "https://arclinkedge.com";
+const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/web-development`;
 
 export const metadata: Metadata = {
-  title: "Web Development Services in Ahmedabad | Next.js & Custom Web Apps",
+  title: "Web Development Services in New York, Bangalore, Delhi & Mumbai | Next.js & Custom Web Apps",
   description:
-    "Custom web development services in Ahmedabad for B2B brands, startups and growing businesses. We build fast, SEO-friendly websites, web apps, dashboards and SaaS platforms.",
+    "Custom web development services in New York, Bangalore, Delhi & Mumbai for B2B brands, startups and growing businesses. We build fast, SEO-friendly websites, web apps, dashboards and SaaS platforms.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "web development services Ahmedabad",
+    "web development services New York, Bangalore, Delhi & Mumbai",
     "custom web development company India",
     "Next.js development agency",
     "React web app development",
-    "website development company Ahmedabad",
+    "website development company New York, Bangalore, Delhi & Mumbai",
     "B2B web development India",
     "SaaS web app development",
   ],
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Web Development Services in Ahmedabad | Arclink Edge",
+    title: "Web Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
       "Fast, scalable and SEO-friendly web development for serious businesses. Built with product thinking, modern engineering and conversion-focused design.",
     siteName: "Arclink Edge",
     images: [
       {
-        url: `${SITE_URL}/og-web-development.png`,
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Arclink Edge web development services",
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Development Services in Ahmedabad | Arclink Edge",
+    title: "Web Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
       "Custom websites, web apps and SaaS platforms built for speed, SEO, conversion and scale.",
-    images: [`${SITE_URL}/og-web-development.png`],
+    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 
@@ -437,7 +437,7 @@ function JsonLd() {
       "Custom web development services for websites, web apps, SaaS dashboards, portals and SEO-friendly digital products.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "Ahmedabad" },
+      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -502,19 +502,11 @@ export default async function WebDevelopmentPage() {
                 Fast websites and web apps built to convert, scale and rank.
               </h1>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
-                Arclink Edge builds custom web development projects for B2B brands, startups and growing businesses in Ahmedabad, India and global markets. From marketing websites to SaaS dashboards, we ship clean, fast and conversion-focused digital products.
+                Arclink Edge builds custom web development projects for B2B brands, startups and growing businesses in New York, Bangalore, Delhi & Mumbai and global markets. From marketing websites to SaaS dashboards, we ship clean, fast and conversion-focused digital products.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <PrimaryButton href="/contact" icon={ArrowUpRight}>Start a Web Project</PrimaryButton>
-                <SecondaryButton
-                  href="https://wa.me/919824838067?text=Hello!%20I%20want%20to%20discuss%20a%20web%20development%20project."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  imgSrc="/logo/whatsapp.svg"
-                  imgAlt="WhatsApp"
-                >
-                  Talk on WhatsApp
-                </SecondaryButton>
+                <SecondaryButton href="/hire/web-developer" icon={ArrowUpRight}>Hire Dedicated Web Developer</SecondaryButton>
               </div>
             </div>
 
@@ -699,7 +691,7 @@ export default async function WebDevelopmentPage() {
           </div>
         </section>
 
-        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials}
+        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs}
           beforeOutcomes={
             <section className="px-6 py-20 lg:px-12 lg:py-28">
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
@@ -731,14 +723,14 @@ export default async function WebDevelopmentPage() {
         >
           <section className="px-6 py-20 lg:px-12 lg:py-28">
             <div className="mx-auto max-w-[1600px]">
-              <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                <div>
+              <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
+                <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
                   <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
                     Scan the build scope in seconds.
                   </h2>
                 </div>
-                <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/52">
+                <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
                   Clear deliverables across website design, custom web development, CMS, integrations, SEO and launch support.
                 </p>
               </div>

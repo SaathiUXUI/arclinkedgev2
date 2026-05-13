@@ -2,10 +2,24 @@ import type { Metadata } from "next";
 import AboutContent from "./AboutContent";
 
 export const metadata: Metadata = {
-  title: "About Us | Arclink Edge - Elite IT Agency in Ahmedabad",
-  description: "Learn about Arclink Edge, a premium IT agency in Ahmedabad specializing in high-performance Web, Mobile & SaaS solutions. Meet our founder and elite team of engineering experts.",
-  keywords: ["about arclink edge", "founder sathi", "IT agency ahmedabad history", "software engineering team", "boutique agency india"],
-  alternates: { canonical: "https://arclinkedge.com/about" },
+  title: "About Us — Elite IT Agency in New York, Bangalore, Delhi & Mumbai",
+  description: "Learn about Arclink Edge, a premium IT agency in New York, Bangalore, Delhi & Mumbai specializing in high-performance Web, Mobile & SaaS solutions. Meet our founder and elite team of engineering experts.",
+  keywords: ["about arclink edge", "founder saathi rathod", "IT agency history", "software engineering team", "boutique agency india"],
+  alternates: { canonical: "https://www.arclinkedge.com/about" },
+  openGraph: {
+    type: "website",
+    url: "https://www.arclinkedge.com/about",
+    title: "About Arclink Edge — Premium Digital Product Agency",
+    description: "Discover our story, meet our founder, and see how we build high-performance digital products for B2B brands globally.",
+    siteName: "Arclink Edge",
+    images: [{ url: "https://www.arclinkedge.com/opengraph-image" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Arclink Edge — Elite IT Agency in New York, Bangalore, Delhi & Mumbai",
+    description: "Meet the Arclink Edge team building premium digital products for ambitious brands.",
+    images: ["/opengraph-image"],
+  },
 };
 
 import { getBrandLogos, getSanityTestimonials, getTeamMembers, getProjectImagesByCategory } from "@/sanity/lib/api";

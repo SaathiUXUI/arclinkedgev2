@@ -13,16 +13,16 @@ import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { getProjectImagesByCategory, getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const SITE_URL = "https://arclinkedge.com";
+const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/digital-marketing`;
 
 export const metadata: Metadata = {
-  title: "Digital Marketing & SEO Services in Ahmedabad | Data-Driven Growth",
+  title: "Digital Marketing & SEO Services in New York, Bangalore, Delhi & Mumbai | Data-Driven Growth",
   description:
-    "Data-driven digital marketing and SEO services in Ahmedabad. We combine technical SEO, content strategy, and performance ads to scale your revenue.",
+    "Data-driven digital marketing and SEO services in New York, Bangalore, Delhi & Mumbai. We combine technical SEO, content strategy, and performance ads to scale your revenue.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "digital marketing agency Ahmedabad",
+    "digital marketing agency New York, Bangalore, Delhi & Mumbai",
     "SEO services India",
     "performance marketing",
     "B2B lead generation",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Digital Marketing & SEO Services in Ahmedabad | Arclink Edge",
+    title: "Digital Marketing & SEO Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
       "Stop wasting ad spend on vanity metrics. We build data-driven SEO and performance marketing campaigns that actually generate qualified leads and revenue.",
     siteName: "Arclink Edge",
     images: [
       {
-        url: `${SITE_URL}/og-digital-marketing.png`,
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Arclink Edge Digital Marketing services",
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing & SEO Services in Ahmedabad | Arclink Edge",
+    title: "Digital Marketing & SEO Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
-      "Data-driven digital marketing and SEO services in Ahmedabad. We combine technical SEO and performance ads to scale your revenue.",
-    images: [`${SITE_URL}/og-digital-marketing.png`],
+      "Data-driven digital marketing and SEO services in New York, Bangalore, Delhi & Mumbai. We combine technical SEO and performance ads to scale your revenue.",
+    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 
@@ -396,10 +396,10 @@ function JsonLd() {
     serviceType: "Digital Marketing",
     url: PAGE_URL,
     description:
-      "Data-driven digital marketing and SEO services in Ahmedabad. We combine technical SEO, content strategy, and performance ads to scale your revenue.",
+      "Data-driven digital marketing and SEO services in New York, Bangalore, Delhi & Mumbai. We combine technical SEO, content strategy, and performance ads to scale your revenue.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "Ahmedabad" },
+      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -467,16 +467,8 @@ export default async function DigitalMarketingPage() {
                 Stop wasting money on marketing that doesn't convert. We engineer data-driven SEO strategies and performance ad campaigns designed specifically to lower your acquisition costs and increase qualified leads.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <PrimaryButton href="/contact" icon={ArrowUpRight}>Get a Growth Audit</PrimaryButton>
-                <SecondaryButton
-                  href="https://wa.me/919824838067?text=Hello!%20I%20want%20to%20discuss%20my%20marketing%20strategy."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  imgSrc="/logo/whatsapp.svg"
-                  imgAlt="WhatsApp"
-                >
-                  Talk on WhatsApp
-                </SecondaryButton>
+                <PrimaryButton href="/contact" icon={ArrowUpRight}>Start a Growth Project</PrimaryButton>
+                <SecondaryButton href="/hire/seo-specialist" icon={ArrowUpRight}>Hire Dedicated SEO Specialist</SecondaryButton>
               </div>
             </div>
 
@@ -661,7 +653,7 @@ export default async function DigitalMarketingPage() {
           </div>
         </section>
 
-        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials}
+        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs}
           beforeOutcomes={
             <section className="px-6 py-20 lg:px-12 lg:py-28">
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
@@ -693,15 +685,15 @@ export default async function DigitalMarketingPage() {
         >
           <section className="px-6 py-20 lg:px-12 lg:py-28">
             <div className="mx-auto max-w-[1600px]">
-              <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                <div>
+              <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
+                <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
                   <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
-                    Scan the campaign scope in seconds.
+                    Scan the growth scope in seconds.
                   </h2>
                 </div>
-                <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/52">
-                  Clear deliverables across SEO strategy, paid ad management, tracking setups, and conversion rate optimization.
+                <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
+                  Clear deliverables across SEO strategy, content systems, performance marketing, and analytics.
                 </p>
               </div>
               <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

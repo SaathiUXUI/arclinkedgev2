@@ -66,6 +66,54 @@ export const services: Service[] = [
   },
 ];
 
+export const hireLinks = [
+  {
+    title: "Web Developers",
+    description: "Expert React & Next.js engineers for high-performance web products.",
+    href: "/hire/web-developer",
+  },
+  {
+    title: "Mobile App Developers",
+    description: "Native & cross-platform specialists for iOS and Android apps.",
+    href: "/hire/mobile-app-developer",
+  },
+  {
+    title: "UI/UX Designers",
+    description: "Creative designers focused on user psychology and conversion.",
+    href: "/hire/ui-ux-designer",
+  },
+  {
+    title: "SaaS Developers",
+    description: "Product engineers for multi-tenant architectures and billing.",
+    href: "/hire/saas-developer",
+  },
+  {
+    title: "E-commerce Developers",
+    description: "Specialists in Shopify, custom carts, and headless commerce.",
+    href: "/hire/ecommerce-developer",
+  },
+  {
+    title: "DevOps Engineers",
+    description: "Infrastructure experts for cloud automation and CI/CD.",
+    href: "/hire/devops-engineer",
+  },
+  {
+    title: "API Developers",
+    description: "Backend specialists in REST, GraphQL, and microservices.",
+    href: "/hire/api-developer",
+  },
+  {
+    title: "AI Specialists",
+    description: "LLM engineers for custom AI agents and workflow automation.",
+    href: "/hire/ai-specialist",
+  },
+  {
+    title: "SEO Specialists",
+    description: "Search growth experts for rankings and Core Web Vitals.",
+    href: "/hire/seo-specialist",
+  },
+];
+
 export const stats: Stat[] = [
   { value: 50, suffix: "+", label: "Projects Delivered" },
   { value: 30, suffix: "+", label: "Happy Clients" },
@@ -258,10 +306,10 @@ export const clientLogos: { name: string; src: string }[] = [
 ];
 
 export const navLinks = [
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/services" },
   { label: "Process", href: "/process" },
   { label: "Work", href: "/work" },
+  { label: "Hire", href: "/hire" },
   { label: "Blogs", href: "/blog" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];

@@ -13,16 +13,16 @@ import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { getProjectImagesByCategory, getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const SITE_URL = "https://arclinkedge.com";
+const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/ecommerce`;
 
 export const metadata: Metadata = {
-  title: "E-commerce Development Services in Ahmedabad | Custom Stores",
+  title: "E-commerce Development Services in New York, Bangalore, Delhi & Mumbai | Custom Stores",
   description:
-    "High-conversion e-commerce development in Ahmedabad. We build fast, secure online stores on Shopify, WooCommerce, and custom Next.js stacks.",
+    "High-conversion e-commerce development in New York, Bangalore, Delhi & Mumbai. We build fast, secure online stores on Shopify, WooCommerce, and custom Next.js stacks.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "ecommerce development Ahmedabad",
+    "ecommerce development New York, Bangalore, Delhi & Mumbai",
     "Shopify development agency",
     "WooCommerce expert India",
     "custom ecommerce development",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "E-commerce Development Services in Ahmedabad | Arclink Edge",
+    title: "E-commerce Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
       "Stop losing sales to slow websites. We build performance-optimized, headless e-commerce stores designed to maximize your conversion rate.",
     siteName: "Arclink Edge",
     images: [
       {
-        url: `${SITE_URL}/og-ecommerce.png`,
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Arclink Edge e-commerce development services",
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "E-commerce Development Services in Ahmedabad | Arclink Edge",
+    title: "E-commerce Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
-      "High-conversion e-commerce development in Ahmedabad. We build fast, secure online stores.",
-    images: [`${SITE_URL}/og-ecommerce.png`],
+      "High-conversion e-commerce development in New York, Bangalore, Delhi & Mumbai. We build fast, secure online stores.",
+    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 
@@ -399,10 +399,10 @@ function JsonLd() {
     serviceType: "E-commerce Development",
     url: PAGE_URL,
     description:
-      "High-conversion e-commerce development in Ahmedabad. We build fast, secure online stores on Shopify, WooCommerce, and custom Next.js stacks.",
+      "High-conversion e-commerce development in New York, Bangalore, Delhi & Mumbai. We build fast, secure online stores on Shopify, WooCommerce, and custom Next.js stacks.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "Ahmedabad" },
+      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -469,18 +469,10 @@ export default async function EcommercePage() {
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
                 Stop losing customers to slow load times and confusing checkouts. We design and build premium e-commerce experiences on Shopify, WooCommerce, and headless architectures that turn browsers into buyers.
               </p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <PrimaryButton href="/contact" icon={ArrowUpRight}>Start a Store Build</PrimaryButton>
-                <SecondaryButton
-                  href="https://wa.me/919824838067?text=Hello!%20I%20want%20to%20discuss%20an%20ecommerce%20project."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  imgSrc="/logo/whatsapp.svg"
-                  imgAlt="WhatsApp"
-                >
-                  Talk on WhatsApp
-                </SecondaryButton>
-              </div>
+                <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                  <PrimaryButton href="/contact" icon={ArrowUpRight}>Start an E-commerce Project</PrimaryButton>
+                  <SecondaryButton href="/hire/ecommerce-developer" icon={ArrowUpRight}>Hire Dedicated E-commerce Developer</SecondaryButton>
+                </div>
             </div>
 
             <HeroProjectColumn sanityImages={sanityImages} />
@@ -664,7 +656,7 @@ export default async function EcommercePage() {
           </div>
         </section>
 
-        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials}
+        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs}
           beforeOutcomes={
             <section className="px-6 py-20 lg:px-12 lg:py-28">
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
@@ -696,15 +688,15 @@ export default async function EcommercePage() {
         >
           <section className="px-6 py-20 lg:px-12 lg:py-28">
             <div className="mx-auto max-w-[1600px]">
-              <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                <div>
+              <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
+                <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
                   <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
-                    Scan the build scope in seconds.
+                    Scan the store scope in seconds.
                   </h2>
                 </div>
-                <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/52">
-                  Clear deliverables across platform setup, theme design, third-party integrations, and performance optimization.
+                <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
+                  Clear deliverables across UX design, custom shop development, payments, and conversion optimization.
                 </p>
               </div>
               <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

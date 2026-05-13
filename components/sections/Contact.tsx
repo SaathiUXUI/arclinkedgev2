@@ -17,12 +17,12 @@ function SubmitButton({ isSubmitting, children }: { isSubmitting: boolean; child
     <button
       type="submit"
       disabled={isSubmitting}
-      className="group relative inline-flex overflow-hidden text-sm font-semibold bg-[#F5F5F7] text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:scale-100 transition-all duration-300 ease-out disabled:opacity-70 disabled:cursor-not-allowed"
+      className="group relative inline-flex w-full overflow-hidden text-sm font-semibold bg-[#F5F5F7] text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:scale-100 transition-all duration-300 ease-out disabled:opacity-70 disabled:cursor-not-allowed"
       style={{ borderRadius: 0, fontFamily: "var(--font-inter-tight)" }}
     >
       {/* Default layer */}
       <span
-        className="flex items-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-full"
+        className="flex w-full items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-full"
         style={{ padding: "1rem 2.5rem" }}
       >
         {isSubmitting ? "Sending..." : children}
@@ -30,7 +30,7 @@ function SubmitButton({ isSubmitting, children }: { isSubmitting: boolean; child
       </span>
       {/* Hover layer */}
       <span
-        className="absolute inset-0 flex items-center gap-2 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
+        className="absolute inset-0 flex w-full items-center justify-center gap-2 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
         style={{ padding: "1rem 2.5rem" }}
       >
         {isSubmitting ? "Sending..." : children}
@@ -152,7 +152,7 @@ function StyledDropdown({
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full bg-transparent border-b ${error ? "border-[#ef4444]" : "border-white/10"} py-4 flex items-center justify-between cursor-pointer transition-all duration-300`}
       >
-        <span className={`${field.value ? "text-[#F5F5F7]" : "text-[#F5F5F7]/54"} text-md transition-colors duration-300`}>
+        <span className={`${field.value ? "text-[#F5F5F7]" : isOpen ? "text-[#F5F5F7]" : "text-[#F5F5F7]/54"} text-md transition-colors duration-300`}>
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <ChevronDown size={14} className={`text-white/50 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
@@ -406,6 +406,16 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
                     </a>
                   </div>
                 </div>
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-2 font-semibold">Office Address</p>
+                <p
+                  className="text-2xl md:text-xl font-medium text-[#F5F5F7]"
+                  style={{ letterSpacing: "-0.02em" }}
+                >
+                  Ahmedabad, Gujarat, India
+                </p>
               </div>
               </div>
             </div>

@@ -24,6 +24,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       infinite: false,
     });
 
+    // Scroll to top on route change
+    lenis.scrollTo(0, { immediate: true });
+
     lenis.on("scroll", ScrollTrigger.update);
 
     let raf: number;
@@ -40,7 +43,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       cancelAnimationFrame(raf);
       lenis.destroy();
     };
-  }, [isStudio]);
+  }, [isStudio, pathname]);
 
   return <>{children}</>;
 }

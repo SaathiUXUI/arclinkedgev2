@@ -13,16 +13,16 @@ import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { getProjectImagesByCategory, getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const SITE_URL = "https://arclinkedge.com";
+const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/saas-development`;
 
 export const metadata: Metadata = {
-  title: "SaaS Development Services in Ahmedabad | Custom B2B Products",
+  title: "SaaS Development Services in New York, Bangalore, Delhi & Mumbai | Custom B2B Products",
   description:
-    "Custom SaaS development services in Ahmedabad. We build scalable, secure, and multi-tenant SaaS applications from MVP to enterprise scale.",
+    "Custom SaaS development services in New York, Bangalore, Delhi & Mumbai. We build scalable, secure, and multi-tenant SaaS applications from MVP to enterprise scale.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "SaaS development services Ahmedabad",
+    "SaaS development services New York, Bangalore, Delhi & Mumbai",
     "B2B SaaS development India",
     "custom SaaS product development",
     "multi-tenant SaaS architecture",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "SaaS Development Services in Ahmedabad | Arclink Edge",
+    title: "SaaS Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
       "End-to-end SaaS development for B2B and B2C startups. We build secure, multi-tenant products designed to scale and generate recurring revenue.",
     siteName: "Arclink Edge",
     images: [
       {
-        url: `${SITE_URL}/og-saas-development.png`,
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Arclink Edge SaaS development services",
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SaaS Development Services in Ahmedabad | Arclink Edge",
+    title: "SaaS Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
-      "Custom SaaS development services in Ahmedabad. We build scalable, secure, and multi-tenant SaaS applications.",
-    images: [`${SITE_URL}/og-saas-development.png`],
+      "Custom SaaS development services in New York, Bangalore, Delhi & Mumbai. We build scalable, secure, and multi-tenant SaaS applications.",
+    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 
@@ -399,10 +399,10 @@ function JsonLd() {
     serviceType: "SaaS Development",
     url: PAGE_URL,
     description:
-      "Custom SaaS development services in Ahmedabad. We build scalable, secure, and multi-tenant SaaS applications from MVP to enterprise scale.",
+      "Custom SaaS development services in New York, Bangalore, Delhi & Mumbai. We build scalable, secure, and multi-tenant SaaS applications from MVP to enterprise scale.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "Ahmedabad" },
+      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -469,18 +469,10 @@ export default async function SaaSDevelopmentPage() {
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
                 We engineer custom B2B and B2C SaaS platforms. From secure multi-tenant architectures and complex dashboards to seamless Stripe integrations, we build products that users pay for.
               </p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <PrimaryButton href="/contact" icon={ArrowUpRight}>Start a SaaS Project</PrimaryButton>
-                <SecondaryButton
-                  href="https://wa.me/919824838067?text=Hello!%20I%20want%20to%20discuss%20a%20SaaS%20development%20project."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  imgSrc="/logo/whatsapp.svg"
-                  imgAlt="WhatsApp"
-                >
-                  Talk on WhatsApp
-                </SecondaryButton>
-              </div>
+                <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                  <PrimaryButton href="/contact" icon={ArrowUpRight}>Start a SaaS Project</PrimaryButton>
+                  <SecondaryButton href="/hire/saas-developer" icon={ArrowUpRight}>Hire Dedicated SaaS Developer</SecondaryButton>
+                </div>
             </div>
 
             <HeroProjectColumn sanityImages={sanityImages} />
@@ -664,7 +656,7 @@ export default async function SaaSDevelopmentPage() {
           </div>
         </section>
 
-        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials}
+        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs}
           beforeOutcomes={
             <section className="px-6 py-20 lg:px-12 lg:py-28">
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
@@ -696,14 +688,14 @@ export default async function SaaSDevelopmentPage() {
         >
           <section className="px-6 py-20 lg:px-12 lg:py-28">
             <div className="mx-auto max-w-[1600px]">
-              <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                <div>
+              <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
+                <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
                   <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
                     Scan the engineering scope in seconds.
                   </h2>
                 </div>
-                <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/52">
+                <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
                   Clear deliverables across architecture, frontend dashboards, billing logic, and cloud deployment.
                 </p>
               </div>

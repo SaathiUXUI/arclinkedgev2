@@ -21,10 +21,12 @@ const BackToTop = dynamic(() => import("@/components/ui/BackToTop"));
 const CookieBanner = dynamic(() => import("@/components/ui/CookieBanner"));
 
 export const metadata: Metadata = {
-  title: "Arclink Edge — Premium IT Agency in Ahmedabad | Web, Mobile & SaaS Development",
+  title: {
+    absolute: "Arclink Edge - Premium IT Agency in New York, Bangalore, Delhi & Mumbai | Web, Mobile & SaaS Development",
+  },
   description:
-    "Arclink Edge is a premium IT agency in Ahmedabad, India. We build world-class web apps, mobile apps, SaaS products & UI/UX design for ambitious B2B brands globally.",
-  alternates: { canonical: "https://arclinkedge.com" },
+    "Arclink Edge is a premium IT agency in New York, Bangalore, Delhi & Mumbai. We build world-class web apps, mobile apps, SaaS products & UI/UX design for ambitious B2B brands globally.",
+  alternates: { canonical: "https://www.arclinkedge.com" },
 };
 
 import { getProjectImagesByCategory, getBrandLogos, getFirstImagesPerCategory, getSanityTestimonials, getSanityBlogs, getProjects, getTeamMembers } from "@/sanity/lib/api";
@@ -50,7 +52,7 @@ export default async function HomePage() {
         <Services categoryImagesMap={categoryImagesMap} />
         <ImageCarousel sanityImages={sanityImages} />
         <HowWeWork />
-        <CaseStudies sanityProjects={sanityProjects} />
+        <CaseStudies />
         <TechStack />
         <Testimonials sanityTestimonials={sanityTestimonials} />
         <Blog sanityBlogs={sanityBlogs} />

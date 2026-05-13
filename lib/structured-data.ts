@@ -1,4 +1,4 @@
-const SITE_URL = "https://arclinkedge.com";
+const SITE_URL = "https://www.arclinkedge.com";
 
 export const organizationSchema = {
   "@context": "https://schema.org",
@@ -8,16 +8,16 @@ export const organizationSchema = {
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
-    url: `${SITE_URL}/logo.png`,
+    url: `${SITE_URL}/logo/aeglossy.png`,
     width: 200,
     height: 60,
   },
   description:
-    "Arclink Edge is a premium IT agency based in Ahmedabad, India specializing in web development, mobile apps, UI/UX design, and SaaS development.",
+    "Arclink Edge is a premium IT agency based in New York, Bangalore, Delhi & Mumbai specializing in web development, mobile apps, UI/UX design, and SaaS development.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Ahmedabad",
-    addressLocality: "Ahmedabad",
+    streetAddress: "New York, Bangalore, Delhi & Mumbai",
+    addressLocality: "New York, Bangalore, Delhi & Mumbai",
     addressRegion: "Gujarat",
     postalCode: "380001",
     addressCountry: "IN",
@@ -42,15 +42,15 @@ export const localBusinessSchema = {
   "@type": "LocalBusiness",
   "@id": `${SITE_URL}/#localbusiness`,
   name: "Arclink Edge",
-  image: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/opengraph-image`,
   url: SITE_URL,
   telephone: "+91-98248-38067",
   email: "hello@arclinkedge.com",
   priceRange: "$$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Ahmedabad",
-    addressLocality: "Ahmedabad",
+    streetAddress: "New York, Bangalore, Delhi & Mumbai",
+    addressLocality: "New York, Bangalore, Delhi & Mumbai",
     addressRegion: "Gujarat",
     postalCode: "380001",
     addressCountry: "IN",
@@ -76,12 +76,7 @@ export const websiteSchema = {
   "@id": `${SITE_URL}/#website`,
   url: SITE_URL,
   name: "Arclink Edge",
-  description: "Premium IT agency in Ahmedabad offering web, mobile, and SaaS development",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/search?q={search_term_string}` },
-    "query-input": "required name=search_term_string",
-  },
+  description: "Premium IT agency in New York, Bangalore, Delhi & Mumbai offering web, mobile, and SaaS development",
 };
 
 export const breadcrumbSchema = {

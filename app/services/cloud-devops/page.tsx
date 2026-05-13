@@ -13,16 +13,16 @@ import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { getProjectImagesByCategory, getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const SITE_URL = "https://arclinkedge.com";
+const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/cloud-devops`;
 
 export const metadata: Metadata = {
-  title: "Cloud & DevOps Services in Ahmedabad | AWS & CI/CD",
+  title: "Cloud & DevOps Services in New York, Bangalore, Delhi & Mumbai | AWS & CI/CD",
   description:
-    "Expert Cloud & DevOps services in Ahmedabad. We automate deployments, optimize AWS infrastructure, and ensure 99.99% uptime for your applications.",
+    "Expert Cloud & DevOps services in New York, Bangalore, Delhi & Mumbai. We automate deployments, optimize AWS infrastructure, and ensure 99.99% uptime for your applications.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "DevOps services Ahmedabad",
+    "DevOps services New York, Bangalore, Delhi & Mumbai",
     "cloud infrastructure consulting",
     "AWS consulting India",
     "CI/CD automation",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Cloud & DevOps Services in Ahmedabad | Arclink Edge",
+    title: "Cloud & DevOps Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
       "Stop worrying about server crashes. We build scalable, secure, and automated cloud infrastructure on AWS and Google Cloud.",
     siteName: "Arclink Edge",
     images: [
       {
-        url: `${SITE_URL}/og-cloud-devops.png`,
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Arclink Edge Cloud & DevOps services",
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cloud & DevOps Services in Ahmedabad | Arclink Edge",
+    title: "Cloud & DevOps Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
     description:
-      "Expert Cloud & DevOps services in Ahmedabad. We automate deployments and optimize AWS infrastructure.",
-    images: [`${SITE_URL}/og-cloud-devops.png`],
+      "Expert Cloud & DevOps services in New York, Bangalore, Delhi & Mumbai. We automate deployments and optimize AWS infrastructure.",
+    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 
@@ -395,10 +395,10 @@ function JsonLd() {
     serviceType: "DevOps Consulting",
     url: PAGE_URL,
     description:
-      "Expert Cloud & DevOps services in Ahmedabad. We automate deployments, optimize AWS infrastructure, and ensure 99.99% uptime.",
+      "Expert Cloud & DevOps services in New York, Bangalore, Delhi & Mumbai. We automate deployments, optimize AWS infrastructure, and ensure 99.99% uptime.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "Ahmedabad" },
+      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -438,6 +438,8 @@ function JsonLd() {
   );
 }
 
+
+
 export default async function CloudDevOpsPage() {
   const [sanityImages, sanityLogos, sanityTestimonials] = await Promise.all([
     getProjectImagesByCategory("cloud-devops"),
@@ -466,16 +468,8 @@ export default async function CloudDevOpsPage() {
                 Stop worrying about server crashes and manual deployment bugs. We build automated, highly-available cloud architectures on AWS that save you money and let your engineering team move faster.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <PrimaryButton href="/contact" icon={ArrowUpRight}>Audit My Infrastructure</PrimaryButton>
-                <SecondaryButton
-                  href="https://wa.me/919824838067?text=Hello!%20I%20want%20to%20discuss%20a%20DevOps%20project."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  imgSrc="/logo/whatsapp.svg"
-                  imgAlt="WhatsApp"
-                >
-                  Talk on WhatsApp
-                </SecondaryButton>
+                <PrimaryButton href="/contact" icon={ArrowUpRight}>Start a DevOps Project</PrimaryButton>
+                <SecondaryButton href="/hire/devops-engineer" icon={ArrowUpRight}>Hire Dedicated DevOps Engineer</SecondaryButton>
               </div>
             </div>
 
@@ -660,14 +654,14 @@ export default async function CloudDevOpsPage() {
           </div>
         </section>
 
-        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials}
+        <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs}
           beforeOutcomes={
             <section className="px-6 py-20 lg:px-12 lg:py-28">
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
                 <div>
-                  <SectionLabel>What We Fix</SectionLabel>
+                  <SectionLabel>Common Problems</SectionLabel>
                   <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
-                    Downtime kills trust. We prevent it.
+                    Bad infrastructure kills speed and profit.
                   </h2>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -692,15 +686,15 @@ export default async function CloudDevOpsPage() {
         >
           <section className="px-6 py-20 lg:px-12 lg:py-28">
             <div className="mx-auto max-w-[1600px]">
-              <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                <div>
+              <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
+                <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
                   <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
-                    Scan the DevOps scope in seconds.
+                    Full transparency on build scope.
                   </h2>
                 </div>
-                <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/52">
-                  Clear deliverables across AWS architecture, Docker containerization, CI/CD pipelines, and active monitoring.
+                <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
+                  From cloud architecture planning to automated pipelines and production monitoring.
                 </p>
               </div>
               <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

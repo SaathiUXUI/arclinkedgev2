@@ -8,6 +8,7 @@ import TestimonialMarquee from "@/components/sections/TestimonialMarquee";
 import LogoMarquee from "@/components/sections/LogoMarquee";
 import Contact from "@/components/sections/Contact";
 import CTASection from "@/components/sections/CTASection";
+import FAQSection from "@/components/sections/FAQSection";
 
 const industries = [
   "B2B services",
@@ -90,26 +91,36 @@ interface SharedInsidePageSectionsProps {
   beforeOutcomes?: React.ReactNode;
   sanityLogos?: { name: string; src: string | null }[];
   sanityTestimonials?: any[];
+  faqs?: { question: string; answer: string }[];
 }
 
-export default function SharedInsidePageSections({ children, beforeOutcomes, sanityLogos, sanityTestimonials }: SharedInsidePageSectionsProps) {
+export default function SharedInsidePageSections({ children, beforeOutcomes, sanityLogos, sanityTestimonials, faqs }: SharedInsidePageSectionsProps) {
   return (
     <>
       {/* 1. Testimonials */}
       <TestimonialMarquee sanityTestimonials={sanityTestimonials} />
 
       {/* Optional Before Outcomes */}
-      {beforeOutcomes}
+      {beforeOutcomes ? (
+        <React.Fragment key="shared-before-outcomes">
+          {beforeOutcomes}
+        </React.Fragment>
+      ) : null}
 
       {/* 2. Outcomes */}
       <section className="relative overflow-hidden px-6 py-20 lg:px-12 lg:py-28 z-10">
         <div aria-hidden="true" className="absolute inset-0 bg-[#030303]" />
         <div className="relative z-10 mx-auto max-w-[1600px]">
-          <div className="mb-12 max-w-4xl">
-            <SectionLabel>Outcomes</SectionLabel>
-            <h2 className="text-4xl font-medium leading-none md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
-              Built for users, search engines and future product growth.
-            </h2>
+          <div className="mb-12 flex flex-col lg:flex-row justify-between lg:items-end gap-8">
+            <div className="max-w-2xl">
+              <SectionLabel>Outcomes</SectionLabel>
+              <h2 className="text-4xl font-medium leading-none md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                Built for users, search engines and future product growth.
+              </h2>
+            </div>
+            <p className="mt-4 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/54">
+              We combine lean engineering with growth logic to ensure your product doesn't just launch, but thrives in the real world.
+            </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {outcomes.map(({ icon: Icon, title, description }) => (
@@ -127,12 +138,16 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
       </section>
 
       {/* Optional Injected Content (like Deliverables) */}
-      {children}
+      {children ? (
+        <React.Fragment key="shared-injected-content">
+          {children}
+        </React.Fragment>
+      ) : null}
 
       {/* 3. Why Arclink Edge */}
       <div className="mx-auto max-w-[1600px] px-6 py-20 lg:px-12 lg:py-28 relative z-10">
         <div className="border border-white/[0.06] bg-white/[0.01] backdrop-blur-[20px]">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-12 lg:gap-16">
             <div className="p-8 lg:p-16 border-b border-white/[0.04] lg:border-b-0 lg:border-r border-white/[0.04]">
               <div className="relative z-10 h-full flex flex-col">
                 <SectionLabel>Why Arclink Edge</SectionLabel>
@@ -195,14 +210,14 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
       {/* 4. Engagement Models */}
       <section className="px-6 py-20 lg:px-12 lg:py-28 relative z-10">
         <div className="mx-auto max-w-[1600px]">
-          <div className="mb-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-            <div>
+          <div className="mb-12 flex flex-col lg:flex-row justify-between lg:items-end gap-8">
+            <div className="max-w-2xl">
               <SectionLabel>Engagement Models</SectionLabel>
               <h2 className="text-4xl font-medium leading-none md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
                 Pick the fastest path to value.
               </h2>
             </div>
-            <p className="max-w-xl text-sm leading-relaxed text-white/52 lg:justify-self-end">
+            <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
               Each model is structured around a clear business need, so clients can choose without reading a long proposal first.
             </p>
           </div>
@@ -274,6 +289,8 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
 
       {/* 5. Logo Marquee */}
       <LogoMarquee variant="service" sanityLogos={sanityLogos} />
+
+      {faqs && faqs.length > 0 && <FAQSection faqs={faqs} />}
 
       {/* 6. Contact & CTA */}
       <Contact />

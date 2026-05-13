@@ -3,8 +3,23 @@ import Navbar from "../../components/sections/Navbar";
 import Footer from "../../components/sections/Footer";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | Arclink Edge",
-  description: "Learn about how Arclink Edge uses cookies to improve your experience.",
+  title: "Cookie Policy",
+  description: "Learn how Arclink Edge uses essential, performance, functional and third-party cookies to run the website, understand traffic and improve your experience.",
+  alternates: { canonical: "https://www.arclinkedge.com/cookies" },
+  openGraph: {
+    type: "website",
+    url: "https://www.arclinkedge.com/cookies",
+    title: "Arclink Edge Cookie Policy",
+    description: "How Arclink Edge uses cookies for essential site behavior, performance measurement and experience improvements.",
+    siteName: "Arclink Edge",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arclink Edge Cookie Policy",
+    description: "How Arclink Edge uses cookies across the website.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function CookiePolicyPage() {

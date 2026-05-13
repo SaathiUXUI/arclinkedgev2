@@ -2,17 +2,31 @@ import type { Metadata } from "next";
 import ProcessContent from "./ProcessContent";
 
 export const metadata: Metadata = {
-  title: "Software Development Process & Methodology | Arclink Edge",
+  title: "Software Development Process & Methodology",
   description: "Discover our strategic 9-phase software development process. From discovery to launch, we use a battle-tested methodology to build high-performance digital products.",
   keywords: [
     "software development process",
     "product development methodology India",
-    "agile web development Ahmedabad",
+    "agile web development New York, Bangalore, Delhi & Mumbai",
     "UX design process",
     "SaaS development lifecycle",
     "Arclink Edge process"
   ],
-  alternates: { canonical: "https://arclinkedge.com/process" },
+  alternates: { canonical: "https://www.arclinkedge.com/process" },
+  openGraph: {
+    type: "website",
+    url: "https://www.arclinkedge.com/process",
+    title: "Arclink Edge Software Development Process",
+    description: "See the 9-phase product development methodology Arclink Edge uses to plan, design, build, test and launch digital products.",
+    siteName: "Arclink Edge",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arclink Edge Software Development Process",
+    description: "See how Arclink Edge plans, designs, builds, tests and launches digital products.",
+    images: ["/opengraph-image"],
+  },
 };
 
 import { getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
@@ -80,7 +94,7 @@ export default async function ProcessPage() {
       "position": i + 1,
       "name": phase.title,
       "text": phase.description,
-      "url": `https://arclinkedge.com/process#phase-${phase.step}`
+      "url": `https://www.arclinkedge.com/process#phase-${phase.step}`
     }))
   };
 

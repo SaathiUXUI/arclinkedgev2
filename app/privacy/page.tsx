@@ -3,8 +3,23 @@ import Navbar from "../../components/sections/Navbar";
 import Footer from "../../components/sections/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Arclink Edge",
-  description: "Learn how Arclink Edge collects, uses, and protects your personal information.",
+  title: "Privacy Policy",
+  description: "Review how Arclink Edge collects, uses, stores and protects personal information when you contact us, request a quote or use our website and services.",
+  alternates: { canonical: "https://www.arclinkedge.com/privacy" },
+  openGraph: {
+    type: "website",
+    url: "https://www.arclinkedge.com/privacy",
+    title: "Arclink Edge Privacy Policy",
+    description: "How Arclink Edge handles personal information across contact forms, project inquiries and website usage.",
+    siteName: "Arclink Edge",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arclink Edge Privacy Policy",
+    description: "How Arclink Edge collects, uses, stores and protects personal information.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function PrivacyPage() {

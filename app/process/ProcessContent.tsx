@@ -149,6 +149,25 @@ const processDetails = [
   }
 ];
 
+const faqs = [
+  {
+    question: "How long does your typical process take?",
+    answer: "A standard project timeline from discovery to deployment takes around 6 to 12 weeks, depending on the complexity of the scope and deliverables."
+  },
+  {
+    question: "What happens if we need to change the scope mid-project?",
+    answer: "We employ an agile methodology. Significant scope changes go through a formal change request process to assess timeline and budget impacts before proceeding."
+  },
+  {
+    question: "Do you offer post-launch support?",
+    answer: "Yes, we offer ongoing growth retainers and maintenance plans to monitor performance, fix any issues, and continuously iterate on the product."
+  },
+  {
+    question: "How involved will our team need to be?",
+    answer: "We require active participation during Discovery, Scope Definition, and Sign-off stages. During Development, we hold weekly syncs to keep you updated."
+  }
+];
+
 function PhaseCard({ phase, index }: { phase: typeof processDetails[0]; index: number }) {
   const cardRef = useRef(null);
   
@@ -257,6 +276,23 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: { sa
 
   return (
     <main ref={containerRef} className="bg-black text-[#F5F5F7] overflow-x-clip selection:bg-[#D0F504] selection:text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
       <Navbar />
       
       {/* Immersive Hero Section */}
@@ -436,7 +472,7 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: { sa
         </div>
       </section>
 
-      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} />
+      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs} />
       
       <Footer />
       <BackToTop />

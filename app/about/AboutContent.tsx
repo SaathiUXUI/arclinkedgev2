@@ -108,6 +108,25 @@ function HeroProjectColumn({ sanityImages }: { sanityImages?: string[] }) {
   );
 }
 
+const faqs = [
+  {
+    question: "Where is Arclink Edge located?",
+    answer: "We are a global agency with our core presence in New York, Bangalore, Delhi, and Mumbai, working with clients across the USA, UK, and UAE."
+  },
+  {
+    question: "What makes Arclink Edge different from other agencies?",
+    answer: "We focus on 'Rapid Precision'. We don't just write code; we bridge the gap between high-level design and hardcore engineering to deliver world-class digital products without cutting corners."
+  },
+  {
+    question: "Who leads the team at Arclink Edge?",
+    answer: "Our team is led by our founder who has extensive experience in product strategy and full-stack engineering, personally overseeing every major product launch to ensure excellence."
+  },
+  {
+    question: "What industries do you work with?",
+    answer: "We partner with ambitious startups and established B2B brands across various industries, focusing on SaaS, eCommerce, AI, and enterprise solutions."
+  }
+];
+
 export default function AboutContent({ 
   sanityLogos, 
   sanityTestimonials,
@@ -126,6 +145,23 @@ export default function AboutContent({
 
   return (
     <main className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}
@@ -145,7 +181,7 @@ export default function AboutContent({
             </div>
             <div className="pb-4">
               <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-md" style={{ letterSpacing: "-0.02em" }}>
-                Arclink Edge is a premium boutique agency in Ahmedabad. We don't just write code; we build the future of your business.
+                Arclink Edge is a premium boutique agency in New York, Bangalore, Delhi & Mumbai. We don't just write code; we build the future of your business.
               </p>
             </div>
           </div>
@@ -164,7 +200,7 @@ export default function AboutContent({
                 We believe that in the digital age, speed is the ultimate currency. But speed without quality is a liability. That's why we focus on "Rapid Precision"—delivering world-class digital products in record time without cutting corners.
               </p>
               <p>
-                From our headquarters in Ahmedabad, we've partnered with ambitious startups and established B2B brands across the USA, UK, and UAE to re-engineer their digital presence.
+                From our headquarters in New York, Bangalore, Delhi & Mumbai, we've partnered with ambitious startups and established B2B brands across the USA, UK, and UAE to re-engineer their digital presence.
               </p>
             </div>
           </div>
@@ -216,7 +252,7 @@ export default function AboutContent({
         </div>
       </section>
 
-      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} />
+      <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs} />
       <Footer />
       <BackToTop />
       <CookieBanner />

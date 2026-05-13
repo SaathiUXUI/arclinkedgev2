@@ -95,9 +95,9 @@ export default function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center justify-center gap-4"
+              className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 w-full"
             >
-              <PrimaryButton href="/contact">
+              <PrimaryButton href="/contact" className="w-full sm:w-auto">
                 Start Your Project
               </PrimaryButton>
               <SecondaryButton
@@ -106,6 +106,7 @@ export default function CTASection() {
                 imgAlt="WhatsApp"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
                 Talk on WhatsApp
               </SecondaryButton>

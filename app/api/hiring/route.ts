@@ -3,9 +3,8 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, company, projectType, budget, message } = await req.json();
+    const { name, email, company, engagement, duration, requirements, role } = await req.json();
 
-    // Check if required env variables are present
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       console.error("Email credentials missing in environment variables");
       return NextResponse.json(
@@ -14,24 +13,24 @@ export async function POST(req: Request) {
       );
     }
 
-    // Configure Hostinger SMTP transporter
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST || "smtp.hostinger.com",
       port: Number(process.env.EMAIL_PORT) || 465,
-      secure: true, // true for 465, false for other ports
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
     });
 
-    // Email content
+    const roleTitle = role || "Dedicated Talent";
+
     const mailOptions = {
-      from: `"Arclink Edge Contact" <${process.env.EMAIL_USER}>`,
+      from: `"Arclink Edge Hiring" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO || "hello@arclinkedge.com",
-      subject: `${projectType || "Project"} Inquiry from ${name} (${company})`,
+      subject: `${roleTitle} Dedicated Inquiry from ${name} (${company || "N/A"})`,
       replyTo: email,
-        html: `
+      html: `
         <!DOCTYPE html>
         <html>
         <head>
@@ -40,6 +39,7 @@ export async function POST(req: Request) {
             .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e0e0e0; }
             .header { background-color: #0052FF; padding: 24px 30px; text-align: left; }
             .header h1 { color: #ffffff; margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; text-transform: uppercase; }
+            .header p { color: rgba(255,255,255,0.7); margin: 6px 0 0; font-size: 13px; font-weight: 500; }
             .content { padding: 30px; }
             .section { margin-bottom: 32px; }
             .section-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #0052FF; margin-bottom: 16px; border-bottom: 2px solid #0052FF; padding-bottom: 6px; display: inline-block; }
@@ -54,7 +54,8 @@ export async function POST(req: Request) {
         <body>
           <div class="container">
             <div class="header">
-              <h1>${projectType || "Project"} Inquiry</h1>
+              <h1>${roleTitle} Dedicated Inquiry</h1>
+              <p>Hiring request via Arclink Edge</p>
             </div>
             <div class="content">
               <div class="section">
@@ -74,24 +75,24 @@ export async function POST(req: Request) {
               </div>
 
               <div class="section">
-                <div class="section-title">Project Scope</div>
+                <div class="section-title">Hiring Scope</div>
                 <div class="field">
-                  <div class="label">Service Required</div>
-                  <div class="value">${projectType}</div>
+                  <div class="label">Engagement Model</div>
+                  <div class="value">${engagement || "Not selected"}</div>
                 </div>
                 <div class="field">
-                  <div class="label">Estimated Budget</div>
-                  <div class="value">${budget}</div>
+                  <div class="label">Duration</div>
+                  <div class="value">${duration || "Not selected"}</div>
                 </div>
               </div>
 
               <div class="section" style="margin-bottom: 0;">
-                <div class="section-title">Message / Requirements</div>
-                <div class="message-text">${message}</div>
+                <div class="section-title">Requirements / Tech Stack</div>
+                <div class="message-text">${requirements || "No specific requirements provided."}</div>
               </div>
             </div>
             <div class="footer">
-              <p>Sent via Arclink Edge Portfolio • ${new Date().toLocaleDateString()}</p>
+              <p>Sent via Arclink Edge Hiring Portal &bull; ${new Date().toLocaleDateString()}</p>
               <p>&copy; Arclink Edge. All rights reserved.</p>
             </div>
           </div>
@@ -100,12 +101,11 @@ export async function POST(req: Request) {
       `,
     };
 
-    // Send email
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
   } catch (error: any) {
-    console.error("Error sending email:", error);
+    console.error("Error sending hiring inquiry email:", error);
     return NextResponse.json(
       { error: "Failed to send email", details: error.message },
       { status: 500 }

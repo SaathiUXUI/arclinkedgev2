@@ -106,8 +106,8 @@ function StatShape({ type, isHovered }: { type: "pentapod" | "quadpod" | "hexapo
             <stop offset="44%" stopColor={color} stopOpacity="0.82" />
             <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.22" />
           </linearGradient>
-          <filter id={`stat-shape-glow-${type}`} x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur stdDeviation="12" result="blur" />
+          <filter id={`stat-shape-glow-${type}`} x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -332,12 +332,10 @@ export default function Stats() {
                   <stop offset="100%" stopColor="white" stopOpacity="1" />
                 </linearGradient>
                 {/* Neon glow: wide blur (outer halo) + tight blur (inner glow) + source (sharp core) */}
-                <filter id="neon-glow" filterUnits="userSpaceOnUse" x="-80" y="-80" width="1360" height="485">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur-wide" />
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur-tight" />
+                <filter id="neon-glow" filterUnits="userSpaceOnUse" x="-40" y="-40" width="1280" height="405">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
                   <feMerge>
-                    <feMergeNode in="blur-wide" />
-                    <feMergeNode in="blur-tight" />
+                    <feMergeNode in="blur" />
                     <feMergeNode in="SourceGraphic" />
                   </feMerge>
                 </filter>
@@ -385,8 +383,8 @@ export default function Stats() {
                   borderRadius: 0,
                   border: "3px solid rgba(255,255,255,0.04)",
                   background: "linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.02) 100%)",
-                  backdropFilter: "blur(30px)",
-                  WebkitBackdropFilter: "blur(30px)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
                 }}
               >
                 {/* Precise Asymmetric Weavy Glow */}
@@ -400,14 +398,7 @@ export default function Stats() {
                 {/* Intense Bottom White Glow (White fading into Blue) */}
                 <div className="absolute -bottom-2 left-[-10%] right-[-10%] w-[120%] h-[20%] bg-gradient-to-t from-white to-transparent mix-blend-screen filter blur-[24px] opacity-80 transition-opacity duration-500 group-hover:opacity-100 z-0" />
 
-                {/* Glass Layer */}
-                <div
-                  className="absolute inset-0 z-0 pointer-events-none"
-                  style={{
-                    backdropFilter: "blur(24px)",
-                    WebkitBackdropFilter: "blur(24px)",
-                  }}
-                />
+                {/* Glass Layer — removed duplicate backdrop-filter for perf */}
                 {/* Content restructured for specific spacing requirements */}
                 <div className="relative z-10 w-full h-full flex flex-col p-6 lg:p-9">
 
