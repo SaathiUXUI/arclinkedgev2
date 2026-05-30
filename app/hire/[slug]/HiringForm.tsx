@@ -181,17 +181,57 @@ export default function HiringForm({ role }: { role?: string }) {
   }
 
   return (
-    <form className="space-y-8" onSubmit={handleSubmit}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Name */}
+    <>
+      <form className="space-y-8" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Name */}
+          <div className="space-y-2 relative group">
+            <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Your Name</label>
+            <input
+              type="text"
+              placeholder="ex. John Doe"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full bg-transparent border-b border-white/10 group-hover:border-white/20 py-4 text-[#F5F5F7] placeholder:text-white/54 focus:border-white outline-none transition-all duration-300"
+            />
+            <motion.div
+              className="absolute bottom-0 left-0 h-[2px] bg-white z-10"
+              initial={{ scaleX: 0 }}
+              whileHover={{ scaleX: 1 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              style={{ width: "100%", originX: 0 }}
+            />
+          </div>
+          {/* Email */}
+          <div className="space-y-2 relative group">
+            <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Company Email</label>
+            <input
+              type="email"
+              placeholder="example@company.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full bg-transparent border-b border-white/10 group-hover:border-white/20 py-4 text-[#F5F5F7] placeholder:text-white/54 focus:border-white outline-none transition-all duration-300"
+            />
+            <motion.div
+              className="absolute bottom-0 left-0 h-[2px] bg-white z-10"
+              initial={{ scaleX: 0 }}
+              whileHover={{ scaleX: 1 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              style={{ width: "100%", originX: 0 }}
+            />
+          </div>
+        </div>
+
+        {/* Company */}
         <div className="space-y-2 relative group">
-          <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Your Name</label>
+          <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Company Name</label>
           <input
             type="text"
-            placeholder="ex. John Doe"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
+            placeholder="ex. Arclink Edge"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
             className="w-full bg-transparent border-b border-white/10 group-hover:border-white/20 py-4 text-[#F5F5F7] placeholder:text-white/54 focus:border-white outline-none transition-all duration-300"
           />
           <motion.div
@@ -202,16 +242,35 @@ export default function HiringForm({ role }: { role?: string }) {
             style={{ width: "100%", originX: 0 }}
           />
         </div>
-        {/* Email */}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Engagement Model */}
+          <StyledDropdown
+            label="Engagement Model"
+            placeholder="Select engagement type"
+            options={["Monthly Dedicated (Full-time)", "Monthly Dedicated (Part-time)", "Hourly Retainer"]}
+            value={engagement}
+            onChange={setEngagement}
+          />
+          {/* Duration */}
+          <StyledDropdown
+            label="Duration"
+            placeholder="Select duration"
+            options={["3+ Months", "6+ Months", "Ongoing Partnership"]}
+            value={duration}
+            onChange={setDuration}
+          />
+        </div>
+
+        {/* Message */}
         <div className="space-y-2 relative group">
-          <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Company Email</label>
-          <input
-            type="email"
-            placeholder="example@company.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full bg-transparent border-b border-white/10 group-hover:border-white/20 py-4 text-[#F5F5F7] placeholder:text-white/54 focus:border-white outline-none transition-all duration-300"
+          <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Requirements / Tech Stack</label>
+          <textarea
+            rows={4}
+            placeholder="Tell us more about the developer skills you need..."
+            value={requirements}
+            onChange={(e) => setRequirements(e.target.value)}
+            className="w-full bg-transparent border-b border-white/10 group-hover:border-white/20 py-4 text-[#F5F5F7] placeholder:text-white/54 focus:border-white outline-none transition-all duration-300 resize-none"
           />
           <motion.div
             className="absolute bottom-0 left-0 h-[2px] bg-white z-10"
@@ -221,68 +280,11 @@ export default function HiringForm({ role }: { role?: string }) {
             style={{ width: "100%", originX: 0 }}
           />
         </div>
-      </div>
 
-      {/* Company */}
-      <div className="space-y-2 relative group">
-        <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Company Name</label>
-        <input
-          type="text"
-          placeholder="ex. Arclink Edge"
-          value={company}
-          onChange={(e) => setCompany(e.target.value)}
-          className="w-full bg-transparent border-b border-white/10 group-hover:border-white/20 py-4 text-[#F5F5F7] placeholder:text-white/54 focus:border-white outline-none transition-all duration-300"
-        />
-        <motion.div
-          className="absolute bottom-0 left-0 h-[2px] bg-white z-10"
-          initial={{ scaleX: 0 }}
-          whileHover={{ scaleX: 1 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          style={{ width: "100%", originX: 0 }}
-        />
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Engagement Model */}
-        <StyledDropdown
-          label="Engagement Model"
-          placeholder="Select engagement type"
-          options={["Monthly Dedicated (Full-time)", "Monthly Dedicated (Part-time)", "Hourly Retainer"]}
-          value={engagement}
-          onChange={setEngagement}
-        />
-        {/* Duration */}
-        <StyledDropdown
-          label="Duration"
-          placeholder="Select duration"
-          options={["3+ Months", "6+ Months", "Ongoing Partnership"]}
-          value={duration}
-          onChange={setDuration}
-        />
-      </div>
-
-      {/* Message */}
-      <div className="space-y-2 relative group">
-        <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Requirements / Tech Stack</label>
-        <textarea
-          rows={4}
-          placeholder="Tell us more about the developer skills you need..."
-          value={requirements}
-          onChange={(e) => setRequirements(e.target.value)}
-          className="w-full bg-transparent border-b border-white/10 group-hover:border-white/20 py-4 text-[#F5F5F7] placeholder:text-white/54 focus:border-white outline-none transition-all duration-300 resize-none"
-        />
-        <motion.div
-          className="absolute bottom-0 left-0 h-[2px] bg-white z-10"
-          initial={{ scaleX: 0 }}
-          whileHover={{ scaleX: 1 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          style={{ width: "100%", originX: 0 }}
-        />
-      </div>
-
-      <div className="pt-6">
-        <SubmitButton isSubmitting={isSubmitting}>{isSubmitting ? "Sending..." : "Submit Hiring Request"}</SubmitButton>
-      </div>
+        <div className="pt-4">
+          <SubmitButton isSubmitting={isSubmitting}>{isSubmitting ? "Sending..." : "Submit Hiring Request"}</SubmitButton>
+        </div>
+      </form>
 
       <style>{`
         input:focus, select:focus, textarea:focus {
@@ -301,6 +303,6 @@ export default function HiringForm({ role }: { role?: string }) {
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #222; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #333; }
       `}</style>
-    </form>
+    </>
   );
 }

@@ -17,12 +17,12 @@ const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/cloud-devops`;
 
 export const metadata: Metadata = {
-  title: "Cloud & DevOps Services in New York, Bangalore, Delhi & Mumbai | AWS & CI/CD",
+  title: "Cloud & DevOps Services in New York, London, Dubai & Bangalore | AWS & CI/CD",
   description:
-    "Expert Cloud & DevOps services in New York, Bangalore, Delhi & Mumbai. We automate deployments, optimize AWS infrastructure, and ensure 99.99% uptime for your applications.",
+    "Expert Cloud & DevOps services in New York, London, Dubai & Bangalore. We automate deployments, optimize AWS infrastructure, and ensure 99.99% uptime for your applications.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "DevOps services New York, Bangalore, Delhi & Mumbai",
+    "DevOps services New York, London, Dubai & Bangalore",
     "cloud infrastructure consulting",
     "AWS consulting India",
     "CI/CD automation",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Cloud & DevOps Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "Cloud & DevOps Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
       "Stop worrying about server crashes. We build scalable, secure, and automated cloud infrastructure on AWS and Google Cloud.",
     siteName: "Arclink Edge",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cloud & DevOps Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "Cloud & DevOps Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
-      "Expert Cloud & DevOps services in New York, Bangalore, Delhi & Mumbai. We automate deployments and optimize AWS infrastructure.",
+      "Expert Cloud & DevOps services in New York, London, Dubai & Bangalore. We automate deployments and optimize AWS infrastructure.",
     images: [`${SITE_URL}/opengraph-image`],
   },
 };
@@ -395,10 +395,10 @@ function JsonLd() {
     serviceType: "DevOps Consulting",
     url: PAGE_URL,
     description:
-      "Expert Cloud & DevOps services in New York, Bangalore, Delhi & Mumbai. We automate deployments, optimize AWS infrastructure, and ensure 99.99% uptime.",
+      "Expert Cloud & DevOps services in New York, London, Dubai & Bangalore. We automate deployments, optimize AWS infrastructure, and ensure 99.99% uptime.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
+      { "@type": "City", name: "New York, London, Dubai & Bangalore" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -459,8 +459,8 @@ export default async function CloudDevOpsPage() {
             <div className="flex flex-col justify-center">
               <SectionLabel>Cloud & DevOps Services</SectionLabel>
               <h1
-                className="max-w-5xl text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 Infrastructure that scales. Deployments that never fail.
               </h1>
@@ -489,7 +489,7 @@ export default async function CloudDevOpsPage() {
             <div className="mx-auto mb-12 grid max-w-[1600px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-12">
               <div>
                 <SectionLabel>Process</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                   A clear path to cloud maturity.
                 </h2>
               </div>
@@ -538,8 +538,8 @@ export default async function CloudDevOpsPage() {
                         </div>
 
                         <h3
-                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl"
-                          style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}
+                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl tracking-[-0.015em] md:tracking-[-0.065em]"
+                          style={{ fontFamily: "var(--font-inter-tight)" }}
                         >
                           {item.phase}
                         </h3>
@@ -558,7 +558,7 @@ export default async function CloudDevOpsPage() {
           <div className="relative z-10 mx-auto max-w-[1600px]">
             <div className="mb-16 max-w-5xl">
               <SectionLabel>Technology</SectionLabel>
-              <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 The modern DevOps toolkit.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/52">
@@ -616,8 +616,8 @@ export default async function CloudDevOpsPage() {
                 <div className="mb-8 max-w-3xl">
                   <SectionLabel>Additional Capabilities</SectionLabel>
                   <h3
-                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl"
-                    style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.06em" }}
+                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl tracking-[-0.015em] md:tracking-[-0.06em]"
+                    style={{ fontFamily: "var(--font-inter-tight)" }}
                   >
                     Everything needed for robust operations.
                   </h3>
@@ -660,7 +660,7 @@ export default async function CloudDevOpsPage() {
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
                 <div>
                   <SectionLabel>Common Problems</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Bad infrastructure kills speed and profit.
                   </h2>
                 </div>
@@ -689,7 +689,7 @@ export default async function CloudDevOpsPage() {
               <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
                 <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Full transparency on build scope.
                   </h2>
                 </div>
@@ -714,7 +714,7 @@ export default async function CloudDevOpsPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7]" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                         {item.title}
                       </h3>
                       <p className="mt-4 text-sm leading-relaxed text-white/54">{item.description}</p>

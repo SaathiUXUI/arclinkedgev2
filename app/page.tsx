@@ -22,10 +22,10 @@ const CookieBanner = dynamic(() => import("@/components/ui/CookieBanner"));
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Arclink Edge - Premium IT Agency in New York, Bangalore, Delhi & Mumbai | Web, Mobile & SaaS Development",
+    absolute: "Arclink Edge - Premium IT Agency in New York, London, Dubai & Bangalore | Web, Mobile & SaaS Development",
   },
   description:
-    "Arclink Edge is a premium IT agency in New York, Bangalore, Delhi & Mumbai. We build world-class web apps, mobile apps, SaaS products & UI/UX design for ambitious B2B brands globally.",
+    "Arclink Edge is a premium IT agency in New York, London, Dubai & Bangalore. We build world-class web apps, mobile apps, SaaS products & UI/UX design for ambitious B2B brands globally.",
   alternates: { canonical: "https://www.arclinkedge.com" },
 };
 

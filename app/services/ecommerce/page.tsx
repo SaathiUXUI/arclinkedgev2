@@ -17,12 +17,12 @@ const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/ecommerce`;
 
 export const metadata: Metadata = {
-  title: "E-commerce Development Services in New York, Bangalore, Delhi & Mumbai | Custom Stores",
+  title: "E-commerce Development Services in New York, London, Dubai & Bangalore | Custom Stores",
   description:
-    "High-conversion e-commerce development in New York, Bangalore, Delhi & Mumbai. We build fast, secure online stores on Shopify, WooCommerce, and custom Next.js stacks.",
+    "High-conversion e-commerce development in New York, London, Dubai & Bangalore. We build fast, secure online stores on Shopify, WooCommerce, and custom Next.js stacks.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "ecommerce development New York, Bangalore, Delhi & Mumbai",
+    "ecommerce development New York, London, Dubai & Bangalore",
     "Shopify development agency",
     "WooCommerce expert India",
     "custom ecommerce development",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "E-commerce Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "E-commerce Development Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
       "Stop losing sales to slow websites. We build performance-optimized, headless e-commerce stores designed to maximize your conversion rate.",
     siteName: "Arclink Edge",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "E-commerce Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "E-commerce Development Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
-      "High-conversion e-commerce development in New York, Bangalore, Delhi & Mumbai. We build fast, secure online stores.",
+      "High-conversion e-commerce development in New York, London, Dubai & Bangalore. We build fast, secure online stores.",
     images: [`${SITE_URL}/opengraph-image`],
   },
 };
@@ -399,10 +399,10 @@ function JsonLd() {
     serviceType: "E-commerce Development",
     url: PAGE_URL,
     description:
-      "High-conversion e-commerce development in New York, Bangalore, Delhi & Mumbai. We build fast, secure online stores on Shopify, WooCommerce, and custom Next.js stacks.",
+      "High-conversion e-commerce development in New York, London, Dubai & Bangalore. We build fast, secure online stores on Shopify, WooCommerce, and custom Next.js stacks.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
+      { "@type": "City", name: "New York, London, Dubai & Bangalore" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -461,8 +461,8 @@ export default async function EcommercePage() {
             <div className="flex flex-col justify-center">
               <SectionLabel>E-commerce Solutions</SectionLabel>
               <h1
-                className="max-w-5xl text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 Stores built for speed, scale, and sales.
               </h1>
@@ -491,7 +491,7 @@ export default async function EcommercePage() {
             <div className="mx-auto mb-12 grid max-w-[1600px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-12">
               <div>
                 <SectionLabel>Process</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                   A clear build system to drive revenue.
                 </h2>
               </div>
@@ -540,8 +540,8 @@ export default async function EcommercePage() {
                         </div>
 
                         <h3
-                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl"
-                          style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}
+                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl tracking-[-0.015em] md:tracking-[-0.065em]"
+                          style={{ fontFamily: "var(--font-inter-tight)" }}
                         >
                           {item.phase}
                         </h3>
@@ -560,7 +560,7 @@ export default async function EcommercePage() {
           <div className="relative z-10 mx-auto max-w-[1600px]">
             <div className="mb-16 max-w-5xl">
               <SectionLabel>Technology</SectionLabel>
-              <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Built on reliable commerce engines.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/52">
@@ -618,8 +618,8 @@ export default async function EcommercePage() {
                 <div className="mb-8 max-w-3xl">
                   <SectionLabel>Growth & Operations Tools</SectionLabel>
                   <h3
-                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl"
-                    style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.06em" }}
+                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl tracking-[-0.015em] md:tracking-[-0.06em]"
+                    style={{ fontFamily: "var(--font-inter-tight)" }}
                   >
                     We integrate the tools that power your marketing and logistics.
                   </h3>
@@ -662,7 +662,7 @@ export default async function EcommercePage() {
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
                 <div>
                   <SectionLabel>What We Fix</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     We stop your store from leaking money.
                   </h2>
                 </div>
@@ -691,7 +691,7 @@ export default async function EcommercePage() {
               <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
                 <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Scan the store scope in seconds.
                   </h2>
                 </div>
@@ -716,7 +716,7 @@ export default async function EcommercePage() {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7]" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                         {item.title}
                       </h3>
                       <p className="mt-4 text-sm leading-relaxed text-white/54">{item.description}</p>

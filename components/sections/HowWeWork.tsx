@@ -150,8 +150,8 @@ export default function HowWeWork() {
         {/* Heading */}
         <div ref={headerRef} className="mb-16 lg:mb-24">
           <div style={{ overflow: "hidden", paddingBottom: "0.08em" }}>
-            <h2 className="hww-line"
-              style={{ fontFamily: "var(--font-inter-tight)", fontSize: "clamp(3.2rem,8vw,6.8rem)", fontWeight: 500, lineHeight: 0.95, letterSpacing: "-0.07em", color: "#F5F5F7" }}>
+            <h2 className="hww-line tracking-[-0.02em] md:tracking-[-0.07em]"
+              style={{ fontFamily: "var(--font-inter-tight)", fontSize: "clamp(3.2rem,8vw,6.8rem)", fontWeight: 500, lineHeight: 0.95, color: "#F5F5F7" }}>
               How we work
             </h2>
           </div>
@@ -208,7 +208,7 @@ export default function HowWeWork() {
                   </span>
 
                   {/* Title */}
-                  <h3 style={{ fontFamily: "var(--font-inter-tight)", fontSize: "clamp(1.15rem, 2vw, 1.55rem)", fontWeight: 500, color: "#F5F5F7", letterSpacing: "-0.045em", lineHeight: 1.08 }}>
+                  <h3 style={{ fontFamily: "var(--font-inter-tight)", fontSize: "clamp(1.15rem, 2vw, 1.55rem)", fontWeight: 500, color: "#F5F5F7", lineHeight: 1.08 }} className="tracking-[-0.015em] md:tracking-[-0.045em]">
                     {step.title}
                   </h3>
 

@@ -104,16 +104,13 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
           <div style={{ overflow: "hidden", paddingBottom: "0.08em" }}>
             <h2
               id="services-heading"
-              className="services-line"
-              style={{
-                fontFamily: "var(--font-inter-tight)",
+              className="services-line tracking-[-0.02em] md:tracking-[-0.07em]"
+              style={{ fontFamily: "var(--font-inter-tight)",
                 fontSize: "clamp(3.2rem, 8vw, 6.8rem)",
                 fontWeight: 500,
                 lineHeight: 0.95,
-                letterSpacing: "-0.07em",
                 color: "#F5F5F7",
-                willChange: "transform",
-              }}
+                willChange: "transform" }}
             >
               Our Services
             </h2>

@@ -18,23 +18,23 @@ const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/web-development`;
 
 export const metadata: Metadata = {
-  title: "Web Development Services in New York, Bangalore, Delhi & Mumbai | Next.js & Custom Web Apps",
+  title: "Web Development Services in New York, London, Dubai & Bangalore | Next.js & Custom Web Apps",
   description:
-    "Custom web development services in New York, Bangalore, Delhi & Mumbai for B2B brands, startups and growing businesses. We build fast, SEO-friendly websites, web apps, dashboards and SaaS platforms.",
+    "Custom web development services in New York, London, Dubai & Bangalore for B2B brands, startups and growing businesses. We build fast, SEO-friendly websites, web apps, dashboards and SaaS platforms.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "web development services New York, Bangalore, Delhi & Mumbai",
+    "web development services New York, London, Dubai & Bangalore",
     "custom web development company India",
     "Next.js development agency",
     "React web app development",
-    "website development company New York, Bangalore, Delhi & Mumbai",
+    "website development company New York, London, Dubai & Bangalore",
     "B2B web development India",
     "SaaS web app development",
   ],
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Web Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "Web Development Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
       "Fast, scalable and SEO-friendly web development for serious businesses. Built with product thinking, modern engineering and conversion-focused design.",
     siteName: "Arclink Edge",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "Web Development Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
       "Custom websites, web apps and SaaS platforms built for speed, SEO, conversion and scale.",
     images: [`${SITE_URL}/opengraph-image`],
@@ -437,7 +437,7 @@ function JsonLd() {
       "Custom web development services for websites, web apps, SaaS dashboards, portals and SEO-friendly digital products.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
+      { "@type": "City", name: "New York, London, Dubai & Bangalore" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -496,13 +496,13 @@ export default async function WebDevelopmentPage() {
             <div className="flex flex-col justify-center">
               <SectionLabel>Web Development Services</SectionLabel>
               <h1
-                className="max-w-5xl text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 Fast websites and web apps built to convert, scale and rank.
               </h1>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
-                Arclink Edge builds custom web development projects for B2B brands, startups and growing businesses in New York, Bangalore, Delhi & Mumbai and global markets. From marketing websites to SaaS dashboards, we ship clean, fast and conversion-focused digital products.
+                Arclink Edge builds custom web development projects for B2B brands, startups and growing businesses in New York, London, Dubai & Bangalore and global markets. From marketing websites to SaaS dashboards, we ship clean, fast and conversion-focused digital products.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <PrimaryButton href="/contact" icon={ArrowUpRight}>Start a Web Project</PrimaryButton>
@@ -526,7 +526,7 @@ export default async function WebDevelopmentPage() {
             <div className="mx-auto mb-12 grid max-w-[1600px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-12">
               <div>
                 <SectionLabel>Process</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                   A clear build system from idea to launch.
                 </h2>
               </div>
@@ -575,8 +575,8 @@ export default async function WebDevelopmentPage() {
                         </div>
 
                         <h3
-                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl"
-                          style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}
+                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl tracking-[-0.015em] md:tracking-[-0.065em]"
+                          style={{ fontFamily: "var(--font-inter-tight)" }}
                         >
                           {item.phase}
                         </h3>
@@ -595,7 +595,7 @@ export default async function WebDevelopmentPage() {
           <div className="relative z-10 mx-auto max-w-[1600px]">
             <div className="mb-16 max-w-5xl">
               <SectionLabel>Technology</SectionLabel>
-              <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Modern stack. Cleaner handoff. Faster iteration.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/52">
@@ -653,8 +653,8 @@ export default async function WebDevelopmentPage() {
                 <div className="mb-8 max-w-3xl">
                   <SectionLabel>Additional Technologies</SectionLabel>
                   <h3
-                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl"
-                    style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.06em" }}
+                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl tracking-[-0.015em] md:tracking-[-0.06em]"
+                    style={{ fontFamily: "var(--font-inter-tight)" }}
                   >
                     Beyond web development, we connect the tools your product may need.
                   </h3>
@@ -697,7 +697,7 @@ export default async function WebDevelopmentPage() {
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
                 <div>
                   <SectionLabel>What We Fix</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Websites should create momentum, not friction.
                   </h2>
                 </div>
@@ -726,7 +726,7 @@ export default async function WebDevelopmentPage() {
               <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
                 <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Scan the build scope in seconds.
                   </h2>
                 </div>
@@ -751,7 +751,7 @@ export default async function WebDevelopmentPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7]" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                         {item.title}
                       </h3>
                       <p className="mt-4 text-sm leading-relaxed text-white/54">{item.description}</p>

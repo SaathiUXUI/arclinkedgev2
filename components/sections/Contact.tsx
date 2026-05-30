@@ -411,10 +411,9 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-2 font-semibold">Office Address</p>
                 <p
-                  className="text-2xl md:text-xl font-medium text-[#F5F5F7]"
-                  style={{ letterSpacing: "-0.02em" }}
+                  className="text-2xl md:text-xl font-medium text-[#F5F5F7] leading-relaxed"
                 >
-                  Ahmedabad, Gujarat, India
+                  New York <span className="text-white/30 text-base px-1 inline-block align-middle">•</span> London <span className="text-white/30 text-base px-1 inline-block align-middle">•</span> Dubai <span className="text-white/30 text-base px-1 inline-block align-middle">•</span> Bangalore <span className="text-white/30 text-base px-1 inline-block align-middle">•</span> Ahmedabad
                 </p>
               </div>
               </div>

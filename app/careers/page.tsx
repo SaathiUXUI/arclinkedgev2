@@ -16,7 +16,7 @@ const PAGE_URL = `${SITE_URL}/careers`;
 export const metadata: Metadata = {
   title: "Careers at Arclink Edge | Developer & UI UX Designer Roles",
   description:
-    "Explore careers at Arclink Edge in New York, Bangalore, Delhi & Mumbai. Join our web development, mobile app, SaaS, UI/UX design, SEO, cloud and AI automation team.",
+    "Explore careers at Arclink Edge in New York, London, Dubai & Bangalore. Join our web development, mobile app, SaaS, UI/UX design, SEO, cloud and AI automation team.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "website",
@@ -80,6 +80,14 @@ const faqs = [
     answer: "We primarily look for experienced professionals, but exceptional junior talent with a strong portfolio and understanding of our core tech stack (Next.js, Flutter) are always welcome to apply."
   },
   {
+    question: "What kind of projects will I work on?",
+    answer: "You'll work on high-performance digital products for global B2B brands and ambitious startups across SaaS, AI, and E-commerce industries."
+  },
+  {
+    question: "How do you handle team collaboration?",
+    answer: "We use a combination of Slack for real-time chat, Jira for project management, and Zoom/Google Meet for weekly syncs and project deep-dives."
+  },
+  {
     question: "How do I apply?",
     answer: "You can apply directly via email to hello@arclinkedge.com with your resume, portfolio, and a brief introduction."
   }
@@ -141,7 +149,10 @@ export default async function CareersPage() {
             <SectionLabel>Careers</SectionLabel>
             <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.42fr] lg:items-end">
               <div>
-                <h1 className="max-w-6xl text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}>
+                <h1
+                  className="max-w-6xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
+                  style={{ fontFamily: "var(--font-inter-tight)" }}
+                >
                   Build digital products people remember.
                 </h1>
                 <div className="mt-10 flex flex-wrap gap-3">
@@ -160,7 +171,7 @@ export default async function CareersPage() {
           <div className="mx-auto max-w-[1600px]">
             <div className="mb-12 max-w-4xl">
               <SectionLabel>Open Talent Areas</SectionLabel>
-              <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Roles we keep an eye out for.
               </h2>
             </div>
@@ -175,7 +186,7 @@ export default async function CareersPage() {
                   <div className="absolute -right-20 -top-20 h-40 w-40 bg-white/0 blur-[60px] transition-colors duration-500 group-hover:bg-white/10" />
 
                   <div className="relative z-10">
-                    <h3 className="text-3xl font-medium text-white md:text-4xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.055em" }}>
+                    <h3 className="text-3xl font-medium text-white md:text-4xl tracking-[-0.015em] md:tracking-[-0.055em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                       {role.title}
                     </h3>
                     <p className="mt-4 text-sm leading-relaxed text-white/52 group-hover:text-white/70 transition-colors duration-500">
@@ -218,7 +229,7 @@ export default async function CareersPage() {
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.82fr_1.18fr]">
                 <div>
                   <SectionLabel>Culture</SectionLabel>
-                  <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Small team energy, serious product standards.
                   </h2>
                 </div>
@@ -266,7 +277,7 @@ export default async function CareersPage() {
                     <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-none border border-white/[0.08] bg-black/50 text-white group-hover:text-[#D0F504] group-hover:border-[#D0F504]/30 transition-colors duration-500">
                       <item.icon size={20} strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-3xl font-medium text-white md:text-4xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.045em" }}>
+                    <h3 className="text-3xl font-medium text-white md:text-4xl tracking-[-0.015em] md:tracking-[-0.045em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                       {item.title}
                     </h3>
                     <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/50 group-hover:text-white/70 transition-colors duration-500">

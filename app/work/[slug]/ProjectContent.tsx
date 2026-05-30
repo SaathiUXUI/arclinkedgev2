@@ -93,8 +93,8 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
             <div>
               <SectionLabel>{project.categories.join(" • ")}</SectionLabel>
               <h1 
-                className="text-5xl md:text-7xl lg:text-9xl font-medium leading-[0.92] mt-8"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                className="text-5xl md:text-7xl lg:text-9xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.92] md:tracking-[-0.075em] mt-8"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 {project.title}
               </h1>
@@ -113,14 +113,24 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
 
       {/* 2. Project Metadata Bar */}
       <section className="relative z-10 px-6 lg:px-12 border-y border-white/[0.06] bg-white/[0.01] backdrop-blur-xl">
-        <div className="mx-auto max-w-[1600px] grid grid-cols-2 md:grid-cols-4 divide-x divide-white/[0.06]">
+        <div className="mx-auto max-w-[1600px] grid grid-cols-2 md:grid-cols-4">
           {[
             { label: "Client", value: project.client },
             { label: "Year", value: project.year },
             { label: "Role", value: project.role },
             { label: "Industry", value: project.categories[0] },
           ].map((item, idx) => (
-            <div key={idx} className="py-8 px-4 md:px-10 first:pl-0 last:border-r-0">
+            <div 
+              key={idx} 
+              className={`
+                py-8 px-4 md:px-10 border-white/[0.06]
+                ${idx % 2 === 0 ? "border-r pl-0" : "pr-0"} 
+                ${idx < 2 ? "border-b md:border-b-0" : ""}
+                ${idx !== 3 ? "md:border-r" : "md:border-r-0"}
+                ${idx === 0 ? "md:pl-0" : ""}
+                ${idx === 2 ? "md:pl-10" : ""}
+              `}
+            >
               <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold mb-2" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 {item.label}
               </p>
@@ -159,8 +169,8 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
           <div>
             <SectionLabel>The Challenge</SectionLabel>
             <h2 
-              className="text-4xl md:text-6xl font-medium leading-[1.1] mt-8 mb-10"
-              style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}
+              className="text-4xl md:text-6xl font-medium leading-[1.1] mt-8 mb-10 tracking-[-0.02em] md:tracking-[-0.065em]"
+              style={{ fontFamily: "var(--font-inter-tight)" }}
             >
               Turning complexity into <br />
               <span className="italic font-normal" style={{ fontFamily: "var(--font-fraunces)" }}>clarity</span>.
@@ -173,8 +183,8 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
           <div>
             <SectionLabel>Our Solution</SectionLabel>
             <h2 
-              className="text-4xl md:text-6xl font-medium leading-[1.1] mt-8 mb-10"
-              style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}
+              className="text-4xl md:text-6xl font-medium leading-[1.1] mt-8 mb-10 tracking-[-0.02em] md:tracking-[-0.065em]"
+              style={{ fontFamily: "var(--font-inter-tight)" }}
             >
               Engineering the <br />
               <span className="text-[#D0F504]">advantage</span>.
@@ -192,7 +202,7 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
           <div className="grid md:grid-cols-3 gap-12 lg:gap-24">
             <div className="md:col-span-1">
               <SectionLabel>Impact</SectionLabel>
-              <h2 className="text-4xl font-medium mt-6" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+              <h2 className="text-4xl font-medium mt-6 tracking-[-0.02em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Real numbers. <br />Real growth.
               </h2>
             </div>

@@ -202,8 +202,8 @@ export default function WorkContent({
           <div className="flex flex-col justify-center">
             <SectionLabel>Our Portfolio</SectionLabel>
             <h1
-              className="max-w-5xl text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl mt-6"
-              style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+              className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl mt-6"
+              style={{ fontFamily: "var(--font-inter-tight)" }}
             >
               Work we're proud of. Built to scale.
             </h1>

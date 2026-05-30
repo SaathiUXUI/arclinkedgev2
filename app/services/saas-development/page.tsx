@@ -17,12 +17,12 @@ const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/saas-development`;
 
 export const metadata: Metadata = {
-  title: "SaaS Development Services in New York, Bangalore, Delhi & Mumbai | Custom B2B Products",
+  title: "SaaS Development Services in New York, London, Dubai & Bangalore | Custom B2B Products",
   description:
-    "Custom SaaS development services in New York, Bangalore, Delhi & Mumbai. We build scalable, secure, and multi-tenant SaaS applications from MVP to enterprise scale.",
+    "Custom SaaS development services in New York, London, Dubai & Bangalore. We build scalable, secure, and multi-tenant SaaS applications from MVP to enterprise scale.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "SaaS development services New York, Bangalore, Delhi & Mumbai",
+    "SaaS development services New York, London, Dubai & Bangalore",
     "B2B SaaS development India",
     "custom SaaS product development",
     "multi-tenant SaaS architecture",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "SaaS Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "SaaS Development Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
       "End-to-end SaaS development for B2B and B2C startups. We build secure, multi-tenant products designed to scale and generate recurring revenue.",
     siteName: "Arclink Edge",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SaaS Development Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "SaaS Development Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
-      "Custom SaaS development services in New York, Bangalore, Delhi & Mumbai. We build scalable, secure, and multi-tenant SaaS applications.",
+      "Custom SaaS development services in New York, London, Dubai & Bangalore. We build scalable, secure, and multi-tenant SaaS applications.",
     images: [`${SITE_URL}/opengraph-image`],
   },
 };
@@ -399,10 +399,10 @@ function JsonLd() {
     serviceType: "SaaS Development",
     url: PAGE_URL,
     description:
-      "Custom SaaS development services in New York, Bangalore, Delhi & Mumbai. We build scalable, secure, and multi-tenant SaaS applications from MVP to enterprise scale.",
+      "Custom SaaS development services in New York, London, Dubai & Bangalore. We build scalable, secure, and multi-tenant SaaS applications from MVP to enterprise scale.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
+      { "@type": "City", name: "New York, London, Dubai & Bangalore" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -461,8 +461,8 @@ export default async function SaaSDevelopmentPage() {
             <div className="flex flex-col justify-center">
               <SectionLabel>SaaS Development Services</SectionLabel>
               <h1
-                className="max-w-5xl text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 Scalable software built for recurring revenue.
               </h1>
@@ -491,7 +491,7 @@ export default async function SaaSDevelopmentPage() {
             <div className="mx-auto mb-12 grid max-w-[1600px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-12">
               <div>
                 <SectionLabel>Process</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                   A clear build system from idea to launch.
                 </h2>
               </div>
@@ -540,8 +540,8 @@ export default async function SaaSDevelopmentPage() {
                         </div>
 
                         <h3
-                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl"
-                          style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}
+                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl tracking-[-0.015em] md:tracking-[-0.065em]"
+                          style={{ fontFamily: "var(--font-inter-tight)" }}
                         >
                           {item.phase}
                         </h3>
@@ -560,7 +560,7 @@ export default async function SaaSDevelopmentPage() {
           <div className="relative z-10 mx-auto max-w-[1600px]">
             <div className="mb-16 max-w-5xl">
               <SectionLabel>Technology</SectionLabel>
-              <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Enterprise-grade SaaS tech stack.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/52">
@@ -618,8 +618,8 @@ export default async function SaaSDevelopmentPage() {
                 <div className="mb-8 max-w-3xl">
                   <SectionLabel>SaaS Integrations</SectionLabel>
                   <h3
-                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl"
-                    style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.06em" }}
+                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl tracking-[-0.015em] md:tracking-[-0.06em]"
+                    style={{ fontFamily: "var(--font-inter-tight)" }}
                   >
                     We connect the essential services your platform needs to operate.
                   </h3>
@@ -662,7 +662,7 @@ export default async function SaaSDevelopmentPage() {
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
                 <div>
                   <SectionLabel>What We Fix</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Software shouldn't break when you get users.
                   </h2>
                 </div>
@@ -691,7 +691,7 @@ export default async function SaaSDevelopmentPage() {
               <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
                 <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Scan the engineering scope in seconds.
                   </h2>
                 </div>
@@ -716,7 +716,7 @@ export default async function SaaSDevelopmentPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7]" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                         {item.title}
                       </h3>
                       <p className="mt-4 text-sm leading-relaxed text-white/54">{item.description}</p>

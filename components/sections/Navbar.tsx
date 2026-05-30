@@ -685,15 +685,27 @@ export default function Navbar() {
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }
                   }}
-                  className="font-medium text-lg"
-                  style={{
-                    fontFamily: "var(--font-inter-tight)",
-                    color: "#F5F5F7",
-                    letterSpacing: "-0.02em",
-                    textDecoration: "none",
-                  }}
+                  className="flex items-center gap-1"
+                  style={{ textDecoration: "none" }}
                 >
-                  Arclink Edge
+                  <Image
+                    src="/logo/aewhite.png"
+                    alt="Arclink Edge Logo"
+                    width={32}
+                    height={32}
+                    className="h-7 w-auto object-contain"
+                    priority
+                  />
+                  <span
+                    className="font-medium text-lg"
+                    style={{
+                      fontFamily: "var(--font-inter-tight)",
+                      color: "#F5F5F7",
+                      letterSpacing: "-0.02em",
+                    }}
+                  >
+                    Arclink Edge
+                  </span>
                 </Link>
                 <button
                   onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); setMobileHireOpen(false); }}

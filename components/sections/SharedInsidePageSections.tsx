@@ -114,7 +114,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
           <div className="mb-12 flex flex-col lg:flex-row justify-between lg:items-end gap-8">
             <div className="max-w-2xl">
               <SectionLabel>Outcomes</SectionLabel>
-              <h2 className="text-4xl font-medium leading-none md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Built for users, search engines and future product growth.
               </h2>
             </div>
@@ -128,7 +128,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
                 <CardHoverEffects />
                 <div className="relative z-10">
                   <Icon className="mb-12 text-white/82" size={24} strokeWidth={1.6} aria-hidden="true" />
-                  <h3 className="text-xl font-medium" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em" }}>{title}</h3>
+                  <h3 className="text-xl font-medium tracking-[-0.015em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>{title}</h3>
                   <p className="mt-4 text-sm leading-relaxed text-white/54">{description}</p>
                 </div>
               </article>
@@ -151,7 +151,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
             <div className="p-8 lg:p-16 border-b border-white/[0.04] lg:border-b-0 lg:border-r border-white/[0.04]">
               <div className="relative z-10 h-full flex flex-col">
                 <SectionLabel>Why Arclink Edge</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)" }}>
                   Strategy, UI and engineering in one build.
                 </h2>
 
@@ -180,20 +180,20 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
                     const icons = [Search, Code2, ShieldCheck];
                     const Icon = icons[index];
                     return (
-                      <article key={item.label} className="relative flex items-start gap-10 lg:gap-14">
+                      <article key={item.label} className="relative flex items-start gap-6 lg:gap-14">
                         <div className="relative flex flex-col items-center">
-                          <div className="z-10 flex h-16 w-16 shrink-0 items-center justify-center border border-white/[0.08] bg-white/[0.03] text-[#D0F504]">
-                            <Icon size={26} strokeWidth={1.5} />
+                          <div className="z-10 flex h-11 w-11 shrink-0 items-center justify-center border border-white/[0.08] bg-white/[0.03] text-[#D0F504] lg:h-16 lg:w-16">
+                            <Icon className="size-[18px] lg:size-[26px]" strokeWidth={1.5} />
                           </div>
                           {index !== edgeHighlights.length - 1 && (
-                            <div className="absolute top-[72px] h-[calc(100%+64px)] lg:h-[calc(100%+96px)] w-[1.5px] bg-gradient-to-b from-[#D0F504]/40 via-[#D0F504]/10 to-transparent" />
+                            <div className="absolute top-[50px] h-[calc(100%+64px)] lg:top-[72px] lg:h-[calc(100%+96px)] w-[1.5px] bg-gradient-to-b from-[#D0F504]/40 via-[#D0F504]/10 to-transparent" />
                           )}
                         </div>
                         <div className="flex flex-col pt-2">
                           <span className="text-[0.62rem] font-bold uppercase tracking-[0.35em] text-[#D0F504]/90" style={{ fontFamily: "var(--font-inter-tight)" }}>
                             Phase {index + 1} &mdash; {item.label}
                           </span>
-                          <h3 className="mt-1.5 text-xl font-medium leading-snug text-[#F5F5F7] md:text-2xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.035em" }}>
+                          <h3 className="mt-1.5 text-xl font-medium leading-snug text-[#F5F5F7] md:text-2xl tracking-[-0.015em] md:tracking-[-0.035em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                             {item.title}
                           </h3>
                         </div>
@@ -213,7 +213,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
           <div className="mb-12 flex flex-col lg:flex-row justify-between lg:items-end gap-8">
             <div className="max-w-2xl">
               <SectionLabel>Engagement Models</SectionLabel>
-              <h2 className="text-4xl font-medium leading-none md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Pick the fastest path to value.
               </h2>
             </div>
@@ -235,7 +235,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
                       <span className="h-1 w-1 rounded-full bg-[#D0F504] animate-pulse" />
                       {model.badge}
                     </span>
-                    <h3 className="mt-6 text-4xl font-medium leading-[0.95] text-[#F5F5F7]" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+                    <h3 className="mt-6 text-4xl font-medium leading-[0.95] text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                       {model.title}
                     </h3>
                   </div>

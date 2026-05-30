@@ -258,18 +258,13 @@ export default function Stats() {
           className="text-center"
           style={{ maxWidth: "900px", margin: "0 auto 4rem" }}
         >
-          <h2
-            id="stats-heading"
+          <h2 id="stats-heading"
             ref={headingRef}
-            style={{
-              fontFamily: "var(--font-inter-tight)",
+            style={{ fontFamily: "var(--font-inter-tight)",
               fontSize: "clamp(1.9rem, 3.8vw, 3.2rem)",
               fontWeight: 400,
-              letterSpacing: "-0.03em",
               lineHeight: 1.3,
-              color: "#F5F5F7",
-            }}
-          >
+              color: "#F5F5F7" }} className="tracking-[-0.02em] md:tracking-[-0.03em]">
             <div style={{ overflow: "hidden" }}>
               <div className="stats-line">Build better digital products.</div>
             </div>

@@ -11,14 +11,14 @@ import { services } from "@/lib/data";
 const PAGE_URL = "https://www.arclinkedge.com/services";
 
 export const metadata: Metadata = {
-  title: "IT Services in New York, Bangalore, Delhi & Mumbai for Web, Mobile & SaaS Products",
+  title: "IT Services in New York, London, Dubai & Bangalore for Web, Mobile & SaaS Products",
   description:
-    "Explore Arclink Edge services in New York, Bangalore, Delhi & Mumbai, including web development, mobile app development, UI/UX design, SaaS development, e-commerce, cloud, APIs, AI automation, SEO and hireable specialists.",
+    "Explore Arclink Edge services in New York, London, Dubai & Bangalore, including web development, mobile app development, UI/UX design, SaaS development, e-commerce, cloud, APIs, AI automation, SEO and hireable specialists.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Arclink Edge IT Services in New York, Bangalore, Delhi & Mumbai",
+    title: "Arclink Edge IT Services in New York, London, Dubai & Bangalore",
     description:
       "Web, mobile, SaaS, UI/UX, e-commerce, cloud, API, AI automation, SEO and hireable specialists for growing B2B brands.",
     siteName: "Arclink Edge",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arclink Edge IT Services in New York, Bangalore, Delhi & Mumbai",
+    title: "Arclink Edge IT Services in New York, London, Dubai & Bangalore",
     description:
       "Explore Arclink Edge web, mobile, SaaS, UI/UX, e-commerce, cloud, API, AI automation, SEO and hire options.",
     images: ["/opengraph-image"],
@@ -117,10 +117,10 @@ export default function ServicesPage() {
           <SectionLabel>Services</SectionLabel>
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.42fr] lg:items-end">
             <h1
-              className="max-w-5xl text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl"
-              style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+              className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
+              style={{ fontFamily: "var(--font-inter-tight)" }}
             >
-              IT services in New York, Bangalore, Delhi & Mumbai for web, mobile and SaaS growth.
+              IT services in New York, London, Dubai & Bangalore for web, mobile and SaaS growth.
             </h1>
             <p className="max-w-xl text-base leading-relaxed text-white/62 md:text-lg">
               Strategy, design, development, automation and growth support for teams that need a polished digital product, a reliable technical partner, or hireable specialists.
@@ -146,8 +146,8 @@ export default function ServicesPage() {
                 </div>
                 <div>
                   <h2
-                    className="text-3xl font-medium text-white md:text-4xl"
-                    style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.055em" }}
+                    className="text-3xl font-medium text-white md:text-4xl tracking-[-0.02em] md:tracking-[-0.055em]"
+                    style={{ fontFamily: "var(--font-inter-tight)" }}
                   >
                     {service.title}
                   </h2>
@@ -166,7 +166,7 @@ export default function ServicesPage() {
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <div>
               <SectionLabel>Hire</SectionLabel>
-              <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Hire specialists from the same service stack.
               </h2>
             </div>
@@ -190,7 +190,7 @@ export default function ServicesPage() {
                     <ArrowUpRight className="text-white/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white" size={22} />
                   </div>
                   <div className="mt-auto pt-12">
-                    <h3 className="text-2xl font-medium text-white md:text-3xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+                    <h3 className="text-2xl font-medium text-white md:text-3xl tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                       {item.title}
                     </h3>
                     <p className="mt-5 text-sm leading-relaxed text-white/62">{item.description}</p>

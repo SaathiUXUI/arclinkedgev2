@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Contact Arclink Edge - Start Your Project",
-    description: "Start a project with Arclink Edge, a premium IT agency in New York, Bangalore, Delhi & Mumbai.",
+    description: "Start a project with Arclink Edge, a premium IT agency in New York, London, Dubai & Bangalore.",
     images: ["/opengraph-image"],
   },
 };

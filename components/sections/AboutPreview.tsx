@@ -226,7 +226,7 @@ export default function AboutPreview({ sanityTeam }: { sanityTeam?: any[] }) {
             <div className="mt-8 max-w-4xl">
               <div className="space-y-5 text-sm md:text-base leading-relaxed text-white/54">
                 <p>
-                  We are a premium IT agency in New York, Bangalore, Delhi & Mumbai, India, specializing in custom web development, mobile app development, SaaS platforms, UI/UX design, API integration, cloud deployment, and digital product strategy for B2B brands.
+                  We are a premium IT agency in New York, London, Dubai & Bangalore, India, specializing in custom web development, mobile app development, SaaS platforms, UI/UX design, API integration, cloud deployment, and digital product strategy for B2B brands.
                 </p>
                 <p>
                   Our team blends product thinking with modern engineering, helping startups and growing businesses launch fast, improve conversions, and build reliable software for customers across India, the USA, the UK, and the UAE.
@@ -236,8 +236,8 @@ export default function AboutPreview({ sanityTeam }: { sanityTeam?: any[] }) {
 
             <div className="mt-12">
               <h3
-                className="text-2xl md:text-3xl font-medium text-[#F5F5F7]"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em" }}
+                className="text-2xl md:text-3xl font-medium text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.04em]"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 Developers and partners behind every launch
               </h3>

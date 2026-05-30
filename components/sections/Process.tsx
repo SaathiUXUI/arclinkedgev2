@@ -28,12 +28,9 @@ export default function Process() {
           </p>
           <h2
             id="process-heading"
-            className="text-4xl md:text-5xl font-extrabold"
-            style={{
-              fontFamily: "var(--font-inter-tight)",
-              color: "#F5F5F7",
-              letterSpacing: "-0.02em",
-            }}
+            className="text-4xl md:text-5xl font-extrabold tracking-[-0.02em] md:tracking-[-0.02em]"
+            style={{ fontFamily: "var(--font-inter-tight)",
+              color: "#F5F5F7", }}
           >
             How we work
           </h2>

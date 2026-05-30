@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "hire dedicated app developer",
     "hire dedicated ui ux designer",
     "hire dedicated ai team",
-    "staff augmentation New York, Bangalore, Delhi & Mumbai",
+    "staff augmentation New York, London, Dubai & Bangalore",
     "dedicated development team India",
   ],
   openGraph: {
@@ -219,7 +219,10 @@ export default async function HirePage() {
             <SectionLabel>On-demand Talent</SectionLabel>
             <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.42fr] lg:items-end">
               <div>
-                <h1 className="max-w-6xl text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}>
+                <h1
+                  className="max-w-6xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
+                  style={{ fontFamily: "var(--font-inter-tight)" }}
+                >
                   Hire Dedicated Talent. Scale Faster.
                 </h1>
                 <div className="mt-10 flex flex-wrap gap-3">
@@ -239,7 +242,7 @@ export default async function HirePage() {
             <div className="mb-12 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
               <div>
                 <SectionLabel>Hire Menu</SectionLabel>
-                <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                   Every specialist mapped to a real service.
                 </h2>
               </div>
@@ -267,7 +270,7 @@ export default async function HirePage() {
                       <p className="mb-4 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#D0F504]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                         {item.keywords}
                       </p>
-                      <h3 className="text-3xl font-medium text-white md:text-4xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.055em" }}>
+                      <h3 className="text-3xl font-medium text-white md:text-4xl tracking-[-0.015em] md:tracking-[-0.055em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                         {item.title}
                       </h3>
                       <p className="mt-5 text-sm leading-relaxed text-white/62">{item.description}</p>
@@ -288,7 +291,7 @@ export default async function HirePage() {
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.82fr_1.18fr]">
                 <div>
                   <SectionLabel>Coverage</SectionLabel>
-                  <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     From research to post-launch growth.
                   </h2>
                 </div>
@@ -322,7 +325,7 @@ export default async function HirePage() {
                     <div className="absolute -right-20 -top-20 h-40 w-40 bg-white/0 blur-[60px] transition-colors duration-500 group-hover:bg-white/10" />
                     
                     <div className="relative z-10">
-                      <h3 className="text-3xl font-medium text-white md:text-4xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+                      <h3 className="text-3xl font-medium text-white md:text-4xl tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                         {item.title}
                       </h3>
                       <p className="mt-4 max-w-[240px] text-sm leading-relaxed text-white/42 group-hover:text-white/60 transition-colors duration-500">

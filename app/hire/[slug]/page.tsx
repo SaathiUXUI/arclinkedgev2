@@ -9,8 +9,11 @@ import HiringForm from "./HiringForm";
 import PricingCard from "./PricingCard";
 import BackToTop from "@/components/ui/BackToTop";
 import CookieBanner from "@/components/ui/CookieBanner";
+import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
 
 const Footer = dynamic(() => import("@/components/sections/Footer"));
+import { getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
+
 
 const techIcons: Record<string, string> = {
   "React": "/tools/reactjs.svg",
@@ -42,6 +45,7 @@ type TalentData = {
   hourlyRate: string;
   monthlyRate: string;
   features: string[];
+  faqs: { question: string; answer: string }[];
 };
 
 const talentRegistry: Record<string, TalentData> = {
@@ -53,6 +57,14 @@ const talentRegistry: Record<string, TalentData> = {
     hourlyRate: "$22 - $30",
     monthlyRate: "$3,500 - $4,800",
     features: ["160 Hours / Month", "Direct Slack/Discord Access", "Arclink Managed Quality", "Daily Standups", "IP Protection"],
+    faqs: [
+      { question: "How do you vet your dedicated web developers?", answer: "Our developers go through a 5-stage vetting process including algorithmic tests, live coding sessions, and project-based evaluations to ensure senior-level proficiency." },
+      { question: "Can I scale my team up or down?", answer: "Yes, our engagement model is flexible. You can add more developers or scale down with a 30-day notice period to match your product roadmap." },
+      { question: "How does communication work?", answer: "The developer works in your time zone and joins your Slack, Discord, or Jira. They function as a natural extension of your internal team." },
+      { question: "Do I get full ownership of the source code?", answer: "Absolutely. Once the project is completed or at milestones, all IP rights and source code access are transferred to you." },
+      { question: "How do you handle technical debt?", answer: "Our developers follow strict clean code principles and TDD (Test Driven Development) to minimize debt and ensure long-term maintainability." },
+      { question: "What is the typical onboarding time?", answer: "We can usually have a dedicated web developer integrated into your workflow within 48 to 72 hours after finalizing requirements." }
+    ]
   },
   "mobile-app-developer": {
     title: "Hire Dedicated Mobile App Developer",
@@ -62,6 +74,14 @@ const talentRegistry: Record<string, TalentData> = {
     hourlyRate: "$24 - $32",
     monthlyRate: "$3,800 - $5,000",
     features: ["Fully Dedicated Resource", "UI/UX Awareness", "End-to-end Deployment", "Weekly Technical Audits", "Managed Management"],
+    faqs: [
+      { question: "Do your developers handle both iOS and Android?", answer: "Yes, our specialists in Flutter and React Native build high-performance apps for both platforms from a single codebase." },
+      { question: "Will the developer help with App Store submissions?", answer: "Absolutely. Our mobile developers manage the entire release process, including metadata optimization and submission to Apple App Store and Google Play Store." },
+      { question: "How do you ensure app performance?", answer: "We implement rigorous performance monitoring, memory leak testing, and native optimization to ensure your app feels fast and responsive." },
+      { question: "Can you help with app monetization strategies?", answer: "Yes, our developers have experience integrating in-app purchases, subscriptions (Stripe/RevenueCat), and ad networks." },
+      { question: "Do you provide post-launch support for OS updates?", answer: "Yes, we offer maintenance retainers to ensure your app remains compatible with the latest iOS and Android versions." },
+      { question: "How do you handle offline functionality?", answer: "We use local database solutions like Hive or SQLite along with robust sync logic to ensure a seamless experience without internet." }
+    ]
   },
   "ui-ux-designer": {
     title: "Hire Dedicated UI/UX Designer",
@@ -71,6 +91,14 @@ const talentRegistry: Record<string, TalentData> = {
     hourlyRate: "$20 - $28",
     monthlyRate: "$3,200 - $4,500",
     features: ["Design System Management", "Unlimited Revisions", "Collaborative Figma Workflow", "Developer Handoff Support"],
+    faqs: [
+      { question: "What is the design process?", answer: "Our designers work in Figma, providing daily updates. We follow a research-driven approach to ensure every pixel serves a business goal." },
+      { question: "Do you provide developer handoff?", answer: "Yes, we provide complete design systems and interactive prototypes, ensuring a seamless transition from design to development." },
+      { question: "Can the designer work with my existing brand?", answer: "Of course. Our designers are experts at adapting to existing brand guidelines while introducing modern UX improvements." },
+      { question: "Do you conduct user testing?", answer: "Yes, we create high-fidelity prototypes and can facilitate user testing sessions to validate UX decisions before development starts." },
+      { question: "How do you handle design revisions?", answer: "We operate on an iterative model. We provide daily updates in Figma and incorporate your feedback in real-time." },
+      { question: "What deliverables can I expect?", answer: "You receive full Figma source files, interactive prototypes, a style guide/design system, and ready-to-code assets." }
+    ]
   },
   "saas-developer": {
     title: "Hire Dedicated SaaS Developer",
@@ -80,6 +108,14 @@ const talentRegistry: Record<string, TalentData> = {
     hourlyRate: "$24 - $34",
     monthlyRate: "$3,800 - $5,400",
     features: ["SaaS Best Practices", "Scalable Multi-tenancy", "Security-first Approach", "Managed Infrastructure Oversight"],
+    faqs: [
+      { question: "How do you handle multi-tenant security?", answer: "We implement robust data isolation at the database level and secure authentication flows to ensure total privacy for every tenant." },
+      { question: "Can you integrate subscription billing?", answer: "Yes, we are experts in Stripe, Chargebee, and Paddle integrations for complex subscription models and metered billing." },
+      { question: "Do you help with SaaS infrastructure?", answer: "We optimize serverless architectures and database performance to keep your SaaS fast and cost-effective as you scale." },
+      { question: "How do you handle feature flags?", answer: "We implement feature flagging systems like LaunchDarkly or custom solutions to manage progressive rollouts and A/B testing." },
+      { question: "Can you build custom analytics dashboards?", answer: "Yes, we build high-performance dashboards with real-time data visualization using tools like Recharts or D3.js." },
+      { question: "What is your approach to API-first development?", answer: "We build robust, documented APIs (REST/GraphQL) first, ensuring your SaaS can easily support mobile apps or 3rd party integrations later." }
+    ]
   },
   "ecommerce-developer": {
     title: "Hire Dedicated E-commerce Developer",
@@ -89,6 +125,14 @@ const talentRegistry: Record<string, TalentData> = {
     hourlyRate: "$20 - $28",
     monthlyRate: "$3,200 - $4,500",
     features: ["CRO Focused Development", "Payment Gateway Security", "Inventory Sync Logic", "24/7 Priority Support"],
+    faqs: [
+      { question: "Do you build custom Shopify themes?", answer: "Yes, we specialize in high-performance, custom-coded Shopify themes that outrank and out-convert generic templates." },
+      { question: "What is your approach to Headless Commerce?", answer: "We use Hydrogen or Next.js with Shopify's Storefront API to create lightning-fast shopping experiences." },
+      { question: "How do you optimize for conversions?", answer: "We implement A/B testing infrastructure, fast-loading product pages, and frictionless checkout flows." },
+      { question: "Can you handle complex shipping and tax logic?", answer: "Yes, we integrate with 3rd party logistics (3PL) and automated tax calculation tools to simplify your operations." },
+      { question: "Do you provide migration services?", answer: "Yes, we safely migrate data, customers, and SEO equity from platforms like Magento or WooCommerce to Shopify." },
+      { question: "How do you ensure store security?", answer: "We follow PCI-DSS compliance standards and implement robust security patches for non-hosted platforms like WooCommerce." }
+    ]
   },
   "devops-engineer": {
     title: "Hire Dedicated DevOps Engineer",
@@ -98,6 +142,14 @@ const talentRegistry: Record<string, TalentData> = {
     hourlyRate: "$26 - $38",
     monthlyRate: "$4,200 - $6,000",
     features: ["99.9% Uptime Guarantee", "Cloud Cost Optimization", "Zero-downtime Deployments", "Security Hardening"],
+    faqs: [
+      { question: "How can you reduce my cloud costs?", answer: "We audit your infrastructure to identify idle resources, optimize instance types, and implement auto-scaling to match demand." },
+      { question: "Do you handle zero-downtime deployments?", answer: "Yes, we set up robust CI/CD pipelines with blue-green or canary deployment strategies to ensure 100% availability." },
+      { question: "How do you secure the infrastructure?", answer: "We implement VPC isolation, IAM least-privilege policies, and automated security scanning for all your cloud resources." },
+      { question: "Do you provide 24/7 monitoring?", answer: "Yes, we set up advanced observability with Datadog, New Relic, or Prometheus to alert us of any issues before they impact users." },
+      { question: "Can you migrate us to the cloud?", answer: "Yes, we handle seamless migrations from on-premise servers to AWS, Google Cloud, or Azure with minimal downtime." },
+      { question: "What is Infrastructure as Code (IaC)?", answer: "We use Terraform or Pulumi to define your infrastructure in code, ensuring reproducible and version-controlled environments." }
+    ]
   },
   "api-developer": {
     title: "Hire Dedicated API Developer",
@@ -107,6 +159,14 @@ const talentRegistry: Record<string, TalentData> = {
     hourlyRate: "$22 - $30",
     monthlyRate: "$3,500 - $4,800",
     features: ["Secure Data Flow", "Scalable Microservices", "Automated API Docs", "System Synchronization"],
+    faqs: [
+      { question: "Do you specialize in GraphQL or REST?", answer: "Our developers are proficient in both, choosing the best architecture based on your data complexity and performance needs." },
+      { question: "How do you handle API documentation?", answer: "We provide automated, interactive documentation using Swagger or Postman, ensuring your frontend team can integrate with ease." },
+      { question: "Can you handle complex 3rd party integrations?", answer: "Yes, from legacy systems to modern SaaS APIs, we ensure seamless data synchronization across your tech stack." },
+      { question: "How do you ensure API security?", answer: "We implement OAuth2, JWT, rate limiting, and input validation to protect your systems from common vulnerabilities." },
+      { question: "Do you build microservices?", answer: "Yes, we design and implement microservices architectures using Docker and Kubernetes for maximum scalability." },
+      { question: "How do you handle API versioning?", answer: "We follow industry best practices for versioning to ensure backward compatibility for your existing users while deploying new features." }
+    ]
   },
   "ai-specialist": {
     title: "Hire Dedicated AI Specialist",
@@ -116,6 +176,14 @@ const talentRegistry: Record<string, TalentData> = {
     hourlyRate: "$28 - $40",
     monthlyRate: "$4,500 - $6,400",
     features: ["Custom AI Agent Logic", "RAG Implementation", "Prompt Engineering", "Data Privacy First AI"],
+    faqs: [
+      { question: "Can you build a custom AI chatbot for my data?", answer: "Yes, we specialize in RAG (Retrieval-Augmented Generation) systems that allow AI to answer questions based on your specific private data." },
+      { question: "How do you keep LLM costs low?", answer: "We use techniques like semantic caching, prompt compression, and selecting the right model (e.g., GPT-4o vs GPT-3.5) for each task." },
+      { question: "Do you help with prompt engineering?", answer: "Absolutely. We iteratively optimize prompts to ensure high accuracy and consistent output from the AI models." },
+      { question: "Can you fine-tune models?", answer: "Yes, we can fine-tune open-source models like Llama-3 or Mistral for specific tasks to achieve better performance than generic APIs." },
+      { question: "How do you ensure AI data privacy?", answer: "We implement secure data pipelines and can deploy models locally or in private clouds to ensure your data never leaves your infrastructure." },
+      { question: "Can you automate business workflows with AI?", answer: "Yes, we build AI agents that can browse the web, interact with your internal tools, and automate repetitive cognitive tasks." }
+    ]
   },
   "seo-specialist": {
     title: "Hire Dedicated SEO Specialist",
@@ -125,8 +193,30 @@ const talentRegistry: Record<string, TalentData> = {
     hourlyRate: "$16 - $24",
     monthlyRate: "$2,500 - $3,800",
     features: ["Weekly Ranking Reports", "Competitor Gap Analysis", "Technical Audit & Fixes", "Content Quality Oversight"],
+    faqs: [
+      { question: "How long does it take to see SEO results?", answer: "While SEO is a long-term game, we typically see significant technical improvements within 4 weeks and ranking growth within 3-6 months." },
+      { question: "Do you handle technical SEO fixes?", answer: "Yes, our SEO specialists work directly with developers to fix Core Web Vitals, site architecture, and schema markup issues." },
+      { question: "How do you measure success?", answer: "We focus on bottom-line metrics like organic traffic growth, conversion rate optimization, and search engine visibility for target keywords." },
+      { question: "Do you provide content strategy?", answer: "Yes, we perform deep keyword research and provide content briefs designed to outrank your competitors." },
+      { question: "Can you recover my site from a penalty?", answer: "Yes, we audit your backlink profile and content to identify and resolve issues that led to manual or algorithmic penalties." },
+      { question: "What is your approach to link building?", answer: "We focus on high-quality, relevant white-hat link building through digital PR and outreach, avoiding spammy tactics." }
+    ]
   },
 };
+
+// Aliases for plural slugs to ensure /hire/developers also works
+talentRegistry["web-developers"] = talentRegistry["web-developer"];
+talentRegistry["mobile-app-developers"] = talentRegistry["mobile-app-developer"];
+talentRegistry["ui-ux-designers"] = talentRegistry["ui-ux-designer"];
+talentRegistry["saas-developers"] = talentRegistry["saas-developer"];
+talentRegistry["ecommerce-developers"] = talentRegistry["ecommerce-developer"];
+talentRegistry["devops-engineers"] = talentRegistry["devops-engineer"];
+talentRegistry["api-developers"] = talentRegistry["api-developer"];
+talentRegistry["ai-specialists"] = talentRegistry["ai-specialist"];
+talentRegistry["seo-specialists"] = talentRegistry["seo-specialist"];
+talentRegistry["developers"] = talentRegistry["web-developer"];
+talentRegistry["designers"] = talentRegistry["ui-ux-designer"];
+
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -141,9 +231,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function DedicatedHiringPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const data = talentRegistry[slug];
+  const [data, sanityLogos, sanityTestimonials] = await Promise.all([
+    talentRegistry[slug],
+    getBrandLogos(),
+    getSanityTestimonials(),
+  ]);
 
   if (!data) {
+
     return (
       <div className="flex min-h-screen items-center justify-center bg-black text-white">
         <h1 className="text-2xl">Talent Profile Not Found</h1>
@@ -154,6 +249,23 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
   return (
     <>
       <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: data.faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
       <main className="min-h-screen bg-black text-[#F5F5F7]">
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 pt-32 lg:px-12 lg:pt-40">
@@ -163,8 +275,8 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
               <div>
                 <SectionLabel>Dedicated {data.role}</SectionLabel>
                 <h1 
-                  className="mt-6 text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl"
-                  style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                  className="mt-6 text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
+                  style={{ fontFamily: "var(--font-inter-tight)" }}
                 >
                   {data.title}.
                 </h1>
@@ -201,7 +313,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
             <div className="grid gap-20 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
                 <SectionLabel>Technology</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-5xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>Core Technical Stack</h2>
+                <h2 className="text-4xl font-medium leading-none md:text-5xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>Core Technical Stack</h2>
                 <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {data.skills.map((skill) => (
                     <div
@@ -226,7 +338,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
 
               <div>
                 <SectionLabel>Inclusions</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-5xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>What's included?</h2>
+                <h2 className="text-4xl font-medium leading-none md:text-5xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>What's included?</h2>
                 <ul className="mt-10 space-y-0">
                   {data.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-4 border-b border-white/[0.06] py-5">
@@ -250,7 +362,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
           <div className="relative z-10 mx-auto max-w-[1600px] py-24 lg:py-32">
             <div className="mb-16 px-6 lg:px-12">
               <SectionLabel>Managed Process</SectionLabel>
-              <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 From Inquiry to Onboarding.
               </h2>
             </div>
@@ -288,8 +400,8 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
                     </span>
                     <div className="absolute inset-x-7 bottom-8 z-10">
                       <h3
-                        className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl"
-                        style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}
+                        className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl tracking-[-0.015em] md:tracking-[-0.065em]"
+                        style={{ fontFamily: "var(--font-inter-tight)" }}
                       >
                         {item.title}
                       </h3>
@@ -308,18 +420,25 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
           <div className="relative z-10 mx-auto max-w-[1600px] grid lg:grid-cols-[0.4fr_1fr] gap-20">
             <div>
               <SectionLabel>Inquiry Form</SectionLabel>
-              <h2 className="text-4xl md:text-5xl font-medium mt-6 mb-8" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em" }}>
+              <h2 className="text-4xl md:text-5xl font-medium mt-6 mb-8 tracking-[-0.02em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Schedule an <br />Interview.
               </h2>
               <p className="text-white/40 max-w-sm leading-relaxed">
                 Submit your requirements and our technical manager will contact you within 24 hours with a tailored response.
               </p>
             </div>
-            <div className="bg-white/[0.02] border border-white/5 px-8 pt-8 pb-4 md:px-12 md:pt-12 md:pb-6">
+            <div className="bg-white/[0.02] border border-white/5 p-8 md:p-12">
               <HiringForm role={data.role} />
             </div>
           </div>
         </section>
+
+        <SharedInsidePageSections 
+          faqs={data.faqs} 
+          sanityLogos={sanityLogos}
+          sanityTestimonials={sanityTestimonials}
+        />
+
 
         <Footer />
       </main>

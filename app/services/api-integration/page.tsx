@@ -17,12 +17,12 @@ const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/services/api-integration`;
 
 export const metadata: Metadata = {
-  title: "API Integration Services in New York, Bangalore, Delhi & Mumbai | Custom Workflows",
+  title: "API Integration Services in New York, London, Dubai & Bangalore | Custom Workflows",
   description:
-    "Expert API integration services in New York, Bangalore, Delhi & Mumbai. We connect your software stack, automate workflows, and build secure REST and GraphQL APIs.",
+    "Expert API integration services in New York, London, Dubai & Bangalore. We connect your software stack, automate workflows, and build secure REST and GraphQL APIs.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "API integration services New York, Bangalore, Delhi & Mumbai",
+    "API integration services New York, London, Dubai & Bangalore",
     "custom API development",
     "workflow automation India",
     "REST API development",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "API Integration Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "API Integration Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
       "Stop doing manual data entry. We connect your disparate software systems to automate workflows and unlock business efficiency.",
     siteName: "Arclink Edge",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "API Integration Services in New York, Bangalore, Delhi & Mumbai | Arclink Edge",
+    title: "API Integration Services in New York, London, Dubai & Bangalore | Arclink Edge",
     description:
-      "Expert API integration services in New York, Bangalore, Delhi & Mumbai. We connect your software stack and automate workflows.",
+      "Expert API integration services in New York, London, Dubai & Bangalore. We connect your software stack and automate workflows.",
     images: [`${SITE_URL}/opengraph-image`],
   },
 };
@@ -395,10 +395,10 @@ function JsonLd() {
     serviceType: "API Development & Integration",
     url: PAGE_URL,
     description:
-      "Expert API integration services in New York, Bangalore, Delhi & Mumbai. We connect your software stack, automate workflows, and build secure REST and GraphQL APIs.",
+      "Expert API integration services in New York, London, Dubai & Bangalore. We connect your software stack, automate workflows, and build secure REST and GraphQL APIs.",
     provider: { "@id": `${SITE_URL}/#organization`, name: "Arclink Edge" },
     areaServed: [
-      { "@type": "City", name: "New York, Bangalore, Delhi & Mumbai" },
+      { "@type": "City", name: "New York, London, Dubai & Bangalore" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
@@ -457,8 +457,8 @@ export default async function ApiIntegrationPage() {
             <div className="flex flex-col justify-center">
               <SectionLabel>API Integration Services</SectionLabel>
               <h1
-                className="max-w-5xl text-5xl font-medium leading-[0.96] md:text-7xl lg:text-8xl"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 Connecting your tools. Automating your business.
               </h1>
@@ -487,7 +487,7 @@ export default async function ApiIntegrationPage() {
             <div className="mx-auto mb-12 grid max-w-[1600px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-12">
               <div>
                 <SectionLabel>Process</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                   A clear framework for connectivity.
                 </h2>
               </div>
@@ -536,8 +536,8 @@ export default async function ApiIntegrationPage() {
                         </div>
 
                         <h3
-                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl"
-                          style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}
+                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl tracking-[-0.015em] md:tracking-[-0.065em]"
+                          style={{ fontFamily: "var(--font-inter-tight)" }}
                         >
                           {item.phase}
                         </h3>
@@ -556,7 +556,7 @@ export default async function ApiIntegrationPage() {
           <div className="relative z-10 mx-auto max-w-[1600px]">
             <div className="mb-16 max-w-5xl">
               <SectionLabel>Technology</SectionLabel>
-              <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                 Modern protocols. Secure connections.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/52">
@@ -614,8 +614,8 @@ export default async function ApiIntegrationPage() {
                 <div className="mb-8 max-w-3xl">
                   <SectionLabel>Additional Capabilities</SectionLabel>
                   <h3
-                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl"
-                    style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.06em" }}
+                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl tracking-[-0.015em] md:tracking-[-0.06em]"
+                    style={{ fontFamily: "var(--font-inter-tight)" }}
                   >
                     Everything needed to handle millions of requests safely.
                   </h3>
@@ -658,7 +658,7 @@ export default async function ApiIntegrationPage() {
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
                 <div>
                   <SectionLabel>What We Fix</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     We stop data silos and manual entry.
                   </h2>
                 </div>
@@ -687,7 +687,7 @@ export default async function ApiIntegrationPage() {
               <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
                 <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     Scan the integration scope in seconds.
                   </h2>
                 </div>
@@ -712,7 +712,7 @@ export default async function ApiIntegrationPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7]" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                         {item.title}
                       </h3>
                       <p className="mt-4 text-sm leading-relaxed text-white/54">{item.description}</p>

@@ -111,7 +111,7 @@ function HeroProjectColumn({ sanityImages }: { sanityImages?: string[] }) {
 const faqs = [
   {
     question: "Where is Arclink Edge located?",
-    answer: "We are a global agency with our core presence in New York, Bangalore, Delhi, and Mumbai, working with clients across the USA, UK, and UAE."
+    answer: "We are a global agency with our core presence in New York, London, Dubai, and Bangalore, working with clients across the USA, UK, and UAE."
   },
   {
     question: "What makes Arclink Edge different from other agencies?",
@@ -173,15 +173,15 @@ export default function AboutContent({
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-end mt-8">
             <div>
               <h1 
-                className="text-5xl md:text-7xl lg:text-9xl font-medium leading-[0.92]"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                className="text-5xl md:text-7xl lg:text-9xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.92] md:tracking-[-0.075em]"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 Engineering <br /> <span className="text-white/20">Human Ambition.</span>
               </h1>
             </div>
             <div className="pb-4">
               <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-md" style={{ letterSpacing: "-0.02em" }}>
-                Arclink Edge is a premium boutique agency in New York, Bangalore, Delhi & Mumbai. We don't just write code; we build the future of your business.
+                Arclink Edge is a premium boutique agency in New York, London, Dubai & Bangalore. We don't just write code; we build the future of your business.
               </p>
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function AboutContent({
       <section className="px-6 py-20 lg:px-12 lg:py-40 relative z-10 border-t border-white/5">
         <div className="mx-auto max-w-[1600px] grid lg:grid-cols-2 gap-20">
           <div>
-            <h2 className="text-3xl md:text-5xl font-medium mb-12" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em" }}>
+            <h2 className="text-3xl md:text-5xl font-medium mb-12 tracking-[-0.02em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
               Our Philosophy
             </h2>
             <div className="space-y-8 text-lg md:text-xl text-white/50 leading-relaxed">
@@ -200,7 +200,7 @@ export default function AboutContent({
                 We believe that in the digital age, speed is the ultimate currency. But speed without quality is a liability. That's why we focus on "Rapid Precision"—delivering world-class digital products in record time without cutting corners.
               </p>
               <p>
-                From our headquarters in New York, Bangalore, Delhi & Mumbai, we've partnered with ambitious startups and established B2B brands across the USA, UK, and UAE to re-engineer their digital presence.
+                From our headquarters in New York, London, Dubai & Bangalore, we've partnered with ambitious startups and established B2B brands across the USA, UK, and UAE to re-engineer their digital presence.
               </p>
             </div>
           </div>
@@ -219,7 +219,7 @@ export default function AboutContent({
              </div>
              <div>
                 <SectionLabel>Meet the Founder</SectionLabel>
-                <h3 className="text-4xl md:text-6xl font-medium mt-6 mb-8" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em" }}>
+                <h3 className="text-4xl md:text-6xl font-medium mt-6 mb-8 tracking-[-0.015em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                   A Vision for Precision.
                 </h3>
                  <p className="text-xl md:text-3xl text-[#D0F504] mb-8 font-medium italic" style={{ fontFamily: "var(--font-fraunces)" }}>
@@ -241,7 +241,7 @@ export default function AboutContent({
       {/* Values/Team Section */}
       <section className="px-6 py-20 lg:px-12 lg:py-40 relative z-10">
         <div className="mx-auto max-w-[1600px]">
-          <h2 className="text-3xl md:text-5xl font-medium mb-20" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em" }}>
+          <h2 className="text-3xl md:text-5xl font-medium mb-20 tracking-[-0.02em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
             The Core Team
           </h2>
            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

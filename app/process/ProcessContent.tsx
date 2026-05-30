@@ -217,8 +217,8 @@ function PhaseCard({ phase, index }: { phase: typeof processDetails[0]; index: n
             <div className="absolute -top-[1px] -left-[1px] w-4 h-4 border-t border-l border-[#D0F504] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
           <h2 
-            className="text-5xl md:text-7xl font-medium" 
-            style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}
+            className="text-5xl md:text-7xl font-medium tracking-[-0.02em] md:tracking-[-0.05em]" 
+            style={{ fontFamily: "var(--font-inter-tight)" }}
           >
             {phase.title}
           </h2>
@@ -311,8 +311,8 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: { sa
               </div>
 
               <h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-medium leading-[0.96] mt-10 max-w-5xl"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                className="text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] mt-10 max-w-5xl"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 <span className="block">Software Development</span>
                 <span 
@@ -427,8 +427,8 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: { sa
         <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-24 items-center">
           <div>
              <h2 
-               className="text-4xl md:text-6xl font-medium leading-tight mb-8"
-               style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}
+               className="text-4xl md:text-6xl font-medium leading-tight mb-8 tracking-[-0.02em] md:tracking-[-0.05em]"
+               style={{ fontFamily: "var(--font-inter-tight)" }}
              >
                A systematic approach to <br />
                <span className="text-[#D0F504]">unpredictable</span> markets.

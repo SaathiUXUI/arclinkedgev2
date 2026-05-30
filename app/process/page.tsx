@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   keywords: [
     "software development process",
     "product development methodology India",
-    "agile web development New York, Bangalore, Delhi & Mumbai",
+    "agile web development New York, London, Dubai & Bangalore",
     "UX design process",
     "SaaS development lifecycle",
     "Arclink Edge process"

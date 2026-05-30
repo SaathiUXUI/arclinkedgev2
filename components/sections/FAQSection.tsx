@@ -22,7 +22,7 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-16">
           <SectionLabel>FAQs</SectionLabel>
-          <h2 className="text-4xl md:text-5xl font-medium mt-6" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em" }}>
+          <h2 className="text-4xl md:text-5xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.04em] mt-6" style={{ fontFamily: "var(--font-inter-tight)" }}>
             Frequently Asked Questions
           </h2>
         </div>

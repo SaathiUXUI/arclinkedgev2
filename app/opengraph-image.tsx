@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Arclink Edge - Premium IT Agency in New York, Bangalore, Delhi & Mumbai";
+export const alt = "Arclink Edge - Premium IT Agency in New York, London, Dubai & Bangalore";
 export const size = {
   width: 1200,
   height: 630,
@@ -72,7 +72,7 @@ export default function Image() {
               color: "rgba(245,245,247,0.78)",
             }}
           >
-            Premium IT agency in New York, Bangalore, Delhi & Mumbai serving ambitious B2B brands across
+            Premium IT agency in New York, London, Dubai & Bangalore serving ambitious B2B brands across
             India, USA, UK and UAE.
           </div>
         </div>

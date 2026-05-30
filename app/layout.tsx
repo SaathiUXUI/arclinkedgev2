@@ -44,22 +44,21 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Arclink Edge — Premium IT Agency in New York, Bangalore, Delhi & Mumbai | Web, Mobile & SaaS Development",
+      "Arclink Edge — Premium IT Agency in New York, London, Dubai & Bangalore | Web, Mobile & SaaS Development",
     template: "%s | Arclink Edge",
   },
   description:
-    "Arclink Edge is a premium IT agency in New York, Bangalore, Delhi & Mumbai. We build world-class web apps, mobile apps, SaaS products & UI/UX design for ambitious B2B brands globally.",
+    "Arclink Edge is a premium IT agency in New York, London, Dubai & Bangalore. We build world-class web apps, mobile apps, SaaS products & UI/UX design for ambitious B2B brands globally.",
   keywords: [
-    "IT agency New York, Bangalore, Delhi & Mumbai",
-    "web development company India",
-    "mobile app developers New York, Bangalore, Delhi & Mumbai",
-    "SaaS development India",
-    "UI UX design agency",
-    "Flutter developers India",
-    "hire developers India",
-    "Next.js development",
-    "React development New York, Bangalore, Delhi & Mumbai",
-    "software development company Gujarat",
+    "IT agency New York, London, Dubai & Bangalore",
+    "web development company London",
+    "mobile app developers New York, London, Dubai & Bangalore",
+    "SaaS development UAE",
+    "UI UX design agency London",
+    "hire software developers UK",
+    "Next.js development Dubai",
+    "React development New York, London, Dubai & Bangalore",
+    "custom software engineering Dubai",
   ],
   authors: [{ name: "Arclink Edge", url: SITE_URL }],
   creator: "Arclink Edge",
@@ -77,19 +76,19 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_IN",
+    locale: "en_US",
     url: SITE_URL,
     siteName: "Arclink Edge",
     title:
-      "Arclink Edge — Premium IT Agency in New York, Bangalore, Delhi & Mumbai | Web, Mobile & SaaS Development",
+      "Arclink Edge — Premium IT Agency in New York, London, Dubai & Bangalore | Web, Mobile & SaaS Development",
     description:
-      "We build world-class digital products — web apps, mobile apps, SaaS & UI/UX design for ambitious B2B brands. Based in New York, Bangalore, Delhi & Mumbai.",
+      "We build world-class digital products — web apps, mobile apps, SaaS & UI/UX design for ambitious B2B brands. Based in New York, London, Dubai & Bangalore.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Arclink Edge — Premium IT Agency in New York, Bangalore, Delhi & Mumbai",
+        alt: "Arclink Edge — Premium IT Agency in New York, London, Dubai & Bangalore",
       },
     ],
   },
@@ -97,7 +96,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@arclinkedge",
     creator: "@arclinkedge",
-    title: "Arclink Edge — Premium IT Agency in New York, Bangalore, Delhi & Mumbai",
+    title: "Arclink Edge — Premium IT Agency in New York, London, Dubai & Bangalore",
     description:
       "We build world-class digital products — web apps, mobile apps, SaaS & UI/UX design for ambitious B2B brands.",
     images: [`${SITE_URL}/opengraph-image`],

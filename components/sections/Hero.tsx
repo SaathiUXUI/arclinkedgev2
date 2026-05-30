@@ -404,7 +404,7 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
                   marginBottom: "1.75rem",
                 }}
               >
-                Top-rated software development agency in New York, Bangalore, Delhi & Mumbai —
+                Top-rated software development agency in New York, London, Dubai & Bangalore —
                 delivering custom web apps, mobile apps (iOS &amp; Android), SaaS
                 platforms &amp; UI/UX design for ambitious B2B brands globally.
               </p>

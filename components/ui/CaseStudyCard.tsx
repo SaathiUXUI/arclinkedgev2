@@ -118,15 +118,12 @@ export default function CaseStudyCard({ study, i }: { study: CaseStudy; i: numbe
           </div>
 
           <h3
-            className="mb-1.5"
-            style={{
-              fontFamily: "var(--font-inter-tight)",
+            className="mb-1.5 tracking-[-0.015em] md:tracking-[-0.03em]"
+            style={{ fontFamily: "var(--font-inter-tight)",
               fontSize: "clamp(1.2rem, 2vw, 1.8rem)",
               fontWeight: 500,
               color: "#F5F5F7",
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
-            }}
+              lineHeight: 1.1 }}
           >
             {study.title}
           </h3>

@@ -102,12 +102,9 @@ function BlogCard({ post, index }: { post: any; index: number }) {
 
           {/* Title */}
           <h3
-            className="text-xl md:text-2xl font-medium mb-3 leading-snug transition-colors duration-300 group-hover:text-[#0052FF]"
-            style={{
-              fontFamily: "var(--font-inter-tight)",
-              color: "#F5F5F7",
-              letterSpacing: "-0.01em",
-            }}
+            className="text-xl md:text-2xl font-medium mb-3 leading-snug transition-colors duration-300 group-hover:text-[#0052FF] tracking-[-0.015em] md:tracking-[-0.01em]"
+            style={{ fontFamily: "var(--font-inter-tight)",
+              color: "#F5F5F7", }}
           >
             {post.title}
           </h3>

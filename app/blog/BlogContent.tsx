@@ -145,8 +145,8 @@ export default function BlogContent({ sanityLogos, sanityBlogs, sanityTestimonia
           <div className="grid lg:grid-cols-[1fr_0.4fr] gap-12 lg:gap-20 items-end mt-8">
             <div>
               <h1 
-                className="text-5xl md:text-7xl lg:text-9xl font-medium leading-[0.92]"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+                className="text-5xl md:text-7xl lg:text-9xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.92] md:tracking-[-0.075em]"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 Our Blog.
               </h1>

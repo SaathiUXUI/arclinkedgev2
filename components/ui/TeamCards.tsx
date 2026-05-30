@@ -61,8 +61,8 @@ export function TeamMemberCard({ member, index }: { member: any; index: number }
           <span className="h-px flex-1 bg-white/10" />
         </div>
         <h3
-          className="text-xl font-medium text-[#F5F5F7]"
-          style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.035em" }}
+          className="text-xl font-medium text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.035em]"
+          style={{ fontFamily: "var(--font-inter-tight)" }}
         >
           {member.name}
         </h3>
@@ -115,8 +115,8 @@ export function FounderCard({ founder }: { founder: any }) {
         />
         <div className="mt-6">
           <h3
-            className="mt-3 text-3xl font-medium text-[#F5F5F7]"
-            style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em", lineHeight: 1 }}
+            className="mt-3 text-3xl font-medium text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.04em]"
+            style={{ fontFamily: "var(--font-inter-tight)", lineHeight: 1 }}
           >
             {founder.name}
           </h3>

@@ -16,7 +16,7 @@ export default function TestimonialMarquee({ sanityTestimonials }: { sanityTesti
       
       <div className="relative z-10 mx-auto mb-16 max-w-[1600px] px-6 lg:px-12">
         <SectionLabel>Testimonials</SectionLabel>
-        <h2 className="text-4xl font-medium leading-none md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.065em" }}>
+        <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
           Trust from B2B brands and startups.
         </h2>
       </div>

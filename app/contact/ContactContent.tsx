@@ -70,7 +70,7 @@ export default function ContactContent() {
         <div className="mx-auto max-w-[1600px] grid lg:grid-cols-[0.4fr_1fr] gap-20">
           <div>
             <SectionLabel>Inquiry Form</SectionLabel>
-            <h2 className="text-4xl md:text-5xl font-medium mt-6 mb-8" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em" }}>
+            <h2 className="text-4xl md:text-5xl font-medium mt-6 mb-8 tracking-[-0.02em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
               Prefer to send <br /> a message?
             </h2>
             <p className="text-white/40 max-w-sm leading-relaxed mb-12">
@@ -87,22 +87,33 @@ export default function ContactContent() {
                   <p className="text-lg font-medium">hello@arclinkedge.com</p>
                 </div>
               </a>
-              <a href="tel:+919824838067" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all">
+              <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all">
                   <Phone size={18} />
                 </div>
                 <div>
                   <p className="text-xs text-white/40 uppercase tracking-widest mb-1 font-bold">Call Us</p>
-                  <p className="text-lg font-medium">+91 98248 38067</p>
+                  <div className="flex flex-col gap-2">
+                    <a href="tel:+12164184653" className="text-lg font-medium hover:text-[#0052FF] transition-colors flex items-center gap-2">
+                      <img src="/flags/us.svg" alt="US Flag" className="w-5 h-3.5 object-cover rounded-[1px]" />
+                      +1 (216) 418-4653
+                    </a>
+                    <a href="tel:+919824838067" className="text-lg font-medium hover:text-[#0052FF] transition-colors flex items-center gap-2">
+                      <img src="/flags/in.svg" alt="India Flag" className="w-5 h-3.5 object-cover rounded-[1px]" />
+                      +91 98248 38067
+                    </a>
+                  </div>
                 </div>
-              </a>
+              </div>
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all">
+                <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all">
                   <MapPin size={18} />
                 </div>
                 <div>
                   <p className="text-xs text-white/40 uppercase tracking-widest mb-1 font-bold">Office Address</p>
-                  <p className="text-lg font-medium">Ahmedabad, Gujarat, India</p>
+                  <p className="text-lg font-medium leading-relaxed">
+                    New York <span className="text-white/30 text-xs px-1 inline-block align-middle">•</span> London <span className="text-white/30 text-xs px-1 inline-block align-middle">•</span> Dubai <span className="text-white/30 text-xs px-1 inline-block align-middle">•</span> Bangalore <span className="text-white/30 text-xs px-1 inline-block align-middle">•</span> Ahmedabad
+                  </p>
                 </div>
               </div>
             </div>
