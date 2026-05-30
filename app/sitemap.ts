@@ -38,6 +38,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: LAST_MODIFIED,
   }));
 
+  const hirePages = [
+    "web-developer",
+    "mobile-app-developer",
+    "ui-ux-designer",
+    "saas-developer",
+    "ecommerce-developer",
+    "devops-engineer",
+    "api-developer",
+    "ai-specialist",
+    "seo-specialist",
+  ].map((slug) => ({
+    url: `${SITE_URL}/hire/${slug}`,
+    priority: 0.85,
+    changeFrequency: "monthly" as const,
+    lastModified: LAST_MODIFIED,
+  }));
+
   const blogPages = (await getAllBlogSlugs()).map((slug) => ({
     url: `${SITE_URL}/blog/${slug}`,
     priority: 0.6,
@@ -55,6 +72,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...staticPages.map((p) => ({ ...p, lastModified: LAST_MODIFIED })),
     ...servicePages,
+    ...hirePages,
     ...blogPages,
     ...workPages,
   ];
