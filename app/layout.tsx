@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight, Fraunces } from "next/font/google";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import LeadPopup from "@/components/ui/LeadPopup";
 import "./globals.css";
 import {
   organizationSchema,
@@ -9,6 +10,7 @@ import {
   breadcrumbSchema,
   servicesSchema,
 } from "@/lib/structured-data";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -142,6 +144,7 @@ export default function RootLayout({
         </a>
         <div className="grain-overlay" aria-hidden="true" />
         <SmoothScroll>{children}</SmoothScroll>
+        <LeadPopup />
       </body>
     </html>
   );
