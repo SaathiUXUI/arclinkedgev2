@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight, Fraunces } from "next/font/google";
+import Script from "next/script";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import LeadPopup from "@/components/ui/LeadPopup";
 import "./globals.css";
@@ -139,6 +140,19 @@ export default function RootLayout({
         ))}
       </head>
       <body className="antialiased" suppressHydrationWarning>
+        {/* Google Analytics GA4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MF08KH4SY0"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MF08KH4SY0');
+          `}
+        </Script>
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
