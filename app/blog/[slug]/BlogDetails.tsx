@@ -10,7 +10,6 @@ import Footer from "@/components/sections/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
 import BackToTop from "@/components/ui/BackToTop";
-import CookieBanner from "@/components/ui/CookieBanner";
 import { TextButton, PrimaryButton } from "@/components/ui/Button";
 import { formatDate } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
@@ -130,22 +129,20 @@ export default function BlogDetails({ post, sanityLogos, sanityTestimonials }: B
           </TextButton>
 
           <div className="space-y-8">
-            <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em]">
+            <div className="flex items-center gap-4 type-label type-legacy-009">
               <span className="text-[#D0F504] hover:text-white transition-colors cursor-default">{post.category}</span>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
               <span className="text-white/40">{post.readTime}</span>
             </div>
 
             <h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-medium leading-[1.1]"
-              style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}
+              className="type-legacy-010"
             >
               {post.title}
             </h1>
 
             <p 
-              className="text-xl md:text-2xl text-white/60 leading-relaxed font-light"
-              style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.02em" }}
+              className="text-white/60 type-b1 type-legacy-011"
             >
               {post.description}
             </p>
@@ -155,11 +152,11 @@ export default function BlogDetails({ post, sanityLogos, sanityTestimonials }: B
                 <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">{post.author.name}</p>
-                <p className="text-xs text-white/40 uppercase tracking-wider mt-0.5">{post.author.role}</p>
+                <p className="text-white type-b3 type-legacy-012">{post.author.name}</p>
+                <p className="text-white/40 mt-0.5 type-label type-legacy-013">{post.author.role}</p>
               </div>
               <div className="ml-auto hidden sm:block">
-                <time className="text-xs text-white/40 uppercase tracking-widest">{formatDate(post.date)}</time>
+                <time className="text-white/40 type-label type-legacy-014">{formatDate(post.date)}</time>
               </div>
             </div>
           </div>
@@ -185,15 +182,7 @@ export default function BlogDetails({ post, sanityLogos, sanityTestimonials }: B
       <section className="px-6 py-20 relative z-10 bg-black">
         <div className="mx-auto max-w-3xl">
           <article 
-            className="max-w-none text-lg text-white/70 leading-relaxed
-              [&_h2]:text-3xl [&_h2]:font-medium [&_h2]:text-white [&_h2]:mt-16 [&_h2]:mb-8 [&_h2]:tracking-tight
-              [&_h3]:text-2xl [&_h3]:font-medium [&_h3]:text-white [&_h3]:mt-12 [&_h3]:mb-6
-              [&_p]:mb-8 [&_p]:leading-relaxed [&_p]:[font-family:var(--font-inter)] [&_p]:[letter-spacing:-0.015em]
-              [&_blockquote]:border-l-4 [&_blockquote]:border-[#D0F504] [&_blockquote]:bg-white/[0.03] [&_blockquote]:py-6 [&_blockquote]:px-8 [&_blockquote]:italic [&_blockquote]:mb-10 [&_blockquote]:text-white/90
-              [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-8 [&_ul]:space-y-3 [&_ul]:[font-family:var(--font-inter)] [&_ul]:[letter-spacing:-0.015em]
-              [&_li]:pl-2
-              [&_strong]:text-white [&_strong]:font-semibold"
-            style={{ fontFamily: "var(--font-inter-tight)" }}
+            className="type-prose max-w-none text-white/70 [&_h2]:text-white [&_h2]:mt-16 [&_h2]:mb-8 [&_h3]:text-white [&_h3]:mt-12 [&_h3]:mb-6 [&_p]:mb-8 [&_blockquote]:border-l-4 [&_blockquote]:border-[#D0F504] [&_blockquote]:bg-white/[0.03] [&_blockquote]:py-6 [&_blockquote]:px-8 [&_blockquote]:mb-10 [&_blockquote]:text-white/90 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-8 [&_ul]:space-y-3 [&_li]:pl-2 [&_strong]:text-white type-legacy-015"
           >
             {typeof articleContent === 'string' ? (
               <div dangerouslySetInnerHTML={{ __html: articleContent }} />
@@ -205,10 +194,10 @@ export default function BlogDetails({ post, sanityLogos, sanityTestimonials }: B
           {/* CTA Section */}
           {post.ctaType && post.ctaType !== 'none' && ctaMapping[post.ctaType] && (
             <div className="mt-24 p-8 lg:p-12 bg-white/[0.02] border border-white/10 text-center">
-              <h3 className="text-2xl md:text-3xl font-medium mb-6" style={{ fontFamily: "var(--font-inter-tight)" }}>
+              <h3 className="mb-6 type-legacy-016">
                 Ready to scale your product?
               </h3>
-              <p className="text-white/60 mb-10 max-w-xl mx-auto" style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.015em" }}>
+              <p className="text-white/60 mb-10 max-w-xl mx-auto type-legacy-017">
                 Our elite team is ready to help you build, design, and scale your next big idea with rapid precision.
               </p>
               <PrimaryButton href={ctaMapping[post.ctaType].href}>
@@ -221,7 +210,7 @@ export default function BlogDetails({ post, sanityLogos, sanityTestimonials }: B
           <div className="mt-24 pt-12 border-t border-white/10 flex flex-wrap items-center justify-between gap-8">
             <div className="flex flex-wrap gap-3">
               {post.tags.map(tag => (
-                <span key={tag} className="px-4 py-2 bg-white/5 border border-white/10 text-xs font-medium text-white/40 hover:text-white hover:border-white/20 transition-all cursor-default">
+                <span key={tag} className="px-4 py-2 bg-white/5 border border-white/10 text-white/40 hover:text-white hover:border-white/20 transition-all cursor-default type-label type-legacy-018">
                   #{tag}
                 </span>
               ))}
@@ -242,7 +231,6 @@ export default function BlogDetails({ post, sanityLogos, sanityTestimonials }: B
       <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs} />
       <Footer />
       <BackToTop />
-      <CookieBanner />
     </main>
   );
 }

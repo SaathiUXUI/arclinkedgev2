@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -8,10 +7,8 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import HiringForm from "./HiringForm";
 import PricingCard from "./PricingCard";
 import BackToTop from "@/components/ui/BackToTop";
-import CookieBanner from "@/components/ui/CookieBanner";
 import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
-
-const Footer = dynamic(() => import("@/components/sections/Footer"));
+import Footer from "@/components/sections/Footer";
 import { getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 
 const SITE_URL = "https://www.arclinkedge.com";
@@ -293,27 +290,26 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
               <div>
                 <SectionLabel>Dedicated {data.role}</SectionLabel>
                 <h1 
-                  className="mt-6 text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
-                  style={{ fontFamily: "var(--font-inter-tight)" }}
+                  className="mt-6 type-legacy-019"
                 >
                   {data.title}.
                 </h1>
-                <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/60 md:text-xl">
+                <p className="mt-8 max-w-2xl text-white/60 type-b1 type-legacy-036">
                   {data.description}
                 </p>
                 
                 <div className="mt-12 flex flex-wrap gap-3">
                   <div className="flex items-center gap-2 border border-white/10 bg-white/[0.03] px-4 py-2.5 backdrop-blur-md transition-colors hover:border-white/20 hover:bg-white/[0.06]">
                     <Users className="h-4 w-4 text-[#0052FF]" />
-                    <span className="text-[0.68rem] font-semibold uppercase tracking-widest text-white/80">Pre-vetted Talent</span>
+                    <span className="text-white/80 type-label type-legacy-037">Pre-vetted Talent</span>
                   </div>
                   <div className="flex items-center gap-2 border border-white/10 bg-white/[0.03] px-4 py-2.5 backdrop-blur-md transition-colors hover:border-white/20 hover:bg-white/[0.06]">
                     <Clock className="h-4 w-4 text-[#0052FF]" />
-                    <span className="text-[0.68rem] font-semibold uppercase tracking-widest text-white/80">Interview in 24h</span>
+                    <span className="text-white/80 type-label type-legacy-037">Interview in 24h</span>
                   </div>
                   <div className="flex items-center gap-2 border border-white/10 bg-white/[0.03] px-4 py-2.5 backdrop-blur-md transition-colors hover:border-white/20 hover:bg-white/[0.06]">
                     <ShieldCheck className="h-4 w-4 text-[#0052FF]" />
-                    <span className="text-[0.68rem] font-semibold uppercase tracking-widest text-white/80">Managed Quality</span>
+                    <span className="text-white/80 type-label type-legacy-037">Managed Quality</span>
                   </div>
                 </div>
               </div>
@@ -331,7 +327,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
             <div className="grid gap-20 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
                 <SectionLabel>Technology</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-5xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>Core Technical Stack</h2>
+                <h2 className="type-legacy-038">Core Technical Stack</h2>
                 <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {data.skills.map((skill) => (
                     <div
@@ -339,8 +335,8 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
                       className="group relative flex w-full items-center gap-5 overflow-hidden border border-white/[0.04] bg-[#0A0A0F]/40 p-4 backdrop-blur-[16px]"
                     >
                       <div
-                        className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center text-sm font-bold transition-transform duration-500 group-hover:scale-110"
-                        style={{ backgroundColor: "rgba(0,82,255,0.06)", color: "#0052FF", border: "1px solid rgba(0,82,255,0.15)", letterSpacing: "0.05em" }}
+                        className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center transition-transform duration-500 group-hover:scale-110 type-b3 type-legacy-039"
+                        style={{ backgroundColor: "rgba(0,82,255,0.06)", color: "#0052FF", border: "1px solid rgba(0,82,255,0.15)" }}
                       >
                         {techIcons[skill] ? (
                           <Image src={techIcons[skill]} alt={skill} width={24} height={24} className="object-contain" />
@@ -348,7 +344,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
                           skill.slice(0, 2).toUpperCase()
                         )}
                       </div>
-                      <h3 className="relative z-10 text-base font-medium" style={{ color: "#F5F5F7", letterSpacing: "-0.02em" }}>{skill}</h3>
+                      <h3 className="relative z-10 type-legacy-040" style={{ color: "#F5F5F7" }}>{skill}</h3>
                     </div>
                   ))}
                 </div>
@@ -356,14 +352,14 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
 
               <div>
                 <SectionLabel>Inclusions</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-5xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>What&apos;s included?</h2>
+                <h2 className="type-legacy-038">What&apos;s included?</h2>
                 <ul className="mt-10 space-y-0">
                   {data.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-4 border-b border-white/[0.06] py-5">
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#0052FF]/20 bg-[#0052FF]/5">
                         <Check className="h-4 w-4 text-[#0052FF]" />
                       </div>
-                      <span className="text-base font-medium text-white/70">{feature}</span>
+                      <span className="text-white/70 type-b2 type-legacy-041">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -380,7 +376,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
           <div className="relative z-10 mx-auto max-w-[1600px] py-24 lg:py-32">
             <div className="mb-16 px-6 lg:px-12">
               <SectionLabel>Managed Process</SectionLabel>
-              <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+              <h2 className="mt-4 type-legacy-021">
                 From Inquiry to Onboarding.
               </h2>
             </div>
@@ -411,19 +407,17 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute left-6 top-8 select-none text-[8rem] font-semibold leading-none text-white/[0.055] transition-colors duration-500 group-hover:text-white/[0.11] md:text-[10rem]"
-                      style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.09em" }}
+                      className="absolute left-6 top-8 select-none text-white/[0.055] transition-colors duration-500 group-hover:text-white/[0.11] type-display type-legacy-042"
                     >
                       {item.step}
                     </span>
                     <div className="absolute inset-x-7 bottom-8 z-10">
                       <h3
-                        className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl tracking-[-0.015em] md:tracking-[-0.065em]"
-                        style={{ fontFamily: "var(--font-inter-tight)" }}
+                        className="text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 type-legacy-043"
                       >
                         {item.title}
                       </h3>
-                      <p className="mt-4 text-sm leading-relaxed text-white/50">{item.desc}</p>
+                      <p className="mt-4 text-white/50 type-b3 type-legacy-023">{item.desc}</p>
                     </div>
                   </article>
                 ))}
@@ -438,10 +432,10 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
           <div className="relative z-10 mx-auto max-w-[1600px] grid lg:grid-cols-[0.4fr_1fr] gap-20">
             <div>
               <SectionLabel>Inquiry Form</SectionLabel>
-              <h2 className="text-4xl md:text-5xl font-medium mt-6 mb-8 tracking-[-0.02em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+              <h2 className="mt-6 mb-8 type-legacy-044">
                 Schedule an <br />Interview.
               </h2>
-              <p className="text-white/40 max-w-sm leading-relaxed">
+              <p className="text-white/40 max-w-sm type-legacy-007">
                 Submit your requirements and our technical manager will contact you within 24 hours with a tailored response.
               </p>
             </div>
@@ -461,7 +455,6 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
         <Footer />
       </main>
       <BackToTop />
-      <CookieBanner />
     </>
   );
 }

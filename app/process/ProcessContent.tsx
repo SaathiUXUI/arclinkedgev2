@@ -7,7 +7,6 @@ import { Search, Palette, Code2, ShieldCheck, Rocket, Zap, Users, Sparkles } fro
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import BackToTop from "@/components/ui/BackToTop";
-import CookieBanner from "@/components/ui/CookieBanner";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
 import type { Testimonial } from "@/types";
@@ -198,8 +197,7 @@ function PhaseCard({ phase }: { phase: typeof processDetails[0] }) {
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="text-[12rem] lg:text-[16rem] font-bold text-white/[0.04] leading-[0.8] select-none"
-            style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.08em" }}
+            className="text-white/[0.04] select-none type-display type-legacy-053"
           >
             {phase.step}
           </motion.span>
@@ -207,9 +205,9 @@ function PhaseCard({ phase }: { phase: typeof processDetails[0] }) {
           <div className="absolute top-1/2 left-0 -translate-y-1/2">
             <div className="flex items-center gap-4 mb-2">
                <div className="h-[1px] w-12 bg-[#D0F504]" />
-               <span className="text-[#D0F504] font-bold uppercase tracking-[0.2em] text-[0.65rem]">Phase {phase.step}</span>
+               <span className="text-[#D0F504] type-label type-legacy-054">Phase {phase.step}</span>
             </div>
-            <p className="text-xl font-medium text-white/40 italic" style={{ fontFamily: "var(--font-fraunces)" }}>
+            <p className="text-white/40 type-b1 type-editorial type-legacy-055">
               {phase.subtitle}
             </p>
           </div>
@@ -223,38 +221,36 @@ function PhaseCard({ phase }: { phase: typeof processDetails[0] }) {
             <div className="absolute -top-[1px] -left-[1px] w-4 h-4 border-t border-l border-[#D0F504] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
           <h2 
-            className="text-5xl md:text-7xl font-medium tracking-[-0.02em] md:tracking-[-0.05em]" 
-            style={{ fontFamily: "var(--font-inter-tight)" }}
+            className="type-legacy-056"
           >
             {phase.title}
           </h2>
         </div>
 
-        <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-3xl mb-16">
+        <p className="text-white/60 max-w-3xl mb-16 type-b1 type-legacy-057">
           {phase.description}
         </p>
 
         <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
           <div className="space-y-4">
-            <p className="text-[0.65rem] uppercase tracking-[0.3em] text-white/30 font-bold">Key Deliverables</p>
+            <p className="text-white/30 type-label type-legacy-058">Key Deliverables</p>
             <ul className="space-y-5">
               {phase.details.map((detail, idx) => (
                 <li key={idx} className="flex items-center gap-5 group/item">
                   <div className="h-1.5 w-1.5 rounded-full bg-[#D0F504] group-hover/item:scale-150 transition-transform duration-300" />
-                  <span className="text-lg text-white/80 group-hover/item:text-white transition-colors duration-300">{detail}</span>
+                  <span className="text-white/80 group-hover/item:text-white transition-colors duration-300 type-b1 type-legacy-059">{detail}</span>
                 </li>
               ))}
             </ul>
           </div>
           
           <div className="space-y-4">
-            <p className="text-[0.65rem] uppercase tracking-[0.3em] text-white/30 font-bold">Stack & Workflow</p>
+            <p className="text-white/30 type-label type-legacy-058">Stack & Workflow</p>
             <div className="flex flex-wrap gap-3">
               {phase.tools.map((tool) => (
                 <span 
                   key={tool} 
-                  className="px-5 py-2.5 border border-white/[0.06] bg-white/[0.02] text-xs font-medium text-white/50 hover:text-white hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300"
-                  style={{ fontFamily: "var(--font-inter-tight)" }}
+                  className="px-5 py-2.5 border border-white/[0.06] bg-white/[0.02] text-white/50 hover:text-white hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300 type-label type-legacy-060"
                 >
                   {tool}
                 </span>
@@ -305,20 +301,18 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: Proc
               </div>
 
               <h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] mt-10 max-w-5xl"
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                className="mt-10 max-w-5xl type-legacy-061"
               >
                 <span className="block">Software Development</span>
                 <span 
-                  className="block italic ml-[0.1em] mt-2 text-white"
-                  style={{ fontFamily: "var(--font-fraunces)" }}
+                  className="block ml-[0.1em] mt-2 text-white type-editorial type-legacy-062"
                 >
                   Refined.
                 </span>
               </h1>
 
               <div className="mt-12">
-                <p className="max-w-xl text-lg md:text-xl text-white/60 leading-relaxed font-light">
+                <p className="max-w-xl text-white/60 type-b1 type-legacy-063">
                   We&apos;ve spent a decade refining a process that merges strategic design with industrial-grade engineering. No guesswork, just results.
                 </p>
               </div>
@@ -421,13 +415,12 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: Proc
         <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-24 items-center">
           <div>
              <h2 
-               className="text-4xl md:text-6xl font-medium leading-tight mb-8 tracking-[-0.02em] md:tracking-[-0.05em]"
-               style={{ fontFamily: "var(--font-inter-tight)" }}
+               className="mb-8 type-legacy-064"
              >
                A systematic approach to <br />
                <span className="text-[#D0F504]">unpredictable</span> markets.
              </h2>
-             <p className="text-xl text-white/50 leading-relaxed max-w-xl">
+             <p className="text-white/50 max-w-xl type-b1 type-legacy-065">
                In a world of constant change, our process remains your constant. We mitigate technical debt and design fatigue before they even start.
              </p>
           </div>
@@ -447,8 +440,8 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: Proc
                   <item.icon size={20} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium mb-2" style={{ fontFamily: "var(--font-inter-tight)" }}>{item.title}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{item.desc}</p>
+                  <h3 className="mb-2 type-legacy-066">{item.title}</h3>
+                  <p className="text-white/40 type-b3 type-legacy-023">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -470,7 +463,6 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: Proc
       
       <Footer />
       <BackToTop />
-      <CookieBanner />
     </main>
   );
 }

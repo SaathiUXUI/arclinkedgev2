@@ -1,5 +1,3 @@
-"use client";
-
 import { testimonials as defaultTestimonials } from "@/lib/data";
 import HeadingReveal from "@/components/ui/HeadingReveal";
 import TestimonialCard from "@/components/ui/TestimonialCard";
@@ -14,7 +12,7 @@ export default function Testimonials({ sanityTestimonials }: { sanityTestimonial
 
   return (
     <section
-      className="relative overflow-hidden bg-[#000000] py-24 lg:py-32"
+      className="defer-render relative overflow-hidden bg-[#000000] py-24 lg:py-32"
       aria-labelledby="testimonials-heading"
     >
       <div
@@ -30,27 +28,15 @@ export default function Testimonials({ sanityTestimonials }: { sanityTestimonial
         }}
       >
         <div className="mb-16 md:mb-24">
-          <HeadingReveal
+          <HeadingReveal className="type-legacy-092 type-landing-section-heading"
             id="testimonials-heading"
-            style={{
-              fontFamily: "var(--font-inter-tight)",
-              fontSize: "clamp(3.2rem,8vw,6.8rem)",
-              fontWeight: 500,
-              lineHeight: 0.95,
-              letterSpacing: "-0.07em",
-              color: "#F5F5F7",
-            }}
+            style={{ color: "#F5F5F7" }}
           >
             Trust from B2B brands and startups
           </HeadingReveal>
           <p
-            className="mt-6 max-w-xl"
-            style={{
-              fontSize: "18px",
-              lineHeight: 1.6,
-              letterSpacing: "-0.02em",
-              color: "rgba(245,245,247,0.52)",
-            }}
+            className="mt-6 max-w-xl type-legacy-160"
+            style={{ color: "rgba(245,245,247,0.52)" }}
           >
             Real feedback from the teams we have helped design, build, and scale ambitious digital products.
           </p>
@@ -58,7 +44,10 @@ export default function Testimonials({ sanityTestimonials }: { sanityTestimonial
       </div>
 
       <div className="relative z-10 flex overflow-hidden">
-        <div className="testimonial-carousel flex w-max gap-6 px-6">
+        <div
+          className="testimonial-carousel mobile-continuous-animation mobile-animation-25s flex w-max gap-6 px-6"
+          data-pause-offscreen
+        >
           {carouselTestimonials.map((testimonial, index) => (
             <TestimonialCard
               key={`${testimonial.id}-${index}`}
@@ -68,7 +57,7 @@ export default function Testimonials({ sanityTestimonials }: { sanityTestimonial
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes testimonial-marquee {
           0% {
             transform: translateX(0);

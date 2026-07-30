@@ -3,8 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { shouldDisableEnhancedMotion } from "@/lib/performance";
 
 // Seeded PRNG for deterministic box opacities (no hydration mismatch)
 function lcg(seed: number) {
@@ -51,6 +50,10 @@ function CountUp({ value, suffix = "", duration = 2 }: { value: number; suffix?:
 
   useEffect(() => {
     if (!isInView) return;
+    if (shouldDisableEnhancedMotion()) {
+      setDisplay(value);
+      return;
+    }
     let start: number | null = null;
     let raf: number;
     const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
@@ -84,30 +87,6 @@ const SVG_PATHS = [
 
 
 export default function Stats() {
-  const headingRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (!headingRef.current) return;
-    const lines = headingRef.current.querySelectorAll(".stats-line");
-
-    const ctx = gsap.context(() => {
-      gsap.from(lines, {
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 88%",
-        },
-        y: "110%",
-        skewY: 4,
-        transformOrigin: "left bottom",
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
-      });
-    }, headingRef);
-
-    return () => ctx.revert();
-  }, []);
   return (
     <section
       id="stats"
@@ -186,12 +165,7 @@ export default function Stats() {
           style={{ maxWidth: "900px", margin: "0 auto 4rem" }}
         >
           <h2 id="stats-heading"
-            ref={headingRef}
-            style={{ fontFamily: "var(--font-inter-tight)",
-              fontSize: "clamp(1.9rem, 3.8vw, 3.2rem)",
-              fontWeight: 400,
-              lineHeight: 1.3,
-              color: "#F5F5F7" }} className="tracking-[-0.02em] md:tracking-[-0.03em]">
+            style={{ color: "#F5F5F7" }} className="type-legacy-156">
             <span className="block" style={{ overflow: "hidden" }}>
               <span className="stats-line block">Build better digital products.</span>
             </span>
@@ -327,18 +301,8 @@ export default function Stats() {
                     {/* Number Only Container */}
                     <div style={{ marginBottom: "1.5rem" }}>
                       <p
-                        className="relative"
-                        style={{
-                          fontFamily: "var(--font-inter-tight)",
-                          fontSize: "clamp(4.2rem, 6.5vw, 7.5rem)",
-                          fontWeight: 600,
-                          background: "linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(200, 220, 255, 0.8) 40%, rgba(255, 255, 255, 0.3) 100%)",
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                          filter: "drop-shadow(0px 10px 20px rgba(0, 82, 255, 0.3)) drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.2))",
-                          letterSpacing: "-0.04em",
-                          lineHeight: 1,
-                        }}
+                        className="relative type-legacy-157"
+                        style={{ background: "linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(200, 220, 255, 0.8) 40%, rgba(255, 255, 255, 0.3) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", filter: "drop-shadow(0px 10px 20px rgba(0, 82, 255, 0.3)) drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.2))" }}
                       >
                         <CountUp value={result.value} suffix={result.suffix} />
                       </p>
@@ -346,19 +310,12 @@ export default function Stats() {
 
                     {/* Subtexts Container (Heading & Subheading) */}
                     <div>
-                      <p
-                        style={{
-                          fontFamily: "var(--font-inter)",
-                          fontSize: "clamp(1rem, 1.3vw, 1.2rem)",
-                          fontWeight: 500,
-                          color: "#F5F5F7",
-                          letterSpacing: "-0.04em",
-                          marginBottom: "0.35rem",
-                        }}
+                      <p className="type-legacy-158"
+                        style={{ color: "#F5F5F7", marginBottom: "0.35rem" }}
                       >
                         {result.label}
                       </p>
-                      <p style={{ fontSize: "clamp(0.9rem, 1.3vw, 1rem)", lineHeight: 1.6, color: "#f5f5f799" }}>
+                      <p className="type-legacy-159" style={{ color: "#f5f5f799" }}>
                         {result.description}
                       </p>
                     </div>

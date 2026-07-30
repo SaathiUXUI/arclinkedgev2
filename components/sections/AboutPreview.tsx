@@ -2,11 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeadingReveal from "@/components/ui/HeadingReveal";
 import { team } from "@/lib/team";
 import { FounderCard, TeamMemberCard } from "@/components/ui/TeamCards";
+import { shouldDisableEnhancedMotion } from "@/lib/performance";
 
 const teamMembers = [
   {
@@ -69,6 +68,10 @@ function CountUp({ value, suffix = "", duration = 2 }: { value: number; suffix?:
 
   useEffect(() => {
     if (!isInView) return;
+    if (shouldDisableEnhancedMotion()) {
+      setDisplay(value);
+      return;
+    }
 
     let start: number | null = null;
     let raf: number;
@@ -92,43 +95,8 @@ function CountUp({ value, suffix = "", duration = 2 }: { value: number; suffix?:
 }
 
 function DoodleWord({ children }: { children: React.ReactNode }) {
-  const wrapperRef = useRef<HTMLSpanElement>(null);
-  const doodleRef = useRef<SVGEllipseElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (!wrapperRef.current || !doodleRef.current) return;
-
-    const doodle = doodleRef.current;
-    const length = doodle.getTotalLength();
-
-    const ctx = gsap.context(() => {
-      gsap.set(doodle, {
-        strokeDasharray: length,
-        strokeDashoffset: length,
-        opacity: 0,
-      });
-
-      gsap.to(doodle, {
-        strokeDashoffset: 0,
-        opacity: 0.95,
-        duration: 0.65,
-        delay: 1.05,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: "top 82%",
-          once: true,
-        },
-      });
-    }, wrapperRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <span
-      ref={wrapperRef}
       className="relative inline-block whitespace-nowrap px-[0.16em] mx-[0.04em]"
       style={{ isolation: "isolate" }}
     >
@@ -141,7 +109,6 @@ function DoodleWord({ children }: { children: React.ReactNode }) {
         preserveAspectRatio="none"
       >
         <ellipse
-          ref={doodleRef}
           cx="110"
           cy="60"
           rx="98"
@@ -167,15 +134,11 @@ function AboutStatRow({ stat, index }: { stat: typeof aboutStats[number]; index:
       className="border-b border-white/10 py-5"
     >
       <p
-        className="text-5xl md:text-6xl font-semibold leading-none text-[#F5F5F7]"
-        style={{
-          fontFamily: "var(--font-inter-tight)",
-          letterSpacing: "-0.055em",
-        }}
+        className="text-[#F5F5F7] type-display type-legacy-087"
       >
         <CountUp value={stat.value} suffix={stat.suffix} />
       </p>
-      <p className="mt-3 text-xs md:text-sm font-medium leading-snug text-white/54">
+      <p className="mt-3 text-white/54 type-b3 type-legacy-088">
         {stat.label}
       </p>
     </motion.div>
@@ -191,7 +154,7 @@ export default function AboutPreview({ sanityTeam }: { sanityTeam?: any[] }) {
   return (
     <section
       id="about-preview"
-      className="relative overflow-hidden bg-[#000000] py-24 lg:py-32"
+      className="defer-render relative overflow-hidden bg-[#000000] py-24 lg:py-32"
       aria-labelledby="about-preview-heading"
     >
       <div className="absolute top-[12%] -left-[18%] w-[42vw] h-[56vh] rounded-full bg-[#0052FF]/15 mix-blend-screen blur-[150px] pointer-events-none" />
@@ -211,12 +174,8 @@ export default function AboutPreview({ sanityTeam }: { sanityTeam?: any[] }) {
           <div className="pt-4">
             <HeadingReveal
               id="about-preview-heading"
-              className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.98]"
-              style={{
-                fontFamily: "var(--font-inter-tight)",
-                color: "#F5F5F7",
-                letterSpacing: "-0.065em",
-              }}
+              className="type-legacy-089 type-landing-section-heading"
+              style={{ color: "#F5F5F7" }}
             >
               A team of Elite <DoodleWord>Experts</DoodleWord>
             </HeadingReveal>
@@ -224,7 +183,7 @@ export default function AboutPreview({ sanityTeam }: { sanityTeam?: any[] }) {
             <div className="mt-10 h-px w-full bg-white/10" />
 
             <div className="mt-8 max-w-4xl">
-              <div className="space-y-5 text-sm md:text-base leading-relaxed text-white/54">
+              <div className="space-y-5 text-white/54 type-b2 type-legacy-090">
                 <p>
                   We are a fully remote premium IT agency serving New York, London, Dubai, Bangalore, Ahmedabad, and global clients, specializing in custom web development, mobile apps, SaaS platforms, UI/UX design, API integration, cloud deployment, and digital product strategy.
                 </p>
@@ -236,8 +195,7 @@ export default function AboutPreview({ sanityTeam }: { sanityTeam?: any[] }) {
 
             <div className="mt-12">
               <h3
-                className="text-2xl md:text-3xl font-medium text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.04em]"
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                className="text-[#F5F5F7] type-legacy-091"
               >
                 Developers and partners behind every launch
               </h3>

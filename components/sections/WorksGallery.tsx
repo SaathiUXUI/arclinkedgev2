@@ -1,15 +1,4 @@
-"use client";
-
-import { useRef, useLayoutEffect } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight } from "lucide-react";
-import { PrimaryButton } from "@/components/ui/Button";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const defaultProjects = [
   { image: "/projects/ivf.jpg", endPos: { x: "-38vw", y: "-32vh", rotate: -12 } },
@@ -57,162 +46,23 @@ export default function WorksGallery({ sanityImages }: { sanityImages?: string[]
     return proj;
   });
 
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const stageRef = useRef<HTMLDivElement>(null);
-  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const copyRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    if (!sectionRef.current || !stageRef.current) return;
-
-    const ctx = gsap.context(() => {
-      const items = itemsRef.current.filter(Boolean) as HTMLDivElement[];
-      const lines = copyRef.current?.querySelectorAll(".gallery-line");
-      const doodles = copyRef.current?.querySelectorAll<SVGGeometryElement>(".doodle-stroke");
-
-      gsap.set(items, {
-        autoAlpha: 0,
-        scale: 0.6,
-        yPercent: 120,
-        x: "0vw",
-        rotation: 0,
-        zIndex: 10,
-        transformOrigin: "50% 50%",
-      });
-
-      if (lines?.length) {
-        gsap.set(lines, { yPercent: 110, opacity: 0 });
-      }
-
-      doodles?.forEach((doodle) => {
-        const length = doodle.getTotalLength();
-        gsap.set(doodle, {
-          strokeDasharray: length,
-          strokeDashoffset: length,
-          opacity: 0,
-        });
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1.2,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      if (lines?.length) {
-        const copyTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 72%",
-            once: true,
-          },
-        });
-
-        copyTl.to(lines, {
-          yPercent: 0,
-          opacity: 1,
-          skewY: 0,
-          duration: 1.05,
-          ease: "power4.out",
-          stagger: 0.1,
-        });
-
-        if (doodles?.length) {
-          copyTl.to(
-            doodles,
-            {
-              strokeDashoffset: 0,
-              opacity: 0.95,
-              duration: 0.65,
-              ease: "power2.out",
-              stagger: 0.08,
-            },
-            "-=0.05"
-          );
-        }
-      }
-
-      displayProjects.forEach((project, index) => {
-        const item = itemsRef.current[index];
-        if (!item) return;
-
-        tl.to(item, {
-          autoAlpha: 1,
-          scale: 1.08,
-          yPercent: 0,
-          x: "0vw",
-          rotation: 0,
-          zIndex: 100 + index,
-          duration: 1.4,
-          ease: "power3.out",
-        })
-          .to(item, { duration: 0.35 })
-          .to(
-            item,
-            {
-              x: project.endPos.x,
-              y: project.endPos.y,
-              yPercent: 0,
-              scale: 0.42,
-              rotation: project.endPos.rotate,
-              zIndex: 40 + index,
-              duration: 1.8,
-              ease: "expo.inOut",
-            },
-            "+=0.15"
-          );
-      });
-
-      gsap.to(".gallery-card-float", {
-        y: 12,
-        duration: 4.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        stagger: {
-          each: 0.6,
-          from: "random",
-        },
-      });
-
-      ScrollTrigger.refresh();
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id="work"
       className="relative bg-[#000000]"
       style={{ height: "700vh" }}
     >
       <div
-        ref={stageRef}
         className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden"
       >
         {/* Subtle Depth Glow */}
         <div className="absolute w-[80vw] h-[80vw] bg-[#0052FF]/5 filter blur-[200px] rounded-full pointer-events-none z-0" />
 
         {/* Center Paragraph (Mid Z-Index) */}
-        <div ref={copyRef} className="relative z-10 px-6 max-w-5xl text-center pointer-events-none">
+        <div className="relative z-10 px-6 max-w-5xl text-center pointer-events-none">
           <p
-            className="text-[#F5F5F7]"
-            style={{
-              fontFamily: "var(--font-inter-tight)",
-              fontSize: "clamp(1.9rem, 3.8vw, 3.2rem)",
-              lineHeight: 1.3,
-              fontWeight: 400,
-              letterSpacing: "-0.03em",
-              maxWidth: "920px",
-              margin: "0 auto",
-              textShadow: "0 0 50px rgba(0,0,0,1)",
-            }}
+            className="text-[#F5F5F7] type-legacy-161"
+            style={{ maxWidth: "920px", margin: "0 auto", textShadow: "0 0 50px rgba(0,0,0,1)" }}
           >
             <span className="md:hidden">
               <span className="block overflow-hidden">
@@ -258,9 +108,6 @@ export default function WorksGallery({ sanityImages }: { sanityImages?: string[]
           {displayProjects.map((project, i) => (
             <div
               key={i}
-              ref={(el) => {
-                itemsRef.current[i] = el;
-              }}
               className="floating-item absolute w-[88vw] md:w-[68vw] lg:w-[54vw]"
               style={{ willChange: "transform, opacity, z-index" }}
             >

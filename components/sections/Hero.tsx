@@ -1,12 +1,12 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import gsap from "gsap";
 import { ArrowUpRight } from "lucide-react";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import LogoMarquee from "@/components/sections/LogoMarquee";
+import { shouldDisableEnhancedMotion } from "@/lib/performance";
 
 const services = ["UI/UX Design", "Web Development", "SaaS Products", "Fintech", "E-Commerce"];
 
@@ -139,24 +139,11 @@ function ServiceChip({ service, index }: { service: string; index: number }) {
                     </motion.div>
                   ))}
                   {tools.length > 3 && (
-                    <motion.div
+                    <motion.div className="type-legacy-108"
                       initial={{ opacity: 0, y: 6 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.2, delay: 0.21, ease: "easeOut" }}
-                      style={{
-                        width: "46px",
-                        height: "46px",
-                        backgroundColor: "rgba(255,255,255,0.06)",
-                        border: "1px solid rgba(255,255,255,0.1)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontFamily: "var(--font-inter-tight)",
-                        fontWeight: 600,
-                        fontSize: "0.75rem",
-                        color: "rgba(255,255,255,0.7)",
-                        letterSpacing: "0.02em",
-                      }}
+                      style={{ width: "46px", height: "46px", backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.7)" }}
                     >
                       +{tools.length - 3}
                     </motion.div>
@@ -173,23 +160,10 @@ function ServiceChip({ service, index }: { service: string; index: number }) {
         initial={{ opacity: 0, y: 8, scale: 0.92 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.35, delay: 0.55 + index * 0.08, ease: "easeOut" }}
-        className="text-[0.75rem] md:text-[0.72rem]"
-        style={{
-          display: "inline-block",
-          border: `1px solid ${hovered ? "#FFFFFF" : "rgba(255,255,255,0.4)"}`,
-          padding: "0.3rem 0.75rem",
-          fontFamily: "var(--font-inter-tight)",
-          fontWeight: 500,
-          letterSpacing: "0.08em",
-          textTransform: "uppercase" as const,
-          cursor: "pointer",
-          transition: "background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
-          backgroundColor: hovered ? "#FFFFFF" : "transparent",
-          color: hovered ? "#050A18" : "rgba(245,245,247,0.9)",
-          boxShadow: hovered
+        className="type-label type-legacy-109"
+        style={{ display: "inline-block", border: `1px solid ${hovered ? "#FFFFFF" : "rgba(255,255,255,0.4)"}`, padding: "0.3rem 0.75rem", cursor: "pointer", transition: "background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease", backgroundColor: hovered ? "#FFFFFF" : "transparent", color: hovered ? "#050A18" : "rgba(245,245,247,0.9)", boxShadow: hovered
             ? "0 0 20px rgba(255,255,255,0.35), 0 0 40px rgba(255,255,255,0.15)"
-            : "none",
-        }}
+            : "none" }}
       >
         {service}
       </motion.span>
@@ -198,31 +172,6 @@ function ServiceChip({ service, index }: { service: string; index: number }) {
 }
 
 export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; src: string | null }[] }) {
-  const headingRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    if (!headingRef.current) return;
-    const lines = headingRef.current.querySelectorAll<HTMLElement>(".hero-line");
-    if (!lines.length) return;
-
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
-
-    const ctx = gsap.context(() => {
-      gsap.from(lines, {
-        y: "110%",
-        skewY: 4,
-        transformOrigin: "left bottom",
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.13,
-        delay: 0.2,
-      });
-    }, headingRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       className="relative flex flex-col overflow-hidden"
@@ -274,17 +223,8 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
 
         {/* Heading */}
         <h1
-          ref={headingRef}
-          className="mb-0 lg:mb-12 pt-8 lg:pt-20"
-          style={{
-            position: "relative",
-            fontFamily: "var(--font-inter-tight)",
-            fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-            fontWeight: 400,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.3,
-            color: "#F5F5F7",
-          }}
+          className="mb-0 lg:mb-12 pt-8 lg:pt-20 type-legacy-110"
+          style={{ position: "relative", color: "#F5F5F7" }}
         >
           <span className="block" style={{ overflow: "hidden" }}>
             <span className="hero-line block">Top IT Agency for</span>
@@ -293,13 +233,7 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
           <span className="block" style={{ position: "relative" }}>
             <span className="block" style={{ overflow: "hidden" }}>
               <span className="hero-line block">
-                <span
-                  style={{
-                    fontFamily: "var(--font-fraunces)",
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                    letterSpacing: "-0.01em",
-                  }}
+                <span className="type-editorial type-legacy-111"
                 >
                   Web, Mobile &amp; SaaS.
                 </span>
@@ -350,16 +284,8 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
                     zIndex: 0,
                   }}
                 />
-                <span
-                  style={{
-                    position: "relative",
-                    zIndex: 1,
-                    fontFamily: "var(--font-fraunces)",
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                    letterSpacing: "-0.01em",
-                    color: "#050A18",
-                  }}
+                <span className="type-editorial type-legacy-111"
+                  style={{ position: "relative", zIndex: 1, color: "#050A18" }}
                 >
                   4–5 Weeks.
                 </span>
@@ -397,12 +323,8 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
             {/* Subtext + CTA */}
             <div className="flex flex-col items-start" style={{ maxWidth: "420px" }}>
               <p
-                className="text-base hero-fade-in"
-                style={{
-                  color: "rgba(200,210,230,0.7)",
-                  lineHeight: 1.7,
-                  marginBottom: "1.75rem",
-                }}
+                className="hero-fade-in type-b2 type-legacy-112"
+                style={{ color: "rgba(200,210,230,0.7)", marginBottom: "1.75rem" }}
               >
                 Fully remote software development agency serving New York, London, Dubai, Bangalore, Ahmedabad, and beyond —
                 with no physical-office overhead added to your bill. Your budget stays focused on custom web apps, mobile apps, SaaS

@@ -10,7 +10,6 @@ import Footer from "@/components/sections/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
 import BackToTop from "@/components/ui/BackToTop";
-import CookieBanner from "@/components/ui/CookieBanner";
 import { TextButton } from "@/components/ui/Button";
 
 interface ProjectContentProps {
@@ -93,16 +92,14 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
             <div>
               <SectionLabel>{project.categories.join(" • ")}</SectionLabel>
               <h1 
-                className="text-5xl md:text-7xl lg:text-9xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.92] md:tracking-[-0.075em] mt-8"
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                className="mt-8 type-legacy-001"
               >
                 {project.title}
               </h1>
             </div>
             <div className="pb-4">
               <p 
-                className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-md"
-                style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.02em" }}
+                className="text-white/60 max-w-md type-b1 type-legacy-078"
               >
                 {project.overview}
               </p>
@@ -120,21 +117,21 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
             { label: "Role", value: project.role },
             { label: "Industry", value: project.categories[0] },
           ].map((item, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className={`
                 py-8 px-4 md:px-10 border-white/[0.06]
-                ${idx % 2 === 0 ? "border-r pl-0" : "pr-0"} 
+                ${idx % 2 === 0 ? "border-r pl-0" : "pr-0"}
                 ${idx < 2 ? "border-b md:border-b-0" : ""}
                 ${idx !== 3 ? "md:border-r" : "md:border-r-0"}
                 ${idx === 0 ? "md:pl-0" : ""}
                 ${idx === 2 ? "md:pl-10" : ""}
               `}
             >
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold mb-2" style={{ fontFamily: "var(--font-inter-tight)" }}>
+              <p className="text-white/30 mb-2 type-label type-legacy-079">
                 {item.label}
               </p>
-              <p className="text-lg font-medium text-white/90">{item.value}</p>
+              <p className="text-white/90 type-b1 type-legacy-080">{item.value}</p>
             </div>
           ))}
         </div>
@@ -169,13 +166,12 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
           <div>
             <SectionLabel>The Challenge</SectionLabel>
             <h2 
-              className="text-4xl md:text-6xl font-medium leading-[1.1] mt-8 mb-10 tracking-[-0.02em] md:tracking-[-0.065em]"
-              style={{ fontFamily: "var(--font-inter-tight)" }}
+              className="mt-8 mb-10 type-legacy-081"
             >
               Turning complexity into <br />
-              <span className="italic font-normal" style={{ fontFamily: "var(--font-fraunces)" }}>clarity</span>.
+              <span className="type-editorial type-legacy-082">clarity</span>.
             </h2>
-            <div className="space-y-6 text-lg text-white/60 leading-relaxed">
+            <div className="space-y-6 text-white/60 type-b1 type-legacy-083">
               <p>{project.challenge}</p>
             </div>
           </div>
@@ -183,13 +179,12 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
           <div>
             <SectionLabel>Our Solution</SectionLabel>
             <h2 
-              className="text-4xl md:text-6xl font-medium leading-[1.1] mt-8 mb-10 tracking-[-0.02em] md:tracking-[-0.065em]"
-              style={{ fontFamily: "var(--font-inter-tight)" }}
+              className="mt-8 mb-10 type-legacy-081"
             >
               Engineering the <br />
               <span className="text-[#D0F504]">advantage</span>.
             </h2>
-            <div className="space-y-6 text-lg text-white/60 leading-relaxed">
+            <div className="space-y-6 text-white/60 type-b1 type-legacy-083">
               <p>{project.solution}</p>
             </div>
           </div>
@@ -202,19 +197,19 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
           <div className="grid md:grid-cols-3 gap-12 lg:gap-24">
             <div className="md:col-span-1">
               <SectionLabel>Impact</SectionLabel>
-              <h2 className="text-4xl font-medium mt-6 tracking-[-0.02em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+              <h2 className="mt-6 type-legacy-084">
                 Real numbers. <br />Real growth.
               </h2>
             </div>
             <div className="md:col-span-2 grid sm:grid-cols-2 gap-12 lg:gap-20">
               <div className="space-y-4">
-                <p className="text-7xl lg:text-8xl font-medium text-[#D0F504]" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.05em" }}>
+                <p className="text-[#D0F504] type-display type-legacy-085">
                   {project.metric}
                 </p>
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/40">
+                <p className="type-uppercase text-white/40 type-b3 type-legacy-086">
                   {project.metricLabel}
                 </p>
-                <p className="text-white/60 leading-relaxed">
+                <p className="text-white/60 type-legacy-007">
                   A significant leap in user engagement achieved through optimized interface logic.
                 </p>
               </div>
@@ -222,7 +217,7 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
                 {project.results.map((result, idx) => (
                   <div key={idx} className="flex items-start gap-4 p-5 border border-white/[0.04] bg-white/[0.01]">
                     <CheckCircle2 size={20} className="text-[#D0F504] shrink-0 mt-1" />
-                    <p className="text-sm font-medium text-white/80">{result}</p>
+                    <p className="text-white/80 type-b3 type-legacy-030">{result}</p>
                   </div>
                 ))}
               </div>
@@ -236,7 +231,6 @@ export default function ProjectContent({ project, sanityLogos, sanityTestimonial
 
       <Footer />
       <BackToTop />
-      <CookieBanner />
     </main>
   );
 }

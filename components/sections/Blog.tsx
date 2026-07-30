@@ -13,7 +13,7 @@ export default function Blog({ sanityBlogs }: { sanityBlogs?: BlogPost[] }) {
   return (
     <section
       id="blog"
-      className="relative overflow-hidden bg-[#000000] py-24 lg:py-32"
+      className="defer-render relative overflow-hidden bg-[#000000] py-24 lg:py-32"
       aria-labelledby="blog-heading"
     >
       <div
@@ -35,20 +35,13 @@ export default function Blog({ sanityBlogs }: { sanityBlogs?: BlogPost[] }) {
       >
         <header className="mb-14 lg:mb-20">
           <div>
-            <HeadingReveal
+            <HeadingReveal className="type-legacy-092 type-landing-section-heading"
               id="blog-heading"
-              style={{
-                fontFamily: "var(--font-inter-tight)",
-                fontSize: "clamp(3.2rem,8vw,6.8rem)",
-                fontWeight: 500,
-                lineHeight: 0.95,
-                letterSpacing: "-0.07em",
-                color: "#F5F5F7",
-              }}
+              style={{ color: "#F5F5F7" }}
             >
               Latest insights
             </HeadingReveal>
-            <p className="mt-6 max-w-xl text-base leading-relaxed tracking-[-0.02em] text-white/52 md:text-lg">
+            <p className="mt-6 max-w-xl text-white/52 type-b1 type-legacy-093">
               Practical perspectives on product design, engineering, AI, and digital growth.
             </p>
           </div>

@@ -19,7 +19,7 @@ export default function TestimonialCard({ testimonial: t, className = "" }: Test
         <svg className="w-8 h-8 mb-6 text-[#D0F505]" fill="currentColor" viewBox="0 0 24 24">
           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
-        <p className="text-lg md:text-xl leading-relaxed text-[#F5F5F7]/90 font-light" style={{ fontFamily: "var(--font-inter-tight)" }}>
+        <p className="text-[#F5F5F7]/90 type-b1 type-legacy-191">
           &quot;{t.quote}&quot;
         </p>
       </div>
@@ -41,19 +41,19 @@ export default function TestimonialCard({ testimonial: t, className = "" }: Test
                 className="object-cover" 
               />
             ) : (
-              <span className="flex h-full w-full items-center justify-center bg-[#2A2A30] text-sm font-bold text-[#F5F5F7]">
+              <span className="flex h-full w-full items-center justify-center bg-[#2A2A30] text-[#F5F5F7] type-b3 type-legacy-192">
                 {t.name.split(' ').map(n => n[0]).join('').toUpperCase()}
               </span>
             )}
           </div>
           <div className="flex flex-col">
-            <span className="text-[#F5F5F7] font-medium">{t.name}</span>
-            <span className="text-xs text-[#8E8E93]">{t.role}</span>
+            <span className="text-[#F5F5F7] type-legacy-172">{t.name}</span>
+            <span className="text-[#8E8E93] type-label type-legacy-180">{t.role}</span>
           </div>
         </div>
 
         {/* Right side: Company */}
-        <p className="hidden text-xs font-semibold uppercase tracking-widest text-[#0052FF] sm:block">
+        <p className="hidden text-[#0052FF] sm:block type-label type-legacy-193">
           {t.company}
         </p>
       </div>

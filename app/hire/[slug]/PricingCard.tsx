@@ -20,21 +20,20 @@ export default function PricingCard({
         {/* Header row: title + toggle */}
         <div className="flex items-center justify-between mb-6">
           <h2
-            className="text-2xl font-medium tracking-[-0.015em] md:tracking-[-0.04em]"
-            style={{ fontFamily: "var(--font-inter-tight)" }}
+            className="type-legacy-045"
           >
             Pricing
           </h2>
           <div className="flex items-center gap-1 border border-white/10 bg-white/[0.03] p-1">
             <button
               onClick={() => setIsMonthly(true)}
-              className={`px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer ${isMonthly ? "bg-[#F5F5F7] text-[#050A18]" : "text-white/50 hover:text-white/80"}`}
+              className={[`px-4 py-2 transition-all duration-300 cursor-pointer ${isMonthly ? "bg-[#F5F5F7] text-[#050A18]" : "text-white/50 hover:text-white/80"}`, "type-legacy-046"].filter(Boolean).join(" ")}
             >
               Monthly
             </button>
             <button
               onClick={() => setIsMonthly(false)}
-              className={`px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer ${!isMonthly ? "bg-[#F5F5F7] text-[#050A18]" : "text-white/50 hover:text-white/80"}`}
+              className={[`px-4 py-2 transition-all duration-300 cursor-pointer ${!isMonthly ? "bg-[#F5F5F7] text-[#050A18]" : "text-white/50 hover:text-white/80"}`, "type-legacy-046"].filter(Boolean).join(" ")}
             >
               Hourly
             </button>
@@ -46,7 +45,7 @@ export default function PricingCard({
 
         {/* Price Display — no inner card, flat layout */}
         <div className="pb-6">
-          <span className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-white/40">
+          <span className="text-white/40 type-label type-legacy-047">
             {isMonthly ? "Dedicated Monthly" : "Hourly Retainer"}
           </span>
 
@@ -58,27 +57,17 @@ export default function PricingCard({
               for the large display size
           */}
           <p
-            className="
-              mt-3
-              text-4xl leading-[1.1] tracking-[-0.025em]
-              lg:text-5xl lg:leading-[0.95] lg:tracking-[-0.05em]
-              font-medium text-[#F5F5F7]
-            "
-            style={{ fontFamily: "var(--font-inter-tight)" }}
+            className="mt-3 text-[#F5F5F7] type-display type-legacy-048"
           >
             {isMonthly ? monthlyRate : hourlyRate}
             <span
-              className="
-                text-base text-white/30
-                lg:text-lg
-                tracking-normal leading-none
-              "
+              className="text-white/30 type-b1 type-legacy-049"
             >
               {isMonthly ? "/mo" : "/hr"}
             </span>
           </p>
 
-          <p className="mt-3 text-sm leading-relaxed text-white/50">
+          <p className="mt-3 text-white/50 type-b3 type-legacy-023">
             {isMonthly
               ? "160 hrs/month. Full-time dedication. Cancel anytime."
               : "Flexible hours. Ideal for support & part-time needs."}
@@ -100,7 +89,7 @@ export default function PricingCard({
           ].map((item) => (
             <li key={item.text} className="flex items-center gap-3 border-b border-white/[0.04] py-3.5">
               <item.icon className="h-4 w-4 shrink-0 text-[#0052FF]" />
-              <span className="text-sm text-white/60">{item.text}</span>
+              <span className="text-white/60 type-b3 type-legacy-028">{item.text}</span>
             </li>
           ))}
         </ul>
@@ -114,8 +103,8 @@ export default function PricingCard({
               window.dispatchEvent(new CustomEvent("hiring-prefill", { detail: { engagement: model } }));
               document.getElementById("hiring-form")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group relative inline-flex w-full cursor-pointer overflow-hidden text-sm font-semibold bg-white text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:bg-white active:scale-100 transition-[background-color,transform] duration-300 ease-out"
-            style={{ borderRadius: 0, fontFamily: "var(--font-inter-tight)" }}
+            className="group relative inline-flex w-full cursor-pointer overflow-hidden bg-white text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:bg-white active:scale-100 transition-[background-color,transform] duration-300 ease-out type-legacy-034"
+            style={{ borderRadius: 0 }}
           >
             <span className="flex w-full items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-full" style={{ padding: "0.85rem 1.9rem" }}>
               Schedule Technical Interview
@@ -126,7 +115,7 @@ export default function PricingCard({
               <ArrowUpRight size={15} className="-translate-x-2 transition-transform duration-[400ms] ease-out group-hover:translate-x-0" />
             </span>
           </button>
-          <p className="mt-4 text-center text-[0.65rem] uppercase tracking-widest text-white/25">
+          <p className="mt-4 text-center text-white/25 type-label type-legacy-050">
             No upfront payment required
           </p>
         </div>

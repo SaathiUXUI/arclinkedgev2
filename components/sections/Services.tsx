@@ -1,13 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { TextButton } from "@/components/ui/Button";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { services } from "@/lib/data";
 
 const imageMap: Record<string, { image: string; imageAlt: string }> = {
@@ -26,7 +24,6 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
   const router = useRouter();
   const [activeServiceId, setActiveServiceId] = useState<string | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const headerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   const displayServices = isExpanded ? services : services.slice(0, 5);
@@ -39,34 +36,10 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (!headerRef.current) return;
-    
-    const lines = headerRef.current.querySelectorAll(".services-line");
-    
-    const ctx = gsap.context(() => {
-      gsap.from(lines, {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: "top 88%",
-        },
-        y: "110%",
-        skewY: 4,
-        transformOrigin: "left bottom",
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
-      });
-    }, headerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-[#000000] py-24 lg:py-32"
+      className="defer-render relative overflow-hidden bg-[#000000] py-24 lg:py-32"
       aria-labelledby="services-heading"
     >
       <div
@@ -90,30 +63,20 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
           paddingRight: "clamp(16px, 5vw, 80px)",
         }}
       >
-        <div ref={headerRef} className="mb-14 grid gap-8 xl:grid-cols-[minmax(0,1.3fr)_minmax(300px,0.7fr)] xl:items-end lg:mb-20">
+        <div className="mb-14 grid gap-8 xl:grid-cols-[minmax(0,1.3fr)_minmax(300px,0.7fr)] xl:items-end lg:mb-20">
           <div style={{ overflow: "hidden", paddingBottom: "0.08em" }}>
             <h2
               id="services-heading"
-              className="services-line tracking-[-0.02em] md:tracking-[-0.07em]"
-              style={{ fontFamily: "var(--font-inter-tight)",
-                fontSize: "clamp(3.2rem, 8vw, 6.8rem)",
-                fontWeight: 500,
-                lineHeight: 0.95,
-                color: "#F5F5F7",
-                willChange: "transform" }}
+              className="services-line type-legacy-135 type-landing-section-heading"
+              style={{ color: "#F5F5F7", willChange: "transform" }}
             >
               Our Services
             </h2>
           </div>
 
           <p
-            className="max-w-xl xl:justify-self-end flex flex-col"
-            style={{
-              fontSize: "16px",
-              lineHeight: 1.6,
-              letterSpacing: "-0.02em",
-              color: "rgba(245,245,247,0.62)",
-            }}
+            className="max-w-xl xl:justify-self-end flex flex-col type-legacy-094"
+            style={{ color: "rgba(245,245,247,0.62)" }}
           >
             <span className="md:hidden">
               <span className="block overflow-hidden">
@@ -196,27 +159,14 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
                         <span className="flex items-start justify-between gap-4">
                           <span className="flex min-w-0 items-start gap-3 md:gap-5">
                             <span
-                              className="min-w-0"
-                              style={{
-                                fontFamily: "var(--font-inter-tight)",
-                                fontSize: "clamp(2rem, 4.4vw, 3.9rem)",
-                                fontWeight: 500,
-                                lineHeight: 0.94,
-                                letterSpacing: "-0.06em",
-                                color: "#F5F5F7",
-                              }}
+                              className="min-w-0 type-legacy-136"
+                              style={{ color: "#F5F5F7" }}
                             >
                               {service.title}
                             </span>
                             <span
-                              className="pt-1 md:pt-2"
-                              style={{
-                                fontFamily: "var(--font-inter-tight)",
-                                fontSize: "clamp(1.1rem, 1.45vw, 1.8rem)",
-                                fontWeight: 500,
-                                letterSpacing: "-0.04em",
-                                color: "rgba(245,245,247,0.74)",
-                              }}
+                              className="pt-1 md:pt-2 type-legacy-137"
+                              style={{ color: "rgba(245,245,247,0.74)" }}
                             >
                               {number}
                             </span>
@@ -252,12 +202,8 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
                         >
                           <div className="grid gap-7 pb-8 md:pb-10 xl:grid-cols-[minmax(280px,1fr)_minmax(320px,0.9fr)] xl:items-start xl:gap-10">
                             <div className="max-w-[34rem] pr-3">
-                              <p
-                                style={{
-                                  fontSize: "14px",
-                                  lineHeight: 1.65,
-                                  color: "rgba(245,245,247,0.64)",
-                                }}
+                              <p className="type-legacy-138"
+                                style={{ color: "rgba(245,245,247,0.64)" }}
                               >
                                 {service.description}
                               </p>
@@ -327,15 +273,8 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
                     <span className="flex items-start justify-between gap-4">
                       <span className="flex min-w-0 items-start gap-3 md:gap-5">
                         <span
-                          className="min-w-0"
-                          style={{
-                            fontFamily: "var(--font-inter-tight)",
-                            fontSize: "clamp(1.5rem, 3vw, 2.4rem)",
-                            fontWeight: 500,
-                            lineHeight: 0.94,
-                            letterSpacing: "-0.04em",
-                            color: "#F5F5F7",
-                          }}
+                          className="min-w-0 type-legacy-139"
+                          style={{ color: "#F5F5F7" }}
                         >
                           {isExpanded ? (
                             "View Less Services"

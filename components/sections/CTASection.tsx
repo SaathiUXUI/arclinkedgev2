@@ -21,7 +21,7 @@ export default function CTASection() {
   return (
     <section
       id="cta"
-      className="relative overflow-hidden bg-[#000000]"
+      className="defer-render relative overflow-hidden bg-[#000000]"
       style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
       aria-labelledby="cta-heading"
     >
@@ -53,15 +53,11 @@ export default function CTASection() {
             <HeadingReveal
               id="cta-heading"
               wrapperClassName="mb-8"
-              className="text-4xl font-medium leading-[1.08] md:text-5xl xl:text-7xl"
-              style={{
-                fontFamily: "var(--font-inter-tight)",
-                color: "#F5F5F7",
-                letterSpacing: "-0.04em",
-              }}
+              className="type-legacy-095"
+              style={{ color: "#F5F5F7" }}
             >
               <span className="block">Ready to build</span>
-              <span className="mx-auto mt-1 inline-flex max-w-full items-baseline justify-center whitespace-nowrap text-[clamp(2.25rem,7vw,4.5rem)] md:text-[clamp(3rem,6.2vw,4.5rem)] xl:text-7xl">
+              <span className="mx-auto mt-1 inline-flex max-w-full items-baseline justify-center whitespace-nowrap type-legacy-096">
                 <span>something</span>
                 <span className="relative ml-[0.16em] inline-block h-[1.55em] overflow-hidden pr-[0.22em] align-[-0.24em] text-[#0052FF]">
                   <AnimatePresence mode="wait">
@@ -71,7 +67,7 @@ export default function CTASection() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: "-105%", opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                      className="block whitespace-nowrap py-[0.12em] leading-none will-change-transform"
+                      className="block whitespace-nowrap py-[0.12em] will-change-transform type-legacy-097"
                     >
                       {WORDS[index]}
                     </motion.span>
@@ -85,8 +81,7 @@ export default function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-md md:text-md text-[#F7F5F78A] max-w-2xl mx-auto leading-relaxed mb-12"
-              style={{ letterSpacing: "-0.01em" }}
+              className="text-[#F7F5F78A] max-w-2xl mx-auto mb-12 type-b2 type-legacy-098"
             >
               From a bold idea to a polished product — we&apos;re your full-stack partner from discovery to launch. {REMOTE_WORK_SHORT} Your investment goes into the product and the results.
             </motion.p>

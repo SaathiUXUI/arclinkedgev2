@@ -77,7 +77,7 @@ export default function HowWeWork() {
   return (
     <section
       id="process"
-      className="relative overflow-hidden bg-[#000000] py-24 lg:py-32"
+      className="defer-render relative overflow-hidden bg-[#000000] py-24 lg:py-32"
       aria-labelledby="how-we-work-heading"
     >
       <div
@@ -100,25 +100,14 @@ export default function HowWeWork() {
         <header className="mb-14 grid gap-6 lg:mb-20 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.42fr)] lg:items-end">
           <h2
             id="how-we-work-heading"
-            className="tracking-[-0.02em] md:tracking-[-0.07em]"
-            style={{
-              fontFamily: "var(--font-inter-tight)",
-              fontSize: "clamp(3.2rem,8vw,6.8rem)",
-              fontWeight: 500,
-              lineHeight: 0.95,
-              color: "#F5F5F7",
-            }}
+            className="type-legacy-113 type-landing-section-heading"
+            style={{ color: "#F5F5F7" }}
           >
             How we work
           </h2>
           <p
-            className="max-w-xl lg:justify-self-end"
-            style={{
-              fontSize: "16px",
-              lineHeight: 1.6,
-              letterSpacing: "-0.02em",
-              color: "rgba(245,245,247,0.58)",
-            }}
+            className="max-w-xl lg:justify-self-end type-legacy-094"
+            style={{ color: "rgba(245,245,247,0.58)" }}
           >
             From the first call to a live product—our nine-step process keeps scope, timelines, and delivery clear.
           </p>
@@ -139,25 +128,21 @@ export default function HowWeWork() {
                 >
                   <div>
                     <span
-                      className="block text-[0.66rem] font-semibold uppercase tracking-[0.14em]"
+                      className="block type-label type-legacy-114"
                       style={{ color: theme.muted }}
                     >
                       Timeline
                     </span>
                     <p
-                      className="mt-2 text-xl font-medium tracking-[-0.04em]"
-                      style={{ fontFamily: "var(--font-inter-tight)" }}
+                      className="mt-2 type-b1 type-legacy-115"
                     >
                       {step.day}
                     </p>
                   </div>
                   <span
                     aria-hidden="true"
-                    className="text-3xl font-medium leading-none tracking-[-0.06em]"
-                    style={{
-                      color: theme.number,
-                      fontFamily: "var(--font-inter-tight)",
-                    }}
+                    className="type-display type-legacy-116"
+                    style={{ color: theme.number }}
                   >
                     {String(step.number).padStart(2, "0")}
                   </span>
@@ -171,13 +156,12 @@ export default function HowWeWork() {
 
                   <div className="relative z-10 mt-auto pt-14">
                     <h3
-                      className="text-[1.55rem] font-medium leading-[1.05] tracking-[-0.05em] md:text-[1.7rem]"
-                      style={{ fontFamily: "var(--font-inter-tight)" }}
+                      className="type-legacy-117"
                     >
                       {step.title}
                     </h3>
                     <p
-                      className="mt-3 max-w-sm text-sm leading-[1.55]"
+                      className="mt-3 max-w-sm type-b3 type-legacy-118"
                       style={{ color: theme.muted }}
                     >
                       {step.description}

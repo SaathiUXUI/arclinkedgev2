@@ -5,7 +5,6 @@ import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
 import BackToTop from "@/components/ui/BackToTop";
-import CookieBanner from "@/components/ui/CookieBanner";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
@@ -220,8 +219,7 @@ export default async function HirePage() {
             <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.42fr] lg:items-end">
               <div>
                 <h1
-                  className="max-w-6xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
-                  style={{ fontFamily: "var(--font-inter-tight)" }}
+                  className="max-w-6xl type-legacy-019"
                 >
                   Hire Dedicated Talent. Scale Faster.
                 </h1>
@@ -230,7 +228,7 @@ export default async function HirePage() {
                   <SecondaryButton href="/services" icon={ArrowUpRight}>Explore Services</SecondaryButton>
                 </div>
               </div>
-              <p className="max-w-xl text-base leading-relaxed text-white/62 md:text-lg">
+              <p className="max-w-xl text-white/62 type-b1 type-legacy-020">
                 Access pre-vetted senior developers and designers ready to join your dedicated workflow. Skip the recruitment hassle and interview the best technical minds in 24 hours.
               </p>
             </div>
@@ -242,11 +240,11 @@ export default async function HirePage() {
             <div className="mb-12 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
               <div>
                 <SectionLabel>Hire Menu</SectionLabel>
-                <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                <h2 className="mt-4 type-legacy-021">
                   Every specialist mapped to a real service.
                 </h2>
               </div>
-              <p className="max-w-xl text-sm leading-relaxed text-white/52 lg:justify-self-end">
+              <p className="max-w-xl text-white/52 lg:justify-self-end type-b3 type-legacy-023">
                 These are not random roles. Each option connects to an actual delivery capability across research, UI/UX, frontend, backend, cloud, SEO, security, QA and post-launch growth.
               </p>
             </div>
@@ -263,17 +261,17 @@ export default async function HirePage() {
                   <div className="absolute -right-14 -top-14 h-44 w-44 rounded-full bg-white/0 blur-[70px] transition-colors duration-500 group-hover:bg-white/12" />
                   <div className="relative z-10 flex h-full flex-col">
                     <div className="flex items-start justify-between gap-5">
-                      <span className="text-sm font-medium text-white/42">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="text-white/42 type-b3 type-legacy-030">{String(index + 1).padStart(2, "0")}</span>
                       <ArrowUpRight className="text-white/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white" size={22} />
                     </div>
                     <div className="mt-auto pt-16">
-                      <p className="mb-4 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#D0F504]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                      <p className="mb-4 text-[#D0F504] type-label type-legacy-031">
                         {item.keywords}
                       </p>
-                      <h3 className="text-3xl font-medium text-white md:text-4xl tracking-[-0.015em] md:tracking-[-0.055em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                      <h3 className="text-white type-legacy-022">
                         {item.title}
                       </h3>
-                      <p className="mt-5 text-sm leading-relaxed text-white/62">{item.description}</p>
+                      <p className="mt-5 text-white/62 type-b3 type-legacy-023">{item.description}</p>
                     </div>
                   </div>
                 </Link>
@@ -291,7 +289,7 @@ export default async function HirePage() {
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.82fr_1.18fr]">
                 <div>
                   <SectionLabel>Coverage</SectionLabel>
-                  <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                  <h2 className="mt-4 type-legacy-021">
                     From research to post-launch growth.
                   </h2>
                 </div>
@@ -299,7 +297,7 @@ export default async function HirePage() {
                   {phaseCoverage.map((item) => (
                     <div key={item} className="flex items-start gap-4 border border-white/[0.06] bg-black/30 p-4">
                       <CheckCircle2 className="mt-0.5 shrink-0 text-[#D0F504]" size={18} />
-                      <p className="text-sm leading-relaxed text-white/70">{item}</p>
+                      <p className="text-white/70 type-b3 type-legacy-023">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -325,16 +323,16 @@ export default async function HirePage() {
                     <div className="absolute -right-20 -top-20 h-40 w-40 bg-white/0 blur-[60px] transition-colors duration-500 group-hover:bg-white/10" />
                     
                     <div className="relative z-10">
-                      <h3 className="text-3xl font-medium text-white md:text-4xl tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                      <h3 className="text-white type-legacy-032">
                         {item.title}
                       </h3>
-                      <p className="mt-4 max-w-[240px] text-sm leading-relaxed text-white/42 group-hover:text-white/60 transition-colors duration-500">
+                      <p className="mt-4 max-w-[240px] text-white/42 group-hover:text-white/60 transition-colors duration-500 type-b3 type-legacy-023">
                         {item.desc}
                       </p>
                     </div>
 
                     <div className="relative z-10 mt-12 border-t border-white/[0.06] pt-6">
-                      <div className="relative inline-flex overflow-hidden text-sm font-medium transition-colors duration-200" style={{ color: "rgba(245,245,247,0.72)", fontFamily: "var(--font-inter-tight)" }}>
+                      <div className="relative inline-flex overflow-hidden transition-colors duration-200 type-b3 type-legacy-025" style={{ color: "rgba(245,245,247,0.72)" }}>
                         <span className="flex items-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-full">
                           {item.label} <ArrowUpRight size={14} />
                         </span>
@@ -355,7 +353,6 @@ export default async function HirePage() {
       </main>
       <Footer />
       <BackToTop />
-      <CookieBanner />
     </>
   );
 }

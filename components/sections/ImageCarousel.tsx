@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
 
 const defaultCarouselImages = [
   "/projects/Cortex.jpg",
@@ -21,25 +19,21 @@ export default function ImageCarousel({ sanityImages }: { sanityImages?: string[
   const col2 = finalImages.slice(midPoint);
 
   return (
-    <section className="relative overflow-hidden bg-[#000000] py-16 lg:py-24" aria-labelledby="carousel-heading">
+    <section className="defer-render relative overflow-hidden bg-[#000000] py-16 lg:py-24" aria-labelledby="carousel-heading">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12 mb-16 text-center">
-        <motion.h2 
+        <h2
           id="carousel-heading"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-medium"
-          style={{ fontFamily: "var(--font-inter-tight)", color: "#F5F5F7", letterSpacing: "-0.04em" }}
+          className="type-legacy-113 type-landing-section-heading"
+          style={{ color: "#F5F5F7" }}
         >
           Crafted with Precision
-        </motion.h2>
+        </h2>
       </div>
 
       {/* Main Framed Container Wrapper */}
       <div className="w-full px-4 md:px-8 max-w-[2000px] mx-auto">
         <div className="relative w-full border border-[rgba(255,255,255,0.08)] bg-[#030303]">
-          
+
           {/* 4 Corner Rectangles ON the border */}
           <div className="absolute top-0 left-0 w-2 h-2 bg-[#D1D1D6] -translate-x-1/2 -translate-y-1/2 z-20" />
           <div className="absolute top-0 right-0 w-2 h-2 bg-[#D1D1D6] translate-x-1/2 -translate-y-1/2 z-20" />
@@ -53,14 +47,18 @@ export default function ImageCarousel({ sanityImages }: { sanityImages?: string[
 
             {/* Column 1 (Scrolls Up) */}
             <div className="flex-1 overflow-hidden relative" style={{ margin: "-2rem 0" }}>
-              <div className="flex flex-col animate-marquee-up absolute inset-x-0 top-0 pt-8">
+              <div
+                className="mobile-continuous-animation flex flex-col animate-marquee-up absolute inset-x-0 top-0 pt-8"
+                style={{ "--mobile-animation-duration": "40s" } as CSSProperties}
+                data-pause-offscreen
+              >
                 {[0, 1].map((set) => (
                   <div key={`col1-set-${set}`} className="flex flex-col gap-4 md:gap-8 pb-4 md:pb-8 shrink-0">
                     {/* Mobile: Show all images */}
                     {finalImages.map((src, idx) => (
-                      <div 
-                        key={`mobile-${set}-${idx}`} 
-                        className="md:hidden relative w-full shrink-0 overflow-hidden" 
+                      <div
+                        key={`mobile-${set}-${idx}`}
+                        className="md:hidden relative w-full shrink-0 overflow-hidden"
                         style={{ aspectRatio: "16/9", borderRadius: 0 }}
                       >
                         <Image src={src} alt="Arclink Edge Work" fill className="object-cover transition-transform duration-700 hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
@@ -68,9 +66,9 @@ export default function ImageCarousel({ sanityImages }: { sanityImages?: string[
                     ))}
                     {/* Desktop: Show col1 */}
                     {col1.map((src, idx) => (
-                      <div 
-                        key={`col1-${set}-${idx}`} 
-                        className="hidden md:block relative w-full shrink-0 overflow-hidden" 
+                      <div
+                        key={`col1-${set}-${idx}`}
+                        className="hidden md:block relative w-full shrink-0 overflow-hidden"
                         style={{ aspectRatio: "16/9", borderRadius: 0 }}
                       >
                         <Image src={src} alt="Arclink Edge Work" fill className="object-cover transition-transform duration-700 hover:scale-105" sizes="(max-width: 768px) 50vw, 33vw" />
@@ -83,13 +81,17 @@ export default function ImageCarousel({ sanityImages }: { sanityImages?: string[
 
             {/* Column 2 (Scrolls Down) */}
             <div className="hidden md:block flex-1 overflow-hidden relative" style={{ margin: "-2rem 0" }}>
-              <div className="flex flex-col animate-marquee-down absolute inset-x-0 top-0 pt-8">
+              <div
+                className="mobile-continuous-animation flex flex-col animate-marquee-down absolute inset-x-0 top-0 pt-8"
+                style={{ "--mobile-animation-duration": "25s" } as CSSProperties}
+                data-pause-offscreen
+              >
                 {[0, 1].map((set) => (
                   <div key={`col2-set-${set}`} className="flex flex-col gap-4 md:gap-8 pb-4 md:pb-8 shrink-0">
                     {col2.map((src, idx) => (
-                      <div 
-                        key={`col2-${set}-${idx}`} 
-                        className="relative w-full shrink-0 overflow-hidden" 
+                      <div
+                        key={`col2-${set}-${idx}`}
+                        className="relative w-full shrink-0 overflow-hidden"
                         style={{ aspectRatio: "16/9", borderRadius: 0 }}
                       >
                         <Image src={src} alt="Arclink Edge Work" fill className="object-cover transition-transform duration-700 hover:scale-105" sizes="(max-width: 768px) 50vw, 33vw" />
@@ -102,7 +104,7 @@ export default function ImageCarousel({ sanityImages }: { sanityImages?: string[
           </div>
         </div>
       </div>
-      
+
       <style>{`
         @keyframes marquee-up {
           0% { transform: translateY(0); }

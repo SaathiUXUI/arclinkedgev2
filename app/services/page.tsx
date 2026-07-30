@@ -4,7 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import BackToTop from "@/components/ui/BackToTop";
-import CookieBanner from "@/components/ui/CookieBanner";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { services } from "@/lib/data";
 
@@ -117,12 +116,11 @@ export default function ServicesPage() {
           <SectionLabel>Services</SectionLabel>
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.42fr] lg:items-end">
             <h1
-              className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
-              style={{ fontFamily: "var(--font-inter-tight)" }}
+              className="max-w-5xl type-legacy-019"
             >
               IT services in New York, London, Dubai & Bangalore for web, mobile and SaaS growth.
             </h1>
-            <p className="max-w-xl text-base leading-relaxed text-white/62 md:text-lg">
+            <p className="max-w-xl text-white/62 type-b1 type-legacy-020">
               Strategy, design, development, automation and growth support for teams that need a polished digital product, a reliable technical partner, or hireable specialists.
             </p>
           </div>
@@ -139,19 +137,18 @@ export default function ServicesPage() {
             >
               <div className="flex h-full flex-col justify-between gap-10">
                 <div className="flex items-start justify-between gap-5">
-                  <span className="text-sm font-medium text-white/35">
+                  <span className="text-white/35 type-b3 type-legacy-030">
                     {(index + 1).toString().padStart(2, "0")}
                   </span>
                   <ArrowUpRight className="text-white/45 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#D0F504]" size={22} />
                 </div>
                 <div>
                   <h2
-                    className="text-3xl font-medium text-white md:text-4xl tracking-[-0.02em] md:tracking-[-0.055em]"
-                    style={{ fontFamily: "var(--font-inter-tight)" }}
+                    className="text-white type-legacy-076"
                   >
                     {service.title}
                   </h2>
-                  <p className="mt-5 max-w-md text-sm leading-relaxed text-white/58">
+                  <p className="mt-5 max-w-md text-white/58 type-b3 type-legacy-023">
                     {service.description}
                   </p>
                 </div>
@@ -166,11 +163,11 @@ export default function ServicesPage() {
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <div>
               <SectionLabel>Hire</SectionLabel>
-              <h2 className="mt-4 text-4xl font-medium leading-none md:text-6xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+              <h2 className="mt-4 type-legacy-021">
                 Hire specialists from the same service stack.
               </h2>
             </div>
-            <p className="max-w-xl text-sm leading-relaxed text-white/52 lg:justify-self-end">
+            <p className="max-w-xl text-white/52 lg:justify-self-end type-b3 type-legacy-023">
               Choose a dedicated specialist or a small team across research, UI/UX, frontend, backend, database, cloud, SEO, performance, security, testing and post-launch growth.
             </p>
           </div>
@@ -186,14 +183,14 @@ export default function ServicesPage() {
                 <div className="absolute -right-14 -top-14 h-44 w-44 rounded-full bg-white/0 blur-[70px] transition-colors duration-500 group-hover:bg-white/12" />
                 <div className="relative z-10 flex h-full flex-col">
                   <div className="flex items-start justify-between gap-5">
-                    <span className="text-sm font-medium text-white/42">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="text-white/42 type-b3 type-legacy-030">{String(index + 1).padStart(2, "0")}</span>
                     <ArrowUpRight className="text-white/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white" size={22} />
                   </div>
                   <div className="mt-auto pt-12">
-                    <h3 className="text-2xl font-medium text-white md:text-3xl tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                    <h3 className="text-white type-legacy-077">
                       {item.title}
                     </h3>
-                    <p className="mt-5 text-sm leading-relaxed text-white/62">{item.description}</p>
+                    <p className="mt-5 text-white/62 type-b3 type-legacy-023">{item.description}</p>
                   </div>
                 </div>
               </Link>
@@ -204,7 +201,6 @@ export default function ServicesPage() {
 
       <Footer />
       <BackToTop />
-      <CookieBanner />
     </main>
   );
 }

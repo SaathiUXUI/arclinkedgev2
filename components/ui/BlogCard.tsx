@@ -36,13 +36,13 @@ export default function BlogCard({
             aria-hidden="true"
             className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"
           />
-          <span className="absolute left-4 top-4 border border-white/15 bg-black/65 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white/80">
+          <span className="absolute left-4 top-4 border border-white/15 bg-black/65 px-2.5 py-1 text-white/80 type-label type-legacy-162">
             {post.category}
           </span>
         </div>
 
         <div className="flex flex-1 flex-col p-5 md:p-6">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.68rem] font-medium uppercase tracking-[0.1em] text-white/38">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-white/38 type-label type-legacy-163">
             <span className="flex items-center gap-1.5">
               <Calendar size={13} aria-hidden="true" />
               <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -54,15 +54,14 @@ export default function BlogCard({
           </div>
 
           <HeadingTag
-            className="mt-5 line-clamp-2 text-[1.5rem] font-medium leading-[1.12] tracking-normal text-[#F5F5F7] md:text-[1.8rem]"
-            style={{ fontFamily: "var(--font-inter-tight)" }}
+            className="mt-5 line-clamp-2 text-[#F5F5F7] type-legacy-164"
           >
             {post.title}
           </HeadingTag>
 
           {post.description && (
             <p
-              className="mt-3 line-clamp-3 text-sm leading-relaxed"
+              className="mt-3 line-clamp-3 type-b3 type-legacy-023"
               style={{ color: "rgba(245,245,247,0.52)" }}
             >
               {post.description}

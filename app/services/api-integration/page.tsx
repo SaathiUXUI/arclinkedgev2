@@ -1,14 +1,11 @@
-import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowUpRight, Check, Clock, Code2, Gauge, Layers, Search, ShieldCheck, Sparkles, Zap, Network, Webhook } from "lucide-react";
 import Navbar from "@/components/sections/Navbar";
 
-// Dynamic imports for shared/secondary sections
-const Footer = dynamic(() => import("@/components/sections/Footer"));
-const BackToTop = dynamic(() => import("@/components/ui/BackToTop"));
-const CookieBanner = dynamic(() => import("@/components/ui/CookieBanner"));
-const SharedInsidePageSections = dynamic(() => import("@/components/sections/SharedInsidePageSections"));
+import Footer from "@/components/sections/Footer";
+import BackToTop from "@/components/ui/BackToTop";
+import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { getProjectImagesByCategory, getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -297,7 +294,10 @@ function HeroProjectColumn({ sanityImages }: { sanityImages?: string[] }) {
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-[#030303] to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-[#030303] to-transparent" />
 
-        <div className="absolute inset-x-0 top-0 flex animate-hero-project-column flex-col gap-4 p-4 sm:gap-5 sm:p-5 lg:gap-6 lg:p-6">
+        <div
+          className="mobile-continuous-animation mobile-animation-45s absolute inset-x-0 top-0 flex animate-hero-project-column flex-col gap-4 p-4 sm:gap-5 sm:p-5 lg:gap-6 lg:p-6"
+          data-pause-offscreen
+        >
           {[0, 1].map((set) => (
             <div key={`hero-project-set-${set}`} className="flex shrink-0 flex-col gap-4 pb-4 sm:gap-5 sm:pb-5 lg:gap-6 lg:pb-6">
               {displayImages.map((src, index) => (
@@ -349,14 +349,12 @@ function HeroStatsBand() {
           <div key={stat.label} className="group relative overflow-hidden px-1 py-7 sm:px-6 lg:py-9">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D0F504]/0 to-transparent transition-all duration-500 group-hover:via-[#D0F504]/70" />
             <p
-              className="text-[5.2rem] font-regular leading-[0.82] text-[#F5F5F7] sm:text-7xl lg:text-8xl xl:text-9xl"
-              style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+              className="text-[#F5F5F7] type-display type-legacy-067"
             >
               {stat.value}
             </p>
             <p
-              className="mt-5 max-w-[12rem] text-xs font-bold uppercase leading-snug tracking-[0.16em] text-white/50"
-              style={{ fontFamily: "var(--font-inter-tight)" }}
+              className="mt-5 max-w-[12rem] text-white/50 type-label type-legacy-068"
             >
               {stat.label}
             </p>
@@ -457,12 +455,11 @@ export default async function ApiIntegrationPage() {
             <div className="flex flex-col justify-center">
               <SectionLabel>API Integration Services</SectionLabel>
               <h1
-                className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl"
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                className="max-w-5xl type-legacy-019"
               >
                 Connecting your tools. Automating your business.
               </h1>
-              <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
+              <p className="mt-8 max-w-2xl text-white/62 type-b1 type-legacy-020">
                 Stop wasting time on manual data entry. We build secure, reliable API connections and webhooks that synchronize your software stack, turning fragmented tools into one powerful engine.
               </p>
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -487,11 +484,11 @@ export default async function ApiIntegrationPage() {
             <div className="mx-auto mb-12 grid max-w-[1600px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-12">
               <div>
                 <SectionLabel>Process</SectionLabel>
-                <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                <h2 className="type-legacy-069">
                   A clear framework for connectivity.
                 </h2>
               </div>
-              <p className="max-w-2xl text-sm leading-relaxed text-white/54 lg:justify-self-end">
+              <p className="max-w-2xl text-white/54 lg:justify-self-end type-b3 type-legacy-023">
                 We combine deep technical understanding of API protocols with rigorous error-handling to ensure data flows reliably.
               </p>
             </div>
@@ -517,8 +514,7 @@ export default async function ApiIntegrationPage() {
                       />
                       <span
                         aria-hidden="true"
-                        className="absolute left-6 top-8 select-none text-[8rem] font-semibold leading-none text-white/[0.055] transition-colors duration-500 group-hover:text-white/[0.11] md:text-[10rem] xl:text-[11rem]"
-                        style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.09em" }}
+                        className="absolute left-6 top-8 select-none text-white/[0.055] transition-colors duration-500 group-hover:text-white/[0.11] type-display type-legacy-070"
                       >
                         {item.step}
                       </span>
@@ -528,7 +524,7 @@ export default async function ApiIntegrationPage() {
                           {item.chips.map((chip) => (
                             <span
                               key={chip}
-                              className="bg-white/18 px-4 py-2 text-[0.68rem] font-semibold text-white"
+                              className="bg-white/18 px-4 py-2 text-white type-label type-legacy-071"
                             >
                               {chip}
                             </span>
@@ -536,8 +532,7 @@ export default async function ApiIntegrationPage() {
                         </div>
 
                         <h3
-                          className="text-5xl font-medium leading-none text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 md:text-6xl tracking-[-0.015em] md:tracking-[-0.065em]"
-                          style={{ fontFamily: "var(--font-inter-tight)" }}
+                          className="text-[#F5F5F7] transition-transform duration-500 group-hover:-translate-y-1 type-legacy-043"
                         >
                           {item.phase}
                         </h3>
@@ -566,7 +561,7 @@ export default async function ApiIntegrationPage() {
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
                 <div>
                   <SectionLabel>What We Fix</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                  <h2 className="type-legacy-069">
                     We stop data silos and manual entry.
                   </h2>
                 </div>
@@ -578,10 +573,10 @@ export default async function ApiIntegrationPage() {
                     >
                       <CardHoverEffects />
                       <div className="relative z-10 flex h-full flex-col justify-between gap-10">
-                        <p className="text-6xl font-semibold leading-none text-white/[0.06] transition-colors duration-300 group-hover:text-white/16" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.07em" }}>
+                        <p className="text-white/[0.06] transition-colors duration-300 group-hover:text-white/16 type-display type-legacy-072">
                           0{index + 1}
                         </p>
-                        <p className="text-base leading-relaxed text-white/68">{point}</p>
+                        <p className="text-white/68 type-b2 type-legacy-073">{point}</p>
                       </div>
                     </div>
                   ))}
@@ -595,11 +590,11 @@ export default async function ApiIntegrationPage() {
               <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-8">
                 <div className="max-w-2xl">
                   <SectionLabel>Deliverables</SectionLabel>
-                  <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                  <h2 className="type-legacy-069">
                     Scan the integration scope in seconds.
                   </h2>
                 </div>
-                <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
+                <p className="mt-6 lg:mt-0 max-w-xl text-white/52 type-b3 type-legacy-023">
                   Clear deliverables across API design, third-party connections, data sync, and security protocols.
                 </p>
               </div>
@@ -612,22 +607,22 @@ export default async function ApiIntegrationPage() {
                     <CardHoverEffects />
                     <div className="relative z-10 flex h-full flex-col">
                       <div className="mb-10 flex items-center justify-between gap-4">
-                        <span className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-white/72" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                        <span className="text-white/72 type-label type-legacy-031">
                           {item.label}
                         </span>
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-white/[0.06] text-[0.72rem] font-bold text-white/42" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-white/[0.06] text-white/42 type-label type-legacy-074">
                           {String(index + 1).padStart(2, "0")}
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-medium leading-none text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                      <h3 className="text-[#F5F5F7] type-legacy-075">
                         {item.title}
                       </h3>
-                      <p className="mt-4 text-sm leading-relaxed text-white/54">{item.description}</p>
+                      <p className="mt-4 text-white/54 type-b3 type-legacy-023">{item.description}</p>
 
                       <div className="mt-auto flex flex-wrap gap-2 pt-8">
                         {item.items.map((deliverable) => (
-                          <span key={deliverable} className="border border-white/[0.06] bg-black/30 px-3 py-1.5 text-xs font-medium text-white/62">
+                          <span key={deliverable} className="border border-white/[0.06] bg-black/30 px-3 py-1.5 text-white/62 type-label type-legacy-018">
                             {deliverable}
                           </span>
                         ))}
@@ -648,7 +643,6 @@ export default async function ApiIntegrationPage() {
       </main>
       <Footer />
       <BackToTop />
-      <CookieBanner />
     </>
   );
 }

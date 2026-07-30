@@ -7,7 +7,6 @@ import Image from "next/image";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import BackToTop from "@/components/ui/BackToTop";
-import CookieBanner from "@/components/ui/CookieBanner";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CaseStudyCard from "@/components/ui/CaseStudyCard";
 import { urlForImage } from "@/sanity/lib/image";
@@ -60,7 +59,10 @@ function HeroProjectColumn() {
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-[#030303] to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-[#030303] to-transparent" />
 
-        <div className="absolute inset-x-0 top-0 flex animate-hero-project-column flex-col gap-4 p-4 sm:gap-5 sm:p-5 lg:gap-6 lg:p-6">
+        <div
+          className="mobile-continuous-animation mobile-animation-28s absolute inset-x-0 top-0 flex animate-hero-project-column flex-col gap-4 p-4 sm:gap-5 sm:p-5 lg:gap-6 lg:p-6"
+          data-pause-offscreen
+        >
           {[0, 1].map((set) => (
             <div key={`hero-project-set-${set}`} className="flex shrink-0 flex-col gap-4 pb-4 sm:gap-5 sm:pb-5 lg:gap-6 lg:pb-6">
               {heroProjectImages.map((src, index) => (
@@ -109,14 +111,12 @@ function HeroStatsBand() {
           <div key={stat.label} className="group relative overflow-hidden px-1 py-7 sm:px-6 lg:py-10">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D0F504]/0 to-transparent transition-all duration-500 group-hover:via-[#D0F504]/70" />
             <p
-              className="text-[5.2rem] font-regular leading-[0.82] text-[#F5F5F7] sm:text-7xl lg:text-8xl xl:text-9xl"
-              style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.075em" }}
+              className="text-[#F5F5F7] type-display type-legacy-067"
             >
               {stat.value}
             </p>
             <p
-              className="mt-5 max-w-[12rem] text-xs font-bold uppercase leading-snug tracking-[0.16em] text-white/50"
-              style={{ fontFamily: "var(--font-inter-tight)" }}
+              className="mt-5 max-w-[12rem] text-white/50 type-label type-legacy-068"
             >
               {stat.label}
             </p>
@@ -212,12 +212,11 @@ export default function WorkContent({
           <div className="flex flex-col justify-center">
             <SectionLabel>Our Portfolio</SectionLabel>
             <h1
-              className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl mt-6"
-              style={{ fontFamily: "var(--font-inter-tight)" }}
+              className="max-w-5xl mt-6 type-legacy-019"
             >
               Work we&apos;re proud of. Built to scale.
             </h1>
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
+            <p className="mt-8 max-w-2xl text-white/62 type-b1 type-legacy-020">
               Explore our curated selection of case studies. From enterprise SaaS platforms to consumer mobile apps, see how we engineer success with modern architecture and premium design.
             </p>
           </div>
@@ -238,12 +237,11 @@ export default function WorkContent({
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2.5 rounded-none text-sm font-medium transition-all duration-300 ${
+                className={[`px-6 py-2.5 rounded-none transition-all duration-300${
                   activeCategory === cat 
                     ? "bg-white text-black" 
                     : "bg-white/[0.03] text-white/60 hover:bg-white/[0.08] hover:text-white border border-white/[0.05]"
-                }`}
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                }`, "type-legacy-025"].filter(Boolean).join(" ")}
               >
                 {cat}
               </button>
@@ -274,7 +272,6 @@ export default function WorkContent({
 
       <Footer />
       <BackToTop />
-      <CookieBanner />
     </main>
   );
 }

@@ -4,7 +4,6 @@ import Footer from "@/components/sections/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
 import BackToTop from "@/components/ui/BackToTop";
-import CookieBanner from "@/components/ui/CookieBanner";
 import BlogCard from "@/components/ui/BlogCard";
 import type { BlogPost, Testimonial } from "@/types";
 
@@ -65,14 +64,13 @@ export default function BlogContent({
           <div className="grid lg:grid-cols-[1fr_0.4fr] gap-12 lg:gap-20 items-end mt-8">
             <div>
               <h1 
-                className="text-5xl md:text-7xl lg:text-9xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.92] md:tracking-[-0.075em]"
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                className="type-legacy-001"
               >
                 Our Blog.
               </h1>
             </div>
             <div className="pb-4">
-              <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-md" style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.02em" }}>
+              <p className="text-white/60 max-w-md type-b1 type-legacy-008">
                 Thought leadership, technical deep-dives, and product strategy from the Arclink Edge team.
               </p>
             </div>
@@ -95,7 +93,6 @@ export default function BlogContent({
       <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs} />
       <Footer />
       <BackToTop />
-      <CookieBanner />
     </main>
   );
 }

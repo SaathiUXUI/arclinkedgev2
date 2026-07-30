@@ -31,8 +31,8 @@ export function PrimaryButton({
       onClick={onClick}
       target={target}
       rel={rel}
-      className={`group relative inline-flex overflow-hidden text-sm font-semibold bg-white text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:bg-white active:scale-100 transition-[background-color,transform] duration-300 ease-out ${className}`}
-      style={{ borderRadius: 0, fontFamily: "var(--font-inter-tight)" }}
+      className={[`group relative inline-flex overflow-hidden bg-white text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:bg-white active:scale-100 transition-[background-color,transform] duration-300 ease-out type-b3 ${className}`, "type-legacy-034"].filter(Boolean).join(" ")}
+      style={{ borderRadius: 0 }}
     >
       {/* Default layer */}
       <span
@@ -88,8 +88,8 @@ export function SecondaryButton({
       onClick={onClick}
       target={target}
       rel={rel}
-      className={`group relative inline-flex overflow-hidden text-sm font-semibold bg-transparent text-[#F5F5F7] hover:bg-white/[0.07] hover:scale-[1.02] active:bg-transparent active:scale-100 transition-[background-color,transform] duration-300 ease-out ${className}`}
-      style={{ border: "1px solid rgba(255,255,255,0.22)", borderRadius: 0, fontFamily: "var(--font-inter-tight)" }}
+      className={[`group relative inline-flex overflow-hidden bg-transparent text-[#F5F5F7] hover:bg-white/[0.07] hover:scale-[1.02] active:bg-transparent active:scale-100 transition-[background-color,transform] duration-300 ease-out type-b3 ${className}`, "type-legacy-034"].filter(Boolean).join(" ")}
+      style={{ border: "1px solid rgba(255,255,255,0.22)", borderRadius: 0 }}
     >
       {/* Default layer */}
       <span
@@ -128,8 +128,8 @@ export function NavButton({ href, children, className = "", onClick, target, rel
       onClick={onClick}
       target={target}
       rel={rel}
-      className={`group relative inline-flex overflow-hidden text-sm font-semibold bg-white text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:bg-white active:scale-100 transition-[background-color,transform] duration-300 ease-out ${className}`}
-      style={{ borderRadius: 0, fontFamily: "var(--font-inter-tight)" }}
+      className={[`group relative inline-flex overflow-hidden bg-white text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:bg-white active:scale-100 transition-[background-color,transform] duration-300 ease-out type-b3 ${className}`, "type-legacy-034"].filter(Boolean).join(" ")}
+      style={{ borderRadius: 0 }}
     >
       {/* Default layer */}
       <span
@@ -172,8 +172,8 @@ export function SecondaryNavButton({
       onClick={onClick}
       target={target}
       rel={rel}
-      className={`group relative inline-flex overflow-hidden text-sm font-semibold bg-transparent text-[#F5F5F7] hover:bg-white/[0.07] hover:scale-[1.02] active:bg-transparent active:scale-100 transition-[background-color,transform] duration-300 ease-out ${className}`}
-      style={{ border: "1px solid rgba(255,255,255,0.22)", borderRadius: 0, fontFamily: "var(--font-inter-tight)" }}
+      className={[`group relative inline-flex overflow-hidden bg-transparent text-[#F5F5F7] hover:bg-white/[0.07] hover:scale-[1.02] active:bg-transparent active:scale-100 transition-[background-color,transform] duration-300 ease-out type-b3 ${className}`, "type-legacy-034"].filter(Boolean).join(" ")}
+      style={{ border: "1px solid rgba(255,255,255,0.22)", borderRadius: 0 }}
     >
       {/* Default layer */}
       <span
@@ -257,10 +257,9 @@ export function TextButton({
   );
 
   const sharedProps = {
-    className: `group relative inline-flex overflow-hidden text-sm font-medium transition-colors duration-200 ${className}`,
+    className: `group relative inline-flex overflow-hidden transition-colors duration-200 type-button ${className}`,
     style: {
       color: "rgba(245,245,247,0.72)",
-      fontFamily: "var(--font-inter-tight)",
     },
   };
 

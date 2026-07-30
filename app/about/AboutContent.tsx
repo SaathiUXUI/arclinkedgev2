@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { team } from "@/lib/team";
 import Navbar from "@/components/sections/Navbar";
@@ -9,8 +8,6 @@ import Footer from "@/components/sections/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
 import BackToTop from "@/components/ui/BackToTop";
-import CookieBanner from "@/components/ui/CookieBanner";
-import HeadingReveal from "@/components/ui/HeadingReveal";
 import { FounderCard, TeamMemberCard } from "@/components/ui/TeamCards";
 
 
@@ -73,7 +70,10 @@ function HeroProjectColumn({ sanityImages }: { sanityImages?: string[] }) {
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-black to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-black to-transparent" />
 
-        <div className="absolute inset-x-0 top-0 flex animate-hero-project-column flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <div
+          className="mobile-continuous-animation mobile-animation-45s absolute inset-x-0 top-0 flex animate-hero-project-column flex-col gap-4 p-4 lg:gap-6 lg:p-6"
+          data-pause-offscreen
+        >
           {[0, 1].map((set) => (
             <div key={`hero-project-set-${set}`} className="flex shrink-0 flex-col gap-4 pb-4 lg:gap-6 lg:pb-6">
               {displayImages.map((src, index) => (
@@ -173,14 +173,13 @@ export default function AboutContent({
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-end mt-8">
             <div>
               <h1 
-                className="text-5xl md:text-7xl lg:text-9xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.92] md:tracking-[-0.075em]"
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                className="type-legacy-001"
               >
                 Engineering <br /> <span className="text-white/20">Human Ambition.</span>
               </h1>
             </div>
             <div className="pb-4">
-              <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-md" style={{ letterSpacing: "-0.02em" }}>
+              <p className="text-white/60 max-w-md type-b1 type-legacy-002">
                 Arclink Edge is a fully remote premium boutique agency serving New York, London, Dubai, Bangalore, Ahmedabad, and global clients. We don&apos;t just write code; we build the future of your business.
               </p>
             </div>
@@ -192,10 +191,10 @@ export default function AboutContent({
       <section className="px-6 py-20 lg:px-12 lg:py-40 relative z-10 border-t border-white/5">
         <div className="mx-auto max-w-[1600px] grid lg:grid-cols-2 gap-20">
           <div>
-            <h2 className="text-3xl md:text-5xl font-medium mb-12 tracking-[-0.02em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+            <h2 className="mb-12 type-legacy-003">
               Our Philosophy
             </h2>
-            <div className="space-y-8 text-lg md:text-xl text-white/50 leading-relaxed">
+            <div className="space-y-8 text-white/50 type-b1 type-legacy-004">
               <p>
                 We believe that in the digital age, speed is the ultimate currency. But speed without quality is a liability. That's why we focus on "Rapid Precision"—delivering world-class digital products in record time without cutting corners.
               </p>
@@ -219,13 +218,13 @@ export default function AboutContent({
              </div>
              <div>
                 <SectionLabel>Meet the Founder</SectionLabel>
-                <h3 className="text-4xl md:text-6xl font-medium mt-6 mb-8 tracking-[-0.015em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                <h3 className="mt-6 mb-8 type-legacy-005">
                   A Vision for Precision.
                 </h3>
-                 <p className="text-xl md:text-3xl text-[#D0F504] mb-8 font-medium italic" style={{ fontFamily: "var(--font-fraunces)" }}>
+                 <p className="text-[#D0F504] mb-8 type-b1 type-editorial type-legacy-006">
                   "{displayFounder.bio || team.founder.bio}"
                 </p>
-                <div className="grid md:grid-cols-2 gap-12 text-white/50 leading-relaxed">
+                <div className="grid md:grid-cols-2 gap-12 text-white/50 type-legacy-007">
                    <p>
                        With over {displayFounder.experience || "6+ Years"} of experience in product strategy and full-stack engineering, {displayFounder.name} founded Arclink Edge with a simple mission: to bridge the gap between high-level design and hardcore engineering.
                    </p>
@@ -241,7 +240,7 @@ export default function AboutContent({
       {/* Values/Team Section */}
       <section className="px-6 py-20 lg:px-12 lg:py-40 relative z-10">
         <div className="mx-auto max-w-[1600px]">
-          <h2 className="text-3xl md:text-5xl font-medium mb-20 tracking-[-0.02em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+          <h2 className="mb-20 type-legacy-003">
             The Core Team
           </h2>
            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -255,7 +254,6 @@ export default function AboutContent({
       <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs} />
       <Footer />
       <BackToTop />
-      <CookieBanner />
     </main>
   );
 }

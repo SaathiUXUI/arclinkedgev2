@@ -1,8 +1,4 @@
-"use client";
-
-import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { CSSProperties, ReactNode } from "react";
 
 type HeadingRevealProps = {
   id?: string;
@@ -21,41 +17,11 @@ export default function HeadingReveal({
   wrapperClassName = "",
   wrapperStyle,
 }: HeadingRevealProps) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (!wrapperRef.current) return;
-
-    const ctx = gsap.context(() => {
-      if (wrapperRef.current) {
-        wrapperRef.current.style.overflow = "hidden";
-      }
-
-      gsap.from(".heading-reveal-line", {
-        scrollTrigger: { trigger: wrapperRef.current, start: "top 88%" },
-        y: "110%",
-        skewY: 4,
-        transformOrigin: "left bottom",
-        duration: 1.1,
-        ease: "power4.out",
-        onComplete: () => {
-          if (wrapperRef.current) {
-            wrapperRef.current.style.overflow = "visible";
-          }
-        },
-      });
-    }, wrapperRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <div
-      ref={wrapperRef}
       className={wrapperClassName}
       style={{
-        overflow: "hidden",
+        overflow: "visible",
         paddingBottom: "0.35em",
         paddingRight: "0.25em",
         ...wrapperStyle,

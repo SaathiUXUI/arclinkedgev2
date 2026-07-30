@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight, Fraunces } from "next/font/google";
 import Script from "next/script";
-import SmoothScroll from "@/components/ui/SmoothScroll";
-import LeadPopup from "@/components/ui/LeadPopup";
+import ViewportAnimationController from "@/components/ui/ViewportAnimationController";
 import "./globals.css";
 import {
   organizationSchema,
@@ -16,6 +15,7 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  adjustFontFallback: false,
   weight: ["400", "500", "600"],
 });
 
@@ -23,6 +23,7 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-inter-tight",
   display: "swap",
+  adjustFontFallback: false,
   weight: ["400", "500", "600", "700", "800"],
 });
 
@@ -30,6 +31,7 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   display: "swap",
+  adjustFontFallback: false,
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
 });
@@ -127,7 +129,10 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="en" className={`${inter.variable} ${interTight.variable} ${fraunces.variable} scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${interTight.variable} ${fraunces.variable} scroll-smooth`}
+    >
       <head>
         {jsonLdSchemas.map((schema, i) => (
           <script
@@ -141,9 +146,9 @@ export default function RootLayout({
         {/* Google Analytics GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MF08KH4SY0"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -155,8 +160,8 @@ export default function RootLayout({
           Skip to main content
         </a>
         <div className="grain-overlay" aria-hidden="true" />
-        <SmoothScroll>{children}</SmoothScroll>
-        <LeadPopup />
+        {children}
+        <ViewportAnimationController />
       </body>
     </html>
   );

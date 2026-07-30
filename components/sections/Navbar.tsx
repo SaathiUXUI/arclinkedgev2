@@ -143,12 +143,8 @@ export default function Navbar() {
               priority
             />
             <span
-              className="text-lg font-medium tracking-tight"
-              style={{
-                fontFamily: "var(--font-inter-tight)",
-                color: "#F5F5F7",
-                letterSpacing: "-0.02em",
-              }}
+              className="type-b1 type-legacy-121"
+              style={{ color: "#F5F5F7" }}
             >
               Arclink Edge
             </span>
@@ -178,18 +174,18 @@ export default function Navbar() {
                   onClick={() => setMegaOpen(false)}
                   onMouseEnter={() => prefetchRoute(link.href)}
                   onFocus={() => prefetchRoute(link.href)}
-                  className="group relative inline-flex items-center gap-1 text-sm font-medium"
-                  style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.1px", height: "64px" }}
+                  className="group relative inline-flex items-center gap-1 type-b3 type-legacy-122"
+                  style={{ height: "64px" }}
                 >
                   <span className="relative overflow-hidden inline-flex">
                     <span
-                      className={`transition-transform duration-300 ease-out ${(link.label === "Services" && megaOpen) || (link.label === "Hire" && hireMegaOpen) ? "-translate-y-full" : "group-hover:-translate-y-full"}`}
+                      className={`transition-transform duration-300 ease-out${(link.label === "Services" && megaOpen) || (link.label === "Hire" && hireMegaOpen) ? "-translate-y-full" : "group-hover:-translate-y-full"}`}
                       style={{ color: "#8E8E93" }}
                     >
                       {link.label}
                     </span>
                     <span
-                      className={`absolute inset-0 flex items-center transition-transform duration-300 ease-out ${(link.label === "Services" && megaOpen) || (link.label === "Hire" && hireMegaOpen) ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"}`}
+                      className={`absolute inset-0 flex items-center transition-transform duration-300 ease-out${(link.label === "Services" && megaOpen) || (link.label === "Hire" && hireMegaOpen) ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"}`}
                       style={{ color: "#F5F5F7" }}
                     >
                       {link.label}
@@ -279,17 +275,8 @@ export default function Navbar() {
                 style={{ padding: "2.5rem 4rem 3rem" }}
               >
                 <p
-                  style={{
-                    fontFamily: "var(--font-inter-tight)",
-                    fontSize: "0.65rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "rgba(142,142,147,0.6)",
-                    marginBottom: "1.25rem",
-                    textAlign: "left",
-                    paddingLeft: "1.25rem",
-                  }}
+                  className="type-label type-legacy-123"
+                  style={{ color: "rgba(142,142,147,0.6)", marginBottom: "1.25rem", textAlign: "left", paddingLeft: "1.25rem" }}
                 >
                   Services
                 </p>
@@ -399,27 +386,13 @@ export default function Navbar() {
                       <div className="flex items-start justify-between gap-3">
                         <div style={{ flex: 1 }}>
                           <span
-                            className="mega-title"
-                            style={{
-                              display: "block",
-                              fontFamily: "var(--font-inter-tight)",
-                              fontSize: "0.9rem",
-                              fontWeight: 500,
-                              color: "rgba(245,245,247,0.85)",
-                              letterSpacing: "-0.01em",
-                              marginBottom: "0.3rem",
-                              transition: "color 0.2s ease",
-                            }}
+                            className="mega-title type-legacy-124"
+                            style={{ display: "block", color: "rgba(245,245,247,0.85)", marginBottom: "0.3rem", transition: "color 0.2s ease" }}
                           >
                             {service.title}
                           </span>
-                          <span
-                            style={{
-                              display: "block",
-                              fontSize: "0.78rem",
-                              lineHeight: 1.5,
-                              color: "rgba(142,142,147,0.7)",
-                            }}
+                          <span className="type-legacy-125"
+                            style={{ display: "block", color: "rgba(142,142,147,0.7)" }}
                           >
                             {service.description}
                           </span>
@@ -488,17 +461,8 @@ export default function Navbar() {
                 style={{ padding: "2.5rem 4rem 3rem" }}
               >
                 <p
-                  style={{
-                    fontFamily: "var(--font-inter-tight)",
-                    fontSize: "0.65rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "rgba(142,142,147,0.6)",
-                    marginBottom: "1.25rem",
-                    textAlign: "left",
-                    paddingLeft: "1.25rem",
-                  }}
+                  className="type-label type-legacy-123"
+                  style={{ color: "rgba(142,142,147,0.6)", marginBottom: "1.25rem", textAlign: "left", paddingLeft: "1.25rem" }}
                 >
                   Hire Experts
                 </p>
@@ -604,27 +568,13 @@ export default function Navbar() {
                       <div className="flex items-start justify-between gap-3">
                         <div style={{ flex: 1 }}>
                           <span
-                            className="mega-title"
-                            style={{
-                              display: "block",
-                              fontFamily: "var(--font-inter-tight)",
-                              fontSize: "0.9rem",
-                              fontWeight: 500,
-                              color: "rgba(245,245,247,0.85)",
-                              letterSpacing: "-0.01em",
-                              marginBottom: "0.3rem",
-                              transition: "color 0.2s ease",
-                            }}
+                            className="mega-title type-legacy-124"
+                            style={{ display: "block", color: "rgba(245,245,247,0.85)", marginBottom: "0.3rem", transition: "color 0.2s ease" }}
                           >
                             {item.title}
                           </span>
-                          <span
-                            style={{
-                              display: "block",
-                              fontSize: "0.78rem",
-                              lineHeight: 1.5,
-                              color: "rgba(142,142,147,0.7)",
-                            }}
+                          <span className="type-legacy-125"
+                            style={{ display: "block", color: "rgba(142,142,147,0.7)" }}
                           >
                             {item.description}
                           </span>
@@ -697,12 +647,8 @@ export default function Navbar() {
                     priority
                   />
                   <span
-                    className="font-medium text-lg"
-                    style={{
-                      fontFamily: "var(--font-inter-tight)",
-                      color: "#F5F5F7",
-                      letterSpacing: "-0.02em",
-                    }}
+                    className="type-b1 type-legacy-126"
+                    style={{ color: "#F5F5F7" }}
                   >
                     Arclink Edge
                   </span>
@@ -735,15 +681,8 @@ export default function Navbar() {
                             className="w-full flex items-center justify-between py-5"
                             style={{ background: "none", border: "none", cursor: "pointer", padding: "1.25rem 0", textAlign: "left" }}
                           >
-                            <span
-                              style={{
-                                fontFamily: "var(--font-inter-tight)",
-                                fontSize: "clamp(2rem, 8vw, 2.75rem)",
-                                fontWeight: 500,
-                                letterSpacing: "-0.03em",
-                                lineHeight: 1,
-                                color: "#F5F5F7",
-                              }}
+                            <span className="type-legacy-127"
+                              style={{ color: "#F5F5F7" }}
                             >
                               {link.label}
                             </span>
@@ -785,26 +724,13 @@ export default function Navbar() {
                                         transition: "border-color 0.2s ease",
                                       }}
                                     >
-                                      <span
-                                        style={{
-                                          display: "block",
-                                          fontFamily: "var(--font-inter-tight)",
-                                          fontSize: "0.95rem",
-                                          fontWeight: 400,
-                                          letterSpacing: "-0.01em",
-                                          color: "#F5F5F7",
-                                          marginBottom: "0.2rem",
-                                        }}
+                                      <span className="type-legacy-128"
+                                        style={{ display: "block", color: "#F5F5F7", marginBottom: "0.2rem" }}
                                       >
                                         {service.title}
                                       </span>
-                                      <span
-                                        style={{
-                                          display: "block",
-                                          fontSize: "0.875rem",
-                                          lineHeight: 1.5,
-                                          color: "#8E8E93",
-                                        }}
+                                      <span className="type-legacy-129"
+                                        style={{ display: "block", color: "#8E8E93" }}
                                       >
                                         {service.description}
                                       </span>
@@ -822,15 +748,8 @@ export default function Navbar() {
                             className="w-full flex items-center justify-between py-5"
                             style={{ background: "none", border: "none", cursor: "pointer", padding: "1.25rem 0", textAlign: "left" }}
                           >
-                            <span
-                              style={{
-                                fontFamily: "var(--font-inter-tight)",
-                                fontSize: "clamp(2rem, 8vw, 2.75rem)",
-                                fontWeight: 500,
-                                letterSpacing: "-0.03em",
-                                lineHeight: 1,
-                                color: "#F5F5F7",
-                              }}
+                            <span className="type-legacy-127"
+                              style={{ color: "#F5F5F7" }}
                             >
                               {link.label}
                             </span>
@@ -872,26 +791,13 @@ export default function Navbar() {
                                         transition: "border-color 0.2s ease",
                                       }}
                                     >
-                                      <span
-                                        style={{
-                                          display: "block",
-                                          fontFamily: "var(--font-inter-tight)",
-                                          fontSize: "0.95rem",
-                                          fontWeight: 400,
-                                          letterSpacing: "-0.01em",
-                                          color: "#F5F5F7",
-                                          marginBottom: "0.2rem",
-                                        }}
+                                      <span className="type-legacy-128"
+                                        style={{ display: "block", color: "#F5F5F7", marginBottom: "0.2rem" }}
                                       >
                                         {item.title}
                                       </span>
-                                      <span
-                                        style={{
-                                          display: "block",
-                                          fontSize: "0.875rem",
-                                          lineHeight: 1.5,
-                                          color: "#8E8E93",
-                                        }}
+                                      <span className="type-legacy-129"
+                                        style={{ display: "block", color: "#8E8E93" }}
                                       >
                                         {item.description}
                                       </span>
@@ -910,15 +816,8 @@ export default function Navbar() {
                           onClick={() => setMobileOpen(false)}
                           onTouchStart={() => prefetchRoute(link.href)}
                         >
-                          <span
-                            style={{
-                              fontFamily: "var(--font-inter-tight)",
-                              fontSize: "clamp(2rem, 8vw, 2.75rem)",
-                              fontWeight: 500,
-                              letterSpacing: "-0.03em",
-                              lineHeight: 1,
-                              color: "#F5F5F7",
-                            }}
+                          <span className="type-legacy-127"
+                            style={{ color: "#F5F5F7" }}
                           >
                             {link.label}
                           </span>

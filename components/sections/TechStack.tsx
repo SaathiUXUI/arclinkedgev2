@@ -56,7 +56,7 @@ export default function TechStack() {
   return (
     <section
       id="technology"
-      className="relative overflow-hidden bg-[#000000] py-24 lg:py-32"
+      className="defer-render relative overflow-hidden bg-[#000000] py-24 lg:py-32"
       aria-labelledby="tech-heading"
     >
       <div
@@ -77,27 +77,15 @@ export default function TechStack() {
         }}
       >
         <header className="mb-16 md:mb-24">
-          <HeadingReveal
+          <HeadingReveal className="type-legacy-092 type-landing-section-heading"
             id="tech-heading"
-            style={{
-              fontFamily: "var(--font-inter-tight)",
-              fontSize: "clamp(3.2rem,8vw,6.8rem)",
-              fontWeight: 500,
-              lineHeight: 0.95,
-              letterSpacing: "-0.07em",
-              color: "#F5F5F7",
-            }}
+            style={{ color: "#F5F5F7" }}
           >
             Technologies we master
           </HeadingReveal>
           <p
-            className="mt-6 max-w-xl"
-            style={{
-              fontSize: "18px",
-              lineHeight: 1.6,
-              letterSpacing: "-0.02em",
-              color: "rgba(245,245,247,0.52)",
-            }}
+            className="mt-6 max-w-xl type-legacy-160"
+            style={{ color: "rgba(245,245,247,0.52)" }}
           >
             A focused, production-ready stack for building and scaling modern digital products.
           </p>
@@ -112,15 +100,12 @@ export default function TechStack() {
               <header className="flex flex-col justify-start border-b border-white/[0.08] p-6 md:p-7 lg:border-b-0 lg:border-r">
                 <div>
                   <h3
-                    className="text-2xl font-medium leading-[1.05] tracking-[-0.045em]"
-                    style={{
-                      color: "#F5F5F7",
-                      fontFamily: "var(--font-inter-tight)",
-                    }}
+                    className="type-legacy-140"
+                    style={{ color: "#F5F5F7" }}
                   >
                     {category.title}
                   </h3>
-                  <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-[0.1em] text-white/38 lg:mt-2">
+                  <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-white/38 lg:mt-2 type-label type-legacy-014">
                     <span>
                       {category.items.length}{" "}
                       {category.items.length === 1 ? "technology" : "technologies"}
@@ -132,19 +117,15 @@ export default function TechStack() {
               </header>
 
               <ul
-                className="grid list-none bg-[#09090B]"
+                className="grid list-none grid-cols-1 bg-[#09090B] sm:grid-cols-2 lg:grid-cols-4"
                 aria-label={`${category.title} technologies`}
-                style={{
-                  gridTemplateColumns:
-                    "repeat(auto-fit, minmax(min(240px, 100%), 1fr))",
-                }}
               >
                 {category.items.map((tech) => (
                   <li
                     key={tech.name}
                     className="group flex items-center gap-5 border-b border-r border-white/[0.06] bg-[#09090B] p-6 transition-colors duration-300 hover:bg-[#101014] md:p-7"
                   >
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#0052FF]/20 bg-[#0052FF]/[0.07] text-sm font-bold tracking-[0.04em] text-[#5F96FF]">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#0052FF]/20 bg-[#0052FF]/[0.07] text-[#5F96FF] type-b3 type-legacy-141">
                       {techIcons[tech.name] ? (
                         <Image
                           src={techIcons[tech.name]}
@@ -161,16 +142,11 @@ export default function TechStack() {
                     </div>
 
                     <h4
-                      className="text-lg font-medium leading-tight tracking-[-0.035em] text-[#F5F5F7]"
-                      style={{ fontFamily: "var(--font-inter-tight)" }}
+                      className="text-[#F5F5F7] type-legacy-142"
                     >
                       {tech.name}
                     </h4>
 
-                    <span
-                      aria-hidden="true"
-                      className="ml-auto h-1.5 w-1.5 bg-[#D0F505] opacity-30 transition-opacity duration-300 group-hover:opacity-100"
-                    />
                   </li>
                 ))}
               </ul>

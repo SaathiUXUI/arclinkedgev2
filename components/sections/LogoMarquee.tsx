@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
 import { clientLogos } from "@/lib/data";
 
 interface LogoMarqueeProps {
@@ -18,10 +16,11 @@ export default function LogoMarquee({ variant = "landing", sanityLogos }: LogoMa
   const baseLogos = Array(repeatCount).fill(logosToRepeat).flat();
   const doubled = [...baseLogos, ...baseLogos];
   const isService = variant === "service";
+  const marqueeDuration = `${doubled.length * 1.8}s`;
 
   return (
     <section
-      className={`py-6 md:py-14 overflow-hidden ${isService ? "border-y border-white/[0.05] bg-[#030303]" : ""}`}
+      className={`defer-render py-6 md:py-14 overflow-hidden ${isService ? "border-y border-white/[0.05] bg-[#030303]" : ""}`}
       style={{ background: "transparent" }}
       aria-label="Trusted by industry leaders"
     >
@@ -41,21 +40,22 @@ export default function LogoMarquee({ variant = "landing", sanityLogos }: LogoMa
         Trusted by leading brands
       </h2>
 
-      <motion.div
+      <div
         className="relative overflow-hidden"
-        initial={isService ? { opacity: 1 } : { opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: isService ? 0 : 2.1, ease: [0.22, 1, 0.36, 1] }}
         style={{
           maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
           WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
         }}
       >
         <div
-          className="marquee-track gap-9 md:gap-0"
+          className="marquee-track mobile-continuous-animation gap-9 md:gap-0"
           role="list"
           aria-label="Client logos"
-          style={{ animationDuration: `${doubled.length * 1.8}s` }}
+          data-pause-offscreen
+          style={{
+            animationDuration: marqueeDuration,
+            "--mobile-animation-duration": marqueeDuration,
+          } as CSSProperties}
         >
           {doubled.map((item, i) => (
             <div
@@ -78,13 +78,8 @@ export default function LogoMarquee({ variant = "landing", sanityLogos }: LogoMa
                 />
               ) : (
                 <span
-                  className="text-[18px] md:text-xl font-bold"
-                  style={{
-                    fontFamily: "var(--font-inter-tight)",
-                    color: isService ? "rgba(255,255,255,0.4)" : "rgba(0,40,80,0.35)",
-                    letterSpacing: "-0.02em",
-                    whiteSpace: "nowrap",
-                  }}
+                  className="type-b1 type-legacy-120"
+                  style={{ color: isService ? "rgba(255,255,255,0.4)" : "rgba(0,40,80,0.35)", whiteSpace: "nowrap" }}
                 >
                   {item.name}
                 </span>
@@ -92,7 +87,7 @@ export default function LogoMarquee({ variant = "landing", sanityLogos }: LogoMa
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -132,21 +130,19 @@ function TechnologyRows({
           <header className="flex flex-col justify-start border-b border-white/[0.08] p-6 md:p-7 lg:border-b-0 lg:border-r">
             {headingLevel === "primary" ? (
               <h3
-                className="text-2xl font-medium leading-[1.05] tracking-[-0.045em] text-[#F5F5F7]"
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                className="text-[#F5F5F7] type-legacy-140"
               >
                 {category.title}
               </h3>
             ) : (
               <h4
-                className="text-2xl font-medium leading-[1.05] tracking-[-0.045em] text-[#F5F5F7]"
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                className="text-[#F5F5F7] type-legacy-140"
               >
                 {category.title}
               </h4>
             )}
 
-            <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-[0.1em] text-white/38">
+            <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-white/38 type-label type-legacy-014">
               <span>
                 {category.items.length}{" "}
                 {category.items.length === 1 ? "technology" : "technologies"}
@@ -169,7 +165,7 @@ function TechnologyRows({
                 key={tech}
                 className="group flex items-center gap-5 border-b border-r border-white/[0.06] bg-[#09090B] p-6 transition-colors duration-300 hover:bg-[#101014] md:p-7"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#0052FF]/20 bg-[#0052FF]/[0.07] text-sm font-bold tracking-[0.04em] text-[#5F96FF]">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#0052FF]/20 bg-[#0052FF]/[0.07] text-[#5F96FF] type-b3 type-legacy-141">
                   {icons[tech] ? (
                     <Image
                       src={icons[tech]}
@@ -187,24 +183,18 @@ function TechnologyRows({
 
                 {headingLevel === "primary" ? (
                   <h4
-                    className="text-lg font-medium leading-tight tracking-[-0.035em] text-[#F5F5F7]"
-                    style={{ fontFamily: "var(--font-inter-tight)" }}
+                    className="text-[#F5F5F7] type-legacy-142"
                   >
                     {tech}
                   </h4>
                 ) : (
                   <h5
-                    className="text-lg font-medium leading-tight tracking-[-0.035em] text-[#F5F5F7]"
-                    style={{ fontFamily: "var(--font-inter-tight)" }}
+                    className="text-[#F5F5F7] type-legacy-142"
                   >
                     {tech}
                   </h5>
                 )}
 
-                <span
-                  aria-hidden="true"
-                  className="ml-auto h-1.5 w-1.5 bg-[#D0F505] opacity-30 transition-opacity duration-300 group-hover:opacity-100"
-                />
               </li>
             ))}
           </ul>
@@ -224,7 +214,7 @@ function SharedTechnologySection({
   icons,
 }: SharedTechnologySectionProps) {
   return (
-    <section className="relative overflow-hidden px-6 py-20 lg:px-12 lg:py-28">
+    <section className="defer-render relative overflow-hidden px-6 py-20 lg:px-12 lg:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -239,12 +229,11 @@ function SharedTechnologySection({
         <div className="mb-16 max-w-5xl">
           <SectionLabel>Technology</SectionLabel>
           <h2
-            className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:text-6xl md:leading-none md:tracking-[-0.065em]"
-            style={{ fontFamily: "var(--font-inter-tight)" }}
+            className="type-legacy-069"
           >
             {title}
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/52">
+          <p className="mt-6 max-w-xl text-white/52 type-b2 type-legacy-073">
             {description}
           </p>
         </div>
@@ -260,8 +249,7 @@ function SharedTechnologySection({
             <div className="mb-10 max-w-3xl">
               <SectionLabel>{additionalLabel}</SectionLabel>
               <h3
-                className="text-3xl font-medium leading-none tracking-[-0.015em] text-[#F5F5F7] md:text-5xl md:tracking-[-0.06em]"
-                style={{ fontFamily: "var(--font-inter-tight)" }}
+                className="text-[#F5F5F7] type-legacy-069"
               >
                 {additionalTitle}
               </h3>
@@ -295,17 +283,17 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
       ) : null}
 
       {/* 2. Outcomes */}
-      <section className="relative overflow-hidden px-6 py-20 lg:px-12 lg:py-28 z-10">
+      <section className="defer-render relative overflow-hidden px-6 py-20 lg:px-12 lg:py-28 z-10">
         <div aria-hidden="true" className="absolute inset-0 bg-[#030303]" />
         <div className="relative z-10 mx-auto max-w-[1600px]">
           <div className="mb-12 flex flex-col lg:flex-row justify-between lg:items-end gap-8">
             <div className="max-w-2xl">
               <SectionLabel>Outcomes</SectionLabel>
-              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)" }}>
+              <h2 className="mt-4 type-legacy-069">
                 Built for users, search engines and future product growth.
               </h2>
             </div>
-            <p className="mt-4 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/54">
+            <p className="mt-4 lg:mt-0 max-w-xl text-white/54 type-b3 type-legacy-023">
               We combine lean engineering with growth logic to ensure your product doesn&apos;t just launch, but thrives in the real world.
             </p>
           </div>
@@ -315,8 +303,8 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
                 <CardHoverEffects />
                 <div className="relative z-10">
                   <Icon className="mb-12 text-white/82" size={24} strokeWidth={1.6} aria-hidden="true" />
-                  <h3 className="text-xl font-medium tracking-[-0.015em] md:tracking-[-0.04em]" style={{ fontFamily: "var(--font-inter-tight)" }}>{title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-white/54">{description}</p>
+                  <h3 className="type-legacy-145">{title}</h3>
+                  <p className="mt-4 text-white/54 type-b3 type-legacy-023">{description}</p>
                 </div>
               </article>
             ))}
@@ -335,20 +323,20 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
       <div className="mx-auto max-w-[1600px] px-6 py-20 lg:px-12 lg:py-28 relative z-10">
         <div className="border border-white/[0.06] bg-white/[0.01] backdrop-blur-[20px]">
           <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-12 lg:gap-16">
-            <div className="p-8 lg:p-16 border-b border-white/[0.04] lg:border-b-0 lg:border-r border-white/[0.04]">
+            <div className="p-8 lg:p-16 border-b border-white/[0.04] lg:border-b-0 lg:border-r">
               <div className="relative z-10 h-full flex flex-col">
                 <SectionLabel>Why Arclink Edge</SectionLabel>
-                <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                <h2 className="mt-4 type-legacy-069">
                   Strategy, UI and engineering in one build.
                 </h2>
 
                 <div className="mt-auto pt-20">
-                  <p className="mb-6 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                  <p className="mb-6 text-white/50 type-label type-legacy-146">
                     Expertise across industries
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {industries.map((industry) => (
-                      <span key={industry} className="border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.05em] text-white/50 transition-colors duration-300 hover:border-[#D0F504]/30 hover:text-[#D0F504]">
+                      <span key={industry} className="border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-white/50 transition-colors duration-300 hover:border-[#D0F504]/30 hover:text-[#D0F504] type-label type-legacy-147">
                         {industry}
                       </span>
                     ))}
@@ -359,7 +347,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
 
             <div className="p-8 lg:p-16">
               <div className="relative z-10">
-                <p className="mb-12 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                <p className="mb-12 text-white/50 type-label type-legacy-146">
                   How we drive results
                 </p>
                 <div className="space-y-16 lg:space-y-24">
@@ -377,10 +365,10 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
                           )}
                         </div>
                         <div className="flex flex-col pt-2">
-                          <span className="text-[0.62rem] font-bold uppercase tracking-[0.35em] text-[#D0F504]/90" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                          <span className="text-[#D0F504]/90 type-label type-legacy-148">
                             Phase {index + 1} &mdash; {item.label}
                           </span>
-                          <h3 className="mt-1.5 text-xl font-medium leading-snug text-[#F5F5F7] md:text-2xl tracking-[-0.015em] md:tracking-[-0.035em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                          <h3 className="mt-1.5 text-[#F5F5F7] type-legacy-149">
                             {item.title}
                           </h3>
                         </div>
@@ -395,16 +383,16 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
       </div>
 
       {/* 4. Engagement Models */}
-      <section className="px-6 py-20 lg:px-12 lg:py-28 relative z-10">
+      <section className="defer-render px-6 py-20 lg:px-12 lg:py-28 relative z-10">
         <div className="mx-auto max-w-[1600px]">
           <div className="mb-12 flex flex-col lg:flex-row justify-between lg:items-end gap-8">
             <div className="max-w-2xl">
               <SectionLabel>Engagement Models</SectionLabel>
-              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl mt-4" style={{ fontFamily: "var(--font-inter-tight)" }}>
+              <h2 className="mt-4 type-legacy-069">
                 Pick the fastest path to value.
               </h2>
             </div>
-            <p className="mt-6 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/52">
+            <p className="mt-6 lg:mt-0 max-w-xl text-white/52 type-b3 type-legacy-023">
               Each model is structured around a clear business need, so clients can choose without reading a long proposal first.
             </p>
           </div>
@@ -418,50 +406,49 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
               >
                 <div className="relative z-10 flex h-full flex-col">
                   <div className="mb-12">
-                    <span className="inline-flex items-center gap-2 border border-[#D0F504]/20 bg-[#D0F504]/[0.06] px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#D0F504]">
+                    <span className="inline-flex items-center gap-2 border border-[#D0F504]/20 bg-[#D0F504]/[0.06] px-2.5 py-1 text-[#D0F504] type-label type-legacy-150">
                       <span className="h-1 w-1 rounded-full bg-[#D0F504] animate-pulse" />
                       {model.badge}
                     </span>
-                    <h3 className="mt-6 text-4xl font-medium leading-[0.95] text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.05em]" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                    <h3 className="mt-6 text-[#F5F5F7] type-legacy-151">
                       {model.title}
                     </h3>
                   </div>
 
                   <div className="flex-1 space-y-10">
                     <div>
-                      <p className="mb-3 text-[0.68rem] font-bold uppercase tracking-[0.15em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                      <p className="mb-3 text-white/50 type-label type-legacy-152">
                         Best for
                       </p>
-                      <p className="text-xl font-medium leading-snug text-white/88" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.015em" }}>
+                      <p className="text-white/88 type-b1 type-legacy-153">
                         {model.bestFor}
                       </p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-8 border-t border-white/[0.05] pt-10">
                       <div className="space-y-2">
-                        <p className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                        <p className="flex items-center gap-2 text-white/50 type-label type-legacy-154">
                           <Clock size={12} className="text-[#D0F504]/70" />
                           Timeline
                         </p>
-                        <p className="text-sm font-semibold text-white/72">{model.timeline}</p>
+                        <p className="text-white/72 type-b3 type-legacy-012">{model.timeline}</p>
                       </div>
                       <div className="space-y-2">
-                        <p className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white/50" style={{ fontFamily: "var(--font-inter-tight)" }}>
+                        <p className="flex items-center gap-2 text-white/50 type-label type-legacy-154">
                           <Zap size={12} className="text-[#D0F504]/70" />
                           Output
                         </p>
-                        <p className="text-sm font-semibold text-white/72">{model.output}</p>
+                        <p className="text-white/72 type-b3 type-legacy-012">{model.output}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="mt-12 flex items-center justify-between border-t border-white/[0.05] pt-8">
-                    <span className="text-5xl font-semibold leading-none text-white/60" style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.07em" }} aria-hidden="true">
+                    <span className="text-white/60 type-display type-legacy-155" aria-hidden="true">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span
-                      className="inline-flex items-center gap-2 text-sm font-medium text-white/60 transition-colors duration-200 group-hover:text-[#F5F5F7]"
-                      style={{ fontFamily: "var(--font-inter-tight)" }}
+                      className="inline-flex items-center gap-2 text-white/60 transition-colors duration-200 group-hover:text-[#F5F5F7] type-b3 type-legacy-025"
                     >
                       Discuss this model
                       <ArrowUpRight size={14} aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

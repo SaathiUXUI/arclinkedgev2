@@ -30,7 +30,7 @@ function TeamImage({
         border: "1px solid rgba(255,255,255,0.08)",
       }}
     >
-      <span className="absolute inset-0 flex items-center justify-center text-4xl font-semibold text-white/18">
+      <span className="absolute inset-0 flex items-center justify-center text-white/18 type-display type-legacy-185">
         {initials}
       </span>
       <Image
@@ -66,18 +66,17 @@ export function TeamMemberCard({ member, index }: { member: TeamPerson; index: n
       />
       <div className="p-5 lg:p-7">
         <div className="mb-4 flex items-center justify-between gap-4">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-white/32 font-bold">{member.experience || "Expert"}</p>
+          <p className="text-white/32 type-label type-legacy-186">{member.experience || "Expert"}</p>
           <span className="h-px flex-1 bg-white/10" />
         </div>
         <h3
-          className="text-xl font-medium text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.035em]"
-          style={{ fontFamily: "var(--font-inter-tight)" }}
+          className="text-[#F5F5F7] type-legacy-187"
         >
           {member.name}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-white/54">{member.role}</p>
+        <p className="mt-2 text-white/54 type-b3 type-legacy-023">{member.role}</p>
         {member.bio && (
-          <p className="text-xs text-white/30 leading-relaxed italic border-t border-white/5 pt-4 mt-4 line-clamp-2">
+          <p className="text-white/30 type-italic border-t border-white/5 pt-4 mt-4 line-clamp-2 type-label type-legacy-188">
             {member.bio}
           </p>
         )}
@@ -107,8 +106,8 @@ export function FounderCard({ founder }: { founder: TeamPerson }) {
       <div className="absolute bottom-0 left-[20%] right-[20%] h-[5%] bg-[#0052FF] mix-blend-screen blur-[40px] opacity-80 z-0" />
       <div className="absolute -bottom-2 left-[-10%] right-[-10%] w-[120%] h-[20%] bg-gradient-to-t from-white to-transparent mix-blend-screen blur-[24px] opacity-80 transition-opacity duration-500 group-hover:opacity-100 z-0" />
       <span
-        className="absolute right-6 top-6 z-20 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#050A18] shadow-[0_12px_30px_rgba(208,245,4,0.18)]"
-        style={{ backgroundColor: "#D0F504", fontFamily: "var(--font-inter-tight)" }}
+        className="absolute right-6 top-6 z-20 px-3 py-2 text-[#050A18] shadow-[0_12px_30px_rgba(208,245,4,0.18)] type-label type-legacy-189"
+        style={{ backgroundColor: "#D0F504" }}
       >
         Founder Profile
       </span>
@@ -124,12 +123,11 @@ export function FounderCard({ founder }: { founder: TeamPerson }) {
         />
         <div className="mt-6">
           <h3
-            className="mt-3 text-3xl font-medium text-[#F5F5F7] tracking-[-0.015em] md:tracking-[-0.04em]"
-            style={{ fontFamily: "var(--font-inter-tight)", lineHeight: 1 }}
+            className="mt-3 text-[#F5F5F7] type-legacy-190"
           >
             {founder.name}
           </h3>
-          <p className="mt-2 text-sm text-white/54">{founder.role}</p>
+          <p className="mt-2 text-white/54 type-b3 type-legacy-028">{founder.role}</p>
         </div>
       </div>
     </motion.article>

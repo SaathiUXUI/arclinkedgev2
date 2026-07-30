@@ -33,12 +33,12 @@ function StyledDropdown({
 
   return (
     <div className="space-y-2 relative group" ref={containerRef}>
-      <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">{label}</label>
+      <label className="text-white/50 type-legacy-033">{label}</label>
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="w-full bg-transparent border-b border-white/10 py-4 flex items-center justify-between cursor-pointer transition-all duration-300"
       >
-        <span className={`${value ? "text-[#F5F5F7]" : isOpen ? "text-[#F5F5F7]" : "text-[#F5F5F7]/54"} text-md transition-colors duration-300`}>
+        <span className={`${value ? "text-[#F5F5F7]" : isOpen ? "text-[#F5F5F7]" : "text-[#F5F5F7]/54"} transition-colors duration-300 type-b2`}>
           {value || placeholder}
         </span>
         <ChevronDown size={14} className={`text-white/50 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
@@ -66,7 +66,6 @@ function StyledDropdown({
           >
             <div
               className="max-h-[240px] overflow-y-auto custom-scrollbar relative"
-              data-lenis-prevent
               style={{ overscrollBehavior: "contain", WebkitOverflowScrolling: "touch" }}
             >
               {options.map((opt) => (
@@ -77,7 +76,7 @@ function StyledDropdown({
                     onChange(opt);
                     setIsOpen(false);
                   }}
-                  className={`px-5 py-3 text-sm transition-all duration-200 cursor-pointer ${value === opt ? "bg-[#F5F5F7] text-[#050A18]" : "text-[#F5F5F7] hover:bg-white/[0.05]"}`}
+                  className={[`px-5 py-3 transition-all duration-200 cursor-pointer type-b3 ${value === opt ? "bg-[#F5F5F7] text-[#050A18]" : "text-[#F5F5F7] hover:bg-white/[0.05]"}`, "type-legacy-028"].filter(Boolean).join(" ")}
                 >
                   <span>{opt}</span>
                 </div>
@@ -96,8 +95,8 @@ function SubmitButton({ children, isSubmitting }: { children: React.ReactNode; i
     <button
       type="submit"
       disabled={isSubmitting}
-      className="group relative inline-flex w-full cursor-pointer overflow-hidden text-sm font-semibold bg-[#F5F5F7] text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:scale-100 transition-all duration-300 ease-out disabled:opacity-70 disabled:cursor-not-allowed"
-      style={{ borderRadius: 0, fontFamily: "var(--font-inter-tight)" }}
+      className="group relative inline-flex w-full cursor-pointer overflow-hidden bg-[#F5F5F7] text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:scale-100 transition-all duration-300 ease-out disabled:opacity-70 disabled:cursor-not-allowed type-legacy-034"
+      style={{ borderRadius: 0 }}
     >
       <span
         className="flex w-full items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-full"
@@ -174,7 +173,7 @@ export default function HiringForm({ role }: { role?: string }) {
         <div className="flex h-16 w-16 items-center justify-center border border-[#0052FF]/20 bg-[#0052FF]/5 mb-6">
           <ArrowRight className="h-8 w-8 text-[#0052FF]" />
         </div>
-        <h3 className="text-3xl font-medium text-[#F5F5F7] mb-4" style={{ fontFamily: "var(--font-inter-tight)" }}>Request Sent!</h3>
+        <h3 className="text-[#F5F5F7] mb-4 type-legacy-035">Request Sent!</h3>
         <p className="text-white/40 max-w-xs">We&apos;ve received your hiring inquiry and will get back to you within 24 hours.</p>
       </div>
     );
@@ -186,7 +185,7 @@ export default function HiringForm({ role }: { role?: string }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Name */}
           <div className="space-y-2 relative group">
-            <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Your Name</label>
+            <label className="text-white/50 type-legacy-033">Your Name</label>
             <input
               type="text"
               placeholder="ex. John Doe"
@@ -205,7 +204,7 @@ export default function HiringForm({ role }: { role?: string }) {
           </div>
           {/* Email */}
           <div className="space-y-2 relative group">
-            <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Company Email</label>
+            <label className="text-white/50 type-legacy-033">Company Email</label>
             <input
               type="email"
               placeholder="example@company.com"
@@ -226,7 +225,7 @@ export default function HiringForm({ role }: { role?: string }) {
 
         {/* Company */}
         <div className="space-y-2 relative group">
-          <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Company Name</label>
+          <label className="text-white/50 type-legacy-033">Company Name</label>
           <input
             type="text"
             placeholder="ex. Arclink Edge"
@@ -264,7 +263,7 @@ export default function HiringForm({ role }: { role?: string }) {
 
         {/* Message */}
         <div className="space-y-2 relative group">
-          <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Requirements / Tech Stack</label>
+          <label className="text-white/50 type-legacy-033">Requirements / Tech Stack</label>
           <textarea
             rows={4}
             placeholder="Tell us more about the developer skills you need..."

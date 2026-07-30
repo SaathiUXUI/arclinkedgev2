@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { processSteps } from "@/lib/data";
 
 export default function Process() {
@@ -13,28 +10,21 @@ export default function Process() {
     >
       <div className="mx-auto max-w-[1600px]" style={{ paddingLeft: "clamp(16px, 5vw, 80px)", paddingRight: "clamp(16px, 5vw, 80px)" }}>
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <p
-            className="text-xs font-semibold uppercase tracking-widest mb-4"
-            style={{ color: "#0052FF", letterSpacing: "0.15em" }}
+            className="mb-4 type-label type-legacy-130"
+            style={{ color: "#0052FF" }}
           >
             Process
           </p>
           <h2
             id="process-heading"
-            className="text-4xl md:text-5xl font-extrabold tracking-[-0.02em] md:tracking-[-0.02em]"
-            style={{ fontFamily: "var(--font-inter-tight)",
-              color: "#F5F5F7", }}
+            className="type-legacy-131"
+            style={{ color: "#F5F5F7" }}
           >
             How we work
           </h2>
-        </motion.div>
+        </div>
 
         {/* Desktop: horizontal timeline */}
         <div className="hidden lg:block relative">
@@ -50,12 +40,8 @@ export default function Process() {
 
           <ol className="grid grid-cols-5 gap-4" role="list">
             {processSteps.map((step, i) => (
-              <motion.li
+              <li
                 key={step.number}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="relative pt-16"
               >
                 {/* Circle on line */}
@@ -68,29 +54,22 @@ export default function Process() {
                 </div>
 
                 <span
-                  className="block text-5xl font-extrabold mb-3"
-                  style={{
-                    fontFamily: "var(--font-inter-tight)",
-                    color: "rgba(0,82,255,0.15)",
-                    letterSpacing: "-0.04em",
-                  }}
+                  className="block mb-3 type-display type-legacy-132"
+                  style={{ color: "rgba(0,82,255,0.15)" }}
                   aria-hidden="true"
                 >
                   {step.number}
                 </span>
                 <h3
-                  className="text-base font-bold mb-2"
-                  style={{
-                    fontFamily: "var(--font-inter-tight)",
-                    color: "#F5F5F7",
-                  }}
+                  className="mb-2 type-legacy-133"
+                  style={{ color: "#F5F5F7" }}
                 >
                   {step.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#8E8E93" }}>
+                <p className="type-b3 type-legacy-023" style={{ color: "#8E8E93" }}>
                   {step.description}
                 </p>
-              </motion.li>
+              </li>
             ))}
           </ol>
         </div>
@@ -98,12 +77,8 @@ export default function Process() {
         {/* Mobile: vertical timeline */}
         <ol className="lg:hidden flex flex-col gap-0" role="list">
           {processSteps.map((step, i) => (
-            <motion.li
+            <li
               key={step.number}
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="relative flex gap-6 pb-10"
             >
               {/* Vertical line */}
@@ -123,23 +98,23 @@ export default function Process() {
                 style={{ backgroundColor: "rgba(0,82,255,0.1)", border: "1px solid #0052FF" }}
                 aria-hidden="true"
               >
-                <span className="text-xs font-bold" style={{ color: "#0052FF" }}>
+                <span className="type-label type-legacy-134" style={{ color: "#0052FF" }}>
                   {step.number}
                 </span>
               </div>
 
               <div className="pt-1.5">
                 <h3
-                  className="text-base font-bold mb-2"
-                  style={{ fontFamily: "var(--font-inter-tight)", color: "#F5F5F7" }}
+                  className="mb-2 type-legacy-133"
+                  style={{ color: "#F5F5F7" }}
                 >
                   {step.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#8E8E93" }}>
+                <p className="type-b3 type-legacy-023" style={{ color: "#8E8E93" }}>
                   {step.description}
                 </p>
               </div>
-            </motion.li>
+            </li>
           ))}
         </ol>
       </div>

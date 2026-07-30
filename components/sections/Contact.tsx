@@ -5,17 +5,23 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useForm, useController } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, CheckCircle, ChevronDown } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Cal, { getCalApi } from "@calcom/embed-react";
+import dynamic from "next/dynamic";
 import { contactSchema, type ContactFormData, budgetOptions, projectTypeOptions } from "@/lib/validations";
 import HeadingReveal from "@/components/ui/HeadingReveal";
 import {
   GLOBAL_SERVICE_AREAS,
   REMOTE_WORK_LABEL,
-  REMOTE_WORK_MESSAGE,
   REMOTE_WORK_SHORT,
 } from "@/lib/company";
+
+const CalScheduler = dynamic(() => import("@/components/ui/CalScheduler"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center bg-white/[0.02]">
+      <p className="text-white/20 type-loading-text">Loading scheduler...</p>
+    </div>
+  ),
+});
 
 // Local Submit Button that mimics PrimaryButton styling
 function SubmitButton({ isSubmitting, children }: { isSubmitting: boolean; children: React.ReactNode }) {
@@ -23,8 +29,8 @@ function SubmitButton({ isSubmitting, children }: { isSubmitting: boolean; child
     <button
       type="submit"
       disabled={isSubmitting}
-      className="group relative inline-flex w-full overflow-hidden text-sm font-semibold bg-[#F5F5F7] text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:scale-100 transition-all duration-300 ease-out disabled:opacity-70 disabled:cursor-not-allowed"
-      style={{ borderRadius: 0, fontFamily: "var(--font-inter-tight)" }}
+      className="group relative inline-flex w-full overflow-hidden bg-[#F5F5F7] text-[#050A18] hover:bg-[#EBEBEB] hover:scale-[1.02] active:scale-100 transition-all duration-300 ease-out disabled:opacity-70 disabled:cursor-not-allowed type-legacy-034"
+      style={{ borderRadius: 0 }}
     >
       {/* Default layer */}
       <span
@@ -53,43 +59,8 @@ function SubmitButton({ isSubmitting, children }: { isSubmitting: boolean; child
 }
 
 function DoodleWord({ children }: { children: React.ReactNode }) {
-  const wrapperRef = useRef<HTMLSpanElement>(null);
-  const doodleRef = useRef<SVGEllipseElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (!wrapperRef.current || !doodleRef.current) return;
-
-    const doodle = doodleRef.current;
-    const length = doodle.getTotalLength();
-
-    const ctx = gsap.context(() => {
-      gsap.set(doodle, {
-        strokeDasharray: length,
-        strokeDashoffset: length,
-        opacity: 0,
-      });
-
-      gsap.to(doodle, {
-        strokeDashoffset: 0,
-        opacity: 0.95,
-        duration: 0.65,
-        delay: 1.05,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: "top 82%",
-          once: true,
-        },
-      });
-    }, wrapperRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <span
-      ref={wrapperRef}
       className="relative inline-block whitespace-nowrap px-[0.16em] mx-[0.04em]"
       style={{ isolation: "isolate" }}
     >
@@ -102,7 +73,6 @@ function DoodleWord({ children }: { children: React.ReactNode }) {
         preserveAspectRatio="none"
       >
         <ellipse
-          ref={doodleRef}
           cx="110"
           cy="60"
           rx="98"
@@ -153,12 +123,12 @@ function StyledDropdown({
 
   return (
     <div className="space-y-2 relative group" ref={containerRef}>
-      <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">{label}</label>
+      <label className="text-white/50 type-legacy-033">{label}</label>
       <div
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full bg-transparent border-b ${error ? "border-[#ef4444]" : "border-white/10"} py-4 flex items-center justify-between cursor-pointer transition-all duration-300`}
       >
-        <span className={`${field.value ? "text-[#F5F5F7]" : isOpen ? "text-[#F5F5F7]" : "text-[#F5F5F7]/54"} text-md transition-colors duration-300`}>
+        <span className={`${field.value ? "text-[#F5F5F7]" : isOpen ? "text-[#F5F5F7]" : "text-[#F5F5F7]/54"} transition-colors duration-300 type-b2`}>
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <ChevronDown size={14} className={`text-white/50 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
@@ -186,7 +156,6 @@ function StyledDropdown({
           >
             <div
               className="max-h-[240px] overflow-y-auto custom-scrollbar relative"
-              data-lenis-prevent
               style={{
                 overscrollBehavior: "contain",
                 WebkitOverflowScrolling: "touch"
@@ -200,7 +169,7 @@ function StyledDropdown({
                     field.onChange(opt.value);
                     setIsOpen(false);
                   }}
-                  className={`px-5 py-3 text-sm transition-all duration-200 cursor-pointer ${field.value === opt.value ? "bg-[#F5F5F7] text-[#050A18]" : "text-[#F5F5F7] hover:bg-white/[0.05]"}`}
+                  className={[`px-5 py-3 transition-all duration-200 cursor-pointer type-b3 ${field.value === opt.value ? "bg-[#F5F5F7] text-[#050A18]" : "text-[#F5F5F7] hover:bg-white/[0.05]"}`, "type-legacy-028"].filter(Boolean).join(" ")}
                 >
                   <span>{opt.label}</span>
                 </div>
@@ -213,30 +182,16 @@ function StyledDropdown({
   );
 }
 
-export default function Contact({ isInternalPage = false }: { isInternalPage?: boolean }) {
+export default function Contact({
+  isInternalPage = false,
+  showScheduler = true,
+}: {
+  isInternalPage?: boolean;
+  showScheduler?: boolean;
+}) {
   const [submitted, setSubmitted] = useState(false);
   const contactRef = useRef<HTMLElement>(null);
   const isInView = useInView(contactRef, { once: true, margin: "200px" });
-
-  useEffect(() => {
-    if (!isInView) return;
-    
-    (async function () {
-      try {
-        const cal = await getCalApi();
-        if (cal) {
-          cal("ui", {
-            theme: "dark",
-            styles: { branding: { brandColor: "#0052FF" } },
-            hideEventTypeDetails: false,
-            layout: "month_view"
-          });
-        }
-      } catch (error) {
-        console.error("Cal.com initialization failed:", error);
-      }
-    })();
-  }, [isInView]);
 
   const {
     register,
@@ -274,7 +229,7 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
     <section
       ref={contactRef}
       id="contact"
-      className={`${isInternalPage ? "py-0 bg-transparent" : "py-24 lg:py-40 bg-[#000000]"} relative overflow-hidden`}
+      className={`${isInternalPage ? "py-0 bg-transparent" : "py-24 lg:py-40 bg-[#000000]"} defer-render relative overflow-hidden`}
       aria-labelledby="contact-heading"
     >
       {/* Background Blur Elements - Seamless at 0.2 Opacity */}
@@ -322,17 +277,13 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
 
       <div className={`${isInternalPage ? "px-0" : "mx-auto max-w-[1600px]"} relative z-10`} style={!isInternalPage ? { paddingLeft: "clamp(16px, 5vw, 80px)", paddingRight: "clamp(16px, 5vw, 80px)" } : {}}>
         {/* Cal.com Embed - Lazy loaded */}
-        {!isInternalPage && (
+        {!isInternalPage && showScheduler && (
           <div className="w-full min-h-[600px] overflow-hidden mb-24 lg:mb-32">
             {isInView ? (
-              <Cal
-                calLink="arclinkedge/project-scope-call"
-                style={{ width: "100%", height: "100%", overflow: "scroll" }}
-                config={{ layout: "month_view", theme: "dark" }}
-              />
+              <CalScheduler />
             ) : (
               <div className="w-full h-full bg-white/[0.02] animate-pulse flex items-center justify-center">
-                <p className="text-white/20 text-sm font-medium">Loading scheduler...</p>
+                <p className="text-white/20 type-b3 type-legacy-030">Loading scheduler...</p>
               </div>
             )}
           </div>
@@ -343,86 +294,70 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
           {/* Left Column: Info */}
           {!isInternalPage && (
             <div className="flex flex-col justify-between h-full py-2">
-            <div>
-              <HeadingReveal
-                id="contact-heading"
-                wrapperClassName="mb-8"
-                className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1]"
-                style={{
-                  fontFamily: "var(--font-inter-tight)",
-                  color: "#F5F5F7",
-                  letterSpacing: "-0.04em",
-                }}
-              >
-                <span style={{ color: "rgba(245,245,247,0.55)" }}>Let&apos;s make your</span>
-                <br />
-                <span
-                  style={{
-                    fontFamily: "var(--font-fraunces)",
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  vision
-                </span>{" "}
-                <span style={{ color: "rgba(245,245,247,0.55)" }}>come</span>{" "}
-                <DoodleWord>true</DoodleWord>
-              </HeadingReveal>
-
-              <p className="text-md md:text-md text-[#8E8E93] max-w-md leading-relaxed mb-16" style={{ letterSpacing: "-0.01em" }}>
-                At Arclink Edge, we turn complex ideas into seamless digital experiences. Whether you&apos;re starting from scratch or scaling up, we&apos;re here to help.
-              </p>
-            </div>
-
-            <div className="space-y-10 pt-10 lg:pt-0">
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-2 font-semibold">Send us a message</p>
-                <a
-                  href="mailto:hello@arclinkedge.com"
-                  className="text-2xl md:text-xl font-medium text-[#F5F5F7] hover:text-[#0052FF] transition-colors duration-300"
-                  style={{ letterSpacing: "-0.02em" }}
+                <HeadingReveal
+                  id="contact-heading"
+                  wrapperClassName="mb-8"
+                  className="type-legacy-194 type-landing-section-heading"
+                  style={{ color: "#F5F5F7" }}
                 >
-                  hello@arclinkedge.com
-                </a>
+                  <span style={{ color: "rgba(245,245,247,0.55)" }}>Let&apos;s make your</span>
+                  <br />
+                  <span>vision</span>{" "}
+                  <span style={{ color: "rgba(245,245,247,0.55)" }}>come</span>{" "}
+                  <DoodleWord>true</DoodleWord>
+                </HeadingReveal>
+
+                <p className="text-[#8E8E93] max-w-md mb-16 type-b2 type-legacy-098">
+                  At Arclink Edge, we turn complex ideas into seamless digital experiences. Whether you&apos;re starting from scratch or scaling up, we&apos;re here to help.
+                </p>
               </div>
 
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-4 font-semibold">Give us a call</p>
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4 group/phone">
-                    <img src="/flags/in.svg" alt="India Flag" className="w-6 h-4 object-cover" />
-                    <a
-                      href="tel:+919824838067"
-                      className="text-2xl md:text-xl font-medium text-[#F5F5F7] hover:text-[#0052FF] transition-colors duration-300"
-                      style={{ letterSpacing: "-0.02em" }}
-                    >
-                      +91 98248-38067
-                    </a>
-                  </div>
+              <div className="space-y-10 pt-10 lg:pt-0">
+                <div>
+                  <p className="text-white/50 mb-1 type-label type-legacy-196">Send us a message</p>
+                  <a
+                    href="mailto:hello@arclinkedge.com"
+                    className="text-[#F5F5F7] hover:text-[#0052FF] transition-colors duration-300 type-b1 type-legacy-197"
+                  >
+                    hello@arclinkedge.com
+                  </a>
+                </div>
 
-                  <div className="flex items-center gap-4 group/phone">
-                    <img src="/flags/us.svg" alt="USA Flag" className="w-6 h-4 object-cover" />
-                    <a
-                      href="tel:+12164184653"
-                      className="text-2xl md:text-xl font-medium text-[#F5F5F7] hover:text-[#0052FF] transition-colors duration-300"
-                      style={{ letterSpacing: "-0.02em" }}
-                    >
-                      +1 (216) 418-4653
-                    </a>
+                <div>
+                  <p className="text-white/50 mb-2 type-label type-legacy-196">Give us a call</p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-4 group/phone">
+                      <img src="/flags/in.svg" alt="India Flag" className="w-6 h-4 object-cover" />
+                      <a
+                        href="tel:+919824838067"
+                        className="text-[#F5F5F7] hover:text-[#0052FF] transition-colors duration-300 type-b1 type-legacy-197"
+                      >
+                        +91 98248-38067
+                      </a>
+                    </div>
+
+                    <div className="flex items-center gap-4 group/phone">
+                      <img src="/flags/us.svg" alt="USA Flag" className="w-6 h-4 object-cover" />
+                      <a
+                        href="tel:+12164184653"
+                        className="text-[#F5F5F7] hover:text-[#0052FF] transition-colors duration-300 type-b1 type-legacy-197"
+                      >
+                        +1 (216) 418-4653
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-[#D0F504]/80 mb-2 font-semibold">{REMOTE_WORK_LABEL}</p>
-                <p
-                  className="max-w-md text-lg md:text-xl font-medium text-[#F5F5F7] leading-relaxed"
-                >
-                  {REMOTE_WORK_SHORT}
-                </p>
-                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/42">{GLOBAL_SERVICE_AREAS}</p>
-              </div>
+                <div>
+                  <p className="text-white/50 mb-2 type-label type-legacy-196">Address</p>
+                  <p
+                    className="max-w-md text-[#F5F5F7] type-b1 type-legacy-198"
+                  >
+                    {REMOTE_WORK_SHORT}
+                  </p>
+                  <p className="mt-2 max-w-md text-white/42 type-b3 type-legacy-023">{GLOBAL_SERVICE_AREAS}</p>
+                </div>
               </div>
             </div>
           )}
@@ -446,7 +381,7 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
                   style={{ backgroundColor: "rgba(255,255,255,0.02)" }}
                 >
                   <CheckCircle size={64} className="text-[#0052FF] mb-6" />
-                  <h3 className="text-3xl font-medium text-[#F5F5F7] mb-4">Message Sent!</h3>
+                  <h3 className="text-[#F5F5F7] mb-4 type-legacy-199">Message Sent!</h3>
                   <p className="text-[#8E8E93] max-w-xs">
                     We&apos;ve received your message and will get back to you within 24 hours.
                   </p>
@@ -458,21 +393,10 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
                   className="space-y-8"
                   noValidate
                 >
-                  {isInternalPage && (
-                    <div className="border-l-2 border-[#D0F504] bg-[#D0F504]/[0.04] px-4 py-3">
-                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#D0F504]">
-                        {REMOTE_WORK_LABEL}
-                      </p>
-                      <p className="mt-1 text-xs leading-relaxed text-white/52">
-                        {REMOTE_WORK_MESSAGE}
-                      </p>
-                    </div>
-                  )}
-
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Name */}
                     <div className="space-y-2 relative group">
-                      <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold uppercase">Your Name</label>
+                      <label className="text-white/50 type-legacy-202">Your Name</label>
                       <input
                         {...register("name")}
                         type="text"
@@ -489,7 +413,7 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
                     </div>
                     {/* Email */}
                     <div className="space-y-2 relative group">
-                      <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold uppercase">Your Email</label>
+                      <label className="text-white/50 type-legacy-202">Your Email</label>
                       <input
                         {...register("email")}
                         type="email"
@@ -508,7 +432,7 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
 
                   {/* Company */}
                   <div className="space-y-2 relative group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Your Company Name</label>
+                    <label className="text-white/50 type-legacy-033">Your Company Name</label>
                     <input
                       {...register("company")}
                       type="text"
@@ -547,7 +471,7 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
 
                   {/* Message */}
                   <div className="space-y-2 relative group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">Message</label>
+                    <label className="text-white/50 type-legacy-033">Message</label>
                     <textarea
                       {...register("message")}
                       rows={4}

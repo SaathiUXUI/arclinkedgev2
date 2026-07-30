@@ -12,6 +12,76 @@
   --type-font-body: var(--font-inter);
   --type-font-heading: var(--font-inter-tight);
   --type-font-editorial: var(--font-fraunces);
+
+  /*
+   * Base typography tokens for new or unclassified content.
+   * Existing UI keeps its exact pre-migration appearance through the
+   * page-specific global presets in ORIGINAL_TYPOGRAPHY_PRESETS below.
+   */
+  --type-h1-size: clamp(3rem, 7vw, 7.5rem);
+  --type-h1-leading: 0.96;
+  --type-h1-tracking: -0.065em;
+  --type-h1-weight: 500;
+
+  --type-h2-size: clamp(2.5rem, 5.4vw, 6rem);
+  --type-h2-leading: 1;
+  --type-h2-tracking: -0.04em;
+  --type-h2-weight: 500;
+
+  --type-h3-size: clamp(1.75rem, 3vw, 2.75rem);
+  --type-h3-leading: 1.08;
+  --type-h3-tracking: -0.04em;
+  --type-h3-weight: 500;
+
+  --type-h4-size: clamp(1.35rem, 2vw, 2rem);
+  --type-h4-leading: 1.15;
+  --type-h4-tracking: -0.025em;
+  --type-h4-weight: 500;
+
+  --type-h5-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  --type-h5-leading: 1.25;
+  --type-h5-tracking: -0.018em;
+  --type-h5-weight: 500;
+
+  --type-h6-size: 1rem;
+  --type-h6-leading: 1.35;
+  --type-h6-tracking: -0.012em;
+  --type-h6-weight: 600;
+
+  --type-b1-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  --type-b1-leading: 1.65;
+  --type-b1-tracking: -0.012em;
+  --type-b1-weight: 400;
+
+  --type-b2-size: 1rem;
+  --type-b2-leading: 1.6;
+  --type-b2-tracking: -0.011em;
+  --type-b2-weight: 400;
+
+  --type-b3-size: 0.875rem;
+  --type-b3-leading: 1.6;
+  --type-b3-tracking: -0.006em;
+  --type-b3-weight: 400;
+
+  --type-label-size: 0.68rem;
+  --type-label-leading: 1.35;
+  --type-label-tracking: 0.16em;
+  --type-label-weight: 700;
+  --type-label-transform: uppercase;
+
+  --type-button-size: 0.875rem;
+  --type-button-leading: 1;
+  --type-button-tracking: -0.005em;
+  --type-button-weight: 600;
+  --type-button-transform: capitalize;
+
+  --type-display-size: clamp(3.5rem, 8vw, 8rem);
+  --type-display-leading: 0.9;
+  --type-display-tracking: -0.07em;
+  --type-display-weight: 500;
+
+  --type-wordmark-size: 19vw;
+  --type-editorial-style: italic;
 }
 
 @theme inline {
@@ -39,33 +109,2640 @@ html {
 body {
   background-color: #0A0A0B;
   color: #F5F5F7;
-  font-family: var(--type-font-body), system-ui, sans-serif;
-  line-height: 1.6;
+  font-family: var(--type-font-body);
+  line-height: var(--type-b2-leading);
   overflow-x: hidden;
-  letter-spacing: -0.011em;
+  letter-spacing: var(--type-b2-tracking);
 }
 
-/*
- * Semantic typography foundation
- *
- * Heading levels communicate document structure; they do not impose a visual
- * size. Existing utility classes and component styles remain the visual source
- * of truth, so assigning the correct h1-h6 tag cannot change the design at any
- * viewport.
- */
+/* Semantic typography system. All type metrics are controlled above. */
 @layer base {
   :where(h1, h2, h3, h4, h5, h6) {
     color: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    font-style: inherit;
-    font-weight: inherit;
-    letter-spacing: inherit;
-    line-height: inherit;
+    font-family: var(--type-font-heading);
   }
 
-  :where(p, li, dt, dd, blockquote, figcaption) {
-    font-family: inherit;
+  h1,
+  .type-h1 {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-h1-size);
+    line-height: var(--type-h1-leading);
+    letter-spacing: var(--type-h1-tracking);
+    font-weight: var(--type-h1-weight);
+  }
+
+  h2,
+  .type-h2 {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-h2-size);
+    line-height: var(--type-h2-leading);
+    letter-spacing: var(--type-h2-tracking);
+    font-weight: var(--type-h2-weight);
+  }
+
+  h3,
+  .type-h3 {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-h3-size);
+    line-height: var(--type-h3-leading);
+    letter-spacing: var(--type-h3-tracking);
+    font-weight: var(--type-h3-weight);
+  }
+
+  h4,
+  .type-h4 {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-h4-size);
+    line-height: var(--type-h4-leading);
+    letter-spacing: var(--type-h4-tracking);
+    font-weight: var(--type-h4-weight);
+  }
+
+  h5,
+  .type-h5 {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-h5-size);
+    line-height: var(--type-h5-leading);
+    letter-spacing: var(--type-h5-tracking);
+    font-weight: var(--type-h5-weight);
+  }
+
+  h6,
+  .type-h6 {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-h6-size);
+    line-height: var(--type-h6-leading);
+    letter-spacing: var(--type-h6-tracking);
+    font-weight: var(--type-h6-weight);
+  }
+
+  :where(p, li, dt, dd, blockquote, figcaption, input, textarea, select) {
+    font-family: var(--type-font-body);
+    font-size: var(--type-b2-size);
+    line-height: var(--type-b2-leading);
+    letter-spacing: var(--type-b2-tracking);
+    font-weight: var(--type-b2-weight);
+  }
+
+  :where(button, [role="button"]),
+  .type-button {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-button-size);
+    line-height: var(--type-button-leading);
+    letter-spacing: var(--type-button-tracking);
+    font-weight: var(--type-button-weight);
+    text-transform: var(--type-button-transform);
+  }
+
+  label,
+  .type-label {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-label-size);
+    line-height: var(--type-label-leading);
+    letter-spacing: var(--type-label-tracking);
+    font-weight: var(--type-label-weight);
+    text-transform: var(--type-label-transform);
+  }
+
+  .type-b1 {
+    font-family: var(--type-font-body);
+    font-size: var(--type-b1-size);
+    line-height: var(--type-b1-leading);
+    letter-spacing: var(--type-b1-tracking);
+    font-weight: var(--type-b1-weight);
+  }
+
+  .type-b2 {
+    font-family: var(--type-font-body);
+    font-size: var(--type-b2-size);
+    line-height: var(--type-b2-leading);
+    letter-spacing: var(--type-b2-tracking);
+    font-weight: var(--type-b2-weight);
+  }
+
+  .type-b3 {
+    font-family: var(--type-font-body);
+    font-size: var(--type-b3-size);
+    line-height: var(--type-b3-leading);
+    letter-spacing: var(--type-b3-tracking);
+    font-weight: var(--type-b3-weight);
+  }
+
+  .type-label {
+    text-transform: var(--type-label-transform);
+  }
+
+  .type-display {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-display-size);
+    line-height: var(--type-display-leading);
+    letter-spacing: var(--type-display-tracking);
+    font-weight: var(--type-display-weight);
+  }
+
+  .type-editorial {
+    font-family: var(--type-font-editorial);
+    font-style: var(--type-editorial-style);
+  }
+
+  .type-uppercase {
+    text-transform: uppercase;
+  }
+
+  .type-italic,
+  .type-prose blockquote {
+    font-style: italic;
+  }
+
+  .type-wordmark {
+    font-family: var(--type-font-heading);
+    font-size: var(--type-wordmark-size);
+    line-height: var(--type-display-leading);
+    letter-spacing: var(--type-display-tracking);
+    font-weight: var(--type-display-weight);
+  }
+}
+
+/* ORIGINAL_TYPOGRAPHY_PRESETS_START */
+/* Generated from the pre-global-typography visual baseline. */
+/*
+ * Each type-legacy-* preset contains the former component-level font metrics.
+ * Edit the matching preset here; component files only reference its class.
+ */
+
+.type-legacy-001 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1.05;
+}
+
+.type-legacy-002 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.625;
+}
+
+.type-legacy-003 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.type-legacy-004 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.type-legacy-005 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.type-legacy-006 {
+  font-family: var(--font-fraunces);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-007 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  line-height: 1.625;
+}
+
+.type-legacy-008 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.625;
+}
+
+.type-legacy-009 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-010 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.05em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+.type-legacy-011 {
+  font-family: var(--font-inter);
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.625;
+}
+
+.type-legacy-012 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-013 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-014 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-015 {
+  font-family: var(--font-inter-tight);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.type-legacy-015 h2 {
+  font-size: 1.875rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 2.25rem;
+}
+
+.type-legacy-015 h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+.type-legacy-015 p {
+  line-height: 1.625;
+}
+
+.type-legacy-015 blockquote {
+  font-style: italic;
+}
+
+.type-legacy-015 strong {
+  font-weight: 600;
+}
+
+.type-legacy-016 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.type-legacy-017 {
+  font-family: var(--font-inter);
+  letter-spacing: -0.015em;
+}
+
+.type-legacy-018 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-019 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1.05;
+}
+
+.type-legacy-020 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+.type-legacy-021 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.type-legacy-022 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.type-legacy-023 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+.type-legacy-024 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-025 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-026 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.type-legacy-027 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.05em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.type-legacy-028 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-029 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.type-legacy-030 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-031 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.type-legacy-032 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.type-legacy-033 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-034 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-035 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.type-legacy-036 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.type-legacy-037 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.type-legacy-038 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.type-legacy-039 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-040 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.type-legacy-041 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.type-legacy-042 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.09em;
+  text-transform: none;
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.type-legacy-043 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.type-legacy-044 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.type-legacy-045 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.type-legacy-046 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.type-legacy-047 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.type-legacy-048 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.025em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+.type-legacy-049 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0em;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.type-legacy-050 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+.type-legacy-051 {
+  font-family: var(--font-inter-tight);
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -0.06em;
+  text-transform: none;
+  font-size: clamp(6rem, 25vw, 14rem);
+  line-height: 0.8;
+}
+
+.type-legacy-052 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.type-legacy-053 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.08em;
+  text-transform: none;
+  font-size: 12rem;
+  line-height: 0.8;
+}
+
+.type-legacy-054 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+.type-legacy-055 {
+  font-family: var(--font-fraunces);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-056 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.type-legacy-057 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.625;
+}
+
+.type-legacy-058 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+.type-legacy-059 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-060 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-061 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1.05;
+}
+
+.type-legacy-062 {
+  font-style: italic;
+  font-family: var(--font-fraunces);
+}
+
+.type-legacy-063 {
+  font-family: var(--font-inter);
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.type-legacy-064 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1.25;
+}
+
+.type-legacy-065 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.625;
+}
+
+.type-legacy-066 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-067 {
+  font-family: var(--font-inter-tight);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.075em;
+  text-transform: none;
+  font-size: 5.2rem;
+  line-height: 0.82;
+}
+
+.type-legacy-068 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.375;
+}
+
+.type-legacy-069 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+.type-legacy-070 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.09em;
+  text-transform: none;
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.type-legacy-071 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.68rem;
+}
+
+.type-legacy-072 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.07em;
+  text-transform: none;
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.type-legacy-073 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+.type-legacy-074 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.72rem;
+}
+
+.type-legacy-075 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.type-legacy-076 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.type-legacy-077 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.type-legacy-078 {
+  font-family: var(--font-inter-tight);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.625;
+}
+
+.type-legacy-079 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-080 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-081 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+.type-legacy-082 {
+  font-style: italic;
+  font-weight: 400;
+  font-family: var(--font-fraunces);
+}
+
+.type-legacy-083 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.type-legacy-084 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.type-legacy-085 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.05em;
+  text-transform: none;
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.type-legacy-086 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-087 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.055em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.type-legacy-088 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.75rem;
+  line-height: 1.375;
+}
+
+.type-legacy-089 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.065em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 0.98;
+}
+
+.type-legacy-090 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+.type-legacy-091 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.type-legacy-092 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.07em;
+  text-transform: none;
+  font-size: clamp(3.2rem, 8vw, 6.8rem);
+  line-height: 0.95;
+}
+
+.type-legacy-093 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+.type-legacy-094 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.type-legacy-095 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1.08;
+}
+
+.type-legacy-096 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  line-height: 1.08;
+}
+
+.type-legacy-097 {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  line-height: 1;
+}
+
+.type-legacy-098 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  line-height: 1.625;
+}
+
+.type-legacy-099 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+.type-legacy-100 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-101 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.025em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.type-legacy-102 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.type-legacy-103 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.type-legacy-104 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-105 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-106 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+.type-legacy-107 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.05em;
+  text-transform: none;
+  font-size: 19vw;
+  line-height: 1;
+}
+
+.type-legacy-108 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 0.75rem;
+}
+
+.type-legacy-109 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.type-legacy-110 {
+  font-family: var(--font-inter-tight);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.3;
+}
+
+.type-legacy-111 {
+  font-family: var(--font-fraunces);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.type-legacy-112 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.type-legacy-113 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: clamp(3.2rem, 8vw, 6.8rem);
+  line-height: 0.95;
+}
+
+.type-legacy-114 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+}
+
+.type-legacy-115 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-116 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 1;
+}
+
+.type-legacy-117 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.55rem;
+  line-height: 1.05;
+}
+
+.type-legacy-118 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.type-legacy-119 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.type-legacy-120 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 18px;
+}
+
+.type-legacy-121 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-122 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.1px;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-123 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+.type-legacy-124 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  font-size: 0.9rem;
+}
+
+.type-legacy-125 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.type-legacy-126 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-127 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  line-height: 1;
+}
+
+.type-legacy-128 {
+  font-family: var(--font-inter-tight);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  font-size: 0.95rem;
+}
+
+.type-legacy-129 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.type-legacy-130 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-131 {
+  font-family: var(--font-inter-tight);
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.type-legacy-132 {
+  font-family: var(--font-inter-tight);
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.type-legacy-133 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.type-legacy-134 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-135 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: clamp(3.2rem, 8vw, 6.8rem);
+  line-height: 0.95;
+}
+
+.type-legacy-136 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: clamp(1.6rem, 4.4vw, 3.2rem);
+  line-height: 0.94;
+}
+
+.type-legacy-137 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: clamp(1.1rem, 1.45vw, 1.8rem);
+}
+
+.type-legacy-138 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.type-legacy-139 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 0.94;
+}
+
+.type-legacy-140 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.3rem;
+  line-height: 1.05;
+}
+
+.type-legacy-141 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-142 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.25;
+}
+
+.type-legacy-143 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+.type-legacy-144 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 1;
+}
+
+.type-legacy-145 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-146 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.type-legacy-147 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.type-legacy-148 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+}
+
+.type-legacy-149 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.375;
+}
+
+.type-legacy-150 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+}
+
+.type-legacy-151 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 0.95;
+}
+
+.type-legacy-152 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.type-legacy-153 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.375;
+}
+
+.type-legacy-154 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+}
+
+.type-legacy-155 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.07em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.type-legacy-156 {
+  font-family: var(--font-inter-tight);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+  line-height: 1.3;
+}
+
+.type-legacy-157 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: clamp(4.2rem, 6.5vw, 7.5rem);
+  line-height: 1;
+}
+
+.type-legacy-158 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+}
+
+.type-legacy-159 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  line-height: 1.6;
+}
+
+.type-legacy-160 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.type-legacy-161 {
+  font-family: var(--font-inter-tight);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+  line-height: 1.3;
+}
+
+.type-legacy-162 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+}
+
+.type-legacy-163 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.type-legacy-164 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 1.12;
+}
+
+.type-legacy-165 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-166 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-167 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  line-height: 1.1;
+}
+
+.type-legacy-168 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.9rem;
+}
+
+.type-legacy-169 {
+  font-weight: 400;
+}
+
+.type-legacy-170 {
+  font-family: var(--font-inter-tight);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.type-legacy-171 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+.type-legacy-172 {
+  font-weight: 500;
+}
+
+.type-legacy-173 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-174 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.type-legacy-175 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+.type-legacy-176 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-177 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.type-legacy-178 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+.type-legacy-179 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-180 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-181 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-182 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-183 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-184 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+}
+
+.type-legacy-185 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.type-legacy-186 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-187 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.type-legacy-188 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.75rem;
+  line-height: 1.625;
+}
+
+.type-legacy-189 {
+  font-family: var(--font-inter-tight);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-190 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 1;
+}
+
+.type-legacy-191 {
+  font-family: var(--font-inter);
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.type-legacy-192 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.type-legacy-193 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-194 {
+  font-family: var(--font-inter-tight);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.type-legacy-195 {
+  font-family: var(--font-fraunces);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.type-legacy-196 {
+  font-family: var(--font-inter);
+  font-weight: 00;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.type-legacy-197 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.type-legacy-198 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.type-legacy-199 {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.type-legacy-200 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.type-legacy-201 {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.011em;
+  text-transform: none;
+  font-size: 0.75rem;
+  line-height: 1.625;
+}
+
+.type-legacy-202 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+@media (min-width: 40rem) {
+  .type-legacy-067 {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 48rem) {
+  .type-legacy-001 {
+    font-size: 4.5rem;
+    line-height: 0.92;
+    letter-spacing: -0.075em;
+  }
+
+  .type-legacy-002 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .type-legacy-003 {
+    font-size: 3rem;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .type-legacy-004 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .type-legacy-005 {
+    font-size: 3.75rem;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .type-legacy-006 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .type-legacy-008 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .type-legacy-010 {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .type-legacy-011 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .type-legacy-016 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .type-legacy-019 {
+    line-height: 1rem;
+    letter-spacing: -0.04em;
+    font-size: 4rem;
+  }
+
+  .type-legacy-020 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .type-legacy-021 {
+    font-size: 3.75rem;
+    letter-spacing: -0.065em;
+    line-height: 1;
+  }
+
+  .type-legacy-022 {
+    font-size: 2.25rem;
+    letter-spacing: -0.055em;
+    line-height: 2.5rem;
+  }
+
+  .type-legacy-026 {
+    font-size: 2.25rem;
+    letter-spacing: -0.045em;
+    line-height: 2.5rem;
+  }
+
+  .type-legacy-027 {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .type-legacy-032 {
+    font-size: 2.25rem;
+    letter-spacing: -0.05em;
+    line-height: 2.5rem;
+  }
+
+  .type-legacy-036 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .type-legacy-038 {
+    font-size: 3rem;
+    letter-spacing: -0.065em;
+    line-height: 1;
+  }
+
+  .type-legacy-042 {
+    font-size: 10rem;
+  }
+
+  .type-legacy-043 {
+    font-size: 3.75rem;
+    letter-spacing: -0.065em;
+    line-height: 1;
+  }
+
+  .type-legacy-044 {
+    font-size: 3rem;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .type-legacy-045 {
+    letter-spacing: -0.04em;
+  }
+
+  .type-legacy-052 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .type-legacy-056 {
+    font-size: 4.5rem;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  .type-legacy-057 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .type-legacy-061 {
+    font-size: 4.5rem;
+    line-height: 0.96;
+    letter-spacing: -0.075em;
+  }
+
+  .type-legacy-063 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .type-legacy-064 {
+    font-size: 3.75rem;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  .type-legacy-069 {
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    font-size: 3.75rem;
+  }
+
+  .type-legacy-070 {
+    font-size: 10rem;
+  }
+
+  .type-legacy-075 {
+    letter-spacing: -0.05em;
+  }
+
+  .type-legacy-076 {
+    font-size: 2.25rem;
+    letter-spacing: -0.055em;
+    line-height: 2.5rem;
+  }
+
+  .type-legacy-077 {
+    font-size: 1.875rem;
+    letter-spacing: -0.05em;
+    line-height: 2.25rem;
+  }
+
+  .type-legacy-078 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .type-legacy-081 {
+    font-size: 3.75rem;
+    letter-spacing: -0.065em;
+    line-height: 1;
+  }
+
+  .type-legacy-084 {
+    letter-spacing: -0.05em;
+  }
+
+  .type-legacy-087 {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .type-legacy-088 {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .type-legacy-089 {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .type-legacy-090 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .type-legacy-091 {
+    font-size: 1.875rem;
+    letter-spacing: -0.04em;
+    line-height: 2.25rem;
+  }
+
+  .type-legacy-093 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .type-legacy-095 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .type-legacy-096 {
+    font-size: clamp(3rem, 6.2vw, 4.5rem);
+  }
+
+  .type-legacy-099 {
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .type-legacy-100 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .type-legacy-102 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .type-legacy-109 {
+    font-size: 0.72rem;
+  }
+
+  .type-legacy-113 {
+    letter-spacing: -0.07em;
+  }
+
+  .type-legacy-117 {
+    font-size: 1.7rem;
+  }
+
+  .type-legacy-119 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .type-legacy-120 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .type-legacy-131 {
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .type-legacy-135 {
+    letter-spacing: -0.07em;
+  }
+
+  .type-legacy-143 {
+    font-size: 3.75rem;
+    line-height: 1;
+    letter-spacing: -0.065em;
+  }
+
+  .type-legacy-144 {
+    font-size: 3rem;
+    letter-spacing: -0.06em;
+    line-height: 1;
+  }
+
+  .type-legacy-145 {
+    letter-spacing: -0.04em;
+  }
+
+  .type-legacy-149 {
+    font-size: 1.5rem;
+    letter-spacing: -0.035em;
+    line-height: 2rem;
+  }
+
+  .type-legacy-151 {
+    letter-spacing: -0.05em;
+  }
+
+  .type-legacy-156 {
+    letter-spacing: -0.03em;
+  }
+
+  .type-legacy-164 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .type-legacy-167 {
+    letter-spacing: -0.03em;
+  }
+
+  .type-legacy-177 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .type-legacy-178 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .type-legacy-187 {
+    letter-spacing: -0.035em;
+  }
+
+  .type-legacy-190 {
+    letter-spacing: -0.04em;
+  }
+
+  .type-legacy-191 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .type-legacy-194 {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .type-legacy-197 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .type-legacy-198 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .type-legacy-001 {
+    font-size: 8rem;
+    line-height: 1;
+  }
+
+  .type-legacy-010 {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .type-legacy-019 {
+    font-size: 5.125rem;
+    line-height: 1.1;
+  }
+
+  .type-legacy-048 {
+    font-size: 3rem;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+  }
+
+  .type-legacy-049 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .type-legacy-053 {
+    font-size: 16rem;
+  }
+
+  .type-legacy-061 {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .type-legacy-067 {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .type-legacy-085 {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .type-legacy-089 {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .type-legacy-194 {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 80rem) {
+  .type-legacy-067 {
+    font-size: 8rem;
+    line-height: 1;
+  }
+
+  .type-legacy-070 {
+    font-size: 11rem;
+  }
+
+  .type-legacy-095 {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .type-legacy-096 {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
+/* ORIGINAL_TYPOGRAPHY_PRESETS_END */
+
+/*
+ * Shared landing-page section heading metrics.
+ * Color, font family, weight and decorative styles remain section-specific.
+ */
+.type-landing-section-heading {
+  font-family: var(--type-font-heading);
+  font-size: var(--type-h2-size);
+  line-height: var(--type-h2-leading);
+  letter-spacing: var(--type-h2-tracking);
+  font-weight: var(--type-h2-weight);
+}
+
+.type-landing-section-heading :where(*) {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+}
+
+.type-contact-page-title {
+  font-family: var(--font-inter-tight);
+  font-size: 3.75rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.type-contact-page-intro {
+  font-family: var(--font-inter);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.625;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 48rem) {
+  .type-contact-page-title {
+    font-size: 4.5rem;
+  }
+
+  .type-contact-page-intro {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .type-contact-page-title {
+    font-size: 8rem;
   }
 }
 
@@ -79,10 +2756,15 @@ body {
   background: #0052FF;
   color: #fff;
   border-radius: 0 0 0.5rem 0.5rem;
-  font-weight: 600;
+  font-family: var(--type-font-heading);
+  font-size: var(--type-button-size);
+  line-height: var(--type-button-leading);
+  letter-spacing: var(--type-button-tracking);
+  font-weight: var(--type-button-weight);
   text-decoration: none;
   transition: top 0.2s;
 }
+
 .skip-to-content:focus {
   top: 0;
 }
@@ -91,13 +2773,16 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #0A0A0B;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #1F1F23;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #0052FF;
 }
@@ -127,8 +2812,13 @@ body {
 
 /* Marquee animation */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
@@ -165,18 +2855,99 @@ body {
 /* Card border gradient */
 .card-gradient-border {
   background: linear-gradient(#141416, #141416) padding-box,
-              linear-gradient(135deg, rgba(0,82,255,0.3), rgba(255,255,255,0.05)) border-box;
+    linear-gradient(135deg, rgba(0, 82, 255, 0.3), rgba(255, 255, 255, 0.05)) border-box;
   border: 1px solid transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
   .marquee-track {
     animation: none;
   }
+}
+
+/*
+ * Mobile performance mode: keep all content and interactions available while
+ * avoiding continuous animation, smooth-scroll RAF work and expensive glass blur.
+ */
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-glow,
+  .grain-overlay {
+    display: none !important;
+  }
+
+  [class*="backdrop-blur"] {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /*
+   * Keep lightweight, content-bearing marquees active while the broader
+   * mobile performance mode continues to suppress heavier motion.
+   */
+  .mobile-continuous-animation {
+    animation-duration: var(--mobile-animation-duration, 30s) !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
+  }
+
+  .mobile-animation-25s {
+    --mobile-animation-duration: 25s;
+  }
+
+  .mobile-animation-28s {
+    --mobile-animation-duration: 28s;
+  }
+
+  .mobile-animation-45s {
+    --mobile-animation-duration: 45s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-continuous-animation {
+    animation: none !important;
+  }
+}
+
+/* Skip below-the-fold layout and paint work until content approaches the viewport. */
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* Continuous CSS tracks run only while they are near the viewport. */
+[data-pause-offscreen]:not([data-animation-visible="true"]) {
+  animation-play-state: paused !important;
+}
+
+.footer-social-icon {
+  filter: brightness(0) invert(1);
+}
+
+.group:hover .footer-social-icon {
+  filter: invert(19%) sepia(100%) saturate(3474%) hue-rotate(222deg)
+    brightness(101%) contrast(106%);
 }

@@ -60,7 +60,7 @@ export default function CaseStudyCard({
             borderRadius: 0,
           }}
         >
-          <span className="text-[10px] uppercase tracking-widest font-medium text-white drop-shadow-md">
+          <span className="text-white drop-shadow-md type-label type-legacy-165">
             View Details
           </span>
         </motion.div>
@@ -80,7 +80,7 @@ export default function CaseStudyCard({
               loading={i < 2 ? "eager" : "lazy"}
             />
           ) : (
-            <div className="w-full h-full bg-[#1F1F23] flex items-center justify-center text-white/10 text-xl font-bold">
+            <div className="w-full h-full bg-[#1F1F23] flex items-center justify-center text-white/10 type-b1 type-legacy-166">
               <span>Project Preview</span>
             </div>
           )}
@@ -94,20 +94,16 @@ export default function CaseStudyCard({
           </div>
 
           <HeadingTag
-            className="mb-1.5 tracking-[-0.015em] md:tracking-[-0.03em]"
-            style={{ fontFamily: "var(--font-inter-tight)",
-              fontSize: "clamp(1.05rem, 1.5vw, 1.35rem)",
-              fontWeight: 500,
-              color: "#F5F5F7",
-              lineHeight: 1.1 }}
+            className="mb-1.5 type-legacy-167"
+            style={{ color: "#F5F5F7" }}
           >
             {study.title}
           </HeadingTag>
 
           {(study.metric || study.metricLabel) && (
-            <p className="flex items-center gap-2" style={{ fontSize: "0.9rem", fontWeight: 600, color: "#22C55E" }}>
+            <p className="flex items-center gap-2 type-legacy-168" style={{ color: "#22C55E" }}>
               {study.metric}{" "}
-              <span style={{ color: "rgba(245,245,247,0.4)", fontWeight: 400 }}>{study.metricLabel}</span>
+              <span className="type-legacy-169" style={{ color: "rgba(245,245,247,0.4)" }}>{study.metricLabel}</span>
             </p>
           )}
         </div>

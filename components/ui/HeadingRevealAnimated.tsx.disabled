@@ -1,0 +1,85 @@
+// Archived implementation for optional future restoration.
+// This file is intentionally excluded from TypeScript builds and production bundles.
+"use client";
+
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
+import { shouldDisableEnhancedMotion } from "@/lib/performance";
+
+type HeadingRevealProps = {
+  id?: string;
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties;
+  wrapperClassName?: string;
+  wrapperStyle?: CSSProperties;
+};
+
+export default function HeadingRevealAnimated({
+  id,
+  children,
+  className = "",
+  style,
+  wrapperClassName = "",
+  wrapperStyle,
+}: HeadingRevealProps) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!wrapperRef.current) return;
+    if (shouldDisableEnhancedMotion()) {
+      wrapperRef.current.style.overflow = "visible";
+      return;
+    }
+
+    let active = true;
+    let cleanup: (() => void) | undefined;
+
+    void Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
+      ([{ default: gsap }, { ScrollTrigger }]) => {
+        if (!active || !wrapperRef.current) return;
+        gsap.registerPlugin(ScrollTrigger);
+        const ctx = gsap.context(() => {
+          if (wrapperRef.current) wrapperRef.current.style.overflow = "hidden";
+          gsap.from(".heading-reveal-line", {
+            scrollTrigger: { trigger: wrapperRef.current, start: "top 88%" },
+            y: "110%",
+            skewY: 4,
+            transformOrigin: "left bottom",
+            duration: 1.1,
+            ease: "power4.out",
+            onComplete: () => {
+              if (wrapperRef.current) wrapperRef.current.style.overflow = "visible";
+            },
+          });
+        }, wrapperRef);
+        cleanup = () => ctx.revert();
+      },
+    );
+
+    return () => {
+      active = false;
+      cleanup?.();
+    };
+  }, []);
+
+  return (
+    <div
+      ref={wrapperRef}
+      className={wrapperClassName}
+      style={{
+        overflow: "hidden",
+        paddingBottom: "0.35em",
+        paddingRight: "0.25em",
+        ...wrapperStyle,
+      }}
+    >
+      <h2
+        id={id}
+        className={`heading-reveal-line ${className}`.trim()}
+        style={{ display: "inline-block", ...style }}
+      >
+        {children}
+      </h2>
+    </div>
+  );
+}

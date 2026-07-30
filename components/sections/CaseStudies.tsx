@@ -41,7 +41,7 @@ export default function CaseStudies({ sanityProjects }: { sanityProjects?: Sanit
   return (
     <section
       id="case-studies"
-      className="relative overflow-hidden bg-[#000000] py-24 lg:py-32"
+      className="defer-render relative overflow-hidden bg-[#000000] py-24 lg:py-32"
       aria-labelledby="case-studies-heading"
     >
       {/* Background glowing ellipses for the section */}
@@ -62,22 +62,15 @@ export default function CaseStudies({ sanityProjects }: { sanityProjects?: Sanit
         {/* Header */}
         <div className="mb-16">
           <div>
-            <HeadingReveal
+            <HeadingReveal className="type-legacy-092 type-landing-section-heading"
               id="case-studies-heading"
-              style={{
-                fontFamily: "var(--font-inter-tight)",
-                fontSize: "clamp(3.2rem,8vw,6.8rem)",
-                fontWeight: 500,
-                lineHeight: 0.95,
-                letterSpacing: "-0.07em",
-                color: "#F5F5F7",
-              }}
+              style={{ color: "#F5F5F7" }}
             >
               Selected works
             </HeadingReveal>
             <p
-              className="mt-4 max-w-lg"
-              style={{ fontSize: "16px", lineHeight: 1.6, letterSpacing: "-0.02em", color: "rgba(245,245,247,0.52)" }}
+              className="mt-4 max-w-lg type-legacy-094"
+              style={{ color: "rgba(245,245,247,0.52)" }}
             >
               A curated showcase of products we&apos;ve designed, built, and launched.
             </p>
