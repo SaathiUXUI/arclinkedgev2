@@ -196,7 +196,7 @@ function StyledDropdown({
                   }}
                   className={`px-5 py-3 text-sm transition-all duration-200 cursor-pointer ${field.value === opt.value ? "bg-[#F5F5F7] text-[#050A18]" : "text-[#F5F5F7] hover:bg-white/[0.05]"}`}
                 >
-                  {opt.label}
+                  <span>{opt.label}</span>
                 </div>
               ))}
             </div>

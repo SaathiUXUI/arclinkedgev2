@@ -64,6 +64,18 @@ const ctaMapping: Record<string, { title: string; href: string }> = {
 };
 
 export default function BlogDetails({ post, sanityLogos, sanityTestimonials }: BlogDetailsProps) {
+  const articleContent = Array.isArray(post.content)
+    ? post.content.filter((block) => {
+        if (block?._type !== "block" || block?.style !== "h1") return true;
+
+        const headingText = Array.isArray(block.children)
+          ? block.children.map((child: { text?: string }) => child.text ?? "").join("")
+          : "";
+
+        return headingText.trim() !== post.title.trim();
+      })
+    : post.content;
+
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -83,7 +95,7 @@ export default function BlogDetails({ post, sanityLogos, sanityTestimonials }: B
   };
 
   return (
-    <main className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
+    <main id="main-content" className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -183,10 +195,10 @@ export default function BlogDetails({ post, sanityLogos, sanityTestimonials }: B
               [&_strong]:text-white [&_strong]:font-semibold"
             style={{ fontFamily: "var(--font-inter-tight)" }}
           >
-            {typeof post.content === 'string' ? (
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
-            ) : Array.isArray(post.content) ? (
-              <PortableText value={post.content} />
+            {typeof articleContent === 'string' ? (
+              <div dangerouslySetInnerHTML={{ __html: articleContent }} />
+            ) : Array.isArray(articleContent) ? (
+              <PortableText value={articleContent} />
             ) : null}
           </article>
 

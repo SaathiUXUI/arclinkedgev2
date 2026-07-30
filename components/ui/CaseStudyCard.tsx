@@ -81,7 +81,7 @@ export default function CaseStudyCard({
             />
           ) : (
             <div className="w-full h-full bg-[#1F1F23] flex items-center justify-center text-white/10 text-xl font-bold">
-              Project Preview
+              <span>Project Preview</span>
             </div>
           )}
         </div>

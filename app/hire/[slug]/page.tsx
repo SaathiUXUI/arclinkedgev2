@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Check, Clock, ShieldCheck, Users } from "lucide-react";
 import Navbar from "@/components/sections/Navbar";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -13,6 +14,7 @@ import SharedInsidePageSections from "@/components/sections/SharedInsidePageSect
 const Footer = dynamic(() => import("@/components/sections/Footer"));
 import { getBrandLogos, getSanityTestimonials } from "@/sanity/lib/api";
 
+const SITE_URL = "https://www.arclinkedge.com";
 
 const techIcons: Record<string, string> = {
   "React": "/tools/reactjs.svg",
@@ -220,11 +222,33 @@ talentRegistry["designers"] = talentRegistry["ui-ux-designer"];
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const data = talentRegistry[slug];
-  if (!data) return { title: "Hire Dedicated Talent" };
+  if (!data) {
+    return {
+      title: "Talent Profile Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const pageUrl = `${SITE_URL}/hire/${slug}`;
 
   return {
-    title: `${data.title} | Arclink Edge`,
+    title: data.title,
     description: data.description,
+    alternates: { canonical: pageUrl },
+    openGraph: {
+      type: "website",
+      url: pageUrl,
+      title: data.title,
+      description: data.description,
+      siteName: "Arclink Edge",
+      images: ["/opengraph-image"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: data.title,
+      description: data.description,
+      images: ["/opengraph-image"],
+    },
   };
 }
 
@@ -237,12 +261,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
   ]);
 
   if (!data) {
-
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-black text-white">
-        <h1 className="text-2xl">Talent Profile Not Found</h1>
-      </div>
-    );
+    notFound();
   }
 
   return (
@@ -265,7 +284,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
           }),
         }}
       />
-      <main className="min-h-screen bg-black text-[#F5F5F7]">
+      <main id="main-content" className="min-h-screen bg-black text-[#F5F5F7]">
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 pt-32 lg:px-12 lg:pt-40">
           <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#0052FF/15_0%,transparent_50%)]" />

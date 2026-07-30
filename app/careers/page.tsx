@@ -14,7 +14,7 @@ const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/careers`;
 
 export const metadata: Metadata = {
-  title: "Careers at Arclink Edge | Developer & UI UX Designer Roles",
+  title: "Careers | Developer & UI UX Designer Roles",
   description:
     "Explore careers at Arclink Edge in New York, London, Dubai & Bangalore. Join our web development, mobile app, SaaS, UI/UX design, SEO, cloud and AI automation team.",
   alternates: { canonical: PAGE_URL },

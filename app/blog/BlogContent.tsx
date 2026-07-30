@@ -37,7 +37,7 @@ export default function BlogContent({
   const displayBlogs = sanityBlogs && sanityBlogs.length > 0 ? sanityBlogs : blogPosts;
 
   return (
-    <main className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
+    <main id="main-content" className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

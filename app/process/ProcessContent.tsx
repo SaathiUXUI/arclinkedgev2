@@ -269,7 +269,7 @@ function PhaseCard({ phase }: { phase: typeof processDetails[0] }) {
 
 export default function ProcessContent({ sanityLogos, sanityTestimonials }: ProcessContentProps) {
   return (
-    <main className="bg-black text-[#F5F5F7] overflow-x-clip selection:bg-[#D0F504] selection:text-black">
+    <main id="main-content" className="bg-black text-[#F5F5F7] overflow-x-clip selection:bg-[#D0F504] selection:text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

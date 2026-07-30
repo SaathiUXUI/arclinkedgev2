@@ -20,7 +20,7 @@ export default function NotFound() {
     <div className="min-h-screen bg-[#000000] flex flex-col">
       <Navbar />
       
-      <main className="flex-1 pt-32 relative overflow-hidden">
+      <main id="main-content" className="flex-1 pt-32 relative overflow-hidden">
         {/* Flipped Stats Gradient at the Top */}
         <div
           aria-hidden="true"

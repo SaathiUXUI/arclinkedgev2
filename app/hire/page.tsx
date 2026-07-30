@@ -14,7 +14,7 @@ const SITE_URL = "https://www.arclinkedge.com";
 const PAGE_URL = `${SITE_URL}/hire`;
 
 export const metadata: Metadata = {
-  title: "Hire Dedicated Developers & Designers | Arclink Edge",
+  title: "Hire Dedicated Developers & Designers",
   description:
     "Scale your team with dedicated, pre-vetted senior developers and designers. Access top technical talent for web, mobile, AI, and cloud projects without recruitment overheads.",
   alternates: { canonical: PAGE_URL },

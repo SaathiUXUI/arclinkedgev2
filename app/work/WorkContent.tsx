@@ -183,7 +183,7 @@ export default function WorkContent({
   );
 
   return (
-    <main className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
+    <main id="main-content" className="bg-black text-[#F5F5F7] min-h-screen overflow-x-clip selection:bg-[#0052FF] selection:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

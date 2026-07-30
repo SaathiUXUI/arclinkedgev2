@@ -28,7 +28,7 @@ export default function CookiePolicyPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#000000] text-[#F5F5F7] pt-32 pb-20">
+      <main id="main-content" className="min-h-screen bg-[#000000] text-[#F5F5F7] pt-32 pb-20">
         <div className="mx-auto max-w-4xl px-6">
           <header className="mb-16">
             <h1 

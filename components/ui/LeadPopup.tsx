@@ -456,7 +456,7 @@ export default function LeadPopup() {
 
                   {/* Error */}
                   {status === "error" && (
-                    <div className="text-xs text-red-500 font-medium mt-1">{errorMessage}</div>
+                    <p className="text-xs text-red-500 font-medium mt-1">{errorMessage}</p>
                   )}
 
                   {/* Submit Button */}
