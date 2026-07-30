@@ -3,6 +3,15 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+interface TeamPerson {
+  name: string;
+  role: string;
+  image?: string | null;
+  initials?: string;
+  experience?: string;
+  bio?: string;
+}
+
 function TeamImage({
   src,
   alt,
@@ -21,9 +30,9 @@ function TeamImage({
         border: "1px solid rgba(255,255,255,0.08)",
       }}
     >
-      <div className="absolute inset-0 flex items-center justify-center text-white/18 font-semibold text-4xl">
+      <span className="absolute inset-0 flex items-center justify-center text-4xl font-semibold text-white/18">
         {initials}
-      </div>
+      </span>
       <Image
         src={src}
         alt={alt}
@@ -36,7 +45,7 @@ function TeamImage({
   );
 }
 
-export function TeamMemberCard({ member, index }: { member: any; index: number }) {
+export function TeamMemberCard({ member, index }: { member: TeamPerson; index: number }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 28 }}
@@ -77,7 +86,7 @@ export function TeamMemberCard({ member, index }: { member: any; index: number }
   );
 }
 
-export function FounderCard({ founder }: { founder: any }) {
+export function FounderCard({ founder }: { founder: TeamPerson }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 28 }}
@@ -97,12 +106,12 @@ export function FounderCard({ founder }: { founder: any }) {
       <div className="absolute bottom-0 -right-[10%] w-[55%] h-[20%] bg-[#0052FF] mix-blend-screen blur-[50px] opacity-90 transition-opacity duration-500 group-hover:opacity-100 z-0" />
       <div className="absolute bottom-0 left-[20%] right-[20%] h-[5%] bg-[#0052FF] mix-blend-screen blur-[40px] opacity-80 z-0" />
       <div className="absolute -bottom-2 left-[-10%] right-[-10%] w-[120%] h-[20%] bg-gradient-to-t from-white to-transparent mix-blend-screen blur-[24px] opacity-80 transition-opacity duration-500 group-hover:opacity-100 z-0" />
-      <div
+      <span
         className="absolute right-6 top-6 z-20 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#050A18] shadow-[0_12px_30px_rgba(208,245,4,0.18)]"
         style={{ backgroundColor: "#D0F504", fontFamily: "var(--font-inter-tight)" }}
       >
         Founder Profile
-      </div>
+      </span>
 
       <div className="absolute inset-0 z-0 pointer-events-none" style={{ backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }} />
 

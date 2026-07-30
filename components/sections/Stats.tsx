@@ -192,16 +192,16 @@ export default function Stats() {
               fontWeight: 400,
               lineHeight: 1.3,
               color: "#F5F5F7" }} className="tracking-[-0.02em] md:tracking-[-0.03em]">
-            <div style={{ overflow: "hidden" }}>
-              <div className="stats-line">Build better digital products.</div>
-            </div>
-            <div style={{ overflow: "hidden" }}>
-              <div className="stats-line">
+            <span className="block" style={{ overflow: "hidden" }}>
+              <span className="stats-line block">Build better digital products.</span>
+            </span>
+            <span className="block" style={{ overflow: "hidden" }}>
+              <span className="stats-line block">
                 Custom web apps, mobile apps &amp; SaaS{" "}
                 <br className="hidden md:block" />
                 designed for scale, shipped in weeks.
-              </div>
-            </div>
+              </span>
+            </span>
           </h2>
         </div>
 

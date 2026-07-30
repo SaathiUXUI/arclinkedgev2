@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,15 +9,6 @@ import { TextButton } from "@/components/ui/Button";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { services } from "@/lib/data";
-
-type ServiceShowcaseItem = {
-  id: string;
-  number: string;
-  title: string;
-  description: string;
-  image: string;
-  imageAlt: string;
-};
 
 const imageMap: Record<string, { image: string; imageAlt: string }> = {
   "web-development": { image: "/projects/quickboard.jpg", imageAlt: "Web development preview showing a modern dashboard interface" },
@@ -202,7 +192,7 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
                     </AnimatePresence>
 
                     <h3>
-                      <div className="w-full py-7 text-left md:py-9">
+                      <span className="block w-full py-7 text-left md:py-9">
                         <span className="flex items-start justify-between gap-4">
                           <span className="flex min-w-0 items-start gap-3 md:gap-5">
                             <span
@@ -247,7 +237,7 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
                             />
                           </span>
                         </span>
-                      </div>
+                      </span>
                     </h3>
 
                     <AnimatePresence initial={false}>
@@ -333,7 +323,7 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
                 </AnimatePresence>
 
                 <h3>
-                  <div className="w-full py-7 text-left md:py-9">
+                  <span className="block w-full py-7 text-left md:py-9">
                     <span className="flex items-start justify-between gap-4">
                       <span className="flex min-w-0 items-start gap-3 md:gap-5">
                         <span
@@ -361,7 +351,8 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
                           transition: "transform 0.25s ease, opacity 0.25s ease",
                         }}
                       >
-                        <motion.div
+                        <motion.span
+                          className="block"
                           animate={{ rotate: isExpanded ? 180 : 0 }}
                           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                         >
@@ -372,10 +363,10 @@ export default function Services({ categoryImagesMap }: { categoryImagesMap?: Re
                             aria-hidden="true"
                             style={{ transform: isExpanded ? "rotate(90deg)" : "none" }}
                           />
-                        </motion.div>
+                        </motion.span>
                       </span>
                     </span>
-                  </div>
+                  </span>
                 </h3>
               </article>
             </button>

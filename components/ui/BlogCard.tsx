@@ -5,7 +5,17 @@ import { formatDate } from "@/lib/utils";
 import { TextButton } from "@/components/ui/Button";
 import type { BlogPost } from "@/types";
 
-export default function BlogCard({ post }: { post: BlogPost }) {
+interface BlogCardProps {
+  post: BlogPost;
+  headingLevel?: "h2" | "h3";
+}
+
+export default function BlogCard({
+  post,
+  headingLevel = "h3",
+}: BlogCardProps) {
+  const HeadingTag = headingLevel;
+
   return (
     <Link
       href={post.href}
@@ -43,12 +53,12 @@ export default function BlogCard({ post }: { post: BlogPost }) {
             </span>
           </div>
 
-          <h3
+          <HeadingTag
             className="mt-5 line-clamp-2 text-[1.5rem] font-medium leading-[1.12] tracking-normal text-[#F5F5F7] md:text-[1.8rem]"
             style={{ fontFamily: "var(--font-inter-tight)" }}
           >
             {post.title}
-          </h3>
+          </HeadingTag>
 
           {post.description && (
             <p

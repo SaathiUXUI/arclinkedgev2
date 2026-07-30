@@ -57,9 +57,9 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 text-base text-white/60 leading-relaxed">
+                      <p className="px-6 pb-6 text-base leading-relaxed text-white/60">
                         {faq.answer}
-                      </div>
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>

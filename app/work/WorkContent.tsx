@@ -3,8 +3,6 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
@@ -15,6 +13,22 @@ import CaseStudyCard from "@/components/ui/CaseStudyCard";
 import { urlForImage } from "@/sanity/lib/image";
 import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
 import { caseStudies as defaultCaseStudies } from "@/lib/data";
+import type { Image as SanityImage } from "sanity";
+import type { Testimonial } from "@/types";
+
+interface SanityProject {
+  _id: string;
+  title: string;
+  categories?: string[];
+  images?: SanityImage[];
+  slug?: { current?: string };
+}
+
+interface WorkContentProps {
+  sanityLogos?: { name: string; src: string | null }[];
+  sanityTestimonials?: Testimonial[];
+  sanityProjects?: SanityProject[];
+}
 
 const categories = ["All", "SaaS", "Web App", "Mobile App", "E-commerce"];
 
@@ -136,11 +150,7 @@ export default function WorkContent({
   sanityLogos, 
   sanityTestimonials,
   sanityProjects 
-}: { 
-  sanityLogos?: any[]; 
-  sanityTestimonials?: any[];
-  sanityProjects?: any[];
-}) {
+}: WorkContentProps) {
   const [activeCategory, setActiveCategory] = useState("All");
 
   const displayStudies = useMemo(() => {
@@ -205,7 +215,7 @@ export default function WorkContent({
               className="max-w-5xl text-5xl font-medium leading-[1.05] tracking-[-0.04em] md:leading-[0.96] md:tracking-[-0.075em] md:text-7xl lg:text-8xl mt-6"
               style={{ fontFamily: "var(--font-inter-tight)" }}
             >
-              Work we're proud of. Built to scale.
+              Work we&apos;re proud of. Built to scale.
             </h1>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
               Explore our curated selection of case studies. From enterprise SaaS platforms to consumer mobile apps, see how we engineer success with modern architecture and premium design.
@@ -252,7 +262,7 @@ export default function WorkContent({
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: idx * 0.05 }}
                 >
-                  <CaseStudyCard study={study} i={idx} />
+                  <CaseStudyCard study={study} i={idx} headingLevel="h2" />
                 </motion.div>
               ))}
             </AnimatePresence>

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
-import { Search, Palette, Code2, ShieldCheck, Rocket, Zap, Users, MessageSquare, ArrowDown, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import { Search, Palette, Code2, ShieldCheck, Rocket, Zap, Users, Sparkles } from "lucide-react";
 
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
@@ -10,6 +10,12 @@ import BackToTop from "@/components/ui/BackToTop";
 import CookieBanner from "@/components/ui/CookieBanner";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SharedInsidePageSections from "@/components/sections/SharedInsidePageSections";
+import type { Testimonial } from "@/types";
+
+interface ProcessContentProps {
+  sanityLogos?: { name: string; src: string | null }[];
+  sanityTestimonials?: Testimonial[];
+}
 
 const processDetails = [
   {
@@ -168,7 +174,7 @@ const faqs = [
   }
 ];
 
-function PhaseCard({ phase, index }: { phase: typeof processDetails[0]; index: number }) {
+function PhaseCard({ phase }: { phase: typeof processDetails[0] }) {
   const cardRef = useRef(null);
   
   return (
@@ -203,9 +209,9 @@ function PhaseCard({ phase, index }: { phase: typeof processDetails[0]; index: n
                <div className="h-[1px] w-12 bg-[#D0F504]" />
                <span className="text-[#D0F504] font-bold uppercase tracking-[0.2em] text-[0.65rem]">Phase {phase.step}</span>
             </div>
-            <h3 className="text-xl font-medium text-white/40 italic" style={{ fontFamily: "var(--font-fraunces)" }}>
+            <p className="text-xl font-medium text-white/40 italic" style={{ fontFamily: "var(--font-fraunces)" }}>
               {phase.subtitle}
-            </h3>
+            </p>
           </div>
         </div>
       </div>
@@ -261,21 +267,9 @@ function PhaseCard({ phase, index }: { phase: typeof processDetails[0]; index: n
   );
 }
 
-export default function ProcessContent({ sanityLogos, sanityTestimonials }: { sanityLogos?: any[]; sanityTestimonials?: any[] }) {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
+export default function ProcessContent({ sanityLogos, sanityTestimonials }: ProcessContentProps) {
   return (
-    <main ref={containerRef} className="bg-black text-[#F5F5F7] overflow-x-clip selection:bg-[#D0F504] selection:text-black">
+    <main className="bg-black text-[#F5F5F7] overflow-x-clip selection:bg-[#D0F504] selection:text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -325,7 +319,7 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: { sa
 
               <div className="mt-12">
                 <p className="max-w-xl text-lg md:text-xl text-white/60 leading-relaxed font-light">
-                  We've spent a decade refining a process that merges strategic design with industrial-grade engineering. No guesswork, just results.
+                  We&apos;ve spent a decade refining a process that merges strategic design with industrial-grade engineering. No guesswork, just results.
                 </p>
               </div>
             </div>
@@ -453,7 +447,7 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: { sa
                   <item.icon size={20} />
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium mb-2" style={{ fontFamily: "var(--font-inter-tight)" }}>{item.title}</h4>
+                  <h3 className="text-lg font-medium mb-2" style={{ fontFamily: "var(--font-inter-tight)" }}>{item.title}</h3>
                   <p className="text-sm text-white/40 leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
@@ -466,8 +460,8 @@ export default function ProcessContent({ sanityLogos, sanityTestimonials }: { sa
 
 
         <div className="max-w-[1600px] mx-auto">
-          {processDetails.map((phase, i) => (
-            <PhaseCard key={phase.step} phase={phase} index={i} />
+          {processDetails.map((phase) => (
+            <PhaseCard key={phase.step} phase={phase} />
           ))}
         </div>
       </section>

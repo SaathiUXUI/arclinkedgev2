@@ -19,12 +19,12 @@ export default function PricingCard({
 
         {/* Header row: title + toggle */}
         <div className="flex items-center justify-between mb-6">
-          <h3
+          <h2
             className="text-2xl font-medium tracking-[-0.015em] md:tracking-[-0.04em]"
             style={{ fontFamily: "var(--font-inter-tight)" }}
           >
             Pricing
-          </h3>
+          </h2>
           <div className="flex items-center gap-1 border border-white/10 bg-white/[0.03] p-1">
             <button
               onClick={() => setIsMonthly(true)}

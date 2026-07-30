@@ -1,9 +1,8 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { ArrowUpRight, ArrowRight, Check, Clock, ShieldCheck, Users } from "lucide-react";
+import { Check, Clock, ShieldCheck, Users } from "lucide-react";
 import Navbar from "@/components/sections/Navbar";
-import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import HiringForm from "./HiringForm";
 import PricingCard from "./PricingCard";
@@ -330,7 +329,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
                           skill.slice(0, 2).toUpperCase()
                         )}
                       </div>
-                      <h4 className="relative z-10 text-base font-medium" style={{ color: "#F5F5F7", letterSpacing: "-0.02em" }}>{skill}</h4>
+                      <h3 className="relative z-10 text-base font-medium" style={{ color: "#F5F5F7", letterSpacing: "-0.02em" }}>{skill}</h3>
                     </div>
                   ))}
                 </div>
@@ -338,7 +337,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
 
               <div>
                 <SectionLabel>Inclusions</SectionLabel>
-                <h2 className="text-4xl font-medium leading-none md:text-5xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>What's included?</h2>
+                <h2 className="text-4xl font-medium leading-none md:text-5xl tracking-[-0.02em] md:tracking-[-0.065em]" style={{ fontFamily: "var(--font-inter-tight)" }}>What&apos;s included?</h2>
                 <ul className="mt-10 space-y-0">
                   {data.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-4 border-b border-white/[0.06] py-5">

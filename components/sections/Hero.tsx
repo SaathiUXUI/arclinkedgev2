@@ -286,13 +286,13 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
             color: "#F5F5F7",
           }}
         >
-          <div style={{ overflow: "hidden" }}>
-            <div className="hero-line">Top IT Agency for</div>
-          </div>
+          <span className="block" style={{ overflow: "hidden" }}>
+            <span className="hero-line block">Top IT Agency for</span>
+          </span>
 
-          <div style={{ position: "relative" }}>
-            <div style={{ overflow: "hidden" }}>
-              <div className="hero-line">
+          <span className="block" style={{ position: "relative" }}>
+            <span className="block" style={{ overflow: "hidden" }}>
+              <span className="hero-line block">
                 <span
                   style={{
                     fontFamily: "var(--font-fraunces)",
@@ -303,8 +303,8 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
                 >
                   Web, Mobile &amp; SaaS.
                 </span>
-              </div>
-            </div>
+              </span>
+            </span>
             <motion.svg
               viewBox="0 0 220 14"
               fill="none"
@@ -330,10 +330,10 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
                 transition={{ duration: 0.9, delay: 1.1, ease: "easeOut" }}
               />
             </motion.svg>
-          </div>
+          </span>
 
-          <div style={{ overflow: "hidden" }}>
-            <div className="hero-line">
+          <span className="block" style={{ overflow: "hidden" }}>
+            <span className="hero-line block">
               Delivered in{" "}
               <span style={{ position: "relative", display: "inline-block" }}>
                 <span
@@ -364,8 +364,8 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
                   4–5 Weeks.
                 </span>
               </span>
-            </div>
-          </div>
+            </span>
+          </span>
         </h1>
 
         {/* BOTTOM GROUP — mobile: chips stacked above para+CTA; desktop: single row */}

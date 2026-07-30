@@ -85,7 +85,7 @@ export default function BlogContent({
           <ol className="grid list-none gap-5 md:grid-cols-2 xl:grid-cols-3">
             {displayBlogs.map((post: BlogPost) => (
               <li key={post.id} className="h-full">
-                <BlogCard post={post} />
+                <BlogCard post={post} headingLevel="h2" />
               </li>
             ))}
           </ol>

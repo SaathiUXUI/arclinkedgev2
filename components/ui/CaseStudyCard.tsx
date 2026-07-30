@@ -10,12 +10,15 @@ import type { CaseStudy } from "@/types";
 interface CaseStudyCardProps {
   study: CaseStudy;
   i: number;
+  headingLevel?: "h2" | "h3";
 }
 
 export default function CaseStudyCard({
   study,
   i,
+  headingLevel = "h3",
 }: CaseStudyCardProps) {
+  const HeadingTag = headingLevel;
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -90,7 +93,7 @@ export default function CaseStudyCard({
             <ArrowUpRight size={24} color="#F5F5F7" />
           </div>
 
-          <h3
+          <HeadingTag
             className="mb-1.5 tracking-[-0.015em] md:tracking-[-0.03em]"
             style={{ fontFamily: "var(--font-inter-tight)",
               fontSize: "clamp(1.05rem, 1.5vw, 1.35rem)",
@@ -99,7 +102,7 @@ export default function CaseStudyCard({
               lineHeight: 1.1 }}
           >
             {study.title}
-          </h3>
+          </HeadingTag>
 
           {(study.metric || study.metricLabel) && (
             <p className="flex items-center gap-2" style={{ fontSize: "0.9rem", fontWeight: 600, color: "#22C55E" }}>
