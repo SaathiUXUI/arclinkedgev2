@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { MoveUpRight } from "lucide-react";
 import { services as servicesData } from "@/lib/data";
 import Image from "next/image";
+import { REMOTE_WORK_LABEL, REMOTE_WORK_SHORT } from "@/lib/company";
 
 import { NavButton, SecondaryNavButton } from "@/components/ui/Button";
 
@@ -214,15 +215,15 @@ export default function Footer() {
                       </div>
                     </div>
 
-                    {/* Address */}
+                    {/* Remote delivery */}
                     <div className="flex items-center gap-4 group">
                       <div className="w-10 h-10 flex-shrink-0 border border-white/10 flex items-center justify-center bg-white/5 transition-colors duration-300 group-hover:bg-white group-hover:border-white">
-                        <svg className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                        <svg className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20Z" /></svg>
                       </div>
                       <div>
-                        <p className="text-[10px] uppercase tracking-[0.1em] text-white/40 font-bold mb-0.5">Address</p>
-                        <p className="text-white font-medium text-sm leading-relaxed">
-                          New York <span className="text-white/30 text-[10px] px-1 inline-block align-middle">•</span> London <span className="text-white/30 text-[10px] px-1 inline-block align-middle">•</span> Dubai <span className="text-white/30 text-[10px] px-1 inline-block align-middle">•</span> Bangalore <span className="text-white/30 text-[10px] px-1 inline-block align-middle">•</span> Ahmedabad
+                        <p className="text-[10px] uppercase tracking-[0.1em] text-[#D0F504]/80 font-bold mb-0.5">{REMOTE_WORK_LABEL}</p>
+                        <p className="max-w-xs text-white/68 font-medium text-sm leading-relaxed">
+                          {REMOTE_WORK_SHORT}
                         </p>
                       </div>
                     </div>

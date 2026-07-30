@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Sparkles, CheckCircle2, Loader2, Mail, User, Building2, Shield, Phone, Globe, ChevronDown } from "lucide-react";
 import { countries, type Country } from "@/lib/countries";
+import { REMOTE_WORK_SHORT } from "@/lib/company";
 
 export default function LeadPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -286,7 +287,7 @@ export default function LeadPopup() {
                   className="text-sm md:text-base mb-8 leading-relaxed"
                   style={{ color: "rgba(245,245,247,0.6)", fontFamily: "var(--font-inter)" }}
                 >
-                  Want to scale your web, mobile or SaaS product? Get a complimentary 30-minute roadmap session with our lead engineers.
+                  Want to scale your web, mobile or SaaS product? Get a complimentary 30-minute roadmap session with our lead engineers. <span className="text-[#D0F504]">{REMOTE_WORK_SHORT}</span>
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">

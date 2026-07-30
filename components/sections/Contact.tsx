@@ -10,6 +10,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { contactSchema, type ContactFormData, budgetOptions, projectTypeOptions } from "@/lib/validations";
 import HeadingReveal from "@/components/ui/HeadingReveal";
+import {
+  GLOBAL_SERVICE_AREAS,
+  REMOTE_WORK_LABEL,
+  REMOTE_WORK_MESSAGE,
+  REMOTE_WORK_SHORT,
+} from "@/lib/company";
 
 // Local Submit Button that mimics PrimaryButton styling
 function SubmitButton({ isSubmitting, children }: { isSubmitting: boolean; children: React.ReactNode }) {
@@ -409,12 +415,13 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
               </div>
 
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-2 font-semibold">Office Address</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-[#D0F504]/80 mb-2 font-semibold">{REMOTE_WORK_LABEL}</p>
                 <p
-                  className="text-2xl md:text-xl font-medium text-[#F5F5F7] leading-relaxed"
+                  className="max-w-md text-lg md:text-xl font-medium text-[#F5F5F7] leading-relaxed"
                 >
-                  New York <span className="text-white/30 text-base px-1 inline-block align-middle">•</span> London <span className="text-white/30 text-base px-1 inline-block align-middle">•</span> Dubai <span className="text-white/30 text-base px-1 inline-block align-middle">•</span> Bangalore <span className="text-white/30 text-base px-1 inline-block align-middle">•</span> Ahmedabad
+                  {REMOTE_WORK_SHORT}
                 </p>
+                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/42">{GLOBAL_SERVICE_AREAS}</p>
               </div>
               </div>
             </div>
@@ -451,6 +458,17 @@ export default function Contact({ isInternalPage = false }: { isInternalPage?: b
                   className="space-y-8"
                   noValidate
                 >
+                  {isInternalPage && (
+                    <div className="border-l-2 border-[#D0F504] bg-[#D0F504]/[0.04] px-4 py-3">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#D0F504]">
+                        {REMOTE_WORK_LABEL}
+                      </p>
+                      <p className="mt-1 text-xs leading-relaxed text-white/52">
+                        {REMOTE_WORK_MESSAGE}
+                      </p>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Name */}
                     <div className="space-y-2 relative group">

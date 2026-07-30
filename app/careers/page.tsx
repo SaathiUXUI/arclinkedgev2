@@ -16,7 +16,7 @@ const PAGE_URL = `${SITE_URL}/careers`;
 export const metadata: Metadata = {
   title: "Careers | Developer & UI UX Designer Roles",
   description:
-    "Explore careers at Arclink Edge in New York, London, Dubai & Bangalore. Join our web development, mobile app, SaaS, UI/UX design, SEO, cloud and AI automation team.",
+    "Explore fully remote careers at Arclink Edge. Join our distributed web development, mobile app, SaaS, UI/UX design, SEO, cloud, and AI automation team from wherever you do your best work.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "website",

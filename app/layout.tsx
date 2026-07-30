@@ -6,7 +6,6 @@ import LeadPopup from "@/components/ui/LeadPopup";
 import "./globals.css";
 import {
   organizationSchema,
-  localBusinessSchema,
   websiteSchema,
   breadcrumbSchema,
   servicesSchema,
@@ -47,11 +46,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Arclink Edge — Premium IT Agency in New York, London, Dubai & Bangalore | Web, Mobile & SaaS Development",
+      "Arclink Edge — Fully Remote IT Agency | Web, Mobile & SaaS Development",
     template: "%s | Arclink Edge",
   },
   description:
-    "Arclink Edge is a premium IT agency in New York, London, Dubai & Bangalore. We build world-class web apps, mobile apps, SaaS products & UI/UX design for ambitious B2B brands globally.",
+    "Arclink Edge is a fully remote premium IT agency serving clients in New York, London, Dubai, Bangalore, Ahmedabad, and worldwide without passing physical-office overhead into project bills.",
   keywords: [
     "IT agency New York, London, Dubai & Bangalore",
     "web development company London",
@@ -83,15 +82,15 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Arclink Edge",
     title:
-      "Arclink Edge — Premium IT Agency in New York, London, Dubai & Bangalore | Web, Mobile & SaaS Development",
+      "Arclink Edge — Fully Remote IT Agency | Web, Mobile & SaaS Development",
     description:
-      "We build world-class digital products — web apps, mobile apps, SaaS & UI/UX design for ambitious B2B brands. Based in New York, London, Dubai & Bangalore.",
+      "We build world-class web, mobile, SaaS, and UI/UX products as a fully remote team, so client budgets stay focused on delivery instead of physical-office overhead.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Arclink Edge — Premium IT Agency in New York, London, Dubai & Bangalore",
+        alt: "Arclink Edge — Fully Remote Premium IT Agency",
       },
     ],
   },
@@ -99,7 +98,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@arclinkedge",
     creator: "@arclinkedge",
-    title: "Arclink Edge — Premium IT Agency in New York, London, Dubai & Bangalore",
+    title: "Arclink Edge — Fully Remote Premium IT Agency",
     description:
       "We build world-class digital products — web apps, mobile apps, SaaS & UI/UX design for ambitious B2B brands.",
     images: [`${SITE_URL}/opengraph-image`],
@@ -122,7 +121,6 @@ export default function RootLayout({
 }) {
   const jsonLdSchemas = [
     organizationSchema,
-    localBusinessSchema,
     websiteSchema,
     breadcrumbSchema,
     ...servicesSchema,

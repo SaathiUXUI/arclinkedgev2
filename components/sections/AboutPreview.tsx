@@ -226,10 +226,10 @@ export default function AboutPreview({ sanityTeam }: { sanityTeam?: any[] }) {
             <div className="mt-8 max-w-4xl">
               <div className="space-y-5 text-sm md:text-base leading-relaxed text-white/54">
                 <p>
-                  We are a premium IT agency in New York, London, Dubai & Bangalore, India, specializing in custom web development, mobile app development, SaaS platforms, UI/UX design, API integration, cloud deployment, and digital product strategy for B2B brands.
+                  We are a fully remote premium IT agency serving New York, London, Dubai, Bangalore, Ahmedabad, and global clients, specializing in custom web development, mobile apps, SaaS platforms, UI/UX design, API integration, cloud deployment, and digital product strategy.
                 </p>
                 <p>
-                  Our team blends product thinking with modern engineering, helping startups and growing businesses launch fast, improve conversions, and build reliable software for customers across India, the USA, the UK, and the UAE.
+                  With no physical-office rent, utilities, or overhead added to client bills, more of every budget stays focused on product thinking, modern engineering, faster launches, and reliable software.
                 </p>
               </div>
             </div>

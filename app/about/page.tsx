@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import AboutContent from "./AboutContent";
 
 export const metadata: Metadata = {
-  title: "About Us — Elite IT Agency in New York, London, Dubai & Bangalore",
-  description: "Learn about Arclink Edge, a premium IT agency in New York, London, Dubai & Bangalore specializing in high-performance Web, Mobile & SaaS solutions. Meet our founder and elite team of engineering experts.",
+  title: "About Us — Fully Remote Global IT Agency",
+  description: "Learn about Arclink Edge, a fully remote premium IT agency serving clients in New York, London, Dubai, Bangalore, Ahmedabad, and worldwide without passing physical-office overhead into project bills.",
   keywords: ["about arclink edge", "founder saathi rathod", "IT agency history", "software engineering team", "boutique agency india"],
   alternates: { canonical: "https://www.arclinkedge.com/about" },
   openGraph: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Arclink Edge — Elite IT Agency in New York, London, Dubai & Bangalore",
+    title: "About Arclink Edge — Fully Remote Global IT Agency",
     description: "Meet the Arclink Edge team building premium digital products for ambitious brands.",
     images: ["/opengraph-image"],
   },

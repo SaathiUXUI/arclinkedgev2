@@ -111,7 +111,7 @@ function HeroProjectColumn({ sanityImages }: { sanityImages?: string[] }) {
 const faqs = [
   {
     question: "Where is Arclink Edge located?",
-    answer: "We are a global agency with our core presence in New York, London, Dubai, and Bangalore, working with clients across the USA, UK, and UAE."
+    answer: "Arclink Edge is fully remote with no physical office. We serve clients across New York, London, Dubai, Bangalore, Ahmedabad, and worldwide without passing office overhead into project bills."
   },
   {
     question: "What makes Arclink Edge different from other agencies?",
@@ -181,7 +181,7 @@ export default function AboutContent({
             </div>
             <div className="pb-4">
               <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-md" style={{ letterSpacing: "-0.02em" }}>
-                Arclink Edge is a premium boutique agency in New York, London, Dubai & Bangalore. We don't just write code; we build the future of your business.
+                Arclink Edge is a fully remote premium boutique agency serving New York, London, Dubai, Bangalore, Ahmedabad, and global clients. We don&apos;t just write code; we build the future of your business.
               </p>
             </div>
           </div>
@@ -200,7 +200,7 @@ export default function AboutContent({
                 We believe that in the digital age, speed is the ultimate currency. But speed without quality is a liability. That's why we focus on "Rapid Precision"—delivering world-class digital products in record time without cutting corners.
               </p>
               <p>
-                From our headquarters in New York, London, Dubai & Bangalore, we've partnered with ambitious startups and established B2B brands across the USA, UK, and UAE to re-engineer their digital presence.
+                Our remote-first team partners with ambitious startups and established B2B brands across the USA, UK, UAE, India, and worldwide. With no physical-office overhead added to your bill, more of your investment goes directly into strategy, design, engineering, and measurable outcomes.
               </p>
             </div>
           </div>

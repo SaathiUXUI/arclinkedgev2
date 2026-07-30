@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import HeadingReveal from "@/components/ui/HeadingReveal";
+import { REMOTE_WORK_SHORT } from "@/lib/company";
 
 const WORDS = ["incredible?", "scalable?", "seamless?", "impactful?", "memorable?"];
 
@@ -87,7 +88,7 @@ export default function CTASection() {
               className="text-md md:text-md text-[#F7F5F78A] max-w-2xl mx-auto leading-relaxed mb-12"
               style={{ letterSpacing: "-0.01em" }}
             >
-              From a bold idea to a polished product — we&apos;re your full-stack partner from discovery to launch. Let&apos;s turn your vision into a digital masterpiece.
+              From a bold idea to a polished product — we&apos;re your full-stack partner from discovery to launch. {REMOTE_WORK_SHORT} Your investment goes into the product and the results.
             </motion.p>
 
             <motion.div

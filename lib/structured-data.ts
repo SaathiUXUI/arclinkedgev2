@@ -13,13 +13,13 @@ export const organizationSchema = {
     height: 60,
   },
   description:
-    "Arclink Edge is a premium global IT agency specializing in web development, mobile apps, UI/UX design, and SaaS development, serving clients in New York, London, Dubai, and India.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "New York, London, Dubai & Bangalore",
-    addressLocality: "Global Presence",
-    addressCountry: "US",
-  },
+    "Arclink Edge is a fully remote premium global IT agency specializing in web development, mobile apps, UI/UX design, and SaaS development without passing physical-office overhead into client bills.",
+  areaServed: [
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "India" },
+  ],
   contactPoint: [
     {
       "@type": "ContactPoint",
@@ -46,31 +46,13 @@ export const organizationSchema = {
   ],
 };
 
-export const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": `${SITE_URL}/#localbusiness`,
-  name: "Arclink Edge",
-  image: `${SITE_URL}/opengraph-image`,
-  url: SITE_URL,
-  telephone: "+1-216-418-4653",
-  email: "hello@arclinkedge.com",
-  priceRange: "$$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "New York, London, Dubai & Bangalore",
-    addressLocality: "Global",
-    addressCountry: "US",
-  },
-};
-
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${SITE_URL}/#website`,
   url: SITE_URL,
   name: "Arclink Edge",
-  description: "Premium IT agency in New York, London, Dubai & Bangalore offering web, mobile, and SaaS development",
+  description: "Fully remote premium IT agency serving global clients with web, mobile, SaaS, and UI/UX development",
 };
 
 export const breadcrumbSchema = {

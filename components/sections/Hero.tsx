@@ -404,9 +404,9 @@ export default function Hero({ sanityLogos }: { sanityLogos?: { name: string; sr
                   marginBottom: "1.75rem",
                 }}
               >
-                Top-rated software development agency in New York, London, Dubai & Bangalore —
-                delivering custom web apps, mobile apps (iOS &amp; Android), SaaS
-                platforms &amp; UI/UX design for ambitious B2B brands globally.
+                Fully remote software development agency serving New York, London, Dubai, Bangalore, Ahmedabad, and beyond —
+                with no physical-office overhead added to your bill. Your budget stays focused on custom web apps, mobile apps, SaaS
+                platforms, and UI/UX design.
               </p>
 
               <div className="hero-fade-in flex flex-col sm:flex-row flex-wrap gap-4 w-full" style={{ animationDelay: "0.4s" }}>
