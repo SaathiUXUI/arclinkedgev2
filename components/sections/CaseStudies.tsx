@@ -1,16 +1,20 @@
-"use client";
-
-import { useRef, useState } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import type { Image as SanityImage } from "sanity";
 import { caseStudies } from "@/lib/data";
 import HeadingReveal from "@/components/ui/HeadingReveal";
-import { TextButton } from "@/components/ui/Button";
+import { SecondaryNavButton } from "@/components/ui/Button";
 import CaseStudyCard from "@/components/ui/CaseStudyCard";
 import { urlForImage } from "@/sanity/lib/image";
 
-export default function CaseStudies({ sanityProjects }: { sanityProjects?: any[] }) {
+interface SanityProject {
+  _id: string;
+  title: string;
+  categories?: string[];
+  images?: SanityImage[];
+  slug?: { current?: string };
+}
+
+export default function CaseStudies({ sanityProjects }: { sanityProjects?: SanityProject[] }) {
   const displayStudies = (sanityProjects && sanityProjects.length > 0) 
     ? sanityProjects.map(p => ({
         id: p._id,
@@ -34,11 +38,8 @@ export default function CaseStudies({ sanityProjects }: { sanityProjects?: any[]
       }))
     : caseStudies;
 
-  const sectionRef = useRef<HTMLElement>(null);
-
   return (
     <section
-      ref={sectionRef}
       id="case-studies"
       className="relative overflow-hidden bg-[#000000] py-24 lg:py-32"
       aria-labelledby="case-studies-heading"
@@ -59,7 +60,7 @@ export default function CaseStudies({ sanityProjects }: { sanityProjects?: any[]
         style={{ paddingLeft: "clamp(16px,5vw,80px)", paddingRight: "clamp(16px,5vw,80px)" }}
       >
         {/* Header */}
-        <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
+        <div className="mb-16">
           <div>
             <HeadingReveal
               id="case-studies-heading"
@@ -81,9 +82,6 @@ export default function CaseStudies({ sanityProjects }: { sanityProjects?: any[]
               A curated showcase of products we&apos;ve designed, built, and launched.
             </p>
           </div>
-          <TextButton href="/work" icon={ArrowUpRight}>
-            View all projects
-          </TextButton>
         </div>
 
         {/* 2-column grid */}
@@ -91,6 +89,12 @@ export default function CaseStudies({ sanityProjects }: { sanityProjects?: any[]
           {displayStudies.slice(0, 4).map((study, i) => (
             <CaseStudyCard key={study.id} study={study} i={i} />
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center lg:mt-16">
+          <SecondaryNavButton href="/work" icon={ArrowUpRight}>
+            View all projects
+          </SecondaryNavButton>
         </div>
       </div>
     </section>

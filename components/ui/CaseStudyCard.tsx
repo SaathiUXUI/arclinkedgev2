@@ -7,7 +7,15 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { CaseStudy } from "@/types";
 
-export default function CaseStudyCard({ study, i }: { study: CaseStudy; i: number }) {
+interface CaseStudyCardProps {
+  study: CaseStudy;
+  i: number;
+}
+
+export default function CaseStudyCard({
+  study,
+  i,
+}: CaseStudyCardProps) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -82,45 +90,10 @@ export default function CaseStudyCard({ study, i }: { study: CaseStudy; i: numbe
             <ArrowUpRight size={24} color="#F5F5F7" />
           </div>
 
-          {/* Chips (Categories + Client) */}
-          <div className="flex flex-wrap gap-2 mb-4 pr-10">
-            {study.categories && study.categories.map((tag, idx) => (
-              <span
-                key={idx}
-                className="text-[0.65rem] sm:text-xs px-2.5 py-1 font-medium"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 0,
-                  color: "#F7F5F78A",
-                  letterSpacing: "0.04em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-            {study.client && (
-              <span
-                className="text-[0.65rem] sm:text-xs px-2.5 py-1 font-medium"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 0,
-                  color: "#F7F5F78A",
-                  letterSpacing: "0.04em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {study.client}
-              </span>
-            )}
-          </div>
-
           <h3
             className="mb-1.5 tracking-[-0.015em] md:tracking-[-0.03em]"
             style={{ fontFamily: "var(--font-inter-tight)",
-              fontSize: "clamp(1.2rem, 2vw, 1.8rem)",
+              fontSize: "clamp(1.05rem, 1.5vw, 1.35rem)",
               fontWeight: 500,
               color: "#F5F5F7",
               lineHeight: 1.1 }}

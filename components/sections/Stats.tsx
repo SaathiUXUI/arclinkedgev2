@@ -70,78 +70,6 @@ function CountUp({ value, suffix = "", duration = 2 }: { value: number; suffix?:
   return <span ref={ref}>{display}{suffix}</span>;
 }
 
-function StatShape({ type, isHovered }: { type: "pentapod" | "quadpod" | "hexapod"; isHovered: boolean }) {
-  const paths = {
-    pentapod: "M96 28 L116 72 L164 78 L128 111 L138 158 L96 134 L54 158 L64 111 L28 78 L76 72 Z",
-    quadpod: "M96 28 L140 52 L164 96 L140 140 L96 164 L52 140 L28 96 L52 52 Z",
-    hexapod: "M96 24 L139 48 L164 92 L148 140 L96 166 L44 140 L28 92 L53 48 Z",
-  };
-  const color = type === "pentapod" ? "#0066FF" : type === "quadpod" ? "#00F0FF" : "#A200FF";
-
-  return (
-    <div
-      className="w-40 h-40 md:w-48 md:h-48 relative z-20 pointer-events-none"
-      style={{ marginLeft: "-1rem" }}
-    >
-      <motion.svg
-        viewBox="0 0 192 192"
-        aria-hidden="true"
-        className="h-full w-full overflow-visible"
-        initial={false}
-        animate={{
-          rotate: isHovered ? 10 : 0,
-          y: isHovered ? -8 : 0,
-          scale: isHovered ? 1.04 : 1,
-        }}
-        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <defs>
-          <radialGradient id={`stat-shape-fill-${type}`} cx="34%" cy="22%" r="78%">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.92" />
-            <stop offset="26%" stopColor={color} stopOpacity="0.95" />
-            <stop offset="100%" stopColor={color} stopOpacity="0.34" />
-          </radialGradient>
-          <linearGradient id={`stat-shape-stroke-${type}`} x1="35" y1="28" x2="150" y2="160" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.88" />
-            <stop offset="44%" stopColor={color} stopOpacity="0.82" />
-            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.22" />
-          </linearGradient>
-          <filter id={`stat-shape-glow-${type}`} x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="6" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        <motion.path
-          d={paths[type]}
-          fill={`url(#stat-shape-fill-${type})`}
-          stroke={`url(#stat-shape-stroke-${type})`}
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-          filter={`url(#stat-shape-glow-${type})`}
-          initial={{ pathLength: 0.72 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        />
-        <path
-          d={paths[type]}
-          fill="none"
-          stroke="#FFFFFF"
-          strokeOpacity="0.22"
-          strokeWidth="1"
-          strokeLinejoin="round"
-          transform="translate(-5 -6) scale(1.05)"
-          style={{ transformOrigin: "96px 96px" }}
-        />
-      </motion.svg>
-    </div>
-  );
-}
-
 // Straight-line paths: trunk → horizontal bar → 3 vertical drops
 // ViewBox 1200-wide; 3-col centers at 200, 600, 1000
 // grad: "trunk" | "horiz-l" | "horiz-r" | "drop"
@@ -156,7 +84,6 @@ const SVG_PATHS = [
 
 
 export default function Stats() {
-  const [hoveredStatIndex, setHoveredStatIndex] = useState<number | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -371,8 +298,6 @@ export default function Stats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-                onMouseEnter={() => setHoveredStatIndex(i)}
-                onMouseLeave={() => setHoveredStatIndex(null)}
                 className="group relative overflow-hidden flex flex-col items-start text-left"
                 style={{
                   borderRadius: 0,
@@ -397,15 +322,7 @@ export default function Stats() {
                 {/* Content restructured for specific spacing requirements */}
                 <div className="relative z-10 w-full h-full flex flex-col p-6 lg:p-9">
 
-                  {/* Container 1: Shape Only */}
-                  <div className="flex-shrink-0" style={{ marginBottom: "3rem" }}>
-                    <StatShape
-                      type={i === 0 ? "pentapod" : i === 1 ? "quadpod" : "hexapod"}
-                      isHovered={hoveredStatIndex === i}
-                    />
-                  </div>
-
-                  {/* Container 2: Info (Numbers & Subtexts) */}
+                  {/* Stats info */}
                   <div className="flex flex-col">
                     {/* Number Only Container */}
                     <div style={{ marginBottom: "1.5rem" }}>

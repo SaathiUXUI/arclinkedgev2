@@ -554,109 +554,17 @@ export default async function MobileAppDevelopmentPage() {
           </div>
         </section>
 
-        <section className="relative overflow-visible px-6 py-20 lg:px-12 lg:py-28">
-          <div aria-hidden="true" className="absolute left-[-15%] top-[20%] h-[60vh] w-[40vw] rounded-full bg-[#0052FF]/15 blur-[150px]" />
-          <div aria-hidden="true" className="absolute bottom-[10%] right-[-15%] h-[70vh] w-[40vw] rounded-full bg-[#0052FF]/15 blur-[160px]" />
-          <div className="relative z-10 mx-auto max-w-[1600px]">
-            <div className="mb-16 max-w-5xl">
-              <SectionLabel>Technology</SectionLabel>
-              <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:leading-none md:tracking-[-0.065em] md:text-6xl" style={{ fontFamily: "var(--font-inter-tight)" }}>
-                Modern stack. Seamless performance.
-              </h2>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/52">
-                We use top-tier cross-platform and native technologies to ensure your app runs flawlessly on any device.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-16">
-              {categorizedTech.map((category) => (
-                <div key={category.title}>
-                  <h3
-                    className="mb-8 text-2xl font-medium tracking-tight text-[#F5F5F7] md:text-3xl"
-                    style={{ fontFamily: "var(--font-inter-tight)" }}
-                  >
-                    {category.title}
-                  </h3>
-
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    {category.items.map((tech) => (
-                      <div
-                        key={tech}
-                        className="group relative flex w-full cursor-default items-center gap-5 overflow-hidden border border-white/[0.04] bg-[#0A0A0F]/40 p-4 backdrop-blur-[16px]"
-                      >
-                        <div
-                          className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-none text-sm font-bold transition-transform duration-500 group-hover:scale-110"
-                          style={{
-                            backgroundColor: "rgba(0,82,255,0.06)",
-                            color: "#0052FF",
-                            border: "1px solid rgba(0,82,255,0.15)",
-                            letterSpacing: "0.05em",
-                          }}
-                        >
-                          {techIcons[tech] ? (
-                            <Image src={techIcons[tech]} alt={tech} width={24} height={24} className="object-contain" />
-                          ) : (
-                            tech.slice(0, 2).toUpperCase()
-                          )}
-                        </div>
-
-                        <div className="relative z-10 flex flex-col justify-center">
-                          <h4 className="mb-1 text-base font-medium" style={{ color: "#F5F5F7", letterSpacing: "-0.02em" }}>
-                            {tech}
-                          </h4>
-                          <p className="flex items-center gap-1.5 text-sm font-semibold text-[#22C55E]">
-                            {category.exp} <span className="font-normal text-white/40">Years Exp.</span>
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-
-              <div>
-                <div className="mb-8 max-w-3xl">
-                  <SectionLabel>Additional Integrations</SectionLabel>
-                  <h3
-                    className="text-3xl font-medium leading-none text-[#F5F5F7] md:text-5xl tracking-[-0.015em] md:tracking-[-0.06em]"
-                    style={{ fontFamily: "var(--font-inter-tight)" }}
-                  >
-                    We connect the tools your app needs to scale and monetize.
-                  </h3>
-                </div>
-
-                <div className="grid gap-x-12 gap-y-16 lg:grid-cols-3">
-                  {additionalTech.map((category) => (
-                    <div key={category.title}>
-                      <h4
-                        className="mb-8 text-xl font-medium text-[#F5F5F7]"
-                        style={{ fontFamily: "var(--font-inter-tight)", letterSpacing: "-0.04em" }}
-                      >
-                        {category.title}
-                      </h4>
-                      <div className="grid gap-3 sm:grid-cols-2">
-                        {category.items.map((tech) => (
-                          <div key={tech} className="flex items-center gap-3 border border-white/[0.06] bg-black/30 p-3">
-                            <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-white/[0.06] bg-white/[0.04]">
-                              {techIcons[tech] ? (
-                                <Image src={techIcons[tech]} alt={tech} width={20} height={20} className="object-contain" />
-                              ) : (
-                                <span className="text-[0.65rem] font-bold text-white/58">{tech.slice(0, 2).toUpperCase()}</span>
-                              )}
-                            </span>
-                            <span className="text-sm font-medium text-white/70">{tech}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <SharedInsidePageSections sanityLogos={sanityLogos} sanityTestimonials={sanityTestimonials} faqs={faqs}
+          technology={{
+            title: "Modern stack. Seamless performance.",
+            description: "We use top-tier cross-platform and native technologies to ensure your app runs flawlessly on any device.",
+            categories: categorizedTech,
+            additionalLabel: "Additional Integrations",
+            additionalTitle: "We connect the tools your app needs to scale and monetize.",
+            additionalCategories: additionalTech,
+            icons: techIcons,
+          }}
           beforeOutcomes={
             <section className="px-6 py-20 lg:px-12 lg:py-28">
               <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">

@@ -1,232 +1,198 @@
-"use client";
-
-import { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 const steps = [
   {
     number: 1,
     day: "Day 1",
     title: "Discovery & Client Onboarding",
-    description: "We start by understanding your vision, business goals, and detailed project requirements to set a strong foundation.",
+    description:
+      "We start by understanding your vision, business goals, and detailed project requirements to set a strong foundation.",
   },
   {
     number: 2,
     day: "Day 2 – Day 4",
     title: "Scope Definition",
-    description: "We craft a clear and structured scope of work outlining features, deliverables, timelines, and execution strategy.",
+    description:
+      "We craft a clear and structured scope of work outlining features, deliverables, timelines, and execution strategy.",
   },
   {
     number: 3,
     day: "Day 5",
     title: "Scope Approval",
-    description: "Once the scope is reviewed and approved, we immediately initiate the design process.",
+    description:
+      "Once the scope is reviewed and approved, we immediately initiate the design process.",
   },
   {
     number: 4,
     day: "Day 5 – Day 11",
     title: "UI/UX Design",
-    description: "We design intuitive user experiences through wireframes (if required) or high-fidelity UI designs within a week.",
+    description:
+      "We design intuitive user experiences through wireframes or high-fidelity UI designs within a week.",
   },
   {
     number: 5,
     day: "Day 12",
     title: "Design Sign-off",
-    description: "Final design approval ensures everything aligns perfectly with your expectations before development begins.",
+    description:
+      "Final design approval ensures everything aligns perfectly with your expectations before development begins.",
   },
   {
     number: 6,
     day: "Day 13 – Day 16",
     title: "Technical Planning (SRS)",
-    description: "We prepare a detailed Software Requirement Specification covering APIs, integrations, and system architecture.",
+    description:
+      "We prepare a detailed Software Requirement Specification covering APIs, integrations, and system architecture.",
   },
   {
     number: 7,
     day: "Day 17 – 2 to 12 Weeks",
     title: "Development",
-    description: "Our team builds scalable frontend and backend systems, with timelines based on project complexity.",
+    description:
+      "Our team builds scalable frontend and backend systems, with timelines based on project complexity.",
   },
   {
     number: 8,
     day: "3 – 7 Days",
     title: "Quality Assurance & Optimization",
-    description: "We rigorously test the product, fix bugs, and optimize performance to ensure a seamless user experience.",
+    description:
+      "We rigorously test the product, fix bugs, and optimize performance to ensure a seamless user experience.",
   },
   {
     number: 9,
     day: "Final Stage",
     title: "Deployment & Launch",
-    description: "After final validation, we deploy your product live — ready for users and business growth.",
+    description:
+      "After final validation, we deploy your product live—ready for users and business growth.",
   },
 ];
 
+const cardTheme = {
+  top: "rgba(15,15,17,0.92)",
+  body: "rgba(10,10,10,0.72)",
+  text: "#F5F5F7",
+  muted: "rgba(245,245,247,0.52)",
+  number: "rgba(245,245,247,0.22)",
+  accent: "#D0F505",
+};
+
 export default function HowWeWork() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef  = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, -70]);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (!headerRef.current) return;
-    const ctx = gsap.context(() => {
-      gsap.from(".hww-line", {
-        scrollTrigger: { trigger: headerRef.current, start: "top 88%" },
-        y: "110%", skewY: 4, transformOrigin: "left bottom",
-        duration: 1.1, ease: "power4.out",
-      });
-    }, headerRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section id="process" ref={sectionRef} className="relative overflow-hidden bg-[#000000] py-24 lg:py-32">
+    <section
+      id="process"
+      className="relative overflow-hidden bg-[#000000] py-24 lg:py-32"
+      aria-labelledby="how-we-work-heading"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 42%, rgba(0,82,255,0.14) 0%, rgba(0,82,255,0.05) 24%, transparent 46%)," +
+            "linear-gradient(180deg, #000000 0%, #02040A 52%, #000000 100%)",
+        }}
+      />
 
-      {/* Background — two blue clusters: top (01–03) and bottom (06–08) */}
-      <div className="absolute inset-0 pointer-events-none bg-[#000000]">
+      <div
+        className="relative z-10 mx-auto max-w-[1600px]"
+        style={{
+          paddingLeft: "clamp(16px,5vw,80px)",
+          paddingRight: "clamp(16px,5vw,80px)",
+        }}
+      >
+        <header className="mb-14 grid gap-6 lg:mb-20 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.42fr)] lg:items-end">
+          <h2
+            id="how-we-work-heading"
+            className="tracking-[-0.02em] md:tracking-[-0.07em]"
+            style={{
+              fontFamily: "var(--font-inter-tight)",
+              fontSize: "clamp(3.2rem,8vw,6.8rem)",
+              fontWeight: 500,
+              lineHeight: 0.95,
+              color: "#F5F5F7",
+            }}
+          >
+            How we work
+          </h2>
+          <p
+            className="max-w-xl lg:justify-self-end"
+            style={{
+              fontSize: "16px",
+              lineHeight: 1.6,
+              letterSpacing: "-0.02em",
+              color: "rgba(245,245,247,0.58)",
+            }}
+          >
+            From the first call to a live product—our nine-step process keeps scope, timelines, and delivery clear.
+          </p>
+        </header>
 
-        {/* ── TOP CLUSTER — large ambient glow covering steps 01–03 ── */}
-        <motion.div
-          animate={{ x: ["-6%", "8%", "-3%"], y: ["-5%", "10%", "-5%"] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[-20%] top-[-15%] h-[130vh] w-[90vw] rounded-full bg-[#0052FF] opacity-[0.55] blur-[180px] mix-blend-screen"
-        />
-        <motion.div
-          animate={{ x: ["0%", "10%", "-4%"], y: ["5%", "20%", "5%"] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[-10%] top-[-5%] h-[110vh] w-[75vw] rounded-full bg-[#001A66] opacity-[0.80] blur-[160px] mix-blend-screen"
-        />
+        <ol className="grid list-none gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {steps.map((step) => {
+            const theme = cardTheme;
 
-        {/* ── BOTTOM CLUSTER — large ambient glow covering steps 06–08 ── */}
-        <motion.div
-          animate={{ x: ["6%", "-8%", "3%"], y: ["5%", "-10%", "5%"] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute right-[-20%] bottom-[-15%] h-[130vh] w-[90vw] rounded-full bg-[#0052FF] opacity-[0.50] blur-[180px] mix-blend-screen"
-        />
-        <motion.div
-          animate={{ x: ["-4%", "8%", "0%"], y: ["-5%", "-20%", "-5%"] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute right-[-10%] bottom-[-5%] h-[110vh] w-[75vw] rounded-full bg-[#001A66] opacity-[0.75] blur-[160px] mix-blend-screen"
-        />
-
-        {/* Noise texture */}
-        <div
-          className="absolute inset-0 opacity-[0.05] mix-blend-overlay z-[2]"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
-        />
-
-        {/* Corrugated glass vertical stripes */}
-        <div
-          className="absolute inset-0 flex z-[1]"
-          style={{ maskImage: "linear-gradient(to bottom,transparent,black 18%,black 84%,transparent)", WebkitMaskImage: "linear-gradient(to bottom,transparent,black 18%,black 84%,transparent)" }}
-        >
-          {Array.from({ length: 48 }).map((_, i) => (
-            <div
-              key={i}
-              className="h-full flex-1"
-              style={{
-                background: "linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 12%, transparent 50%, rgba(0,0,0,0.08) 88%, rgba(0,0,0,0.18) 100%)",
-                backdropFilter: "blur(38px) saturate(2.2) contrast(1.08)",
-                WebkitBackdropFilter: "blur(38px) saturate(2.2) contrast(1.08)",
-                borderLeft: "1px solid rgba(255,255,255,0.05)",
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Top fade — seamless blend with Services above */}
-        <div className="absolute inset-x-0 top-0 h-[28%] bg-gradient-to-b from-black via-black/72 to-transparent z-[4]" />
-        {/* Bottom fade */}
-        <div className="absolute inset-x-0 bottom-0 h-[16%] bg-gradient-to-t from-black to-transparent z-[4]" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-[1600px]"
-        style={{ paddingLeft: "clamp(16px,5vw,80px)", paddingRight: "clamp(16px,5vw,80px)" }}>
-
-        {/* Heading */}
-        <div ref={headerRef} className="mb-16 lg:mb-24">
-          <div style={{ overflow: "hidden", paddingBottom: "0.08em" }}>
-            <h2 className="hww-line tracking-[-0.02em] md:tracking-[-0.07em]"
-              style={{ fontFamily: "var(--font-inter-tight)", fontSize: "clamp(3.2rem,8vw,6.8rem)", fontWeight: 500, lineHeight: 0.95, color: "#F5F5F7" }}>
-              How we work
-            </h2>
-          </div>
-          <div style={{ overflow: "hidden", marginTop: "1rem" }}>
-            <p className="hww-line max-w-lg"
-              style={{ fontSize: "16px", lineHeight: 1.6, letterSpacing: "-0.02em", color: "rgba(245,245,247,0.52)" }}>
-              From first call to live product — our 8-step process built for clarity, speed, and zero surprises.
-            </p>
-          </div>
-        </div>
-
-        {/* Steps — one per row, alternating left/right, each appears individually on scroll */}
-        <div className="flex flex-col gap-10 max-w-[1100px]">
-          {steps.map((step, i) => {
-            const isLeft = i % 2 === 0;
             return (
-              <motion.div
+              <li
                 key={step.number}
-                initial={{ opacity: 0, y: 36 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.72, ease: [0.21, 0.45, 0.32, 0.9] }}
-                className={`flex flex-row items-start gap-5 w-full md:max-w-[520px] ${!isLeft ? "md:self-end" : ""}`}
+                className="group flex min-h-[350px] flex-col gap-[2px]"
               >
-                {/* ── Large number — left column, fades at bottom ── */}
-                <div style={{ flexShrink: 0, flexGrow: 0, lineHeight: 1 }}>
+                <div
+                  className="flex min-h-[104px] items-end justify-between gap-5 border border-white/[0.08] px-6 py-5 backdrop-blur-2xl md:px-7"
+                  style={{ backgroundColor: theme.top, color: theme.text }}
+                >
+                  <div>
+                    <span
+                      className="block text-[0.66rem] font-semibold uppercase tracking-[0.14em]"
+                      style={{ color: theme.muted }}
+                    >
+                      Timeline
+                    </span>
+                    <p
+                      className="mt-2 text-xl font-medium tracking-[-0.04em]"
+                      style={{ fontFamily: "var(--font-inter-tight)" }}
+                    >
+                      {step.day}
+                    </p>
+                  </div>
                   <span
                     aria-hidden="true"
+                    className="text-3xl font-medium leading-none tracking-[-0.06em]"
                     style={{
+                      color: theme.number,
                       fontFamily: "var(--font-inter-tight)",
-                      fontSize: "clamp(3.5rem, 6vw, 5.5rem)",
-                      fontWeight: 700,
-                      fontVariantNumeric: "tabular-nums",
-                      letterSpacing: "-0.05em",
-                      lineHeight: 0.85,
-                      color: "#CFF403",
-                      opacity: 0.22,
-                      display: "block",
-                      whiteSpace: "nowrap",
-                      WebkitMaskImage: "linear-gradient(to bottom, black 35%, transparent 100%)",
-                      maskImage: "linear-gradient(to bottom, black 35%, transparent 100%)",
-                      userSelect: "none",
                     }}
                   >
                     {String(step.number).padStart(2, "0")}
                   </span>
                 </div>
 
-                {/* ── Content — right column ── */}
-                <div className="flex flex-col gap-3 pt-1">
-                  {/* Day badge */}
-                  <span style={{ fontFamily: "var(--font-inter-tight)", fontSize: "0.68rem", fontWeight: 700, color: "#CFF403", letterSpacing: "0.14em", textTransform: "uppercase" }}>
-                    {step.day}
-                  </span>
+                <article
+                  className="relative flex flex-1 flex-col overflow-hidden border border-white/[0.08] px-6 py-6 backdrop-blur-2xl md:px-7 md:py-7"
+                  style={{ backgroundColor: theme.body, color: theme.text }}
+                >
+                  <div aria-hidden="true" className="h-[14px]" />
 
-                  {/* Title */}
-                  <h3 style={{ fontFamily: "var(--font-inter-tight)", fontSize: "clamp(1.15rem, 2vw, 1.55rem)", fontWeight: 500, color: "#F5F5F7", lineHeight: 1.08 }} className="tracking-[-0.015em] md:tracking-[-0.045em]">
-                    {step.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p style={{ fontSize: "0.86rem", lineHeight: 1.72, color: "rgba(245,245,247,0.46)", letterSpacing: "-0.01em" }}>
-                    {step.description}
-                  </p>
-
-                  {/* Accent line */}
-                  <div
-                    className="mt-1 h-px w-10"
-                    style={{ background: "linear-gradient(to right, rgba(207,244,3,0.4), transparent)" }}
-                  />
-                </div>
-              </motion.div>
+                  <div className="relative z-10 mt-auto pt-14">
+                    <h3
+                      className="text-[1.55rem] font-medium leading-[1.05] tracking-[-0.05em] md:text-[1.7rem]"
+                      style={{ fontFamily: "var(--font-inter-tight)" }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p
+                      className="mt-3 max-w-sm text-sm leading-[1.55]"
+                      style={{ color: theme.muted }}
+                    >
+                      {step.description}
+                    </p>
+                    <div
+                      aria-hidden="true"
+                      className="mt-6 h-[3px] w-10 transition-[width] duration-300 group-hover:w-20"
+                      style={{ backgroundColor: theme.accent }}
+                    />
+                  </div>
+                </article>
+              </li>
             );
           })}
-        </div>
+        </ol>
       </div>
     </section>
   );

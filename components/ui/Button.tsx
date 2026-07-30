@@ -222,18 +222,12 @@ export function TextButton({
   iconPosition = "right",
   target,
   rel,
-}: CommonProps) {
+  asSpan = false,
+}: CommonProps & { asSpan?: boolean }) {
   const isLeft = iconPosition === "left";
-  
-  return (
-    <a
-      href={href}
-      onClick={onClick}
-      target={target}
-      rel={rel}
-      className={`group relative inline-flex overflow-hidden text-sm font-medium transition-colors duration-200 ${className}`}
-      style={{ color: "rgba(245,245,247,0.72)", fontFamily: "var(--font-inter-tight)" }}
-    >
+
+  const content = (
+    <>
       <span className="flex items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-full group-focus:-translate-y-full group-active:-translate-y-full">
         {isLeft && <Icon size={14} aria-hidden="true" />}
         {children}
@@ -259,6 +253,30 @@ export function TextButton({
           />
         )}
       </span>
+    </>
+  );
+
+  const sharedProps = {
+    className: `group relative inline-flex overflow-hidden text-sm font-medium transition-colors duration-200 ${className}`,
+    style: {
+      color: "rgba(245,245,247,0.72)",
+      fontFamily: "var(--font-inter-tight)",
+    },
+  };
+
+  if (asSpan) {
+    return <span {...sharedProps}>{content}</span>;
+  }
+
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      target={target}
+      rel={rel}
+      {...sharedProps}
+    >
+      {content}
     </a>
   );
 }

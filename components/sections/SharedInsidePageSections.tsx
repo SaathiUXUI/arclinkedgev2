@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Search, Code2, ShieldCheck, Clock, Zap, ArrowUpRight, Gauge, Layers } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -9,6 +10,7 @@ import LogoMarquee from "@/components/sections/LogoMarquee";
 import Contact from "@/components/sections/Contact";
 import CTASection from "@/components/sections/CTASection";
 import FAQSection from "@/components/sections/FAQSection";
+import type { Testimonial } from "@/types";
 
 const industries = [
   "B2B services",
@@ -90,13 +92,198 @@ interface SharedInsidePageSectionsProps {
   children?: React.ReactNode;
   beforeOutcomes?: React.ReactNode;
   sanityLogos?: { name: string; src: string | null }[];
-  sanityTestimonials?: any[];
+  sanityTestimonials?: Testimonial[];
   faqs?: { question: string; answer: string }[];
+  technology?: SharedTechnologySectionProps;
 }
 
-export default function SharedInsidePageSections({ children, beforeOutcomes, sanityLogos, sanityTestimonials, faqs }: SharedInsidePageSectionsProps) {
+interface TechnologyCategory {
+  title: string;
+  items: string[];
+  exp?: string;
+}
+
+interface SharedTechnologySectionProps {
+  title: string;
+  description: string;
+  categories: TechnologyCategory[];
+  additionalLabel: string;
+  additionalTitle: string;
+  additionalCategories: TechnologyCategory[];
+  icons: Record<string, string>;
+}
+
+function TechnologyRows({
+  categories,
+  icons,
+  headingLevel,
+}: {
+  categories: TechnologyCategory[];
+  icons: Record<string, string>;
+  headingLevel: "primary" | "additional";
+}) {
+  return (
+    <div className="space-y-4">
+      {categories.map((category) => (
+        <article
+          key={category.title}
+          className="grid border border-white/[0.08] bg-white/[0.018] lg:grid-cols-[minmax(340px,0.32fr)_minmax(0,1fr)]"
+        >
+          <header className="flex flex-col justify-start border-b border-white/[0.08] p-6 md:p-7 lg:border-b-0 lg:border-r">
+            {headingLevel === "primary" ? (
+              <h3
+                className="text-2xl font-medium leading-[1.05] tracking-[-0.045em] text-[#F5F5F7]"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
+              >
+                {category.title}
+              </h3>
+            ) : (
+              <h4
+                className="text-2xl font-medium leading-[1.05] tracking-[-0.045em] text-[#F5F5F7]"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
+              >
+                {category.title}
+              </h4>
+            )}
+
+            <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-[0.1em] text-white/38">
+              <span>
+                {category.items.length}{" "}
+                {category.items.length === 1 ? "technology" : "technologies"}
+              </span>
+              {category.exp && (
+                <>
+                  <span aria-hidden="true" className="h-1 w-1 bg-[#0052FF]" />
+                  <span>{category.exp} years</span>
+                </>
+              )}
+            </div>
+          </header>
+
+          <ul
+            className="grid list-none grid-cols-1 bg-[#09090B] sm:grid-cols-2 lg:grid-cols-4"
+            aria-label={`${category.title} technologies`}
+          >
+            {category.items.map((tech) => (
+              <li
+                key={tech}
+                className="group flex items-center gap-5 border-b border-r border-white/[0.06] bg-[#09090B] p-6 transition-colors duration-300 hover:bg-[#101014] md:p-7"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#0052FF]/20 bg-[#0052FF]/[0.07] text-sm font-bold tracking-[0.04em] text-[#5F96FF]">
+                  {icons[tech] ? (
+                    <Image
+                      src={icons[tech]}
+                      alt=""
+                      width={28}
+                      height={28}
+                      className="h-7 w-7 object-contain"
+                    />
+                  ) : (
+                    <span aria-hidden="true">
+                      {tech.slice(0, 2).toUpperCase()}
+                    </span>
+                  )}
+                </div>
+
+                {headingLevel === "primary" ? (
+                  <h4
+                    className="text-lg font-medium leading-tight tracking-[-0.035em] text-[#F5F5F7]"
+                    style={{ fontFamily: "var(--font-inter-tight)" }}
+                  >
+                    {tech}
+                  </h4>
+                ) : (
+                  <h5
+                    className="text-lg font-medium leading-tight tracking-[-0.035em] text-[#F5F5F7]"
+                    style={{ fontFamily: "var(--font-inter-tight)" }}
+                  >
+                    {tech}
+                  </h5>
+                )}
+
+                <span
+                  aria-hidden="true"
+                  className="ml-auto h-1.5 w-1.5 bg-[#D0F505] opacity-30 transition-opacity duration-300 group-hover:opacity-100"
+                />
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function SharedTechnologySection({
+  title,
+  description,
+  categories,
+  additionalLabel,
+  additionalTitle,
+  additionalCategories,
+  icons,
+}: SharedTechnologySectionProps) {
+  return (
+    <section className="relative overflow-hidden px-6 py-20 lg:px-12 lg:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 42%, rgba(0,82,255,0.12) 0%, rgba(0,82,255,0.04) 26%, transparent 52%)," +
+            "linear-gradient(180deg, #000000 0%, #02040A 52%, #000000 100%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-[1600px]">
+        <div className="mb-16 max-w-5xl">
+          <SectionLabel>Technology</SectionLabel>
+          <h2
+            className="text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:text-6xl md:leading-none md:tracking-[-0.065em]"
+            style={{ fontFamily: "var(--font-inter-tight)" }}
+          >
+            {title}
+          </h2>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/52">
+            {description}
+          </p>
+        </div>
+
+        <TechnologyRows
+          categories={categories}
+          icons={icons}
+          headingLevel="primary"
+        />
+
+        {additionalCategories.length > 0 && (
+          <div className="mt-20">
+            <div className="mb-10 max-w-3xl">
+              <SectionLabel>{additionalLabel}</SectionLabel>
+              <h3
+                className="text-3xl font-medium leading-none tracking-[-0.015em] text-[#F5F5F7] md:text-5xl md:tracking-[-0.06em]"
+                style={{ fontFamily: "var(--font-inter-tight)" }}
+              >
+                {additionalTitle}
+              </h3>
+            </div>
+
+            <TechnologyRows
+              categories={additionalCategories}
+              icons={icons}
+              headingLevel="additional"
+            />
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+export default function SharedInsidePageSections({ children, beforeOutcomes, sanityLogos, sanityTestimonials, faqs, technology }: SharedInsidePageSectionsProps) {
   return (
     <>
+      {technology && <SharedTechnologySection {...technology} />}
+
       {/* 1. Testimonials */}
       <TestimonialMarquee sanityTestimonials={sanityTestimonials} />
 
@@ -119,7 +306,7 @@ export default function SharedInsidePageSections({ children, beforeOutcomes, san
               </h2>
             </div>
             <p className="mt-4 lg:mt-0 max-w-xl text-sm leading-relaxed text-white/54">
-              We combine lean engineering with growth logic to ensure your product doesn't just launch, but thrives in the real world.
+              We combine lean engineering with growth logic to ensure your product doesn&apos;t just launch, but thrives in the real world.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">

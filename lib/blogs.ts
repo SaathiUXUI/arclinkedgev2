@@ -1,4 +1,5 @@
 import { blogPosts } from "./data";
+import { sanityBlogFallbacks } from "./blog-fallbacks";
 import { team } from "./team";
 
 export interface FullBlogPost {
@@ -96,10 +97,13 @@ const detailedBlogs: Record<string, Partial<FullBlogPost>> = {
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 
+const blogContentClient = client.withConfig({ useCdn: false });
+
 export async function getBlogBySlug(slug: string): Promise<FullBlogPost | null> {
   // Check hardcoded first
   const basePost = blogPosts.find(bp => bp.href === `/blog/${slug}`);
   const details = detailedBlogs[slug];
+  const fallbackBlog = sanityBlogFallbacks[slug] as FullBlogPost | undefined;
 
   if (basePost && details) {
     return {
@@ -108,10 +112,18 @@ export async function getBlogBySlug(slug: string): Promise<FullBlogPost | null> 
     } as FullBlogPost;
   }
 
+  if (process.env.NODE_ENV === "development" && fallbackBlog) {
+    return fallbackBlog;
+  }
+
   // Check Sanity
   try {
     const query = `*[_type == "blog" && slug.current == $slug][0]`;
-    const sanityBlog = await client.fetch(query, { slug }, { next: { revalidate: 10 } });
+    const sanityBlog = await blogContentClient.fetch(
+      query,
+      { slug },
+      { next: { revalidate: 10 } },
+    );
 
     if (sanityBlog) {
       return {
@@ -137,16 +149,17 @@ export async function getBlogBySlug(slug: string): Promise<FullBlogPost | null> 
     console.error("Error fetching blog from sanity:", error);
   }
 
-  return null;
+  return fallbackBlog || null;
 }
 
 export async function getAllBlogSlugs() {
   const hardcoded = blogPosts.map(bp => bp.href.replace("/blog/", ""));
+  const fallbackSlugs = Object.keys(sanityBlogFallbacks);
   try {
     const query = `*[_type == "blog" && defined(slug.current)].slug.current`;
-    const sanitySlugs: string[] = await client.fetch(query);
-    return [...hardcoded, ...sanitySlugs];
+    const sanitySlugs: string[] = await blogContentClient.fetch(query);
+    return [...new Set([...hardcoded, ...fallbackSlugs, ...sanitySlugs])];
   } catch {
-    return hardcoded;
+    return [...new Set([...hardcoded, ...fallbackSlugs])];
   }
 }

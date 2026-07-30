@@ -5,7 +5,6 @@ import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
 
 // Dynamic imports for below-the-fold components
-const WorksGallery = dynamic(() => import("@/components/sections/WorksGallery"));
 const Services = dynamic(() => import("@/components/sections/Services"));
 const AboutPreview = dynamic(() => import("@/components/sections/AboutPreview"));
 const CaseStudies = dynamic(() => import("@/components/sections/CaseStudies"));
@@ -48,7 +47,6 @@ export default async function HomePage() {
       <main id="main-content">
         <Hero sanityLogos={sanityLogos} />
         <Stats />
-        <WorksGallery sanityImages={sanityImages} />
         <Services categoryImagesMap={categoryImagesMap} />
         <ImageCarousel sanityImages={sanityImages} />
         <HowWeWork />

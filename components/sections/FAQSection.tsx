@@ -38,7 +38,7 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="flex items-center justify-between w-full p-6 text-left"
+                  className="flex w-full cursor-pointer items-center justify-between p-6 text-left"
                 >
                   <h3 className="text-lg md:text-xl font-medium text-[#F5F5F7]" style={{ fontFamily: "var(--font-inter-tight)" }}>
                     {faq.question}
