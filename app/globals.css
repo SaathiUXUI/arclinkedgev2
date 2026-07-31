@@ -2314,7 +2314,7 @@ body {
 
   .type-legacy-021 {
     font-size: 3.75rem;
-    letter-spacing: -0.065em;
+    letter-spacing: -0.03em;
     line-height: 1;
   }
 
@@ -2348,7 +2348,7 @@ body {
 
   .type-legacy-038 {
     font-size: 3rem;
-    letter-spacing: -0.065em;
+    letter-spacing: -0.02em;
     line-height: 1;
   }
 
@@ -2358,7 +2358,7 @@ body {
 
   .type-legacy-043 {
     font-size: 3.75rem;
-    letter-spacing: -0.065em;
+    letter-spacing: -0.03em;
     line-height: 1;
   }
 
@@ -2948,6 +2948,5 @@ body {
 }
 
 .group:hover .footer-social-icon {
-  filter: invert(19%) sepia(100%) saturate(3474%) hue-rotate(222deg)
-    brightness(101%) contrast(106%);
+  filter: invert(19%) sepia(100%) saturate(3474%) hue-rotate(222deg) brightness(101%) contrast(106%);
 }

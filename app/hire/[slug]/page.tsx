@@ -1,9 +1,9 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Check, Clock, ShieldCheck, Users } from "lucide-react";
 import Navbar from "@/components/sections/Navbar";
 import SectionLabel from "@/components/ui/SectionLabel";
+import TechnologyRows from "@/components/ui/TechnologyRows";
 import HiringForm from "./HiringForm";
 import PricingCard from "./PricingCard";
 import BackToTop from "@/components/ui/BackToTop";
@@ -289,7 +289,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
             <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
                 <SectionLabel>Dedicated {data.role}</SectionLabel>
-                <h1 
+                <h1
                   className="mt-6 type-legacy-019"
                 >
                   {data.title}.
@@ -297,7 +297,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
                 <p className="mt-8 max-w-2xl text-white/60 type-b1 type-legacy-036">
                   {data.description}
                 </p>
-                
+
                 <div className="mt-12 flex flex-wrap gap-3">
                   <div className="flex items-center gap-2 border border-white/10 bg-white/[0.03] px-4 py-2.5 backdrop-blur-md transition-colors hover:border-white/20 hover:bg-white/[0.06]">
                     <Users className="h-4 w-4 text-[#0052FF]" />
@@ -327,26 +327,13 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
             <div className="grid gap-20 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
                 <SectionLabel>Technology</SectionLabel>
-                <h2 className="type-legacy-038">Core Technical Stack</h2>
-                <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  {data.skills.map((skill) => (
-                    <div
-                      key={skill}
-                      className="group relative flex w-full items-center gap-5 overflow-hidden border border-white/[0.04] bg-[#0A0A0F]/40 p-4 backdrop-blur-[16px]"
-                    >
-                      <div
-                        className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center transition-transform duration-500 group-hover:scale-110 type-b3 type-legacy-039"
-                        style={{ backgroundColor: "rgba(0,82,255,0.06)", color: "#0052FF", border: "1px solid rgba(0,82,255,0.15)" }}
-                      >
-                        {techIcons[skill] ? (
-                          <Image src={techIcons[skill]} alt={skill} width={24} height={24} className="object-contain" />
-                        ) : (
-                          skill.slice(0, 2).toUpperCase()
-                        )}
-                      </div>
-                      <h3 className="relative z-10 type-legacy-040" style={{ color: "#F5F5F7" }}>{skill}</h3>
-                    </div>
-                  ))}
+                <div className="mt-10">
+                  <TechnologyRows
+                    categories={[{ title: "Core Technical Stack", items: data.skills }]}
+                    icons={techIcons}
+                    headingLevel="section"
+                    compact
+                  />
                 </div>
               </div>
 
@@ -380,7 +367,7 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
                 From Inquiry to Onboarding.
               </h2>
             </div>
-            
+
             <div className="relative mt-16 overflow-hidden border-y border-white/[0.06] bg-white/[0.015]">
               <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
                 {[
@@ -445,8 +432,8 @@ export default async function DedicatedHiringPage({ params }: { params: Promise<
           </div>
         </section>
 
-        <SharedInsidePageSections 
-          faqs={data.faqs} 
+        <SharedInsidePageSections
+          faqs={data.faqs}
           sanityLogos={sanityLogos}
           sanityTestimonials={sanityTestimonials}
         />

@@ -232,16 +232,21 @@ export default function WorkContent({
         <div className="max-w-[1600px] mx-auto">
           
           {/* Filter Bar */}
-          <div className="flex flex-wrap items-center justify-start gap-3 mb-16">
+          <div
+            className="mb-16 flex flex-wrap items-center justify-start gap-3"
+            aria-label="Filter case studies by category"
+          >
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={[`px-6 py-2.5 rounded-none transition-all duration-300${
-                  activeCategory === cat 
-                    ? "bg-white text-black" 
-                    : "bg-white/[0.03] text-white/60 hover:bg-white/[0.08] hover:text-white border border-white/[0.05]"
-                }`, "type-legacy-025"].filter(Boolean).join(" ")}
+                aria-pressed={activeCategory === cat}
+                className={[
+                  "rounded-none border px-6 py-2.5 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0052FF] focus-visible:ring-offset-2 focus-visible:ring-offset-black type-legacy-025",
+                  activeCategory === cat
+                    ? "border-white bg-white text-black"
+                    : "border-white/[0.08] bg-white/[0.03] text-white/60 hover:border-white/20 hover:bg-white/[0.08] hover:text-white",
+                ].join(" ")}
               >
                 {cat}
               </button>
