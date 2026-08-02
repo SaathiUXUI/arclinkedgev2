@@ -3,7 +3,10 @@ import { getAllBlogSlugs } from "@/lib/blogs";
 import { getAllProjectSlugs } from "@/lib/projects";
 
 const SITE_URL = "https://www.arclinkedge.com";
-const LAST_MODIFIED = new Date("2026-05-12");
+// Keep this aligned with the latest significant site-content release.
+// An accurate date helps crawlers prioritize genuinely updated pages; using
+// the current request time here would incorrectly mark every URL as changed.
+const LAST_MODIFIED = new Date("2026-07-31T08:33:24.000Z");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
